@@ -3,6 +3,5 @@ export type {
   ProjectDependencyMap,
   ProjectDetection,
   ProjectDetectionInput,
-  ProjectEngineMap,
   ProjectTrait,
 } from './types.js';
