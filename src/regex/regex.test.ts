@@ -1,6 +1,6 @@
 import { expect, test } from 'bun:test';
 
-import { EMAIL_PATTERN, URL_PATTERN, isEmailLike, isUrlLike } from './index.js';
+import { EMAIL_PATTERN, isEmailLike, isUrlLike, URL_PATTERN } from './index.js';
 
 test('recognizes practical email-like values', () => {
   expect(isEmailLike('hello@example.com')).toBe(true);

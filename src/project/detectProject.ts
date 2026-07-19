@@ -64,10 +64,7 @@ function addRuntimeTraits(
   }
 }
 
-function addFrameworkTraits(
-  traits: Set<ProjectTrait>,
-  dependencies: ReadonlySet<string>,
-): void {
+function addFrameworkTraits(traits: Set<ProjectTrait>, dependencies: ReadonlySet<string>): void {
   const hasExpo = dependencies.has('expo');
   const hasNext = dependencies.has('next');
   const hasReactNative = dependencies.has('react-native') || hasExpo;
@@ -83,17 +80,10 @@ function hasManifestSignal(
   input: ProjectDetectionInput,
   dependencies: ReadonlySet<string>,
 ): boolean {
-  return (
-    dependencies.size > 0 ||
-    input.engines !== undefined ||
-    input.packageManager !== undefined
-  );
+  return dependencies.size > 0 || input.engines !== undefined || input.packageManager !== undefined;
 }
 
-function isBunProject(
-  input: ProjectDetectionInput,
-  dependencies: ReadonlySet<string>,
-): boolean {
+function isBunProject(input: ProjectDetectionInput, dependencies: ReadonlySet<string>): boolean {
   return (
     input.packageManager?.startsWith('bun@') === true ||
     input.engines?.bun !== undefined ||
@@ -101,22 +91,13 @@ function isBunProject(
   );
 }
 
-function isNodeProject(
-  input: ProjectDetectionInput,
-  dependencies: ReadonlySet<string>,
-): boolean {
+function isNodeProject(input: ProjectDetectionInput, dependencies: ReadonlySet<string>): boolean {
   return (
-    input.engines?.node !== undefined ||
-    dependencies.has('@types/node') ||
-    dependencies.has('next')
+    input.engines?.node !== undefined || dependencies.has('@types/node') || dependencies.has('next')
   );
 }
 
-function addTraitWhen(
-  traits: Set<ProjectTrait>,
-  trait: ProjectTrait,
-  condition: boolean,
-): void {
+function addTraitWhen(traits: Set<ProjectTrait>, trait: ProjectTrait, condition: boolean): void {
   if (condition) {
     traits.add(trait);
   }

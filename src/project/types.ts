@@ -14,14 +14,7 @@ export interface ProjectDetectionInput {
 }
 
 export type ProjectTrait =
-  | 'bun'
-  | 'expo'
-  | 'javascript'
-  | 'next'
-  | 'node'
-  | 'react'
-  | 'react-native'
-  | 'typescript';
+  'bun' | 'expo' | 'javascript' | 'next' | 'node' | 'react' | 'react-native' | 'typescript';
 
 export interface ProjectDetection {
   readonly traits: ReadonlySet<ProjectTrait>;
