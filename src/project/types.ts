@@ -1,6 +1,6 @@
 export type ProjectDependencyMap = Readonly<Record<string, string>>;
 
-export interface ProjectEngineMap {
+interface ProjectEngineMap {
   readonly bun?: string;
   readonly node?: string;
 }
