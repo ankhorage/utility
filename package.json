@@ -1,7 +1,7 @@
 {
   "name": "@ankhorage/utility",
   "type": "module",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "Shared, runtime-neutral utilities for Ankhorage packages and compatible external projects.",
   "homepage": "https://github.com/ankhorage/utility#readme",
   "bugs": {
