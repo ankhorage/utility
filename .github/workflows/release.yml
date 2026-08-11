@@ -53,3 +53,4 @@ jobs:
           title: Version Packages
         env:
           GITHUB_TOKEN: ${{ github.token }}
+          NPM_CONFIG_PROVENANCE: 'false'
