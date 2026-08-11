@@ -12,7 +12,13 @@ export function isEmail(value: string): boolean {
   const domainPart = normalized.slice(atIndex + 1);
   if (localPart.length > 64 || domainPart.length === 0) return false;
   if (!LOCAL_PART_PATTERN.test(localPart)) return false;
-  if (domainPart.startsWith('.') || domainPart.endsWith('.') || domainPart.includes('..')) return false;
+  if (
+    domainPart.startsWith('.') ||
+    domainPart.endsWith('.') ||
+    domainPart.includes('..')
+  ) {
+    return false;
+  }
 
   const labels = domainPart.split('.');
   if (labels.length < 2 || labels.some(isInvalidDomainLabel)) return false;
