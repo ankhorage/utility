@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'bun:test';
 
-import { createStationarySelectionCoordinator } from './interaction.js';
+import { createStationarySelectionCoordinator } from './createStationarySelectionCoordinator.js';
 
 describe('stationarySelectionCoordinator', () => {
   it('each new coordinator starts at generation 1', () => {
