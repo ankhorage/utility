@@ -1,7 +1,7 @@
 export { asRecord } from './asRecord.js';
 export { assertNoNestedKeys } from './assertNoNestedKeys.js';
 export { deleteOwnProperty } from './deleteOwnProperty.js';
-export { findNestedKey, type NestedKeyMatch } from './findNestedKey.js';
+export { type NestedKeyMatch, findNestedKey } from './findNestedKey.js';
 export { findOwnPropertyValue } from './findOwnPropertyValue.js';
 export { hasOnlyKeys } from './hasOnlyKeys.js';
 export { isEmptyRecord } from './isEmptyRecord.js';
@@ -9,7 +9,7 @@ export { isRecord } from './isRecord.js';
 export { isRecordOf } from './isRecordOf.js';
 export { readOwnProperty } from './readOwnProperty.js';
 export { setOwnProperty } from './setOwnProperty.js';
-export { walkNestedValues, type NestedValueVisit } from './walkNestedValues.js';
+export { type NestedValueVisit, walkNestedValues } from './walkNestedValues.js';
 export { withOptionalOwnProperty } from './withOptionalOwnProperty.js';
 export { withoutOwnProperty } from './withoutOwnProperty.js';
 export { withOwnProperty } from './withOwnProperty.js';
