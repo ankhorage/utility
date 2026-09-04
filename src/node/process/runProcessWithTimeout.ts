@@ -92,7 +92,7 @@ function rejectProcessTimeout(
 
 /*** Normalize a child-process spawn error and reject the lifecycle once. */
 function rejectProcessError(lifecycle: ProcessLifecycle, error: Error): void {
-  const code = Reflect.get(error, 'code');
+  const code: unknown = 'code' in error ? error.code : undefined;
   const message =
     code === 'ENOENT'
       ? `Executable '${lifecycle.options.command}' was not found in PATH.`
