@@ -14,7 +14,11 @@ export function resolvePathWithinRoot(
   const target = path.resolve(root, relativePath);
   const relative = path.relative(root, target);
   const isRoot = relative.length === 0;
-  if ((isRoot && options.allowRoot !== true) || relative.startsWith('..') || path.isAbsolute(relative)) {
+  if (
+    (isRoot && options.allowRoot !== true) ||
+    relative.startsWith('..') ||
+    path.isAbsolute(relative)
+  ) {
     throw new Error(`Path escaped the allowed root: ${relativePath}`);
   }
   return target;
