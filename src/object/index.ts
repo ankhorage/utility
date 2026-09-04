@@ -1,7 +1,7 @@
 export { asRecord } from './asRecord.js';
 export { assertNoNestedKeys } from './assertNoNestedKeys.js';
 export { deleteOwnProperty } from './deleteOwnProperty.js';
-export { type NestedKeyMatch, findNestedKey } from './findNestedKey.js';
+export { findNestedKey, type NestedKeyMatch } from './findNestedKey.js';
 export { findOwnPropertyValue } from './findOwnPropertyValue.js';
 export { hasOnlyKeys } from './hasOnlyKeys.js';
 export { isEmptyRecord } from './isEmptyRecord.js';
