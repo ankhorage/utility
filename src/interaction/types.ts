@@ -1,3 +1,29 @@
+export interface ConfirmationButton {
+  readonly text: string;
+  readonly style?: 'cancel' | 'default' | 'destructive';
+  readonly onPress?: () => void;
+}
+
+export type ConfirmationAlert = (
+  title: string,
+  message?: string,
+  buttons?: readonly ConfirmationButton[],
+) => void;
+
+export interface ConfirmationDependencies {
+  readonly alert: ConfirmationAlert;
+  readonly confirm?: (message: string) => boolean;
+  readonly preferConfirm?: boolean;
+}
+
+export interface ConfirmationRequest {
+  readonly title: string;
+  readonly message: string;
+  readonly confirmText: string;
+  readonly cancelText?: string;
+  readonly destructive?: boolean;
+}
+
 export type CommitSelectionResult =
   'committed' | 'already-selected' | 'preview' | 'moved' | 'empty' | 'stale' | 'already-finalized';
 
