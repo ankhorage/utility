@@ -1,4 +1,5 @@
 export { createCompositeKey } from './createCompositeKey.js';
+export { formatJavaScriptObjectKey } from './formatJavaScriptObjectKey.js';
 export { isNonEmptyString } from './isNonEmptyString.js';
 export { normalizeSearchText } from './normalizeSearchText.js';
 export { parseCommaSeparatedList } from './parseCommaSeparatedList.js';
