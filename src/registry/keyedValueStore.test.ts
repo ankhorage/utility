@@ -1,6 +1,6 @@
 import { describe, expect, test } from 'bun:test';
 
-import { createKeyedValueStore } from './registry.js';
+import { createKeyedValueStore } from './createKeyedValueStore.js';
 
 interface Link {
   readonly providerId: string;
