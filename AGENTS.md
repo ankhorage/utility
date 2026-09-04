@@ -6,7 +6,7 @@
 
 Package: `@ankhorage/utility`
 
-Shared, runtime-neutral utilities for Ankhorage packages and compatible external projects.
+Shared functional utilities for Ankhorage packages and compatible external projects.
 
 ## Current architecture only
 
