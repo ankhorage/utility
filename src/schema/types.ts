@@ -13,11 +13,4 @@ export interface SchemaShape extends SchemaReferenceLike {
 }
 
 export type EffectiveSchemaType =
-  | 'array'
-  | 'boolean'
-  | 'date'
-  | 'number'
-  | 'object'
-  | 'record'
-  | 'string'
-  | 'unknown';
+  'array' | 'boolean' | 'date' | 'number' | 'object' | 'record' | 'string' | 'unknown';

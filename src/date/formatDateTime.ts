@@ -8,6 +8,8 @@ export function formatDateTime(
   const fallback = options.fallback ?? '';
   if (value === null || value === undefined || value === '') return fallback;
   const date = value instanceof Date ? value : new Date(value);
-  if (Number.isNaN(date.getTime())) return options.invalid === 'fallback' ? fallback : String(value);
+  if (Number.isNaN(date.getTime())) {
+    return options.invalid === 'fallback' ? fallback : String(value);
+  }
   return date.toLocaleString(options.locale, options.options);
 }

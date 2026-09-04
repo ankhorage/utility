@@ -5,7 +5,9 @@ export function normalizeCredentialFreeHttpUrl(value: string): string | null {
   try {
     const url = new URL(normalized);
     if (url.protocol !== 'http:' && url.protocol !== 'https:') return null;
-    if (url.username.length > 0 || url.password.length > 0 || url.hostname.length === 0) return null;
+    if (url.username.length > 0 || url.password.length > 0 || url.hostname.length === 0) {
+      return null;
+    }
     return url.toString();
   } catch {
     return null;

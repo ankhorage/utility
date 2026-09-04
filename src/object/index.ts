@@ -11,5 +11,5 @@ export { readOwnProperty } from './readOwnProperty.js';
 export { setOwnProperty } from './setOwnProperty.js';
 export { walkNestedValues, type NestedValueVisit } from './walkNestedValues.js';
 export { withOptionalOwnProperty } from './withOptionalOwnProperty.js';
-export { withOwnProperty } from './withOwnProperty.js';
 export { withoutOwnProperty } from './withoutOwnProperty.js';
+export { withOwnProperty } from './withOwnProperty.js';

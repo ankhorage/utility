@@ -23,7 +23,11 @@ function beginTransaction<TValue>(state: CoordinatorState<TValue>): number {
 }
 
 /*** Record one unique candidate value when the supplied generation matches the active transaction. */
-function recordNode<TValue>(state: CoordinatorState<TValue>, value: TValue, generation: number): void {
+function recordNode<TValue>(
+  state: CoordinatorState<TValue>,
+  value: TValue,
+  generation: number,
+): void {
   const transaction = state.trackerRef.current;
   if (!transaction || transaction.finalized || transaction.transactionId !== generation) return;
   if (!transaction.path.includes(value)) transaction.path.push(value);

@@ -3,5 +3,7 @@ export function createCompositeKey(
   parts: readonly (boolean | number | string | null | undefined)[],
   delimiter = ':',
 ): string {
-  return parts.map((part) => (part === null || part === undefined ? '' : String(part))).join(delimiter);
+  return parts
+    .map((part) => (part === null || part === undefined ? '' : String(part)))
+    .join(delimiter);
 }

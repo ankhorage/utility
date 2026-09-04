@@ -2,10 +2,7 @@ import { isRecord } from '../object/isRecord.js';
 import type { FormDraft, FormDraftControl, FormDraftField } from './types.js';
 
 /*** Project typed configuration values into editable string fields according to a compact control schema. */
-export function createFormDraft(
-  fields: readonly FormDraftField[],
-  values: unknown,
-): FormDraft {
+export function createFormDraft(fields: readonly FormDraftField[], values: unknown): FormDraft {
   const record = isRecord(values) ? values : {};
   return Object.fromEntries(
     fields.map((field) => [field.key, formatDraftValue(record[field.key], field.control)]),

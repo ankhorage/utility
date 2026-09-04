@@ -1,5 +1,5 @@
-import { unionRects } from '../geometry/unionRects.js';
 import type { Rect } from '../geometry/types.js';
+import { unionRects } from '../geometry/unionRects.js';
 import { measureRenderedWebBoxes } from './measureRenderedWebBoxes.js';
 import type { WebElementLike } from './types.js';
 

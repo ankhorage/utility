@@ -1,5 +1,8 @@
 /*** Convert a camelCase, PascalCase, underscore, or hyphen identifier into a space-separated title label. */
 export function titleCaseIdentifier(value: string): string {
-  const spaced = value.replace(/([a-z0-9])([A-Z])/gu, '$1 $2').replace(/[_-]+/gu, ' ').trim();
+  const spaced = value
+    .replace(/([a-z0-9])([A-Z])/gu, '$1 $2')
+    .replace(/[_-]+/gu, ' ')
+    .trim();
   return spaced.length === 0 ? '' : `${spaced.charAt(0).toUpperCase()}${spaced.slice(1)}`;
 }

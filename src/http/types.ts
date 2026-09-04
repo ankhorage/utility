@@ -1,7 +1,4 @@
-export type FetchLike = (
-  input: string | URL,
-  init?: RequestInit,
-) => Promise<Response>;
+export type FetchLike = (input: string | URL, init?: RequestInit) => Promise<Response>;
 
 export interface JsonHttpResponse<TValue = unknown> {
   readonly response: Response;

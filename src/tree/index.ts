@@ -6,7 +6,6 @@ export { isTreeDescendant } from './isTreeDescendant.js';
 export { removeTreeNode } from './removeTreeNode.js';
 export { removeTreeNodeWithValue } from './removeTreeNodeWithValue.js';
 export { treeContainsId } from './treeContainsId.js';
-export { updateTreeNode } from './updateTreeNode.js';
 export type {
   TreeAdapter,
   TreeCloneAdapter,
@@ -14,3 +13,4 @@ export type {
   TreeNodeLocation,
   TreeRemovalResult,
 } from './types.js';
+export { updateTreeNode } from './updateTreeNode.js';

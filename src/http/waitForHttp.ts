@@ -6,7 +6,9 @@ export async function waitForHttp(url: string, options: WaitForHttpOptions): Pro
   const fetcher = options.fetcher ?? fetch;
   const isReady = options.isReady ?? ((response: Response) => response.status < 500);
   const now = options.now ?? Date.now;
-  const sleep = options.sleep ?? ((delayMs: number) => new Promise<void>((resolve) => setTimeout(resolve, delayMs)));
+  const sleep =
+    options.sleep ??
+    ((delayMs: number) => new Promise<void>((resolve) => setTimeout(resolve, delayMs)));
   const startedAt = now();
 
   while (now() - startedAt < options.timeoutMs) {

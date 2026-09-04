@@ -7,7 +7,9 @@ export function matchesFileType(args: {
 }): boolean {
   const lowerName = args.fileName.toLocaleLowerCase();
   const extensionMatches = args.extensions.some((extension) => {
-    const normalized = extension.startsWith('.') ? extension.toLocaleLowerCase() : `.${extension.toLocaleLowerCase()}`;
+    const normalized = extension.startsWith('.')
+      ? extension.toLocaleLowerCase()
+      : `.${extension.toLocaleLowerCase()}`;
     return lowerName.endsWith(normalized);
   });
   if (!extensionMatches) return false;
