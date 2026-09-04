@@ -1,7 +1,10 @@
 export { collectWebDescendants } from './collectWebDescendants.js';
+export { isBrowserRuntime } from './isBrowserRuntime.js';
 export { isWebElementLike } from './isWebElementLike.js';
 export { isWebPlatform } from './isWebPlatform.js';
 export { measureNonZeroWebElement } from './measureNonZeroWebElement.js';
 export { measureRenderedWebBoxes } from './measureRenderedWebBoxes.js';
 export { measureWebDescendantUnion } from './measureWebDescendantUnion.js';
-export type { WebElementLike, WebRectLike } from './types.js';
+export { openUrl } from './openUrl.js';
+export { resolveNavigableLocation } from './resolveNavigableLocation.js';
+export type { BrowserLocationLike, OpenUrl, WebElementLike, WebRectLike } from './types.js';
