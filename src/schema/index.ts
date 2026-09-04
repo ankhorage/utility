@@ -1,9 +1,4 @@
-export {
-  resolveEffectiveSchemaType,
-  resolveSchemaReference,
-  resolveSingleSchemaType,
-  type EffectiveSchemaType,
-  type SchemaPrimitiveType,
-  type SchemaReferenceLike,
-  type SchemaShape,
-} from './schema.js';
+export { resolveEffectiveSchemaType } from './resolveEffectiveSchemaType.js';
+export { resolveSchemaReference } from './resolveSchemaReference.js';
+export { resolveSingleSchemaType } from './resolveSingleSchemaType.js';
+export type { EffectiveSchemaType, SchemaPrimitiveType, SchemaReferenceLike, SchemaShape } from './types.js';

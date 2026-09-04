@@ -1,6 +1,4 @@
-export {
-  isRouteGroupSegment,
-  normalizePathnameSegments,
-  normalizeRoutePatternSegments,
-  scoreRoutePatternMatch,
-} from './route.js';
+export { isRouteGroupSegment } from './isRouteGroupSegment.js';
+export { normalizePathnameSegments } from './normalizePathnameSegments.js';
+export { normalizeRoutePatternSegments } from './normalizeRoutePatternSegments.js';
+export { scoreRoutePatternMatch } from './scoreRoutePatternMatch.js';

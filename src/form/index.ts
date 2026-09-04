@@ -1,7 +1,3 @@
-export {
-  createFormDraft,
-  parseFormDraft,
-  type FormControlField,
-  type FormDraft,
-  type FormDraftParseResult,
-} from './form.js';
+export { createFormDraft } from './createFormDraft.js';
+export { parseFormDraft } from './parseFormDraft.js';
+export type { FormDraft, FormDraftControl, FormDraftField, ParseFormDraftResult } from './types.js';

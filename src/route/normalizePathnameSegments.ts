@@ -1,0 +1,5 @@
+/*** Normalize a pathname into non-empty segments while ignoring query and hash suffixes. */
+export function normalizePathnameSegments(pathname: string): string[] {
+  const [path = ''] = pathname.trim().split(/[?#]/u, 1);
+  return path.split('/').filter(Boolean);
+}
