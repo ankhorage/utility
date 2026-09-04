@@ -1,6 +1,9 @@
 const LOCAL_PART_PATTERN = /^[A-Za-z0-9.!#$%&'*+/=?^_`{|}~-]+$/u;
 const DOMAIN_LABEL_PATTERN = /^[A-Za-z0-9-]+$/u;
 
+/***
+ * Return whether a string satisfies Utility's conservative email-address shape validation.
+ */
 export function isEmail(value: string): boolean {
   const normalized = value.trim();
   if (normalized.length === 0 || normalized.length > 254) return false;
@@ -23,6 +26,9 @@ export function isEmail(value: string): boolean {
   return (labels.at(-1) ?? '').length >= 2;
 }
 
+/***
+ * Return whether one email domain label violates Utility's domain-label constraints.
+ */
 function isInvalidDomainLabel(label: string): boolean {
   return (
     label.length === 0 ||
