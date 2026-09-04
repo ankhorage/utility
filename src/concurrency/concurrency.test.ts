@@ -1,6 +1,6 @@
 import { describe, expect, test } from 'bun:test';
 
-import { createExclusiveKeyedAsyncCoordinator } from './concurrency.js';
+import { createExclusiveKeyedAsyncCoordinator } from './createExclusiveKeyedAsyncCoordinator.js';
 
 function createDeferred<T>(): {
   readonly promise: Promise<T>;
