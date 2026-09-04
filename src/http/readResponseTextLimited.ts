@@ -1,5 +1,8 @@
 /*** Read a response body as text while rejecting declared or measured payload sizes above a limit. */
-export async function readResponseTextLimited(response: Response, maxBytes: number): Promise<string> {
+export async function readResponseTextLimited(
+  response: Response,
+  maxBytes: number,
+): Promise<string> {
   const contentLength = Number(response.headers.get('content-length'));
   if (Number.isFinite(contentLength) && contentLength > maxBytes) {
     throw new Error('HTTP response exceeds the configured size limit.');
