@@ -5,4 +5,6 @@ export { firstStringParam } from './firstStringParam.js';
 export { isPathAtOrBelow } from './isPathAtOrBelow.js';
 export { normalizeCredentialFreeHttpUrl } from './normalizeCredentialFreeHttpUrl.js';
 export { normalizePathname } from './normalizePathname.js';
+export { parseTrustedHttpUrl } from './parseTrustedHttpUrl.js';
+export { redactUrlQueryValues } from './redactUrlQueryValues.js';
 export { setOptionalQueryParam } from './setOptionalQueryParam.js';
