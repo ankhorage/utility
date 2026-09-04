@@ -118,7 +118,9 @@ function settleProcessClose(
   }
   lifecycle.reject(
     code === null
-      ? new Error(`Process '${lifecycle.options.command}' terminated by signal ${signal ?? 'unknown'}.`)
+      ? new Error(
+          `Process '${lifecycle.options.command}' terminated by signal ${signal ?? 'unknown'}.`,
+        )
       : new Error(`Process '${lifecycle.options.command}' failed with code ${code}.`),
   );
 }
