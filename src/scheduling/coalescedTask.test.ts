@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'bun:test';
 
-import { createCoalescedTask } from './scheduling.js';
+import { createCoalescedTask } from './createCoalescedTask.js';
 
 function createFakeFrameScheduler() {
   let nextFrameId = 1;
