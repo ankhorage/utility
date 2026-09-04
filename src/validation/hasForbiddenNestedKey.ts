@@ -1,9 +1,6 @@
 /*** Return whether an object or array graph contains any forbidden own property key. */
-export function hasForbiddenNestedKey(
-  value: unknown,
-  forbiddenKeys: ReadonlySet<string>,
-): boolean {
-  return hasForbiddenNestedKeyInternal(value, forbiddenKeys, new WeakSet<object>());
+export function hasForbiddenNestedKey(value: unknown, forbiddenKeys: ReadonlySet<string>): boolean {
+  return hasForbiddenNestedKeyInternal(value, forbiddenKeys, new WeakSet());
 }
 
 /*** Traverse an object graph cycle-safely while checking each own enumerable key against a forbidden set. */

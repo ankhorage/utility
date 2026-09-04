@@ -4,5 +4,8 @@ export function arraysEqual<T>(
   right: readonly T[],
   equals: (leftValue: T, rightValue: T, index: number) => boolean = Object.is,
 ): boolean {
-  return left.length === right.length && left.every((value, index) => equals(value, right[index] as T, index));
+  return (
+    left.length === right.length &&
+    left.every((value, index) => equals(value, right.at(index) as T, index))
+  );
 }

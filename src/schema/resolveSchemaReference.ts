@@ -7,8 +7,8 @@ export function resolveSchemaReference<TSchema extends SchemaReferenceLike>(
   seen: ReadonlySet<string> = new Set(),
 ): TSchema | undefined {
   const refId = schema?.ref?.id;
-  if (!refId || !schemas || seen.has(refId) || !Object.hasOwn(schemas, refId)) return schema;
-  const referenced = schemas[refId];
+  if (!refId || !schemas || seen.has(refId)) return schema;
+  const referenced = Object.entries(schemas).find(([id]) => id === refId)?.[1];
   return referenced
     ? resolveSchemaReference(referenced, schemas, new Set([...seen, refId]))
     : schema;

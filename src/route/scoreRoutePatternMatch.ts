@@ -12,7 +12,7 @@ export function scoreRoutePatternMatch(
   let score = 0;
   let exactMatch = true;
   while (patternIndex < pattern.length) {
-    const routeSegment = pattern[patternIndex];
+    const routeSegment = pattern.at(patternIndex);
     if (routeSegment === undefined) return null;
     if (OPTIONAL_CATCH_ALL_ROUTE_SEGMENT_PATTERN.test(routeSegment)) {
       exactMatch = false;
@@ -29,7 +29,7 @@ export function scoreRoutePatternMatch(
       score += 1;
       continue;
     }
-    const pathnameSegment = pathname[pathnameIndex];
+    const pathnameSegment = pathname.at(pathnameIndex);
     if (pathnameSegment === undefined) return null;
     if (DYNAMIC_ROUTE_SEGMENT_PATTERN.test(routeSegment)) score += 10;
     else if (routeSegment === pathnameSegment) score += 100;

@@ -20,7 +20,7 @@ export function insertTreeChildAtIndex<TNode, TId>(
     const result = insertTreeChildAtIndex(currentChild, parentId, child, index, adapter);
     if (!result.inserted) continue;
     const nextChildren = [...children];
-    nextChildren[childIndex] = result.root;
+    nextChildren.splice(childIndex, 1, result.root);
     return { root: adapter.withChildren(root, nextChildren), inserted: true };
   }
   return { root, inserted: false };

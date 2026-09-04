@@ -1,11 +1,5 @@
 export type CommitSelectionResult =
-  | 'committed'
-  | 'already-selected'
-  | 'preview'
-  | 'moved'
-  | 'empty'
-  | 'stale'
-  | 'already-finalized';
+  'committed' | 'already-selected' | 'preview' | 'moved' | 'empty' | 'stale' | 'already-finalized';
 
 export interface InteractionSelectionTransaction<TValue> {
   readonly transactionId: number;
@@ -24,8 +18,7 @@ export interface StationarySelectionCoordinator<TValue> {
     selectValue: (value: TValue | null) => void,
     generation: number,
   ) => CommitSelectionResult;
-  clearTransaction(): void;
-  clearTransaction(generation: number): void;
+  readonly clearTransaction: (generation?: number) => void;
   readonly markMoved: (generation: number) => void;
   readonly getTransaction: () => InteractionSelectionTransaction<TValue> | null;
 }

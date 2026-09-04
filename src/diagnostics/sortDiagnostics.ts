@@ -1,15 +1,18 @@
 import type { DiagnosticLike } from './types.js';
 
 /*** Return a stable copy sorted by severity rank and a caller-provided deterministic key. */
-export function sortDiagnostics<TDiagnostic extends DiagnosticLike<TSeverity>, TSeverity extends string>(
+export function sortDiagnostics<
+  TDiagnostic extends DiagnosticLike<TSeverity>,
+  TSeverity extends string,
+>(
   diagnostics: readonly TDiagnostic[],
-  rank: Readonly<Record<TSeverity, number>>,
+  rank: (severity: TSeverity) => number,
   keyOf: (diagnostic: TDiagnostic) => string,
 ): TDiagnostic[] {
   return diagnostics
     .map((diagnostic, index) => ({ diagnostic, index }))
     .sort((left, right) => {
-      const severity = rank[right.diagnostic.severity] - rank[left.diagnostic.severity];
+      const severity = rank(right.diagnostic.severity) - rank(left.diagnostic.severity);
       if (severity !== 0) return severity;
       const key = keyOf(left.diagnostic).localeCompare(keyOf(right.diagnostic));
       return key !== 0 ? key : left.index - right.index;

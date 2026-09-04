@@ -8,7 +8,7 @@ export function normalizeRoutePatternSegments(routePath: readonly string[]): str
     .filter((segment) => !isRouteGroupSegment(segment));
   let start = 0;
   let end = segments.length;
-  while (segments[start] === 'index') start += 1;
-  while (end > start && segments[end - 1] === 'index') end -= 1;
+  while (segments.at(start) === 'index') start += 1;
+  while (end > start && segments.at(end - 1) === 'index') end -= 1;
   return segments.slice(start, end);
 }

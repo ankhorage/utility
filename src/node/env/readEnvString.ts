@@ -4,6 +4,6 @@ export function readEnvString(
   environment: Readonly<Record<string, string | undefined>> = process.env,
 ): string | undefined {
   if (!Object.hasOwn(environment, name)) return undefined;
-  const value = environment[name];
+  const value: unknown = Reflect.get(environment, name);
   return typeof value === 'string' && value.length > 0 ? value : undefined;
 }

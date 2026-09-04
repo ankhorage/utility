@@ -14,7 +14,7 @@ export function removeTreeNodeWithValue<TNode, TId>(
     if (result.removed === undefined) continue;
     const nextChildren = [...children];
     if (result.root === undefined) nextChildren.splice(index, 1);
-    else nextChildren[index] = result.root;
+    else nextChildren.splice(index, 1, result.root);
     return { root: adapter.withChildren(root, nextChildren), removed: result.removed };
   }
   return { root, removed: undefined };

@@ -1,9 +1,5 @@
 export type ExclusiveKeyedAsyncFailureReason =
-  | 'exclusive_busy'
-  | 'keyed_busy'
-  | 'primary_busy'
-  | 'secondary_busy'
-  | 'secondary_exclusive_busy';
+  'exclusive_busy' | 'keyed_busy' | 'primary_busy' | 'secondary_busy' | 'secondary_exclusive_busy';
 
 export type ExclusiveKeyedAsyncResult<TValue> =
   | { readonly ok: true; readonly value: TValue }
@@ -17,7 +13,9 @@ export interface ExclusiveKeyedAsyncCoordinator<TPrimaryKey, TSecondaryKey> {
   readonly getBusyPrimaryKeys: () => ReadonlySet<TPrimaryKey>;
   readonly getBusySecondaryKeys: () => ReadonlySet<TSecondaryKey>;
   readonly getBusySecondaryExclusiveKeys: () => ReadonlySet<TSecondaryKey>;
-  readonly runExclusive: <TValue>(operation: () => Promise<TValue>) => Promise<ExclusiveKeyedAsyncResult<TValue>>;
+  readonly runExclusive: <TValue>(
+    operation: () => Promise<TValue>,
+  ) => Promise<ExclusiveKeyedAsyncResult<TValue>>;
   readonly runKeyed: <TValue>(
     primaryKey: TPrimaryKey,
     secondaryKey: TSecondaryKey,

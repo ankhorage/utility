@@ -10,11 +10,7 @@ export function updateTreeNode<TNode, TId>(
   if (Object.is(adapter.getId(root), id)) return update(root);
   const children = adapter.getChildren(root);
   if (children === undefined || children.length === 0) return root;
-  let changed = false;
-  const nextChildren = children.map((child) => {
-    const nextChild = updateTreeNode(child, id, update, adapter);
-    if (!Object.is(nextChild, child)) changed = true;
-    return nextChild;
-  });
+  const nextChildren = children.map((child) => updateTreeNode(child, id, update, adapter));
+  const changed = nextChildren.some((child, index) => !Object.is(child, children.at(index)));
   return changed ? adapter.withChildren(root, nextChildren) : root;
 }

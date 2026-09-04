@@ -10,7 +10,7 @@ export function rectArraysEqual(
   return (
     left.length === right.length &&
     left.every((rect, index) => {
-      const other = right[index];
+      const other = right.at(index);
       return other !== undefined && rectsEqual(rect, other, tolerance);
     })
   );

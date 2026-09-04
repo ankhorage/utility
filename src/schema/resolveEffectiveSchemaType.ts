@@ -7,13 +7,8 @@ export function resolveEffectiveSchemaType(schema: SchemaShape): EffectiveSchema
   const rawType = resolveSingleSchemaType(schema.type);
   if (rawType === 'integer') return 'number';
   if (rawType === 'object') return schema.additionalProperties ? 'record' : 'object';
-  if (
-    rawType === 'array' ||
-    rawType === 'boolean' ||
-    rawType === 'number' ||
-    rawType === 'string'
-  ) return rawType;
-  if (!rawType && schema.properties) return 'object';
-  if (!rawType && schema.items) return 'array';
+  if (rawType !== undefined) return rawType;
+  if (schema.properties !== undefined) return 'object';
+  if (schema.items !== undefined) return 'array';
   return 'unknown';
 }
