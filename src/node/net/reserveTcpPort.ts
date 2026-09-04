@@ -1,8 +1,6 @@
 import { createServer } from 'node:net';
 
-/***
- * Ask the operating system for an available TCP port and release it before resolving.
- */
+/*** Ask the operating system for an available TCP port and release it before resolving. */
 export function reserveTcpPort(label = 'TCP', host = '127.0.0.1'): Promise<number> {
   return new Promise((resolve, reject) => {
     const server = createServer();

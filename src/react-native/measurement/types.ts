@@ -1,0 +1,5 @@
+export interface NativeMeasurableView {
+  readonly measureInWindow: (
+    callback: (x: number, y: number, width: number, height: number) => void,
+  ) => void;
+}

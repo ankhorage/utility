@@ -1,6 +1,4 @@
-/***
- * Read a non-empty own string environment variable from a Node-style environment record.
- */
+/*** Read a non-empty own string environment variable from a Node-style environment record. */
 export function readEnvString(
   name: string,
   environment: Readonly<Record<string, string | undefined>> = process.env,

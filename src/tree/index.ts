@@ -1,16 +1,16 @@
-export {
-  cloneTreeWithNewIds,
-  findTreeNode,
-  findTreeNodeWithParent,
-  insertTreeChildAtIndex,
-  isTreeDescendant,
-  removeTreeNode,
-  removeTreeNodeWithValue,
-  treeContainsId,
-  updateTreeNode,
-  type TreeAdapter,
-  type TreeCloneAdapter,
-  type TreeInsertionResult,
-  type TreeNodeLocation,
-  type TreeRemovalResult,
-} from './tree.js';
+export { cloneTreeWithNewIds } from './cloneTreeWithNewIds.js';
+export { findTreeNode } from './findTreeNode.js';
+export { findTreeNodeWithParent } from './findTreeNodeWithParent.js';
+export { insertTreeChildAtIndex } from './insertTreeChildAtIndex.js';
+export { isTreeDescendant } from './isTreeDescendant.js';
+export { removeTreeNode } from './removeTreeNode.js';
+export { removeTreeNodeWithValue } from './removeTreeNodeWithValue.js';
+export { treeContainsId } from './treeContainsId.js';
+export { updateTreeNode } from './updateTreeNode.js';
+export type {
+  TreeAdapter,
+  TreeCloneAdapter,
+  TreeInsertionResult,
+  TreeNodeLocation,
+  TreeRemovalResult,
+} from './types.js';

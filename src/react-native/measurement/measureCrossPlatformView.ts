@@ -1,0 +1,17 @@
+import type { Rect } from '../../geometry/types.js';
+import { isWebElementLike } from '../../web/isWebElementLike.js';
+import { measureNonZeroWebElement } from '../../web/measureNonZeroWebElement.js';
+import { isNativeMeasurableView } from './isNativeMeasurableView.js';
+import { measureNativeView } from './measureNativeView.js';
+
+/*** Measure an unknown cross-platform view using web geometry on web and native window measurement otherwise. */
+export function measureCrossPlatformView(
+  view: unknown,
+  platform: string,
+): Promise<Rect | null> {
+  if (view === null || view === undefined) return Promise.resolve(null);
+  if (platform === 'web' && isWebElementLike(view)) {
+    return Promise.resolve(measureNonZeroWebElement(view));
+  }
+  return isNativeMeasurableView(view) ? measureNativeView(view) : Promise.resolve(null);
+}

@@ -1,1 +1,1 @@
-export { readEnvString } from './env.js';
+export { readEnvString } from './readEnvString.js';

@@ -1,0 +1,15 @@
+import path from 'node:path';
+
+/*** Walk parent directories from a start path and return the first directory accepted by a predicate. */
+export function findAncestorDirectory(
+  startPath: string,
+  matches: (directory: string) => boolean,
+): string | undefined {
+  let current = path.resolve(startPath);
+  for (;;) {
+    if (matches(current)) return current;
+    const parent = path.dirname(current);
+    if (parent === current) return undefined;
+    current = parent;
+  }
+}
