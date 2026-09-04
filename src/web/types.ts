@@ -1,3 +1,11 @@
+export interface BrowserLocationLike {
+  readonly pathname: string;
+  readonly search: string;
+  readonly hash: string;
+}
+
+export type OpenUrl = (url: string, target: string, features: string) => unknown;
+
 export interface WebRectLike {
   readonly left: number;
   readonly top: number;
