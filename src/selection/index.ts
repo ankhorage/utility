@@ -1,1 +1,2 @@
-export { arrayToSingleSelection, singleSelectionToArray } from './selection.js';
+export { arrayToSingleSelection } from './arrayToSingleSelection.js';
+export { singleSelectionToArray } from './singleSelectionToArray.js';

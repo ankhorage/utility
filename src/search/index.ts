@@ -1,1 +1,2 @@
-export { scoreBestTextMatch, scoreTextMatch } from './search.js';
+export { scoreBestTextMatch } from './scoreBestTextMatch.js';
+export { scoreTextMatch } from './scoreTextMatch.js';

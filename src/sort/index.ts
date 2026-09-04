@@ -1,1 +1,2 @@
-export { chainComparators, type Comparator } from './sort.js';
+export { chainComparators } from './chainComparators.js';
+export type { Comparator } from './types.js';

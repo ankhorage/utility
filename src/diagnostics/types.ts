@@ -1,0 +1,5 @@
+export interface DiagnosticLike<TSeverity extends string = string, TCode extends string = string> {
+  readonly code: TCode;
+  readonly message: string;
+  readonly severity: TSeverity;
+}

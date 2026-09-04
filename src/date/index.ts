@@ -1,1 +1,2 @@
-export { formatDateTime, type FormatDateTimeOptions } from './date.js';
+export { formatDateTime } from './formatDateTime.js';
+export type { FormatDateTimeOptions } from './types.js';

@@ -1,10 +1,8 @@
-export {
-  arraysEqual,
-  dedupeBy,
-  filterAndSort,
-  filterBy,
-  findByKey,
-  isStringArray,
-  uniqueSortedStrings,
-  upsertBy,
-} from './array.js';
+export { arraysEqual } from './arraysEqual.js';
+export { dedupeBy } from './dedupeBy.js';
+export { filterAndSort } from './filterAndSort.js';
+export { filterBy } from './filterBy.js';
+export { findByKey } from './findByKey.js';
+export { isStringArray } from './isStringArray.js';
+export { uniqueSortedStrings } from './uniqueSortedStrings.js';
+export { upsertBy } from './upsertBy.js';

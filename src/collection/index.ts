@@ -1,1 +1,2 @@
-export { groupBy, mapRecordEntries } from './collection.js';
+export { groupBy } from './groupBy.js';
+export { mapRecordEntries } from './mapRecordEntries.js';

@@ -1,1 +1,2 @@
-export { captureAsync, type AsyncLoadable } from './async.js';
+export { captureAsync } from './captureAsync.js';
+export type { AsyncLoadable } from './types.js';

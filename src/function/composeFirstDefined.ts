@@ -1,13 +1,6 @@
-export type Resolver<TInput, TOutput> = (input: TInput) => TOutput | undefined;
+import type { Resolver } from './types.js';
 
-/***
- * Intentionally perform no operation.
- */
-export function noop(): void {}
-
-/***
- * Compose resolvers and return the first defined result for an input.
- */
+/*** Compose resolvers and return the first defined result for an input. */
 export function composeFirstDefined<TInput, TOutput>(
   resolvers: readonly Resolver<TInput, TOutput>[],
 ): Resolver<TInput, TOutput> {

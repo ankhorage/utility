@@ -1,6 +1,4 @@
-export {
-  classifySupportedKey,
-  isSupportedKey,
-  resolveSupportedPolicy,
-  type SupportClassification,
-} from './classification.js';
+export { classifySupportedKey } from './classifySupportedKey.js';
+export { isSupportedKey } from './isSupportedKey.js';
+export { resolveSupportedPolicy } from './resolveSupportedPolicy.js';
+export type { SupportClassification } from './types.js';

@@ -1,1 +1,1 @@
-export { invertBoolean } from './boolean.js';
+export { invertBoolean } from './invertBoolean.js';

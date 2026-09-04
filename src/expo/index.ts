@@ -1,1 +1,2 @@
-export { readExpoHostUri, type ExpoConstantsLike } from './expo.js';
+export { readExpoHostUri } from './readExpoHostUri.js';
+export type { ExpoConstantsLike } from './types.js';

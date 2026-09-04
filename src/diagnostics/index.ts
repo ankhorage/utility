@@ -1,8 +1,6 @@
-export {
-  createDiagnostic,
-  formatDiagnostic,
-  formatDiagnostics,
-  highestSeverity,
-  sortDiagnostics,
-  type DiagnosticLike,
-} from './diagnostics.js';
+export { createDiagnostic } from './createDiagnostic.js';
+export { formatDiagnostic } from './formatDiagnostic.js';
+export { formatDiagnostics } from './formatDiagnostics.js';
+export { highestSeverity } from './highestSeverity.js';
+export { sortDiagnostics } from './sortDiagnostics.js';
+export type { DiagnosticLike } from './types.js';

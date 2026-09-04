@@ -1,8 +1,6 @@
-export type Comparator<TValue> = (left: TValue, right: TValue) => number;
+import type { Comparator } from './types.js';
 
-/***
- * Compose comparators in priority order and return the first non-zero comparison result.
- */
+/*** Compose comparators in priority order and return the first non-zero comparison result. */
 export function chainComparators<TValue>(comparators: readonly Comparator<TValue>[]): Comparator<TValue> {
   return (left, right) => {
     for (const compare of comparators) {

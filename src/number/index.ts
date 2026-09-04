@@ -1,1 +1,2 @@
-export { parseFiniteNumber, parseNonNegativeNumber } from './number.js';
+export { parseFiniteNumber } from './parseFiniteNumber.js';
+export { parseNonNegativeNumber } from './parseNonNegativeNumber.js';

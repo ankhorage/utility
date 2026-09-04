@@ -1,1 +1,1 @@
-export { readFlag } from './cli.js';
+export { readFlag } from './readFlag.js';

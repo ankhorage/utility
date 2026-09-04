@@ -1,1 +1,1 @@
-export { toStandaloneArrayBuffer } from './binary.js';
+export { toStandaloneArrayBuffer } from './toStandaloneArrayBuffer.js';

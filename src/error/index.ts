@@ -1,1 +1,2 @@
-export { readErrorMessage, toErrorMessage } from './error.js';
+export { readErrorMessage } from './readErrorMessage.js';
+export { toErrorMessage } from './toErrorMessage.js';

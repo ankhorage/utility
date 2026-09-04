@@ -1,12 +1,6 @@
-export interface CompactIdOptions {
-  readonly now?: () => number;
-  readonly random?: () => number;
-  readonly randomLength?: number;
-}
+import type { CompactIdOptions } from './types.js';
 
-/***
- * Create a compact time/random identifier with injectable sources for deterministic testing.
- */
+/*** Create a compact time/random identifier with injectable sources for deterministic testing. */
 export function createCompactId(prefix: string, options: CompactIdOptions = {}): string {
   const now = options.now ?? Date.now;
   const random = options.random ?? Math.random;
