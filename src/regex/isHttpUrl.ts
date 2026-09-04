@@ -1,3 +1,6 @@
+/***
+ * Return whether a string is a non-empty HTTP or HTTPS URL with a hostname.
+ */
 export function isHttpUrl(value: string): boolean {
   const normalized = value.trim();
   if (normalized.length === 0 || /\s/u.test(normalized)) return false;
