@@ -1,6 +1,9 @@
 export { createExclusiveKeyedAsyncCoordinator } from './createExclusiveKeyedAsyncCoordinator.js';
+export { createKeyedAsyncMutex } from './createKeyedAsyncMutex.js';
 export type {
   ExclusiveKeyedAsyncCoordinator,
   ExclusiveKeyedAsyncFailureReason,
   ExclusiveKeyedAsyncResult,
+  KeyedAsyncMutex,
+  KeyedAsyncMutexOptions,
 } from './types.js';
