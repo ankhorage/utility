@@ -1,1 +1,6 @@
-export { findAncestorDirectory, resolveModuleRelativePath, resolvePackageRoot } from './path.js';
+export {
+  findAncestorDirectory,
+  resolveModuleRelativePath,
+  resolvePackageRoot,
+  toPortablePath,
+} from './path.js';
