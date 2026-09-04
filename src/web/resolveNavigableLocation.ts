@@ -5,5 +5,7 @@ export function resolveNavigableLocation(
   pathname: string,
   location: BrowserLocationLike | undefined,
 ): string {
-  return location?.pathname === pathname ? `${pathname}${location.search}${location.hash}` : pathname;
+  return location?.pathname === pathname
+    ? `${pathname}${location.search}${location.hash}`
+    : pathname;
 }
