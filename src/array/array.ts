@@ -6,7 +6,32 @@ export function arraysEqual<T>(
   right: readonly T[],
   equals: (leftValue: T, rightValue: T, index: number) => boolean = Object.is,
 ): boolean {
-  return left.length === right.length && left.every((value, index) => equals(value, right[index] as T, index));
+  return (
+    left.length === right.length &&
+    left.every((value, index) => equals(value, right[index] as T, index))
+  );
+}
+
+/***
+ * Filter values through a type-guard predicate while preserving the narrowed result type.
+ */
+export function filterBy<TValue, TNarrowed extends TValue>(
+  values: readonly TValue[],
+  predicate: (value: TValue, index: number) => value is TNarrowed,
+): TNarrowed[] {
+  return values.filter(predicate);
+}
+
+/***
+ * Find the first item whose derived key equals a requested key.
+ */
+export function findByKey<TValue, TKey>(
+  values: readonly TValue[],
+  key: TKey,
+  keyOf: (value: TValue) => TKey,
+  equals: (left: TKey, right: TKey) => boolean = Object.is,
+): TValue | undefined {
+  return values.find((value) => equals(keyOf(value), key));
 }
 
 /***
@@ -34,6 +59,17 @@ export function dedupeBy<T, TKey>(items: readonly T[], keyOf: (value: T) => TKey
     seen.add(key);
     return true;
   });
+}
+
+/***
+ * Filter an immutable input collection and return a sorted copy of the retained values.
+ */
+export function filterAndSort<TValue>(
+  values: readonly TValue[],
+  predicate: (value: TValue) => boolean,
+  compare: (left: TValue, right: TValue) => number,
+): TValue[] {
+  return values.filter(predicate).sort(compare);
 }
 
 /***
