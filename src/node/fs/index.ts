@@ -6,3 +6,4 @@ export { pathExists } from './pathExists.js';
 export { pruneEmptyDirectories } from './pruneEmptyDirectories.js';
 export { removeFileWithinRoot } from './removeFileWithinRoot.js';
 export { writeFileWithinRoot } from './writeFileWithinRoot.js';
+export { writeJsonFileAtomic } from './writeJsonFileAtomic.js';
