@@ -15,6 +15,24 @@ export interface ParsedJsonRequestOptions<TValue> {
   readonly label?: string;
 }
 
+export interface TrustedHttpRequestInit {
+  readonly method: string;
+  readonly headers: Readonly<Record<string, string>>;
+  readonly body?: string;
+}
+
+export interface TrustedHttpRequestOptions {
+  readonly timeoutMs?: number;
+  readonly maxResponseBytes?: number;
+  readonly blockedHostnames?: ReadonlySet<string>;
+  readonly fetcher?: FetchLike;
+}
+
+export interface TrustedHttpResponse {
+  readonly status: number;
+  text(): Promise<string>;
+}
+
 export interface WaitForHttpOptions {
   readonly timeoutMs: number;
   readonly intervalMs?: number;
