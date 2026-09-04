@@ -8,15 +8,6 @@ export interface JsonHttpResponse<TValue = unknown> {
   readonly value: TValue;
 }
 
-export interface WaitForHttpOptions {
-  readonly accept?: (response: Response) => boolean;
-  readonly fetcher?: FetchLike;
-  readonly intervalMs?: number;
-  readonly now?: () => number;
-  readonly sleep?: (delayMs: number) => Promise<void>;
-  readonly timeoutMs: number;
-}
-
 /***
  * Decode a response body as JSON and attach response context to invalid-JSON failures.
  */
@@ -41,6 +32,34 @@ export async function requestJson(
 ): Promise<JsonHttpResponse> {
   const response = await fetcher(input, init);
   return { response, value: await decodeJsonResponse(response) };
+}
+
+export interface ParsedJsonRequestOptions<TValue> {
+  readonly request: (input: string, init?: RequestInit) => Promise<Response>;
+  readonly input: string;
+  readonly init?: RequestInit;
+  readonly parse: (value: unknown) => TValue;
+  readonly assertSafe?: (value: unknown) => void;
+  readonly createHttpError?: (value: unknown, response: Response) => Error;
+  readonly label?: string;
+}
+
+/***
+ * Execute an injected HTTP request, decode JSON, run an optional safety assertion, map non-success status, and parse the payload.
+ */
+export async function requestParsedJson<TValue>(
+  options: ParsedJsonRequestOptions<TValue>,
+): Promise<TValue> {
+  const response = await options.request(options.input, options.init);
+  const value = await decodeJsonResponse(response, options.label);
+  options.assertSafe?.(value);
+  if (!response.ok) {
+    throw (
+      options.createHttpError?.(value, response) ??
+      new Error(`${options.label ?? 'HTTP request'} failed (HTTP ${response.status}).`)
+    );
+  }
+  return options.parse(value);
 }
 
 /***
@@ -71,37 +90,4 @@ export function createBaseUrlFetch(
   fetcher: FetchLike = fetch,
 ): (path: string, init?: RequestInit) => Promise<Response> {
   return (path, init) => fetcher(joinBaseUrl(baseUrl, path), init);
-}
-
-/***
- * Resolve after a delay using the host timer implementation.
- */
-function sleep(delayMs: number): Promise<void> {
-  return new Promise((resolve) => setTimeout(resolve, delayMs));
-}
-
-/***
- * Poll an HTTP resource until a response satisfies an acceptance predicate or a timeout expires.
- */
-export async function waitForHttp(
-  input: RequestInfo | URL,
-  options: WaitForHttpOptions,
-): Promise<Response> {
-  const accept = options.accept ?? ((response: Response) => response.status < 500);
-  const fetcher = options.fetcher ?? fetch;
-  const intervalMs = options.intervalMs ?? 250;
-  const now = options.now ?? Date.now;
-  const sleepFor = options.sleep ?? sleep;
-  const startedAt = now();
-
-  while (now() - startedAt < options.timeoutMs) {
-    try {
-      const response = await fetcher(input);
-      if (accept(response)) return response;
-    } catch {
-      // Network failures are expected while the target server is still starting.
-    }
-    await sleepFor(intervalMs);
-  }
-  throw new Error(`Timed out waiting for ${String(input)}.`);
 }
