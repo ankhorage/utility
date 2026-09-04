@@ -26,3 +26,12 @@ export interface ExclusiveKeyedAsyncCoordinator<TPrimaryKey, TSecondaryKey> {
     operation: () => Promise<TValue>,
   ) => Promise<ExclusiveKeyedAsyncResult<TValue>>;
 }
+
+export interface KeyedAsyncMutexOptions<TKey> {
+  readonly createBusyError?: (key: TKey) => Error;
+}
+
+export interface KeyedAsyncMutex<TKey> {
+  readonly isBusy: (key: TKey) => boolean;
+  readonly run: <TValue>(key: TKey, operation: () => Promise<TValue>) => Promise<TValue>;
+}
