@@ -2,7 +2,7 @@
   "name": "@ankhorage/utility",
   "type": "module",
   "version": "0.2.0",
-  "description": "Shared, runtime-neutral utilities for Ankhorage packages and compatible external projects.",
+  "description": "Shared functional utilities for Ankhorage packages and compatible external projects.",
   "homepage": "https://github.com/ankhorage/utility#readme",
   "bugs": {
     "url": "https://github.com/ankhorage/utility/issues"
@@ -30,6 +30,36 @@
     "LICENSE"
   ],
   "exports": {
+    "./array": {
+      "types": "./dist/array/index.d.ts",
+      "import": "./dist/array/index.js",
+      "default": "./dist/array/index.js"
+    },
+    "./date": {
+      "types": "./dist/date/index.d.ts",
+      "import": "./dist/date/index.js",
+      "default": "./dist/date/index.js"
+    },
+    "./error": {
+      "types": "./dist/error/index.d.ts",
+      "import": "./dist/error/index.js",
+      "default": "./dist/error/index.js"
+    },
+    "./function": {
+      "types": "./dist/function/index.d.ts",
+      "import": "./dist/function/index.js",
+      "default": "./dist/function/index.js"
+    },
+    "./number": {
+      "types": "./dist/number/index.d.ts",
+      "import": "./dist/number/index.js",
+      "default": "./dist/number/index.js"
+    },
+    "./object": {
+      "types": "./dist/object/index.d.ts",
+      "import": "./dist/object/index.js",
+      "default": "./dist/object/index.js"
+    },
     "./project": {
       "types": "./dist/project/index.d.ts",
       "import": "./dist/project/index.js",
@@ -39,6 +69,21 @@
       "types": "./dist/regex/index.d.ts",
       "import": "./dist/regex/index.js",
       "default": "./dist/regex/index.js"
+    },
+    "./string": {
+      "types": "./dist/string/index.d.ts",
+      "import": "./dist/string/index.js",
+      "default": "./dist/string/index.js"
+    },
+    "./url": {
+      "types": "./dist/url/index.d.ts",
+      "import": "./dist/url/index.js",
+      "default": "./dist/url/index.js"
+    },
+    "./value": {
+      "types": "./dist/value/index.d.ts",
+      "import": "./dist/value/index.js",
+      "default": "./dist/value/index.js"
     },
     "./package.json": "./package.json"
   },
