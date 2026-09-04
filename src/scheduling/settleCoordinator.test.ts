@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'bun:test';
 
-import { createSettleCoordinator } from './scheduling.js';
+import { createSettleCoordinator } from './createSettleCoordinator.js';
 
 function createFakeScheduler() {
   let nextHandle = 1;
