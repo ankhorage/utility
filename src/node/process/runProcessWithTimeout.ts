@@ -51,7 +51,10 @@ export async function runProcessWithTimeout(options: {
     };
 
     const spawnTimeout = setTimeout(
-      () => rejectWithTimeout(`Process '${options.command}' did not start within ${options.spawnTimeoutMs}ms.`),
+      () =>
+        rejectWithTimeout(
+          `Process '${options.command}' did not start within ${options.spawnTimeoutMs}ms.`,
+        ),
       options.spawnTimeoutMs,
     );
 
