@@ -1,1 +1,6 @@
-export { createKeyedMultiValueRegistry, type KeyedMultiValueRegistry } from './registry.js';
+export {
+  createKeyedMultiValueRegistry,
+  createKeyedValueStore,
+  type KeyedMultiValueRegistry,
+  type KeyedValueStore,
+} from './registry.js';
