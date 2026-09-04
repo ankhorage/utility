@@ -1,23 +1,15 @@
-export {
-  asRecord,
-  deleteOwnProperty,
-  hasOnlyKeys,
-  isEmptyRecord,
-  isRecord,
-  isRecordOf,
-  readOwnProperty,
-  setOwnProperty,
-} from './object.js';
-export {
-  withOptionalOwnProperty,
-  withOwnProperty,
-  withoutOwnProperty,
-} from './immutable.js';
-export { findOwnPropertyValue } from './lookup.js';
-export {
-  assertNoNestedKeys,
-  findNestedKey,
-  walkNestedValues,
-  type NestedKeyMatch,
-  type NestedValueVisit,
-} from './nested.js';
+export { asRecord } from './asRecord.js';
+export { assertNoNestedKeys } from './assertNoNestedKeys.js';
+export { deleteOwnProperty } from './deleteOwnProperty.js';
+export { findNestedKey, type NestedKeyMatch } from './findNestedKey.js';
+export { findOwnPropertyValue } from './findOwnPropertyValue.js';
+export { hasOnlyKeys } from './hasOnlyKeys.js';
+export { isEmptyRecord } from './isEmptyRecord.js';
+export { isRecord } from './isRecord.js';
+export { isRecordOf } from './isRecordOf.js';
+export { readOwnProperty } from './readOwnProperty.js';
+export { setOwnProperty } from './setOwnProperty.js';
+export { walkNestedValues, type NestedValueVisit } from './walkNestedValues.js';
+export { withOptionalOwnProperty } from './withOptionalOwnProperty.js';
+export { withOwnProperty } from './withOwnProperty.js';
+export { withoutOwnProperty } from './withoutOwnProperty.js';

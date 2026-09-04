@@ -1,6 +1,4 @@
-/***
- * Return the first own property value accepted by a predicate from an ordered key list.
- */
+/*** Return the first own property value accepted by a predicate from an ordered key list. */
 export function findOwnPropertyValue<TValue>(
   target: object,
   keys: readonly PropertyKey[],
