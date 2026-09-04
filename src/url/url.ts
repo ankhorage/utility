@@ -39,6 +39,7 @@ export function appendEncodedPathSegment(prefix: string, segment: string): strin
 export function isPathAtOrBelow(pathname: string, prefix: string): boolean {
   const normalizedPath = normalizePathname(pathname);
   const normalizedPrefix = normalizePathname(prefix);
+  if (normalizedPrefix === '/') return true;
   return normalizedPath === normalizedPrefix || normalizedPath.startsWith(`${normalizedPrefix}/`);
 }
 
