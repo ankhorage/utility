@@ -1,5 +1,12 @@
 # @ankhorage/utility
 
+## 0.3.0
+
+### Minor Changes
+
+- 9ea3d3d: Add focused functional utility subpaths extracted from Studio, including platform-specific Node,
+  Expo, web, and React Native helpers.
+
 ## 0.2.0
 
 ### Minor Changes
