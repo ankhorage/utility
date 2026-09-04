@@ -1,13 +1,13 @@
-export {
-  createStationarySelectionCoordinator,
-  createStationarySelectionInputState,
-  getInteractionKey,
-  isSupportedPointerInput,
-  type CommitSelectionResult,
-  type InteractionSelectionTransaction,
-  type StationaryPointerInput,
-  type StationarySelectionCoordinator,
-  type StationarySelectionInput,
-  type StationarySelectionInputState,
-  type StationaryTouchInput,
-} from './interaction.js';
+export { createStationarySelectionCoordinator } from './createStationarySelectionCoordinator.js';
+export { createStationarySelectionInputState } from './createStationarySelectionInputState.js';
+export { getInteractionKey } from './getInteractionKey.js';
+export { isSupportedPointerInput } from './isSupportedPointerInput.js';
+export type {
+  CommitSelectionResult,
+  InteractionSelectionTransaction,
+  StationaryPointerInput,
+  StationarySelectionCoordinator,
+  StationarySelectionInput,
+  StationarySelectionInputState,
+  StationaryTouchInput,
+} from './types.js';

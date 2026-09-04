@@ -1,18 +1,6 @@
-export interface SetObserver<TValue> {
-  readonly disconnect: () => void;
-  readonly observe: (value: TValue) => void;
-  readonly unobserve: (value: TValue) => void;
-}
+import type { ObservedSetCoordinator, SetObserver } from './types.js';
 
-export interface ObservedSetCoordinator<TValue> {
-  readonly disconnect: () => void;
-  readonly getObservedValues: () => ReadonlySet<TValue>;
-  readonly sync: (desiredValues: Iterable<TValue>) => void;
-}
-
-/***
- * Synchronize an observer against a desired set using only required observe and unobserve calls.
- */
+/*** Synchronize an observer against a desired set using only required observe and unobserve calls. */
 export function createObservedSetCoordinator<TValue>(
   observer: SetObserver<TValue>,
 ): ObservedSetCoordinator<TValue> {

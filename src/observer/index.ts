@@ -1,5 +1,2 @@
-export {
-  createObservedSetCoordinator,
-  type ObservedSetCoordinator,
-  type SetObserver,
-} from './observer.js';
+export { createObservedSetCoordinator } from './createObservedSetCoordinator.js';
+export type { ObservedSetCoordinator, SetObserver } from './types.js';

@@ -1,11 +1,11 @@
-export {
-  createCoalescedTask,
-  createLatestAsyncCoordinator,
-  createSettleCoordinator,
-  type CoalescedTask,
-  type LatestAsyncCoordinator,
-  type LatestAsyncResult,
-  type Scheduler,
-  type SettleCoordinator,
-  type SettleCoordinatorOptions,
-} from './scheduling.js';
+export { createCoalescedTask } from './createCoalescedTask.js';
+export { createLatestAsyncCoordinator } from './createLatestAsyncCoordinator.js';
+export { createSettleCoordinator } from './createSettleCoordinator.js';
+export type {
+  CoalescedTask,
+  LatestAsyncCoordinator,
+  LatestAsyncResult,
+  Scheduler,
+  SettleCoordinator,
+  SettleCoordinatorOptions,
+} from './types.js';

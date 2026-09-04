@@ -1,6 +1,6 @@
-export {
-  createExclusiveKeyedAsyncCoordinator,
-  type ExclusiveKeyedAsyncCoordinator,
-  type ExclusiveKeyedAsyncFailureReason,
-  type ExclusiveKeyedAsyncResult,
-} from './concurrency.js';
+export { createExclusiveKeyedAsyncCoordinator } from './createExclusiveKeyedAsyncCoordinator.js';
+export type {
+  ExclusiveKeyedAsyncCoordinator,
+  ExclusiveKeyedAsyncFailureReason,
+  ExclusiveKeyedAsyncResult,
+} from './types.js';
