@@ -1,0 +1,6 @@
+/*** Read the non-empty value following a named CLI flag, returning null when absent or blank. */
+export function readFlag(argv: readonly string[], flag: string): string | null {
+  const index = argv.indexOf(flag);
+  const value = index < 0 ? undefined : argv[index + 1];
+  return value === undefined || value.trim() === '' ? null : value;
+}

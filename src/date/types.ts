@@ -1,0 +1,6 @@
+export interface FormatDateTimeOptions {
+  readonly fallback?: string;
+  readonly invalid?: 'input' | 'fallback';
+  readonly locale?: Intl.LocalesArgument;
+  readonly options?: Intl.DateTimeFormatOptions;
+}

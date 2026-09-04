@@ -1,0 +1,5 @@
+export interface CompactIdOptions {
+  readonly now?: () => number;
+  readonly random?: () => number;
+  readonly randomLength?: number;
+}

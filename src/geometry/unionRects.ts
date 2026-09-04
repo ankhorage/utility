@@ -1,0 +1,27 @@
+import type { Rect } from './types.js';
+
+/*** Return the smallest rectangle containing every supplied rectangle. */
+export function unionRects(rects: readonly Rect[]): Rect | null {
+  const [first, ...rest] = rects;
+  if (!first) return null;
+  const bounds = rest.reduce(
+    (current, rect) => ({
+      left: Math.min(current.left, rect.x),
+      top: Math.min(current.top, rect.y),
+      right: Math.max(current.right, rect.x + rect.width),
+      bottom: Math.max(current.bottom, rect.y + rect.height),
+    }),
+    {
+      left: first.x,
+      top: first.y,
+      right: first.x + first.width,
+      bottom: first.y + first.height,
+    },
+  );
+  return {
+    x: bounds.left,
+    y: bounds.top,
+    width: bounds.right - bounds.left,
+    height: bounds.bottom - bounds.top,
+  };
+}

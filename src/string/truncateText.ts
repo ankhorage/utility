@@ -1,0 +1,8 @@
+/*** Trim whitespace and limit a string to a maximum length with an optional suffix. */
+export function truncateText(value: string, maxLength: number, suffix = '…'): string {
+  const normalized = value.trim();
+  if (maxLength <= 0) return '';
+  if (normalized.length <= maxLength) return normalized;
+  if (suffix.length >= maxLength) return suffix.slice(0, maxLength);
+  return `${normalized.slice(0, maxLength - suffix.length)}${suffix}`;
+}

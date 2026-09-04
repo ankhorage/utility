@@ -1,0 +1,21 @@
+const DEFAULT_BLOCKED_HOSTNAMES = new Set([
+  '100.100.100.200',
+  '169.254.169.254',
+  '[fd00:ec2::254]',
+  'metadata.google.internal',
+]);
+
+/*** Parse an HTTP(S) URL while rejecting inline credentials and configured sensitive hosts. */
+export function parseTrustedHttpUrl(
+  rawUrl: string,
+  blockedHostnames: ReadonlySet<string> = DEFAULT_BLOCKED_HOSTNAMES,
+): URL {
+  const url = new URL(rawUrl);
+  if (url.protocol !== 'http:' && url.protocol !== 'https:') {
+    throw new Error('Trusted HTTP transport supports HTTP and HTTPS only.');
+  }
+  if (url.username || url.password || blockedHostnames.has(url.hostname.toLowerCase())) {
+    throw new Error('HTTP target is blocked by the trusted transport policy.');
+  }
+  return url;
+}

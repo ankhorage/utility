@@ -1,0 +1,3 @@
+export type AsyncLoadable<TValue> =
+  | { readonly status: 'ready'; readonly data: TValue }
+  | { readonly status: 'error'; readonly message: string };

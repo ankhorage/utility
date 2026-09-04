@@ -1,5 +1,8 @@
 const PHONE_CHARACTER_PATTERN = /^[+()\d\s.-]+$/u;
 
+/***
+ * Return whether a string has a plausible international phone-number shape.
+ */
 export function isPhone(value: string): boolean {
   const normalized = value.trim();
   if (normalized.length === 0 || !PHONE_CHARACTER_PATTERN.test(normalized)) return false;
@@ -13,6 +16,9 @@ export function isPhone(value: string): boolean {
   return hasBalancedParentheses(normalized);
 }
 
+/***
+ * Return whether a phone string contains at most one balanced parenthesized group.
+ */
 function hasBalancedParentheses(value: string): boolean {
   let depth = 0;
   for (const character of value) {

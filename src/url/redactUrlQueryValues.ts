@@ -1,0 +1,10 @@
+/*** Redact every query-parameter value from a URL while preserving its shape and tolerating invalid input. */
+export function redactUrlQueryValues(rawUrl: string, replacement = '[redacted]'): string {
+  try {
+    const url = new URL(rawUrl);
+    for (const key of [...url.searchParams.keys()]) url.searchParams.set(key, replacement);
+    return url.toString();
+  } catch {
+    return rawUrl.split('?').at(0) ?? rawUrl;
+  }
+}

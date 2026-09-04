@@ -1,0 +1,22 @@
+import type { TrimmedText } from './types.js';
+
+/*** Limit text to a maximum character count while preserving original length and reporting truncation. */
+export function trimOutput(
+  text: string,
+  maxChars: number,
+  createMarker: (omittedCharacters: number) => string = (omitted) =>
+    `\n...[truncated ${omitted} chars]`,
+): TrimmedText {
+  if (maxChars <= 0) {
+    return { text: '', truncated: text.length > 0, originalLength: text.length };
+  }
+  if (text.length <= maxChars) {
+    return { text, truncated: false, originalLength: text.length };
+  }
+  const marker = createMarker(text.length - maxChars);
+  const nextText =
+    marker.length >= maxChars
+      ? marker.slice(0, maxChars)
+      : `${text.slice(0, maxChars - marker.length)}${marker}`;
+  return { text: nextText, truncated: true, originalLength: text.length };
+}

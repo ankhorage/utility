@@ -1,0 +1,4 @@
+export { compareSemanticVersions } from './compareSemanticVersions.js';
+export { parseSemanticVersion } from './parseSemanticVersion.js';
+export { satisfiesCaretSemverRange } from './satisfiesCaretSemverRange.js';
+export type { SemanticVersion } from './types.js';

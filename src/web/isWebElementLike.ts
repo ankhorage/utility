@@ -1,0 +1,12 @@
+import type { WebElementLike } from './types.js';
+
+/*** Detect a DOM-like value that supports child traversal and bounding-rectangle measurement. */
+export function isWebElementLike(value: unknown): value is WebElementLike {
+  return (
+    typeof value === 'object' &&
+    value !== null &&
+    'children' in value &&
+    'getBoundingClientRect' in value &&
+    typeof value.getBoundingClientRect === 'function'
+  );
+}

@@ -1,0 +1,7 @@
+/*** Assert that an unknown value is an array and return it without claiming element-level validation. */
+export function assertArray(value: unknown): readonly unknown[] {
+  if (!Array.isArray(value)) {
+    throw new Error('Expected an array value.');
+  }
+  return value;
+}
