@@ -1,9 +1,14 @@
+export { confirmAction } from './confirmAction.js';
 export { createStationarySelectionCoordinator } from './createStationarySelectionCoordinator.js';
 export { createStationarySelectionInputState } from './createStationarySelectionInputState.js';
 export { getInteractionKey } from './getInteractionKey.js';
 export { isSupportedPointerInput } from './isSupportedPointerInput.js';
 export type {
   CommitSelectionResult,
+  ConfirmationAlert,
+  ConfirmationButton,
+  ConfirmationDependencies,
+  ConfirmationRequest,
   InteractionSelectionTransaction,
   StationaryPointerInput,
   StationarySelectionCoordinator,
