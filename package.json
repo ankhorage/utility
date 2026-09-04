@@ -35,6 +35,21 @@
       "import": "./dist/array/index.js",
       "default": "./dist/array/index.js"
     },
+    "./binary": {
+      "types": "./dist/binary/index.d.ts",
+      "import": "./dist/binary/index.js",
+      "default": "./dist/binary/index.js"
+    },
+    "./cli": {
+      "types": "./dist/cli/index.d.ts",
+      "import": "./dist/cli/index.js",
+      "default": "./dist/cli/index.js"
+    },
+    "./collection": {
+      "types": "./dist/collection/index.d.ts",
+      "import": "./dist/collection/index.js",
+      "default": "./dist/collection/index.js"
+    },
     "./date": {
       "types": "./dist/date/index.d.ts",
       "import": "./dist/date/index.js",
@@ -49,6 +64,21 @@
       "types": "./dist/function/index.d.ts",
       "import": "./dist/function/index.js",
       "default": "./dist/function/index.js"
+    },
+    "./geometry": {
+      "types": "./dist/geometry/index.d.ts",
+      "import": "./dist/geometry/index.js",
+      "default": "./dist/geometry/index.js"
+    },
+    "./node/env": {
+      "types": "./dist/node/env/index.d.ts",
+      "import": "./dist/node/env/index.js",
+      "default": "./dist/node/env/index.js"
+    },
+    "./node/path": {
+      "types": "./dist/node/path/index.d.ts",
+      "import": "./dist/node/path/index.js",
+      "default": "./dist/node/path/index.js"
     },
     "./number": {
       "types": "./dist/number/index.d.ts",
@@ -70,10 +100,25 @@
       "import": "./dist/regex/index.js",
       "default": "./dist/regex/index.js"
     },
+    "./route": {
+      "types": "./dist/route/index.d.ts",
+      "import": "./dist/route/index.js",
+      "default": "./dist/route/index.js"
+    },
+    "./search": {
+      "types": "./dist/search/index.d.ts",
+      "import": "./dist/search/index.js",
+      "default": "./dist/search/index.js"
+    },
     "./string": {
       "types": "./dist/string/index.d.ts",
       "import": "./dist/string/index.js",
       "default": "./dist/string/index.js"
+    },
+    "./tree": {
+      "types": "./dist/tree/index.d.ts",
+      "import": "./dist/tree/index.js",
+      "default": "./dist/tree/index.js"
     },
     "./url": {
       "types": "./dist/url/index.d.ts",
