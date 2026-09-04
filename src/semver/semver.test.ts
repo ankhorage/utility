@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'bun:test';
 
-import { satisfiesCaretSemverRange } from './semver.js';
+import { satisfiesCaretSemverRange } from './satisfiesCaretSemverRange.js';
 
 describe('satisfiesCaretSemverRange', () => {
   it.each([
