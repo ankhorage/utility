@@ -1,4 +1,6 @@
 export { appendEncodedPathSegment } from './appendEncodedPathSegment.js';
+export { decodeFirstPathSegmentAfterPrefix } from './decodeFirstPathSegmentAfterPrefix.js';
+export { decodeSinglePathSegmentAfterPrefix } from './decodeSinglePathSegmentAfterPrefix.js';
 export { firstStringParam } from './firstStringParam.js';
 export { isPathAtOrBelow } from './isPathAtOrBelow.js';
 export { normalizeCredentialFreeHttpUrl } from './normalizeCredentialFreeHttpUrl.js';
