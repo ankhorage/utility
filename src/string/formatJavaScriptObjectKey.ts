@@ -1,0 +1,4 @@
+/*** Format a string as a bare JavaScript identifier key when valid, otherwise as a JSON-quoted object key. */
+export function formatJavaScriptObjectKey(key: string): string {
+  return /^[A-Za-z_$][A-Za-z0-9_$]*$/u.test(key) ? key : JSON.stringify(key);
+}
