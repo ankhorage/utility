@@ -1,10 +1,7 @@
 import { describe, expect, it } from 'bun:test';
 
-import {
-  createStationarySelectionInputState,
-  type StationaryPointerInput,
-  type StationaryTouchInput,
-} from './interaction.js';
+import { createStationarySelectionInputState } from './createStationarySelectionInputState.js';
+import type { StationaryPointerInput, StationaryTouchInput } from './types.js';
 
 function pointer(overrides: Partial<StationaryPointerInput> = {}): StationaryPointerInput {
   return {
