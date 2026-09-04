@@ -1,9 +1,9 @@
 import { spawn } from 'node:child_process';
 
 type TimerHandle = ReturnType<typeof setTimeout>;
+type SpawnedProcess = ReturnType<typeof spawn>;
 
-/*** Run a child process with bounded spawn/runtime timeouts and SIGTERM/SIGKILL escalation. */
-export async function runProcessWithTimeout(options: {
+interface RunProcessWithTimeoutOptions {
   readonly command: string;
   readonly args?: readonly string[];
   readonly cwd?: string;
@@ -12,89 +12,128 @@ export async function runProcessWithTimeout(options: {
   readonly spawnTimeoutMs: number;
   readonly timeoutMs: number;
   readonly killGraceMs: number;
-}): Promise<void> {
+}
+
+interface ProcessLifecycle {
+  readonly child: SpawnedProcess;
+  readonly options: RunProcessWithTimeoutOptions;
+  readonly resolve: () => void;
+  readonly reject: (error: Error) => void;
+  spawnTimeout?: TimerHandle;
+  hardTimeout?: TimerHandle;
+  killTimeout?: TimerHandle;
+  settled: boolean;
+}
+
+/*** Run a child process with bounded spawn/runtime timeouts and SIGTERM/SIGKILL escalation. */
+export async function runProcessWithTimeout(options: RunProcessWithTimeoutOptions): Promise<void> {
   await new Promise<void>((resolve, reject) => {
-    const child = spawn(options.command, [...(options.args ?? [])], {
-      ...(options.cwd === undefined ? {} : { cwd: options.cwd }),
-      ...(options.env === undefined ? {} : { env: options.env }),
-      stdio: options.stdio ?? 'inherit',
-    });
-    let hardTimeout: TimerHandle | undefined;
-    let killTimeout: TimerHandle | undefined;
-    let settled = false;
-
-    /*** Clear every timeout owned by the spawned-process lifecycle. */
-    const clearTimers = (): void => {
-      clearTimeout(spawnTimeout);
-      if (hardTimeout !== undefined) clearTimeout(hardTimeout);
-      if (killTimeout !== undefined) clearTimeout(killTimeout);
-    };
-
-    /*** Reject the lifecycle exactly once and clear pending timeout work. */
-    const rejectOnce = (error: Error): void => {
-      if (settled) return;
-      settled = true;
-      clearTimers();
-      reject(error);
-    };
-
-    /*** Terminate an overdue child with SIGTERM/SIGKILL escalation before rejecting. */
-    const rejectWithTimeout = (reason: string): void => {
-      if (settled) return;
-      if (child.exitCode === null) {
-        child.kill('SIGTERM');
-        killTimeout = setTimeout(() => {
-          if (child.exitCode === null) child.kill('SIGKILL');
-        }, options.killGraceMs);
-      }
-      rejectOnce(new Error(reason));
-    };
-
-    const spawnTimeout = setTimeout(
-      () =>
-        rejectWithTimeout(
-          `Process '${options.command}' did not start within ${options.spawnTimeoutMs}ms.`,
-        ),
+    const lifecycle = createProcessLifecycle(options, resolve, reject);
+    bindProcessLifecycle(lifecycle);
+    lifecycle.spawnTimeout = setTimeout(
+      () => rejectProcessTimeout(lifecycle, 'start', options.spawnTimeoutMs),
       options.spawnTimeoutMs,
     );
-
-    child.once('spawn', () => {
-      if (settled) return;
-      clearTimeout(spawnTimeout);
-      hardTimeout = setTimeout(
-        () => rejectWithTimeout(`Process '${options.command}' exceeded ${options.timeoutMs}ms.`),
-        options.timeoutMs,
-      );
-    });
-
-    child.once('error', (error) => {
-      const spawnError = error as NodeJS.ErrnoException;
-      rejectOnce(
-        new Error(
-          spawnError.code === 'ENOENT'
-            ? `Executable '${options.command}' was not found in PATH.`
-            : `Failed to start '${options.command}': ${spawnError.message}`,
-          { cause: error },
-        ),
-      );
-    });
-
-    child.once('close', (code, signal) => {
-      if (settled) {
-        clearTimers();
-        return;
-      }
-      settled = true;
-      clearTimers();
-      if (code === 0) {
-        resolve();
-        return;
-      }
-      reject(
-        code === null
-          ? new Error(`Process '${options.command}' terminated by signal ${signal ?? 'unknown'}.`)
-          : new Error(`Process '${options.command}' failed with code ${code}.`),
-      );
-    });
   });
+}
+
+/*** Create the mutable state owned by one spawned-process lifecycle boundary. */
+function createProcessLifecycle(
+  options: RunProcessWithTimeoutOptions,
+  resolve: () => void,
+  reject: (error: Error) => void,
+): ProcessLifecycle {
+  const child = spawn(options.command, [...(options.args ?? [])], {
+    ...(options.cwd === undefined ? {} : { cwd: options.cwd }),
+    ...(options.env === undefined ? {} : { env: options.env }),
+    stdio: options.stdio ?? 'inherit',
+  });
+  return { child, options, resolve, reject, settled: false };
+}
+
+/*** Bind process lifecycle events to the bounded timeout coordinator. */
+function bindProcessLifecycle(lifecycle: ProcessLifecycle): void {
+  lifecycle.child.once('spawn', () => handleProcessSpawn(lifecycle));
+  lifecycle.child.once('error', (error) => rejectProcessError(lifecycle, error));
+  lifecycle.child.once('close', (code, signal) =>
+    settleProcessClose(lifecycle, code, signal ?? undefined),
+  );
+}
+
+/*** Replace the spawn deadline with the hard runtime deadline after the process starts. */
+function handleProcessSpawn(lifecycle: ProcessLifecycle): void {
+  if (lifecycle.settled) return;
+  if (lifecycle.spawnTimeout !== undefined) clearTimeout(lifecycle.spawnTimeout);
+  lifecycle.hardTimeout = setTimeout(
+    () => rejectProcessTimeout(lifecycle, 'runtime', lifecycle.options.timeoutMs),
+    lifecycle.options.timeoutMs,
+  );
+}
+
+/*** Terminate an overdue process with SIGTERM/SIGKILL escalation and reject its lifecycle. */
+function rejectProcessTimeout(
+  lifecycle: ProcessLifecycle,
+  phase: 'start' | 'runtime',
+  timeoutMs: number,
+): void {
+  if (lifecycle.settled) return;
+  if (lifecycle.child.exitCode === null) {
+    lifecycle.child.kill('SIGTERM');
+    lifecycle.killTimeout = setTimeout(() => {
+      if (lifecycle.child.exitCode === null) lifecycle.child.kill('SIGKILL');
+    }, lifecycle.options.killGraceMs);
+  }
+  const detail = phase === 'start' ? 'did not start within' : 'exceeded';
+  rejectProcessOnce(
+    lifecycle,
+    new Error(`Process '${lifecycle.options.command}' ${detail} ${timeoutMs}ms.`),
+  );
+}
+
+/*** Normalize a child-process spawn error and reject the lifecycle once. */
+function rejectProcessError(lifecycle: ProcessLifecycle, error: Error): void {
+  const code = Reflect.get(error, 'code');
+  const message =
+    code === 'ENOENT'
+      ? `Executable '${lifecycle.options.command}' was not found in PATH.`
+      : `Failed to start '${lifecycle.options.command}': ${error.message}`;
+  rejectProcessOnce(lifecycle, new Error(message, { cause: error }));
+}
+
+/*** Resolve or reject one process lifecycle from its final exit code or signal. */
+function settleProcessClose(
+  lifecycle: ProcessLifecycle,
+  code: number | null,
+  signal: NodeJS.Signals | undefined,
+): void {
+  if (lifecycle.settled) {
+    clearProcessTimers(lifecycle);
+    return;
+  }
+  lifecycle.settled = true;
+  clearProcessTimers(lifecycle);
+  if (code === 0) {
+    lifecycle.resolve();
+    return;
+  }
+  lifecycle.reject(
+    code === null
+      ? new Error(`Process '${lifecycle.options.command}' terminated by signal ${signal ?? 'unknown'}.`)
+      : new Error(`Process '${lifecycle.options.command}' failed with code ${code}.`),
+  );
+}
+
+/*** Reject a process lifecycle once and clear all timers owned by it. */
+function rejectProcessOnce(lifecycle: ProcessLifecycle, error: Error): void {
+  if (lifecycle.settled) return;
+  lifecycle.settled = true;
+  clearProcessTimers(lifecycle);
+  lifecycle.reject(error);
+}
+
+/*** Clear every timeout owned by one spawned-process lifecycle. */
+function clearProcessTimers(lifecycle: ProcessLifecycle): void {
+  if (lifecycle.spawnTimeout !== undefined) clearTimeout(lifecycle.spawnTimeout);
+  if (lifecycle.hardTimeout !== undefined) clearTimeout(lifecycle.hardTimeout);
+  if (lifecycle.killTimeout !== undefined) clearTimeout(lifecycle.killTimeout);
 }
