@@ -1,3 +1,5 @@
+export type DropZoneKind = 'before' | 'inside' | 'after';
+
 export interface Rect {
   readonly x: number;
   readonly y: number;
