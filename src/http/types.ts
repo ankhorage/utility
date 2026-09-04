@@ -1,5 +1,5 @@
 export type FetchLike = (
-  input: RequestInfo | URL,
+  input: string | URL,
   init?: RequestInit,
 ) => Promise<Response>;
 
