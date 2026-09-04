@@ -1,5 +1,7 @@
 export { rectArraysEqual } from './rectArraysEqual.js';
 export { rectsEqual } from './rectsEqual.js';
+export { resolveDropZoneRect } from './resolveDropZoneRect.js';
+export { sortByRectArea } from './sortByRectArea.js';
 export { toRect } from './toRect.js';
-export type { Rect } from './types.js';
+export type { DropZoneKind, Rect } from './types.js';
 export { unionRects } from './unionRects.js';
