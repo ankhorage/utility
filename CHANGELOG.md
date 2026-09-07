@@ -1,5 +1,11 @@
 # @ankhorage/utility
 
+## 0.4.0
+
+### Minor Changes
+
+- ae08eb7: Own reusable JavaScript string/source-literal serialization and safe static named-import validation in the string and validation APIs. Extract the existing Navigator behavior without any Navigator or framework dependency.
+
 ## 0.3.0
 
 ### Minor Changes
