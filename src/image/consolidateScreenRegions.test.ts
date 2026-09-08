@@ -54,5 +54,5 @@ test('leaves isolated small regions untouched instead of inventing a group', () 
     { x: 260, y: 400, width: 20, height: 20 },
   ];
 
-  expect(consolidateScreenRegions(isolated, 300, 500)).toEqual(isolated);
+  expect(consolidateScreenRegions(isolated, 300, 500)).toEqual([...isolated]);
 });
