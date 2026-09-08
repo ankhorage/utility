@@ -1,5 +1,6 @@
 import cvModule from '@techstark/opencv-js';
 
+import { consolidateScreenRegions } from './consolidateScreenRegions.js';
 import { createScreenVisualGraph } from './createScreenVisualGraph.js';
 import type { ScreenImagePixels, ScreenImageRect, ScreenImageVisualGraph } from './types.js';
 
@@ -28,7 +29,8 @@ export async function detectScreenRegionsAsync(
     cv.Canny(gray, edges, 40, 120);
     cv.findContours(edges, contours, hierarchy, retrievalMode, contourApproximation);
 
-    const regions = collectRegions(cv, contours, pixels.width, pixels.height);
+    const detected = collectRegions(cv, contours, pixels.width, pixels.height);
+    const regions = consolidateScreenRegions(detected, pixels.width, pixels.height);
     return createScreenVisualGraph(regions, pixels.width, pixels.height);
   } finally {
     hierarchy.delete();

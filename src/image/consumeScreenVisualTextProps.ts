@@ -1,5 +1,7 @@
 import type { UiComponentMeta } from '@ankhorage/contracts';
 
+import { collectScreenVisualTexts } from './collectScreenVisualTexts.js';
+import { isScreenTextContentPropName } from './isScreenTextContentPropName.js';
 import type { ScreenImageVisualNode } from './types.js';
 
 const LARGE_UNTEXTED_LEAF_RATIO = 0.08;
@@ -9,7 +11,7 @@ export function consumeScreenVisualTextProps(
   visual: ScreenImageVisualNode,
   component: UiComponentMeta,
 ): Readonly<Record<string, unknown>> | undefined {
-  const texts = collectVisualTexts(visual);
+  const texts = collectScreenVisualTexts(visual);
   if (texts.length === 0 || hasSubstantialUntextedLeaf(visual)) {
     return undefined;
   }
@@ -28,39 +30,10 @@ export function consumeScreenVisualTextProps(
 function resolveConsumableTextPropNames(component: UiComponentMeta): readonly string[] {
   const i18nNames = component.i18n?.fields.map((field) => field.defaultTextProp) ?? [];
   const remainingNames = Object.entries(component.props)
-    .filter(([name, schema]) => schema.type === 'string' && isTextContentPropName(name))
+    .filter(([name, schema]) => schema.type === 'string' && isScreenTextContentPropName(name))
     .map(([name]) => name)
     .filter((name) => !i18nNames.includes(name));
   return [...i18nNames, ...remainingNames];
-}
-
-/*** Limit automatic OCR mapping to visible copy-like prop names rather than identifiers or URLs. */
-function isTextContentPropName(name: string): boolean {
-  const normalized = name.toLowerCase();
-  return [
-    'body',
-    'brand',
-    'caption',
-    'description',
-    'eyebrow',
-    'label',
-    'message',
-    'name',
-    'price',
-    'subtitle',
-    'text',
-    'title',
-    'vendor',
-  ].some((token) => normalized.includes(token));
-}
-
-/*** Collect OCR text from a visual subtree in deterministic screen-tree order. */
-function collectVisualTexts(visual: ScreenImageVisualNode): readonly string[] {
-  const ownText = visual.text?.trim();
-  return [
-    ...(ownText ? [ownText] : []),
-    ...visual.children.flatMap((child) => collectVisualTexts(child)),
-  ];
 }
 
 /*** Detect a large geometry leaf that cannot safely be discarded as text-only detail. */
