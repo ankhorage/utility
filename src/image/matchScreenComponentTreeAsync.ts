@@ -179,6 +179,7 @@ async function scoreCandidatesAsync(
   const eligible = context.components.filter(
     (component) =>
       component.directManifestNode &&
+      isRootCandidate(visual, component) &&
       component.name !== context.unresolvedComponentName &&
       (!allowedNames || allowedNames.has(component.name)),
   );
@@ -211,6 +212,11 @@ async function scoreCandidatesAsync(
     });
   });
   return ordered;
+}
+
+/*** Keep the visual screen root structural while allowing semantic matching below it. */
+function isRootCandidate(visual: ScreenImageVisualNode, component: UiComponentMeta): boolean {
+  return visual.id !== 'screen' || component.category === 'layout';
 }
 
 /*** Score component metadata against one visual subtree without product-specific component tables. */
