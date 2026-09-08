@@ -1,5 +1,6 @@
 import type { UiComponentMeta } from '@ankhorage/contracts';
 
+import { consumeScreenVisualRepeatedProps } from './consumeScreenVisualRepeatedProps.js';
 import { consumeScreenVisualTextProps } from './consumeScreenVisualTextProps.js';
 import type {
   ScoredScreenImageCandidate,
@@ -45,11 +46,12 @@ async function scoreCandidateAsync(
   context: ScreenImageMatchContext,
 ): Promise<ScoredScreenImageCandidate> {
   const canConsumeText = Boolean(consumeScreenVisualTextProps(visual, component));
-  const base = scoreMetadata(visual, component, canConsumeText);
+  const canConsumeRepeated = Boolean(consumeScreenVisualRepeatedProps(visual, component));
+  const base = scoreMetadata(visual, component, canConsumeText, canConsumeRepeated);
   if (!context.visualSimilarity) {
     return {
       component,
-      score: applyInteractionEvidenceGate(base, component, context, canConsumeText),
+      score: applyInteractionEvidenceGate(base, component, context, canConsumeRepeated),
     };
   }
 
@@ -63,7 +65,7 @@ async function scoreCandidateAsync(
       combined,
       component,
       context,
-      canConsumeText,
+      canConsumeRepeated,
       visualScore,
     ),
   };
@@ -79,6 +81,7 @@ function scoreMetadata(
   visual: ScreenImageVisualNode,
   component: UiComponentMeta,
   canConsumeText: boolean,
+  canConsumeRepeated: boolean,
 ): number {
   const haystack = `${component.name} ${component.description ?? ''}`.toLowerCase();
   return clamp(
@@ -88,21 +91,22 @@ function scoreMetadata(
       repeatedSemanticScore(visual, haystack) +
       textSemanticScore(visual, haystack) +
       propConsumptionSemanticScore(canConsumeText) +
+      repeatedPropConsumptionSemanticScore(canConsumeRepeated) +
       patternSemanticScore(visual, component),
   );
 }
 
-/*** Keep interactive metadata below the confidence gate until interaction-specific evidence exists. */
+/*** Keep interactive metadata below the confidence gate until non-text interaction evidence exists. */
 function applyInteractionEvidenceGate(
   score: number,
   component: UiComponentMeta,
   context: ScreenImageMatchContext,
-  canConsumeText: boolean,
+  canConsumeRepeated: boolean,
   visualScore?: number,
 ): number {
   if (
     !hasInteractionContract(component) ||
-    canConsumeText ||
+    canConsumeRepeated ||
     (visualScore !== undefined && visualScore >= context.minConfidence)
   ) {
     return score;
@@ -137,7 +141,7 @@ function arrangementSemanticScore(visual: ScreenImageVisualNode, haystack: strin
   }
   if (
     visual.arrangement === 'vertical' &&
-    containsAny(haystack, ['stack', 'list', 'section', 'column'])
+    containsAny(haystack, ['stack', 'list', 'section', 'column', 'group'])
   ) {
     return 0.2;
   }
@@ -146,7 +150,7 @@ function arrangementSemanticScore(visual: ScreenImageVisualNode, haystack: strin
 
 /*** Score repeated visual geometry against generic repeated-content semantics. */
 function repeatedSemanticScore(visual: ScreenImageVisualNode, haystack: string): number {
-  return visual.repeated && containsAny(haystack, ['card', 'item', 'list', 'grid', 'rail', 'row'])
+  return visual.repeated && containsAny(haystack, ['card', 'item', 'list', 'grid', 'rail', 'row', 'group'])
     ? 0.2
     : 0;
 }
@@ -167,6 +171,11 @@ function hasVisualText(visual: ScreenImageVisualNode): boolean {
 /*** Reward a component when its declared string props can consume the visible text subtree. */
 function propConsumptionSemanticScore(canConsumeText: boolean): number {
   return canConsumeText ? 0.25 : 0;
+}
+
+/*** Reward owner metadata that can consume a repeated visual subtree into structured array props. */
+function repeatedPropConsumptionSemanticScore(canConsumeRepeated: boolean): number {
+  return canConsumeRepeated ? 0.3 : 0;
 }
 
 /*** Slightly favor semantic patterns that can consume a meaningful visual subtree. */
