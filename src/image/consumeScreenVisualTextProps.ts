@@ -30,9 +30,7 @@ export function consumeScreenVisualTextProps(
 function resolveConsumableTextPropNames(component: UiComponentMeta): readonly string[] {
   const i18nNames = component.i18n?.fields.map((field) => field.defaultTextProp) ?? [];
   const remainingNames = Object.entries(component.props)
-    .filter(
-      ([name, schema]) => schema.type === 'string' && isScreenTextContentPropName(name),
-    )
+    .filter(([name, schema]) => schema.type === 'string' && isScreenTextContentPropName(name))
     .map(([name]) => name)
     .filter((name) => !i18nNames.includes(name));
   return [...i18nNames, ...remainingNames];
