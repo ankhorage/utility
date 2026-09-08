@@ -12,14 +12,14 @@ export function groupRepeatedScreenVisualChildren(
   let index = 0;
 
   while (index < children.length) {
-    const first = children[index];
+    const first = children.at(index);
     if (!first) break;
 
     const run = [first];
     let nextIndex = index + 1;
     while (nextIndex < children.length) {
       const previous = run.at(-1);
-      const candidate = children[nextIndex];
+      const candidate = children.at(nextIndex);
       if (!previous || !candidate || !sharesRepeatedRun(previous, candidate)) break;
       run.push(candidate);
       nextIndex += 1;
@@ -41,11 +41,15 @@ function sharesRepeatedRun(left: ScreenImageVisualNode, right: ScreenImageVisual
   if (!hasSimilarSize(left, right)) return false;
 
   const vertical =
-    centerOffsetX(left, right) <= Math.max(left.bounds.width, right.bounds.width) * ALIGNMENT_FACTOR &&
-    forwardVerticalGap(left, right) <= Math.max(left.bounds.height, right.bounds.height) * MAX_GAP_FACTOR;
+    centerOffsetX(left, right) <=
+      Math.max(left.bounds.width, right.bounds.width) * ALIGNMENT_FACTOR &&
+    forwardVerticalGap(left, right) <=
+      Math.max(left.bounds.height, right.bounds.height) * MAX_GAP_FACTOR;
   const horizontal =
-    centerOffsetY(left, right) <= Math.max(left.bounds.height, right.bounds.height) * ALIGNMENT_FACTOR &&
-    forwardHorizontalGap(left, right) <= Math.max(left.bounds.width, right.bounds.width) * MAX_GAP_FACTOR;
+    centerOffsetY(left, right) <=
+      Math.max(left.bounds.height, right.bounds.height) * ALIGNMENT_FACTOR &&
+    forwardHorizontalGap(left, right) <=
+      Math.max(left.bounds.width, right.bounds.width) * MAX_GAP_FACTOR;
   return vertical || horizontal;
 }
 
