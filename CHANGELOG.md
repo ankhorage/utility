@@ -1,5 +1,11 @@
 # @ankhorage/utility
 
+## 0.5.5
+
+### Patch Changes
+
+- 9ba2692: Exclude evidenced decorative glyphs from Tesseract line observations while preserving uncertain text.
+
 ## 0.5.4
 
 ### Patch Changes
