@@ -63,10 +63,7 @@ async function solveNodeAsync(
   allowedNames?: ReadonlySet<string>,
 ): Promise<MatchedScreenImageNode | undefined> {
   const preferred = await matchPreferredNodeAsync(visual, context, allowedNames);
-  return (
-    preferred.match ??
-    resolveUnresolvedNode(visual, context, allowedNames, preferred.scored)
-  );
+  return preferred.match ?? resolveUnresolvedNode(visual, context, allowedNames, preferred.scored);
 }
 
 /*** Match only confidence-qualified semantic candidates without applying unresolved fallback. */
@@ -163,7 +160,7 @@ function createRepeatedGroupVisualNode(
   children: readonly ScreenImageVisualNode[],
 ): ScreenImageVisualNode {
   const bounds = unionRects(children.map((child) => child.bounds));
-  const first = children[0];
+  const [first] = children;
   const last = children.at(-1);
   if (!bounds || !first || !last) {
     throw new Error('Cannot create a repeated visual group from an empty sibling run.');
