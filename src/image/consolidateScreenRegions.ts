@@ -73,8 +73,7 @@ function sharesVisualRow(left: IndexedScreenRegion, right: IndexedScreenRegion):
     verticalOverlapRatio(leftRegion, rightRegion) >= MIN_ROW_VERTICAL_OVERLAP ||
     centerOffsetY(leftRegion, rightRegion) <= maxHeight * MAX_ROW_CENTER_OFFSET_FACTOR;
   return (
-    aligned &&
-    horizontalGap(leftRegion, rightRegion) <= maxHeight * MAX_ROW_HORIZONTAL_GAP_FACTOR
+    aligned && horizontalGap(leftRegion, rightRegion) <= maxHeight * MAX_ROW_HORIZONTAL_GAP_FACTOR
   );
 }
 
