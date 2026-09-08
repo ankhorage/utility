@@ -29,10 +29,19 @@ export interface ScreenImageVisualGraph {
 export interface ScreenImageTextObservation {
   readonly text: string;
   readonly bounds?: ScreenImageRect;
+  /** Normalized zero-to-one OCR confidence when the provider exposes it. */
+  readonly confidence?: number;
+}
+
+export interface ScreenImageOcrRequest {
+  readonly scope: 'region' | 'screen';
 }
 
 export interface ScreenImageOcr {
-  readonly recognizeAsync: (image: Uint8Array) => Promise<readonly ScreenImageTextObservation[]>;
+  readonly recognizeAsync: (
+    image: Uint8Array,
+    request?: ScreenImageOcrRequest,
+  ) => Promise<readonly ScreenImageTextObservation[]>;
   readonly terminateAsync?: () => Promise<void>;
 }
 

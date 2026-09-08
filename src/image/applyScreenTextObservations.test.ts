@@ -38,4 +38,37 @@ describe('applyScreenTextObservations', () => {
       'Fallback text',
     );
   });
+
+  test('preserves bounded OCR-only copy as grouped visual evidence', () => {
+    const result = applyScreenTextObservations(graph, [
+      { text: 'Build a clearer', bounds: { x: 30, y: 82, width: 140, height: 14 } },
+      { text: 'understanding of', bounds: { x: 38, y: 102, width: 124, height: 14 } },
+      { text: 'your decisions.', bounds: { x: 45, y: 122, width: 110, height: 14 } },
+      { text: 'Learn the rules', bounds: { x: 55, y: 170, width: 90, height: 14 } },
+    ]);
+
+    expect(result.root.text).toBeUndefined();
+    expect(result.root.children.map((child) => child.text).filter(Boolean)).toEqual([
+      'Build a clearer understanding of your decisions.',
+      'Learn the rules',
+    ]);
+    expect(result.root.children[1]?.id).toBe('ocr-001');
+    expect(result.root.children[1]?.bounds).toEqual({
+      x: 30,
+      y: 82,
+      width: 140,
+      height: 54,
+    });
+  });
+
+  test('preserves existing text evidence when applying a later OCR pass', () => {
+    const first = applyScreenTextObservations(graph, [
+      { text: 'Existing', bounds: { x: 20, y: 20, width: 60, height: 20 } },
+    ]);
+    const second = applyScreenTextObservations(first, [
+      { text: 'Recovered', bounds: { x: 90, y: 20, width: 70, height: 20 } },
+    ]);
+
+    expect(second.root.children[0]?.text).toBe('Existing Recovered');
+  });
 });

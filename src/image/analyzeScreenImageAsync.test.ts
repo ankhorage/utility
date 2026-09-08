@@ -69,3 +69,29 @@ describe('analyzeScreenImageAsync', () => {
     expect(result.diagnostics.some((diagnostic) => diagnostic.kind === 'ocr')).toBe(true);
   });
 });
+
+describe('analyzeScreenImageAsync region OCR', () => {
+  test('uses targeted region OCR only after whole-screen OCR leaves regions textless', async () => {
+    const image = await createScreenFixtureAsync();
+    const scopes: string[] = [];
+    const result = await analyzeScreenImageAsync(image, {
+      screen: { id: 'home', name: 'Home' },
+      components,
+      minConfidence: 0.2,
+      ocr: {
+        recognizeAsync: (_input, request) => {
+          scopes.push(request?.scope ?? 'unknown');
+          return Promise.resolve(
+            request?.scope === 'region' ? [{ text: 'Recovered region', confidence: 0.96 }] : [],
+          );
+        },
+      },
+    });
+
+    expect(scopes[0]).toBe('screen');
+    expect(scopes.filter((scope) => scope === 'region')).toHaveLength(3);
+    expect(result.graph.root.children.every((child) => child.text === 'Recovered region')).toBe(
+      true,
+    );
+  });
+});
