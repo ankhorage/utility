@@ -44,15 +44,29 @@ async function scoreCandidateAsync(
   component: UiComponentMeta,
   context: ScreenImageMatchContext,
 ): Promise<ScoredScreenImageCandidate> {
-  const base = scoreMetadata(visual, component);
+  const canConsumeText = Boolean(consumeScreenVisualTextProps(visual, component));
+  const base = scoreMetadata(visual, component, canConsumeText);
   if (!context.visualSimilarity) {
-    return { component, score: base };
+    return {
+      component,
+      score: applyInteractionEvidenceGate(base, component, context, canConsumeText),
+    };
   }
 
   const visualScore = clamp(
     await context.visualSimilarity.scoreAsync({ image: context.image, node: visual, component }),
   );
-  return { component, score: clamp(base * 0.65 + visualScore * 0.35) };
+  const combined = clamp(base * 0.65 + visualScore * 0.35);
+  return {
+    component,
+    score: applyInteractionEvidenceGate(
+      combined,
+      component,
+      context,
+      canConsumeText,
+      visualScore,
+    ),
+  };
 }
 
 /*** Keep the visual screen root structural while allowing semantic matching below it. */
@@ -61,7 +75,11 @@ function isRootCandidate(visual: ScreenImageVisualNode, component: UiComponentMe
 }
 
 /*** Score component metadata without product-specific component tables. */
-function scoreMetadata(visual: ScreenImageVisualNode, component: UiComponentMeta): number {
+function scoreMetadata(
+  visual: ScreenImageVisualNode,
+  component: UiComponentMeta,
+  canConsumeText: boolean,
+): number {
   const haystack = `${component.name} ${component.description ?? ''}`.toLowerCase();
   return clamp(
     categoryBaseScore(component.category, visual.children.length > 0) +
@@ -69,8 +87,35 @@ function scoreMetadata(visual: ScreenImageVisualNode, component: UiComponentMeta
       arrangementSemanticScore(visual, haystack) +
       repeatedSemanticScore(visual, haystack) +
       textSemanticScore(visual, haystack) +
-      propConsumptionSemanticScore(visual, component) +
+      propConsumptionSemanticScore(canConsumeText) +
       patternSemanticScore(visual, component),
+  );
+}
+
+/*** Keep interactive metadata below the confidence gate until interaction-specific evidence exists. */
+function applyInteractionEvidenceGate(
+  score: number,
+  component: UiComponentMeta,
+  context: ScreenImageMatchContext,
+  canConsumeText: boolean,
+  visualScore?: number,
+): number {
+  if (
+    !hasInteractionContract(component) ||
+    canConsumeText ||
+    (visualScore !== undefined && visualScore >= context.minConfidence)
+  ) {
+    return score;
+  }
+  return Math.min(score, Math.max(0, context.minConfidence - 0.01));
+}
+
+/*** Detect interactivity exclusively from owner-supplied metadata contracts. */
+function hasInteractionContract(component: UiComponentMeta): boolean {
+  return (
+    Object.keys(component.events ?? {}).length > 0 ||
+    Object.keys(component.bindings?.events ?? {}).length > 0 ||
+    Object.values(component.props).some((prop) => prop.type === 'action')
   );
 }
 
@@ -120,11 +165,8 @@ function hasVisualText(visual: ScreenImageVisualNode): boolean {
 }
 
 /*** Reward a component when its declared string props can consume the visible text subtree. */
-function propConsumptionSemanticScore(
-  visual: ScreenImageVisualNode,
-  component: UiComponentMeta,
-): number {
-  return consumeScreenVisualTextProps(visual, component) ? 0.25 : 0;
+function propConsumptionSemanticScore(canConsumeText: boolean): number {
+  return canConsumeText ? 0.25 : 0;
 }
 
 /*** Slightly favor semantic patterns that can consume a meaningful visual subtree. */
@@ -134,21 +176,21 @@ function patternSemanticScore(visual: ScreenImageVisualNode, component: UiCompon
     : 0;
 }
 
-/*** Return a base confidence favoring semantic components for subtrees and components for leaves. */
+/*** Return evidence-neutral category priors that remain below normal confidence on their own. */
 function categoryBaseScore(category: string, hasChildren: boolean): number {
   const normalized = category.toLowerCase();
   if (hasChildren) {
-    if (normalized === 'pattern') return 0.48;
-    if (normalized === 'layout') return 0.44;
+    if (normalized === 'pattern') return 0.4;
+    if (normalized === 'layout') return 0.38;
     if (normalized === 'component') return 0.3;
     if (normalized === 'foundation') return 0.26;
     return 0.24;
   }
-  if (normalized === 'component') return 0.48;
-  if (normalized === 'foundation') return 0.4;
-  if (normalized === 'pattern') return 0.32;
-  if (normalized === 'layout') return 0.22;
-  return 0.25;
+  if (normalized === 'component') return 0.28;
+  if (normalized === 'foundation') return 0.26;
+  if (normalized === 'pattern') return 0.24;
+  if (normalized === 'layout') return 0.2;
+  return 0.2;
 }
 
 /*** Rank component categories so semantic patterns win score ties over primitives. */
