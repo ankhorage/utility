@@ -6,18 +6,30 @@
       "name": "@ankhorage/utility",
       "dependencies": {
         "@ankhorage/contracts": "^12.0.1",
+      },
+      "devDependencies": {
+        "@ankhorage/devtools": "^1.13.0",
+        "@ankhorage/paradox": "^0.1.24",
+        "@techstark/opencv-js": "^5.0.0-release.1",
+        "@types/bun": "^1.4.1",
+        "@types/node": "^25.6.0",
+        "pixelmatch": "^7.2.0",
+        "sharp": "^0.35.4",
+        "tesseract.js": "^7.0.0",
+        "typescript": "^5.9.3",
+      },
+      "peerDependencies": {
         "@techstark/opencv-js": "^5.0.0-release.1",
         "pixelmatch": "^7.2.0",
         "sharp": "^0.35.4",
         "tesseract.js": "^7.0.0",
       },
-      "devDependencies": {
-        "@ankhorage/devtools": "^1.13.0",
-        "@ankhorage/paradox": "^0.1.24",
-        "@types/bun": "^1.4.1",
-        "@types/node": "^25.6.0",
-        "typescript": "^5.9.3",
-      },
+      "optionalPeers": [
+        "@techstark/opencv-js",
+        "pixelmatch",
+        "sharp",
+        "tesseract.js",
+      ],
     },
   },
   "packages": {

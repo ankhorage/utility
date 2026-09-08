@@ -31,9 +31,7 @@ export function createScreenVisualGraph(
     childrenByParent.set(parentIndex, children);
   });
 
-  const regionsByIndex = new Map(
-    orderedRegions.map((region, index) => [index, region] as const),
-  );
+  const regionsByIndex = new Map(orderedRegions.map((region, index) => [index, region] as const));
   const rootChildren = rootIndexes.map((index) => {
     const region = regionsByIndex.get(index);
     if (!region) {

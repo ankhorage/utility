@@ -306,7 +306,9 @@ function consumeVisualTextProps(
     return undefined;
   }
 
-  return Object.fromEntries(texts.map((text, index) => [propNames.at(index), text] as const).filter(hasDefinedKey));
+  return Object.fromEntries(
+    texts.map((text, index) => [propNames.at(index), text] as const).filter(hasDefinedKey),
+  );
 }
 
 /*** Resolve declared string content props in owner-defined authoring order. */
@@ -364,7 +366,9 @@ function hasSubstantialUntextedLeaf(visual: ScreenImageVisualNode): boolean {
 }
 
 /*** Keep only text-to-prop entries whose metadata key was resolved. */
-function hasDefinedKey(entry: readonly [string | undefined, string]): entry is readonly [string, string] {
+function hasDefinedKey(
+  entry: readonly [string | undefined, string],
+): entry is readonly [string, string] {
   return entry[0] !== undefined;
 }
 
