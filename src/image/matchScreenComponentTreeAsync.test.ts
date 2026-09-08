@@ -1,5 +1,5 @@
-import { describe, expect, test } from 'bun:test';
 import type { UiComponentMeta } from '@ankhorage/contracts';
+import { expect, test } from 'bun:test';
 
 import { matchScreenComponentTreeAsync } from './matchScreenComponentTreeAsync';
 import type { ScreenImageVisualNode } from './types';
@@ -89,107 +89,105 @@ const root: ScreenImageVisualNode = {
   ],
 };
 
-describe('matchScreenComponentTreeAsync', () => {
-  test('lets a semantic pattern consume a visual text subtree into declared props', async () => {
-    const result = await matchScreenComponentTreeAsync({
-      image: new Uint8Array(),
-      root,
-      components,
-      screenId: 'home',
-      minConfidence: 0.4,
-    });
-
-    expect(result.root.type).toBe('Screen');
-    expect(result.root.children?.[0]?.type).toBe('Hero');
-    expect(result.root.children?.[0]?.children).toBeUndefined();
-    expect(result.root.children?.[0]?.props).toEqual({
-      title: 'Welcome',
-      description: 'Start here',
-    });
+test('lets a semantic pattern consume a visual text subtree into declared props', async () => {
+  const result = await matchScreenComponentTreeAsync({
+    image: new Uint8Array(),
+    root,
+    components,
+    screenId: 'home',
+    minConfidence: 0.4,
   });
 
-  test('rejects a pattern that cannot represent its visual subtree', async () => {
-    const invalidHero: readonly UiComponentMeta[] = components.map((component) =>
-      component.name === 'Hero'
-        ? {
-            name: 'Hero',
-            category: 'pattern',
-            directManifestNode: true,
-            allowedChildren: [],
-            description: 'Hero section with heading and supporting text',
-            props: {},
-          }
-        : component,
-    );
-    const result = await matchScreenComponentTreeAsync({
-      image: new Uint8Array(),
-      root,
-      components: invalidHero,
-      screenId: 'home',
-      minConfidence: 0.4,
-    });
+  expect(result.root.type).toBe('Screen');
+  expect(result.root.children?.[0]?.type).toBe('Hero');
+  expect(result.root.children?.[0]?.children).toBeUndefined();
+  expect(result.root.children?.[0]?.props).toEqual({
+    title: 'Welcome',
+    description: 'Start here',
+  });
+});
 
-    expect(result.root.children?.[0]?.type).toBe('Stack');
-    expect(result.root.children?.[0]?.children?.[0]?.type).toBe('Text');
+test('rejects a pattern that cannot represent its visual subtree', async () => {
+  const invalidHero: readonly UiComponentMeta[] = components.map((component) =>
+    component.name === 'Hero'
+      ? {
+          name: 'Hero',
+          category: 'pattern',
+          directManifestNode: true,
+          allowedChildren: [],
+          description: 'Hero section with heading and supporting text',
+          props: {},
+        }
+      : component,
+  );
+  const result = await matchScreenComponentTreeAsync({
+    image: new Uint8Array(),
+    root,
+    components: invalidHero,
+    screenId: 'home',
+    minConfidence: 0.4,
   });
 
-  test('uses optional visual similarity as additional evidence', async () => {
-    const result = await matchScreenComponentTreeAsync({
-      image: new Uint8Array([1]),
-      root,
-      components,
-      screenId: 'home',
-      minConfidence: 0.4,
-      visualSimilarity: {
-        scoreAsync: ({ component }) => Promise.resolve(component.name === 'Stack' ? 1 : 0),
+  expect(result.root.children?.[0]?.type).toBe('Stack');
+  expect(result.root.children?.[0]?.children?.[0]?.type).toBe('Text');
+});
+
+test('uses optional visual similarity as additional evidence', async () => {
+  const result = await matchScreenComponentTreeAsync({
+    image: new Uint8Array([1]),
+    root,
+    components,
+    screenId: 'home',
+    minConfidence: 0.4,
+    visualSimilarity: {
+      scoreAsync: ({ component }) => Promise.resolve(component.name === 'Stack' ? 1 : 0),
+    },
+  });
+
+  expect(result.candidates.some((candidate) => candidate.componentName === 'Stack')).toBe(true);
+});
+
+test('reports multiple ranked alternatives as ambiguity evidence', async () => {
+  const result = await matchScreenComponentTreeAsync({
+    image: new Uint8Array(),
+    root,
+    components,
+    screenId: 'home',
+    minConfidence: 0.4,
+  });
+  const alternatives = result.candidates.filter((candidate) => candidate.nodeId === 'region-001');
+
+  expect(alternatives.length).toBeGreaterThan(1);
+  expect(alternatives[0]?.score).toBeGreaterThanOrEqual(alternatives[1]?.score ?? 0);
+});
+
+test('uses an explicit unresolved marker instead of a low-confidence invented component', async () => {
+  const blankRoot: ScreenImageVisualNode = {
+    ...root,
+    children: [
+      {
+        id: 'region-blank',
+        bounds: { x: 20, y: 20, width: 160, height: 100 },
+        arrangement: 'none',
+        repeated: false,
+        children: [],
       },
-    });
-
-    expect(result.candidates.some((candidate) => candidate.componentName === 'Stack')).toBe(true);
+    ],
+  };
+  const result = await matchScreenComponentTreeAsync({
+    image: new Uint8Array(),
+    root: blankRoot,
+    components,
+    screenId: 'home',
+    minConfidence: 0.9,
+    unresolvedComponentName: 'MissingElement',
+    visualSimilarity: {
+      scoreAsync: ({ component }) => Promise.resolve(component.name === 'Screen' ? 1 : 0),
+    },
   });
 
-  test('reports multiple ranked alternatives as ambiguity evidence', async () => {
-    const result = await matchScreenComponentTreeAsync({
-      image: new Uint8Array(),
-      root,
-      components,
-      screenId: 'home',
-      minConfidence: 0.4,
-    });
-    const alternatives = result.candidates.filter((candidate) => candidate.nodeId === 'region-001');
-
-    expect(alternatives.length).toBeGreaterThan(1);
-    expect(alternatives[0]?.score).toBeGreaterThanOrEqual(alternatives[1]?.score ?? 0);
-  });
-
-  test('uses an explicit unresolved marker instead of a low-confidence invented component', async () => {
-    const blankRoot: ScreenImageVisualNode = {
-      ...root,
-      children: [
-        {
-          id: 'region-blank',
-          bounds: { x: 20, y: 20, width: 160, height: 100 },
-          arrangement: 'none',
-          repeated: false,
-          children: [],
-        },
-      ],
-    };
-    const result = await matchScreenComponentTreeAsync({
-      image: new Uint8Array(),
-      root: blankRoot,
-      components,
-      screenId: 'home',
-      minConfidence: 0.9,
-      unresolvedComponentName: 'MissingElement',
-      visualSimilarity: {
-        scoreAsync: ({ component }) => Promise.resolve(component.name === 'Screen' ? 1 : 0),
-      },
-    });
-
-    expect(result.root.type).toBe('Screen');
-    expect(result.root.children?.[0]?.type).toBe('MissingElement');
-    expect(result.root.children?.[0]?.props).toEqual({ reason: 'No matching component.' });
-    expect(result.diagnostics.some((diagnostic) => diagnostic.kind === 'unresolved')).toBe(true);
-  });
+  expect(result.root.type).toBe('Screen');
+  expect(result.root.children?.[0]?.type).toBe('MissingElement');
+  expect(result.root.children?.[0]?.props).toEqual({ reason: 'No matching component.' });
+  expect(result.diagnostics.some((diagnostic) => diagnostic.kind === 'unresolved')).toBe(true);
 });

@@ -1,5 +1,5 @@
-import { describe, expect, test } from 'bun:test';
 import type { UiComponentMeta } from '@ankhorage/contracts';
+import { describe, expect, test } from 'bun:test';
 import sharp from 'sharp';
 
 import { analyzeScreenImageAsync } from './analyzeScreenImageAsync';
