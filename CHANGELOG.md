@@ -1,5 +1,11 @@
 # @ankhorage/utility
 
+## 0.5.1
+
+### Patch Changes
+
+- 8e8970d: Reduce screenshot-recognition over-segmentation and require semantic evidence before interactive component matches can cross the configured confidence threshold.
+
 ## 0.5.0
 
 ### Minor Changes
