@@ -19,16 +19,25 @@ export async function detectScreenRegionsAsync(
   pixels: ScreenImagePixels,
 ): Promise<ScreenImageVisualGraph> {
   const cv = await Promise.resolve(cvModule);
-  const source = cv.matFromArray(pixels.height, pixels.width, cv.CV_8UC4, Array.from(pixels.data));
+  const pixelType = readCvConstant(cv.CV_8UC4, 'CV_8UC4');
+  const rgbaToGray = readCvConstant(cv.COLOR_RGBA2GRAY, 'COLOR_RGBA2GRAY');
+  const retrievalMode = readCvConstant(cv.RETR_LIST, 'RETR_LIST');
+  const contourApproximation = readCvConstant(cv.CHAIN_APPROX_SIMPLE, 'CHAIN_APPROX_SIMPLE');
+  const source = cv.matFromArray(
+    pixels.height,
+    pixels.width,
+    pixelType,
+    Array.from(pixels.data),
+  );
   const gray = new cv.Mat();
   const edges = new cv.Mat();
   const contours = new cv.MatVector();
   const hierarchy = new cv.Mat();
 
   try {
-    cv.cvtColor(source, gray, cv.COLOR_RGBA2GRAY);
+    cv.cvtColor(source, gray, rgbaToGray);
     cv.Canny(gray, edges, 40, 120);
-    cv.findContours(edges, contours, hierarchy, cv.RETR_LIST, cv.CHAIN_APPROX_SIMPLE);
+    cv.findContours(edges, contours, hierarchy, retrievalMode, contourApproximation);
 
     const regions = collectRegions(cv, contours, pixels.width, pixels.height);
     return createVisualGraph(regions, pixels.width, pixels.height);
@@ -39,6 +48,14 @@ export async function detectScreenRegionsAsync(
     gray.delete();
     source.delete();
   }
+}
+
+/*** Validate an OpenCV numeric constant at the untyped library boundary. */
+function readCvConstant(value: unknown, name: string): number {
+  if (typeof value !== 'number' || !Number.isFinite(value)) {
+    throw new Error(`OpenCV constant ${name} is unavailable.`);
+  }
+  return value;
 }
 
 /*** Collect stable rectangular regions from contour geometry and discard noise or duplicates. */
@@ -82,7 +99,7 @@ function createVisualGraph(
   height: number,
 ): ScreenImageVisualGraph {
   const parentByIndex = regions.map((region, index) => findParentIndex(regions, region, index));
-  const childIndexes = regions.map((): number[] => []);
+  const childrenByParent = new Map<number, number[]>();
   const rootIndexes: number[] = [];
 
   parentByIndex.forEach((parentIndex, index) => {
@@ -90,13 +107,19 @@ function createVisualGraph(
       rootIndexes.push(index);
       return;
     }
-    childIndexes[parentIndex]?.push(index);
+    const children = childrenByParent.get(parentIndex) ?? [];
+    children.push(index);
+    childrenByParent.set(parentIndex, children);
   });
 
-  const nodes = regions.map((region, index) =>
-    createVisualNode(region, index, childIndexes, regions),
-  );
-  const rootChildren = rootIndexes.flatMap((index) => (nodes[index] ? [nodes[index]] : []));
+  const regionsByIndex = new Map(regions.map((region, index) => [index, region] as const));
+  const rootChildren = rootIndexes.map((index) => {
+    const region = regionsByIndex.get(index);
+    if (!region) {
+      throw new Error(`Missing root visual region ${index}.`);
+    }
+    return createVisualNode(region, index, childrenByParent, regionsByIndex);
+  });
   const rootBounds = { x: 0, y: 0, width, height };
 
   return {
@@ -116,18 +139,20 @@ function createVisualGraph(
 function createVisualNode(
   region: ScreenImageRect,
   index: number,
-  childIndexes: readonly (readonly number[])[],
-  regions: readonly ScreenImageRect[],
+  childrenByParent: ReadonlyMap<number, readonly number[]>,
+  regionsByIndex: ReadonlyMap<number, ScreenImageRect>,
 ): ScreenImageVisualNode {
-  const children = [...(childIndexes[index] ?? [])]
-    .sort((left, right) => compareRects(regions[left] ?? region, regions[right] ?? region))
-    .map((childIndex) => {
-      const child = regions[childIndex];
-      if (!child) {
-        throw new Error(`Missing visual region ${childIndex}.`);
-      }
-      return createVisualNode(child, childIndex, childIndexes, regions);
-    });
+  const childIndexes = [...(childrenByParent.get(index) ?? [])];
+  childIndexes.sort((left, right) =>
+    compareRects(regionsByIndex.get(left) ?? region, regionsByIndex.get(right) ?? region),
+  );
+  const children = childIndexes.map((childIndex) => {
+    const child = regionsByIndex.get(childIndex);
+    if (!child) {
+      throw new Error(`Missing visual region ${childIndex}.`);
+    }
+    return createVisualNode(child, childIndex, childrenByParent, regionsByIndex);
+  });
 
   return {
     id: `region-${String(index + 1).padStart(3, '0')}`,

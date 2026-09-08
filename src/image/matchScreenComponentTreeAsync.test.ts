@@ -104,7 +104,7 @@ describe('matchScreenComponentTreeAsync', () => {
       screenId: 'home',
       minConfidence: 0.4,
       visualSimilarity: {
-        scoreAsync: async ({ component }) => (component.name === 'Stack' ? 1 : 0),
+        scoreAsync: ({ component }) => Promise.resolve(component.name === 'Stack' ? 1 : 0),
       },
     });
 

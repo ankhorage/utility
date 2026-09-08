@@ -78,8 +78,8 @@ async function solveNodeAsync(
   const ordered = preferred.length > 0 ? preferred : scored;
 
   for (const entry of ordered) {
-    const allowedChildren = entry.component.allowedChildren;
-    if (visual.children.length > 0 && allowedChildren && allowedChildren.length === 0) {
+    const { allowedChildren } = entry.component;
+    if (visual.children.length > 0 && allowedChildren?.length === 0) {
       continue;
     }
 
@@ -160,40 +160,65 @@ async function scoreCandidatesAsync(
 /*** Score component metadata against one visual subtree without product-specific component tables. */
 function scoreMetadata(visual: ScreenImageVisualNode, component: ScreenImageComponentMeta): number {
   const haystack = `${component.name} ${component.description ?? ''}`.toLowerCase();
-  let score = categoryBaseScore(component.category, visual.children.length > 0);
+  const base = categoryBaseScore(component.category, visual.children.length > 0);
+  return clamp(
+    base +
+      screenSemanticScore(visual, haystack) +
+      arrangementSemanticScore(visual, haystack) +
+      repeatedSemanticScore(visual, haystack) +
+      textSemanticScore(visual, haystack) +
+      patternSemanticScore(visual, component),
+  );
+}
 
-  if (visual.id === 'screen' && containsAny(haystack, ['screen', 'page', 'layout'])) {
-    score += 0.45;
-  }
+/*** Score screen-root semantics from generic component metadata text. */
+function screenSemanticScore(visual: ScreenImageVisualNode, haystack: string): number {
+  return visual.id === 'screen' && containsAny(haystack, ['screen', 'page', 'layout']) ? 0.45 : 0;
+}
+
+/*** Score coarse layout semantics from inferred arrangement and generic metadata text. */
+function arrangementSemanticScore(visual: ScreenImageVisualNode, haystack: string): number {
   if (visual.arrangement === 'grid' && containsAny(haystack, ['grid', 'tile', 'rail'])) {
-    score += 0.3;
+    return 0.3;
   }
   if (
     visual.arrangement === 'horizontal' &&
     containsAny(haystack, ['row', 'inline', 'group', 'rail'])
   ) {
-    score += 0.2;
+    return 0.2;
   }
   if (
     visual.arrangement === 'vertical' &&
     containsAny(haystack, ['stack', 'list', 'section', 'column'])
   ) {
-    score += 0.2;
+    return 0.2;
   }
-  if (visual.repeated && containsAny(haystack, ['card', 'item', 'list', 'grid', 'rail', 'row'])) {
-    score += 0.2;
-  }
-  if (
-    visual.text &&
-    containsAny(haystack, ['text', 'heading', 'label', 'title', 'input', 'search'])
-  ) {
-    score += 0.2;
-  }
-  if (component.category === 'pattern' && visual.children.length >= 2) {
-    score += Math.min(0.15, visual.children.length * 0.03);
-  }
+  return 0;
+}
 
-  return clamp(score);
+/*** Score repeated visual geometry against generic repeated-content component semantics. */
+function repeatedSemanticScore(visual: ScreenImageVisualNode, haystack: string): number {
+  return visual.repeated && containsAny(haystack, ['card', 'item', 'list', 'grid', 'rail', 'row'])
+    ? 0.2
+    : 0;
+}
+
+/*** Score OCR text evidence against generic text-bearing component semantics. */
+function textSemanticScore(visual: ScreenImageVisualNode, haystack: string): number {
+  return visual.text &&
+    containsAny(haystack, ['text', 'heading', 'label', 'title', 'input', 'search'])
+    ? 0.2
+    : 0;
+}
+
+/*** Slightly favor semantic patterns that can consume a meaningful visual subtree. */
+function patternSemanticScore(
+  visual: ScreenImageVisualNode,
+  component: ScreenImageComponentMeta,
+): number {
+  return component.category === 'pattern' && visual.children.length >= 2
+    ? Math.min(0.15, visual.children.length * 0.03)
+    : 0;
 }
 
 /*** Return a base confidence favoring semantic components for subtrees and components for leaves. */
@@ -239,10 +264,11 @@ function textProps(
   component: ScreenImageComponentMeta,
   text: string | undefined,
 ): Record<string, unknown> | undefined {
-  if (!text || !component.props) {
+  const { props } = component;
+  if (!text || !props) {
     return undefined;
   }
-  const key = ['text', 'label', 'title'].find((candidate) => candidate in component.props!);
+  const key = ['text', 'label', 'title'].find((candidate) => candidate in props);
   return key ? { [key]: text } : undefined;
 }
 

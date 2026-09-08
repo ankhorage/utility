@@ -55,9 +55,7 @@ describe('analyzeScreenImageAsync', () => {
       components,
       minConfidence: 0.2,
       ocr: {
-        recognizeAsync: async () => {
-          throw new Error('fixture OCR failure');
-        },
+        recognizeAsync: () => Promise.reject(new Error('fixture OCR failure')),
       },
     });
 

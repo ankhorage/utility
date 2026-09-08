@@ -1,6 +1,6 @@
 import { createWorker, OEM } from 'tesseract.js';
 
-import type { ScreenImageOcr, ScreenImageRect, ScreenImageTextObservation } from './types.js';
+import type { ScreenImageOcr, ScreenImageRect } from './types.js';
 
 /*** Create a local Tesseract OCR adapter using an explicit trained-data path. */
 export async function createTesseractScreenOcrAsync(options: {
