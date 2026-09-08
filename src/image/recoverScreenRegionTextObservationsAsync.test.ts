@@ -24,6 +24,46 @@ const graph: ScreenImageVisualGraph = {
   },
 };
 
+const nestedGraph: ScreenImageVisualGraph = {
+  ...graph,
+  root: {
+    ...graph.root,
+    text: 'Unbounded screen evidence',
+    children: [
+      {
+        id: 'region-001',
+        bounds: { x: 10, y: 10, width: 45, height: 35 },
+        arrangement: 'none',
+        repeated: false,
+        children: [
+          {
+            id: 'region-002',
+            bounds: { x: 15, y: 15, width: 30, height: 15 },
+            arrangement: 'none',
+            repeated: false,
+            text: 'Existing evidence',
+            children: [],
+          },
+          {
+            id: 'region-004',
+            bounds: { x: 12, y: 12, width: 40, height: 30 },
+            arrangement: 'none',
+            repeated: false,
+            children: [],
+          },
+        ],
+      },
+      {
+        id: 'region-003',
+        bounds: { x: 65, y: 20, width: 40, height: 20 },
+        arrangement: 'none',
+        repeated: false,
+        children: [],
+      },
+    ],
+  },
+};
+
 /*** Create a deterministic image fixture for crop preprocessing assertions. */
 async function createFixtureAsync(): Promise<Uint8Array> {
   return Uint8Array.from(
@@ -82,6 +122,24 @@ test('keeps low-confidence region OCR unresolved', async () => {
   });
 
   expect(result.observations).toEqual([]);
+});
+
+test('skips a text-bearing subtree while probing an independent textless sibling', async () => {
+  const receivedSizes: { readonly width?: number; readonly height?: number }[] = [];
+
+  await recoverScreenRegionTextObservationsAsync({
+    image: await createFixtureAsync(),
+    graph: nestedGraph,
+    ocr: {
+      recognizeAsync: async (crop) => {
+        const { width, height } = await sharp(Buffer.from(crop)).metadata();
+        receivedSizes.push({ width, height });
+        return [];
+      },
+    },
+  });
+
+  expect(receivedSizes).toEqual([{ width: 80, height: 40 }]);
 });
 
 test('reports region OCR failure without discarding geometry', async () => {

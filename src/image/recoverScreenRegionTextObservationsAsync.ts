@@ -51,7 +51,11 @@ export async function recoverScreenRegionTextObservationsAsync(input: {
 /*** Collect leaf regions worth probing while avoiding text already owned by an ancestor. */
 function collectRegionCandidates(graph: ScreenImageVisualGraph): readonly ScreenImageVisualNode[] {
   const screenArea = Math.max(1, graph.width * graph.height);
-  return collectRegionCandidatesFromNode(graph.root, screenArea, false);
+  const candidates = collectRegionCandidatesFromNode(graph.root, screenArea, false);
+  const textNodes = collectScreenTextEvidenceNodes(graph.root);
+  return candidates.filter(
+    (candidate) => !textNodes.some((textNode) => overlapsTextCenter(candidate, textNode)),
+  );
 }
 
 /*** Traverse detected regions and return meaningful textless leaves in screen-tree order. */
@@ -66,7 +70,48 @@ function collectRegionCandidatesFromNode(
     collectRegionCandidatesFromNode(child, screenArea, blockedByText),
   );
   if (descendants.length > 0) return descendants;
-  return !blockedByText && isMeaningfulDetectedRegion(node, screenArea) ? [node] : [];
+  const descendantHasText = node.children.some(hasScreenTextEvidence);
+  return !blockedByText && !descendantHasText && isMeaningfulDetectedRegion(node, screenArea)
+    ? [node]
+    : [];
+}
+
+/*** Detect existing OCR evidence anywhere in one visual subtree. */
+function hasScreenTextEvidence(node: ScreenImageVisualNode): boolean {
+  return Boolean(node.text?.trim()) || node.children.some(hasScreenTextEvidence);
+}
+
+/*** Collect visual nodes that already own non-empty OCR evidence. */
+function collectScreenTextEvidenceNodes(
+  node: ScreenImageVisualNode,
+): readonly ScreenImageVisualNode[] {
+  return [
+    ...(node.id !== 'screen' && node.text?.trim() ? [node] : []),
+    ...node.children.flatMap(collectScreenTextEvidenceNodes),
+  ];
+}
+
+/*** Detect a candidate and text node whose centers overlap the other's visual bounds. */
+function overlapsTextCenter(
+  candidate: ScreenImageVisualNode,
+  textNode: ScreenImageVisualNode,
+): boolean {
+  return (
+    containsRectCenter(candidate.bounds, textNode.bounds) ||
+    containsRectCenter(textNode.bounds, candidate.bounds)
+  );
+}
+
+/*** Determine whether one rectangle contains the center of another rectangle. */
+function containsRectCenter(container: ScreenImageRect, target: ScreenImageRect): boolean {
+  const x = target.x + target.width / 2;
+  const y = target.y + target.height / 2;
+  return (
+    x >= container.x &&
+    x <= container.x + container.width &&
+    y >= container.y &&
+    y <= container.y + container.height
+  );
 }
 
 /*** Restrict fallback OCR to substantial OpenCV regions rather than noise or large imagery. */
