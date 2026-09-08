@@ -66,7 +66,11 @@ function consumeRepeatedItem(
   }
 
   const visible = Object.fromEntries(
-    texts.map((text, index) => [contentKeys[index], text]).filter(hasDefinedKey),
+    texts
+      .map(
+        (text, index): readonly [string | undefined, string] => [contentKeys[index], text],
+      )
+      .filter(hasDefinedKey),
   );
   return { ...defaultItem, ...visible };
 }
