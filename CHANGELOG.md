@@ -1,5 +1,11 @@
 # @ankhorage/utility
 
+## 0.5.2
+
+### Patch Changes
+
+- 7b5484f: Preserve OCR-only screenshot copy as grouped visual evidence and recover text from meaningful textless regions with targeted preprocessed OCR.
+
 ## 0.5.1
 
 ### Patch Changes
