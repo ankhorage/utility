@@ -109,8 +109,17 @@ describe('matchScreenComponentTreeAsync', () => {
   });
 
   test('rejects a pattern that cannot represent its visual subtree', async () => {
-    const invalidHero = components.map((component) =>
-      component.name === 'Hero' ? { ...component, i18n: undefined, props: {} } : component,
+    const invalidHero: readonly UiComponentMeta[] = components.map((component) =>
+      component.name === 'Hero'
+        ? {
+            name: 'Hero',
+            category: 'pattern',
+            directManifestNode: true,
+            allowedChildren: [],
+            description: 'Hero section with heading and supporting text',
+            props: {},
+          }
+        : component,
     );
     const result = await matchScreenComponentTreeAsync({
       image: new Uint8Array(),
