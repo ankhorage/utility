@@ -9,7 +9,11 @@ async function createPngAsync(value: number): Promise<Uint8Array> {
   for (let index = 3; index < data.length; index += 4) {
     data[index] = 255;
   }
-  return Uint8Array.from(await sharp(data, { raw: { width: 4, height: 4, channels: 4 } }).png().toBuffer());
+  return Uint8Array.from(
+    await sharp(data, { raw: { width: 4, height: 4, channels: 4 } })
+      .png()
+      .toBuffer(),
+  );
 }
 
 describe('compareScreenImagesAsync', () => {

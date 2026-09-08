@@ -15,7 +15,11 @@ export async function compareScreenImagesAsync(input: {
   ]);
   const dimensionsMatch = expected.width === actual.width && expected.height === actual.height;
   if (!dimensionsMatch) {
-    return { mismatchedPixels: expected.width * expected.height, mismatchRatio: 1, dimensionsMatch };
+    return {
+      mismatchedPixels: expected.width * expected.height,
+      mismatchRatio: 1,
+      dimensionsMatch,
+    };
   }
 
   const mismatchedPixels = pixelmatch(

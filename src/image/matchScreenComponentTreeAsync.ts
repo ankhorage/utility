@@ -60,7 +60,8 @@ export async function matchScreenComponentTreeAsync(input: {
   collectScores(matched, scores);
   return {
     root: toUiNode(matched, input.screenId),
-    confidence: scores.length === 0 ? 0 : scores.reduce((sum, score) => sum + score, 0) / scores.length,
+    confidence:
+      scores.length === 0 ? 0 : scores.reduce((sum, score) => sum + score, 0) / scores.length,
     candidates,
     diagnostics,
   };
@@ -167,16 +168,25 @@ function scoreMetadata(visual: ScreenImageVisualNode, component: ScreenImageComp
   if (visual.arrangement === 'grid' && containsAny(haystack, ['grid', 'tile', 'rail'])) {
     score += 0.3;
   }
-  if (visual.arrangement === 'horizontal' && containsAny(haystack, ['row', 'inline', 'group', 'rail'])) {
+  if (
+    visual.arrangement === 'horizontal' &&
+    containsAny(haystack, ['row', 'inline', 'group', 'rail'])
+  ) {
     score += 0.2;
   }
-  if (visual.arrangement === 'vertical' && containsAny(haystack, ['stack', 'list', 'section', 'column'])) {
+  if (
+    visual.arrangement === 'vertical' &&
+    containsAny(haystack, ['stack', 'list', 'section', 'column'])
+  ) {
     score += 0.2;
   }
   if (visual.repeated && containsAny(haystack, ['card', 'item', 'list', 'grid', 'rail', 'row'])) {
     score += 0.2;
   }
-  if (visual.text && containsAny(haystack, ['text', 'heading', 'label', 'title', 'input', 'search'])) {
+  if (
+    visual.text &&
+    containsAny(haystack, ['text', 'heading', 'label', 'title', 'input', 'search'])
+  ) {
     score += 0.2;
   }
   if (component.category === 'pattern' && visual.children.length >= 2) {

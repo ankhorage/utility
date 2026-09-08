@@ -38,7 +38,12 @@ export async function createTesseractScreenOcrAsync(options: {
 }
 
 /*** Convert a Tesseract bounding box into the screen-analysis rectangle contract. */
-function toRect(bbox: { readonly x0: number; readonly y0: number; readonly x1: number; readonly y1: number }): ScreenImageRect {
+function toRect(bbox: {
+  readonly x0: number;
+  readonly y0: number;
+  readonly x1: number;
+  readonly y1: number;
+}): ScreenImageRect {
   return {
     x: bbox.x0,
     y: bbox.y0,

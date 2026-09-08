@@ -19,12 +19,7 @@ export async function detectScreenRegionsAsync(
   pixels: ScreenImagePixels,
 ): Promise<ScreenImageVisualGraph> {
   const cv = await Promise.resolve(cvModule);
-  const source = cv.matFromArray(
-    pixels.height,
-    pixels.width,
-    cv.CV_8UC4,
-    Array.from(pixels.data),
-  );
+  const source = cv.matFromArray(pixels.height, pixels.width, cv.CV_8UC4, Array.from(pixels.data));
   const gray = new cv.Mat();
   const edges = new cv.Mat();
   const contours = new cv.MatVector();
@@ -98,7 +93,9 @@ function createVisualGraph(
     childIndexes[parentIndex]?.push(index);
   });
 
-  const nodes = regions.map((region, index) => createVisualNode(region, index, childIndexes, regions));
+  const nodes = regions.map((region, index) =>
+    createVisualNode(region, index, childIndexes, regions),
+  );
   const rootChildren = rootIndexes.flatMap((index) => (nodes[index] ? [nodes[index]] : []));
   const rootBounds = { x: 0, y: 0, width, height };
 
@@ -193,7 +190,8 @@ function inferArrangement(children: readonly ScreenImageVisualNode[]): ScreenIma
 function hasRepeatedGeometry(children: readonly ScreenImageVisualNode[]): boolean {
   return children.some((left, index) =>
     children.slice(index + 1).some((right) => {
-      const widthDelta = Math.abs(left.bounds.width - right.bounds.width) / Math.max(1, left.bounds.width);
+      const widthDelta =
+        Math.abs(left.bounds.width - right.bounds.width) / Math.max(1, left.bounds.width);
       const heightDelta =
         Math.abs(left.bounds.height - right.bounds.height) / Math.max(1, left.bounds.height);
       return widthDelta <= SIZE_SIMILARITY && heightDelta <= SIZE_SIMILARITY;
@@ -214,9 +212,7 @@ function strictlyContains(parent: ScreenImageRect, child: ScreenImageRect): bool
 /*** Compare rectangles by screen position and then by area for stable region IDs. */
 function compareRects(left: ScreenImageRect, right: ScreenImageRect): number {
   return (
-    left.y - right.y ||
-    left.x - right.x ||
-    left.width * left.height - right.width * right.height
+    left.y - right.y || left.x - right.x || left.width * left.height - right.width * right.height
   );
 }
 
