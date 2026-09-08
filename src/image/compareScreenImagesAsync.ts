@@ -1,5 +1,3 @@
-import pixelmatch from 'pixelmatch';
-
 import { loadScreenImageAsync } from './loadScreenImageAsync.js';
 import type { ScreenImageComparisonResult, ScreenImageInput } from './types.js';
 
@@ -9,7 +7,8 @@ export async function compareScreenImagesAsync(input: {
   readonly actual: ScreenImageInput;
   readonly threshold?: number;
 }): Promise<ScreenImageComparisonResult> {
-  const [expected, actual] = await Promise.all([
+  const [{ default: pixelmatch }, expected, actual] = await Promise.all([
+    import('pixelmatch'),
     loadScreenImageAsync(input.expected),
     loadScreenImageAsync(input.actual),
   ]);

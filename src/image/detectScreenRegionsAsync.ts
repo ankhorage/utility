@@ -1,7 +1,8 @@
-import cvModule from '@techstark/opencv-js';
-
 import { createScreenVisualGraph } from './createScreenVisualGraph.js';
 import type { ScreenImagePixels, ScreenImageRect, ScreenImageVisualGraph } from './types.js';
+
+type OpenCvModule = (typeof import('@techstark/opencv-js'))['default'];
+type OpenCv = Awaited<OpenCvModule>;
 
 const MIN_REGION_DIMENSION = 4;
 const MIN_REGION_AREA_RATIO = 0.0005;
@@ -12,6 +13,7 @@ const RECT_EPSILON = 3;
 export async function detectScreenRegionsAsync(
   pixels: ScreenImagePixels,
 ): Promise<ScreenImageVisualGraph> {
+  const { default: cvModule } = await import('@techstark/opencv-js');
   const cv = await Promise.resolve(cvModule);
   const pixelType = readCvConstant(cv.CV_8UC4, 'CV_8UC4');
   const rgbaToGray = readCvConstant(cv.COLOR_RGBA2GRAY, 'COLOR_RGBA2GRAY');
@@ -54,8 +56,8 @@ function readCvConstant(value: unknown, name: string): number {
 
 /*** Collect stable rectangular regions from contour geometry and discard noise or duplicates. */
 function collectRegions(
-  cv: Awaited<typeof cvModule>,
-  contours: InstanceType<Awaited<typeof cvModule>['MatVector']>,
+  cv: OpenCv,
+  contours: InstanceType<OpenCv['MatVector']>,
   width: number,
   height: number,
 ): ScreenImageRect[] {

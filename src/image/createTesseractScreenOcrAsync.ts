@@ -1,5 +1,3 @@
-import { createWorker, OEM } from 'tesseract.js';
-
 import type { ScreenImageOcr, ScreenImageRect } from './types.js';
 
 /*** Create a local Tesseract OCR adapter using an explicit trained-data path. */
@@ -11,6 +9,7 @@ export async function createTesseractScreenOcrAsync(options: {
     throw new Error('Tesseract OCR requires a non-empty local langPath.');
   }
 
+  const { createWorker, OEM } = await import('tesseract.js');
   const worker = await createWorker(options.language ?? 'eng', OEM.LSTM_ONLY, {
     langPath: options.langPath,
   });
