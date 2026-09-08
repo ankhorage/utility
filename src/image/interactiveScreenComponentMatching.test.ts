@@ -42,20 +42,20 @@ const components: readonly UiComponentMeta[] = [
   },
 ];
 
+const blankRegion: ScreenImageVisualNode = {
+  id: 'region-001',
+  bounds: { x: 30, y: 100, width: 240, height: 60 },
+  arrangement: 'none',
+  repeated: false,
+  children: [],
+};
+
 const blankRoot: ScreenImageVisualNode = {
   id: 'screen',
   bounds: { x: 0, y: 0, width: 300, height: 500 },
   arrangement: 'vertical',
   repeated: false,
-  children: [
-    {
-      id: 'region-001',
-      bounds: { x: 30, y: 100, width: 240, height: 60 },
-      arrangement: 'none',
-      repeated: false,
-      children: [],
-    },
-  ],
+  children: [blankRegion],
 };
 
 test('keeps geometry-only interactive metadata below the confidence threshold', async () => {
@@ -80,7 +80,7 @@ test('keeps geometry-only interactive metadata below the confidence threshold', 
 test('allows interactive metadata when visible text can populate its owner-declared label', async () => {
   const root: ScreenImageVisualNode = {
     ...blankRoot,
-    children: [{ ...blankRoot.children[0]!, text: 'Continue' }],
+    children: [{ ...blankRegion, text: 'Continue' }],
   };
   const result = await matchScreenComponentTreeAsync({
     image: new Uint8Array(),
