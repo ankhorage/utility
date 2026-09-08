@@ -11,6 +11,13 @@ interface TesseractLineLike {
   readonly bbox: TesseractBboxLike;
   readonly confidence?: number;
   readonly text: string;
+  readonly words?: readonly TesseractWordLike[];
+}
+
+interface TesseractWordLike {
+  readonly bbox: TesseractBboxLike;
+  readonly confidence?: number;
+  readonly text: string;
 }
 
 interface TesseractParagraphLike {
@@ -30,10 +37,96 @@ export function extractTesseractScreenTextObservations(
 ): readonly ScreenImageTextObservation[] {
   return blocks.flatMap((block) => {
     const lines = block.paragraphs.flatMap((paragraph) =>
-      paragraph.lines.flatMap((line) => toObservation(line.text, line.bbox, line.confidence)),
+      paragraph.lines.flatMap(toLineObservation),
     );
     return lines.length > 0 ? lines : toObservation(block.text, block.bbox, block.confidence);
   });
+}
+
+const RELIABLE_WORD_CONFIDENCE = 80;
+const MAX_DECORATIVE_GLYPH_LENGTH = 3;
+const DECORATIVE_GLYPH_HEIGHT_RATIO = 1.4;
+
+/*** Convert a Tesseract line to an observation after excluding evidenced decorative glyphs. */
+function toLineObservation(line: TesseractLineLike): readonly ScreenImageTextObservation[] {
+  const words = line.words ?? [];
+  const reliableWordHeights = words.filter(isReliableWord).map(getBboxHeight);
+  if (reliableWordHeights.length === 0) {
+    return toObservation(line.text, line.bbox, line.confidence);
+  }
+
+  const referenceHeight = getMedian(reliableWordHeights);
+  const retainedWords = words.filter((word) => !isDecorativeGlyphWord(word, referenceHeight));
+  if (retainedWords.length === words.length) {
+    return toObservation(line.text, line.bbox, line.confidence);
+  }
+
+  return toObservation(
+    retainedWords
+      .map((word) => word.text.trim())
+      .filter(Boolean)
+      .join(' '),
+    mergeBboxes(retainedWords),
+    getMeanConfidence(retainedWords),
+  );
+}
+
+/*** Identify a reliable OCR word that can establish the line's normal text height. */
+function isReliableWord(word: TesseractWordLike): boolean {
+  return (
+    word.text.trim().length > 0 &&
+    word.confidence !== undefined &&
+    word.confidence >= RELIABLE_WORD_CONFIDENCE &&
+    getBboxHeight(word) > 0
+  );
+}
+
+/*** Identify a short, uncertain, oversized token that is evidenced as decorative UI glyphs. */
+function isDecorativeGlyphWord(word: TesseractWordLike, referenceHeight: number): boolean {
+  const text = word.text.trim();
+  return (
+    text.length > 0 &&
+    Array.from(text).length <= MAX_DECORATIVE_GLYPH_LENGTH &&
+    word.confidence !== undefined &&
+    word.confidence < RELIABLE_WORD_CONFIDENCE &&
+    getBboxHeight(word) >= referenceHeight * DECORATIVE_GLYPH_HEIGHT_RATIO
+  );
+}
+
+/*** Measure the non-negative height of a Tesseract bounding box. */
+function getBboxHeight(value: { readonly bbox: TesseractBboxLike }): number {
+  return Math.max(0, value.bbox.y1 - value.bbox.y0);
+}
+
+/*** Find the median of a non-empty numeric collection. */
+function getMedian(values: readonly number[]): number {
+  const sorted = [...values].sort((left, right) => left - right);
+  const middle = Math.floor(sorted.length / 2);
+  const upper = sorted.at(middle) ?? 0;
+  const lower = sorted.at(middle - 1) ?? upper;
+  return sorted.length % 2 === 0 ? (lower + upper) / 2 : upper;
+}
+
+/*** Merge Tesseract word bounds into the smallest enclosing box. */
+function mergeBboxes(words: readonly TesseractWordLike[]): TesseractBboxLike {
+  return words.reduce(
+    (bounds, word) => ({
+      x0: Math.min(bounds.x0, word.bbox.x0),
+      y0: Math.min(bounds.y0, word.bbox.y0),
+      x1: Math.max(bounds.x1, word.bbox.x1),
+      y1: Math.max(bounds.y1, word.bbox.y1),
+    }),
+    words.at(0)?.bbox ?? { x0: 0, y0: 0, x1: 0, y1: 0 },
+  );
+}
+
+/*** Average available finite Tesseract word confidence values. */
+function getMeanConfidence(words: readonly TesseractWordLike[]): number | undefined {
+  const values = words
+    .map((word) => word.confidence)
+    .filter((value): value is number => value !== undefined && Number.isFinite(value));
+  if (values.length === 0) return undefined;
+  return values.reduce((total, value) => total + value, 0) / values.length;
 }
 
 /*** Convert one non-empty Tesseract text node to the screen observation contract. */
