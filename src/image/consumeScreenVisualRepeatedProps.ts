@@ -23,7 +23,7 @@ export function consumeScreenVisualRepeatedProps(
   if (contentKeys.length === 0) return undefined;
 
   const items = visual.children.map((child, index) =>
-    consumeRepeatedItem(defaults[index], collectScreenVisualTexts(child), contentKeys),
+    consumeRepeatedItem(defaults.at(index), collectScreenVisualTexts(child), contentKeys),
   );
   if (items.some((item) => item === undefined)) return undefined;
 
@@ -48,10 +48,7 @@ function resolveRepeatedArrayProp(
 /*** Resolve visible string fields from owner-declared array-item metadata. */
 function resolveVisibleItemKeys(schema: UiComponentPropSchema): readonly string[] {
   return (schema.itemSchema ?? [])
-    .filter(
-      (entry) =>
-        entry.schema.type === 'string' && isScreenTextContentPropName(entry.key),
-    )
+    .filter((entry) => entry.schema.type === 'string' && isScreenTextContentPropName(entry.key))
     .map((entry) => entry.key);
 }
 
@@ -67,9 +64,7 @@ function consumeRepeatedItem(
 
   const visible = Object.fromEntries(
     texts
-      .map(
-        (text, index): readonly [string | undefined, string] => [contentKeys[index], text],
-      )
+      .map((text, index): readonly [string | undefined, string] => [contentKeys.at(index), text])
       .filter(hasDefinedKey),
   );
   return { ...defaultItem, ...visible };
