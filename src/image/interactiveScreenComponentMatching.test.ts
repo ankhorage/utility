@@ -147,7 +147,6 @@ test('matches repeated siblings against owner-declared structured group metadata
   expect(result.root.children).toHaveLength(1);
   expect(result.root.children?.[0]?.type).toBe('OptionGroup');
   expect(result.root.children?.[0]?.props).toEqual({
-    value: 'second',
     options: [
       { value: 'first', label: 'Always' },
       { value: 'second', label: 'Reflect' },
@@ -174,6 +173,7 @@ test('allows interactive metadata when injected visual similarity is strong enou
 
 test('keeps owner component names out of matcher policy', async () => {
   const source = [
+    await Bun.file('src/image/consumeScreenVisualRepeatedProps.ts').text(),
     await Bun.file('src/image/scoreScreenComponentCandidatesAsync.ts').text(),
     await Bun.file('src/image/matchScreenComponentTreeAsync.ts').text(),
   ].join('\n');
