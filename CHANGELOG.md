@@ -1,5 +1,11 @@
 # @ankhorage/utility
 
+## 0.5.0
+
+### Minor Changes
+
+- f213bb4: Add local UI screenshot analysis that derives canonical Contracts `ScreenSpec` manifests with Sharp/OpenCV geometry, metadata-driven component matching, optional OCR evidence, and pixel-diff verification.
+
 ## 0.4.0
 
 ### Minor Changes
