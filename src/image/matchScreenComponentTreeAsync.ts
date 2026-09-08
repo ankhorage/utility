@@ -1,6 +1,9 @@
 import type { UiComponentMeta, UiNode } from '@ankhorage/contracts';
 
+import { unionRects } from '../geometry/unionRects.js';
+import { consumeScreenVisualRepeatedProps } from './consumeScreenVisualRepeatedProps.js';
 import { consumeScreenVisualTextProps } from './consumeScreenVisualTextProps.js';
+import { groupRepeatedScreenVisualChildren } from './groupRepeatedScreenVisualChildren.js';
 import { scoreScreenComponentCandidatesAsync } from './scoreScreenComponentCandidatesAsync.js';
 import type {
   MatchedScreenImageNode,
@@ -8,6 +11,7 @@ import type {
   ScreenImageMatchContext,
 } from './screenComponentMatchingTypes.js';
 import type {
+  ScreenImageArrangement,
   ScreenImageCandidateEvidence,
   ScreenImageDiagnostic,
   ScreenImageVisualNode,
@@ -58,17 +62,28 @@ async function solveNodeAsync(
   context: ScreenImageMatchContext,
   allowedNames?: ReadonlySet<string>,
 ): Promise<MatchedScreenImageNode | undefined> {
+  const preferred = await matchPreferredNodeAsync(visual, context, allowedNames);
+  return (
+    preferred.match ??
+    resolveUnresolvedNode(visual, context, allowedNames, preferred.scored)
+  );
+}
+
+/*** Match only confidence-qualified semantic candidates without applying unresolved fallback. */
+async function matchPreferredNodeAsync(
+  visual: ScreenImageVisualNode,
+  context: ScreenImageMatchContext,
+  allowedNames?: ReadonlySet<string>,
+): Promise<{
+  readonly match?: MatchedScreenImageNode;
+  readonly scored: readonly ScoredScreenImageCandidate[];
+}> {
   const scored = await scoreScreenComponentCandidatesAsync(visual, context, allowedNames);
-  const preferred = scored.filter((entry) => entry.score >= context.minConfidence);
-
-  for (const entry of preferred) {
+  for (const entry of scored.filter((candidate) => candidate.score >= context.minConfidence)) {
     const match = await createCandidateMatchAsync(visual, entry, context);
-    if (match) {
-      return match;
-    }
+    if (match) return { match, scored };
   }
-
-  return resolveUnresolvedNode(visual, context, allowedNames, scored);
+  return { scored };
 }
 
 /*** Try to represent one visual subtree with an already-scored component candidate. */
@@ -77,7 +92,9 @@ async function createCandidateMatchAsync(
   entry: ScoredScreenImageCandidate,
   context: ScreenImageMatchContext,
 ): Promise<MatchedScreenImageNode | undefined> {
-  const consumedProps = consumeScreenVisualTextProps(visual, entry.component);
+  const consumedProps =
+    consumeScreenVisualRepeatedProps(visual, entry.component) ??
+    consumeScreenVisualTextProps(visual, entry.component);
   if (visual.children.length > 0 && consumedProps) {
     return {
       component: entry.component,
@@ -89,13 +106,14 @@ async function createCandidateMatchAsync(
   }
 
   const allowedChildren = resolveAllowedChildren(entry.component);
-  if (visual.children.length > 0 && allowedChildren.length === 0) {
-    return undefined;
-  }
-  const children = await matchChildrenAsync(visual.children, context, new Set(allowedChildren));
-  if (!children) {
-    return undefined;
-  }
+  if (visual.children.length > 0 && allowedChildren.length === 0) return undefined;
+  const children = await matchChildrenAsync(
+    visual.children,
+    context,
+    new Set(allowedChildren),
+    !isSyntheticGroup(visual),
+  );
+  if (!children) return undefined;
 
   return {
     component: entry.component,
@@ -106,21 +124,77 @@ async function createCandidateMatchAsync(
   };
 }
 
-/*** Match every direct visual child while preserving owner-declared child constraints. */
+/*** Match direct visual children while first offering repeated sibling runs to group-level metadata. */
 async function matchChildrenAsync(
   children: readonly ScreenImageVisualNode[],
   context: ScreenImageMatchContext,
   allowedNames: ReadonlySet<string>,
+  allowGrouping: boolean,
 ): Promise<readonly MatchedScreenImageNode[] | undefined> {
+  const segments = allowGrouping
+    ? groupRepeatedScreenVisualChildren(children)
+    : children.map((child) => [child] as const);
   const matchedChildren: MatchedScreenImageNode[] = [];
-  for (const child of children) {
-    const matched = await solveNodeAsync(child, context, allowedNames);
-    if (!matched) {
-      return undefined;
+
+  for (const segment of segments) {
+    if (segment.length > 1) {
+      const grouped = await matchPreferredNodeAsync(
+        createRepeatedGroupVisualNode(segment),
+        context,
+        allowedNames,
+      );
+      if (grouped.match) {
+        matchedChildren.push(grouped.match);
+        continue;
+      }
     }
-    matchedChildren.push(matched);
+
+    for (const child of segment) {
+      const matched = await solveNodeAsync(child, context, allowedNames);
+      if (!matched) return undefined;
+      matchedChildren.push(matched);
+    }
   }
   return matchedChildren;
+}
+
+/*** Create a synthetic repeated visual node that remains owner-neutral until candidate matching. */
+function createRepeatedGroupVisualNode(
+  children: readonly ScreenImageVisualNode[],
+): ScreenImageVisualNode {
+  const bounds = unionRects(children.map((child) => child.bounds));
+  const first = children[0];
+  const last = children.at(-1);
+  if (!bounds || !first || !last) {
+    throw new Error('Cannot create a repeated visual group from an empty sibling run.');
+  }
+  return {
+    id: `group-${first.id}-${last.id}`,
+    bounds,
+    arrangement: inferRepeatedArrangement(children),
+    repeated: true,
+    children,
+  };
+}
+
+/*** Infer the coarse arrangement of a synthetic repeated sibling group. */
+function inferRepeatedArrangement(
+  children: readonly ScreenImageVisualNode[],
+): ScreenImageArrangement {
+  const centersX = children.map((child) => child.bounds.x + child.bounds.width / 2);
+  const centersY = children.map((child) => child.bounds.y + child.bounds.height / 2);
+  const averageWidth = average(children.map((child) => child.bounds.width));
+  const averageHeight = average(children.map((child) => child.bounds.height));
+  const horizontal = spread(centersY) <= Math.max(3, averageHeight * 0.35);
+  const vertical = spread(centersX) <= Math.max(3, averageWidth * 0.35);
+  if (vertical) return 'vertical';
+  if (horizontal) return 'horizontal';
+  return 'grid';
+}
+
+/*** Detect matcher-created grouping nodes so nested matching does not regroup the same siblings. */
+function isSyntheticGroup(visual: ScreenImageVisualNode): boolean {
+  return visual.id.startsWith('group-');
 }
 
 /*** Resolve a configured unresolved marker instead of inventing a low-confidence real component. */
@@ -175,9 +249,7 @@ function resolveUnresolvedComponent(
 
 /*** Return the direct manifest child contract, including an explicit children slot when present. */
 function resolveAllowedChildren(component: UiComponentMeta): readonly string[] {
-  if (component.allowedChildren.length > 0) {
-    return component.allowedChildren;
-  }
+  if (component.allowedChildren.length > 0) return component.allowedChildren;
   return component.slots?.children?.allowedChildren ?? component.allowedChildren;
 }
 
@@ -219,4 +291,14 @@ function toUiNode(node: MatchedScreenImageNode, screenId: string): UiNode {
 function collectScores(node: MatchedScreenImageNode, scores: number[]): void {
   scores.push(node.score);
   node.children.forEach((child) => collectScores(child, scores));
+}
+
+/*** Calculate the arithmetic mean of a numeric list. */
+function average(values: readonly number[]): number {
+  return values.reduce((sum, value) => sum + value, 0) / Math.max(1, values.length);
+}
+
+/*** Calculate the numeric spread of a list. */
+function spread(values: readonly number[]): number {
+  return Math.max(...values) - Math.min(...values);
 }
