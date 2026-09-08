@@ -1,21 +1,32 @@
 import { describe, expect, test } from 'bun:test';
+import type { UiComponentMeta } from '@ankhorage/contracts';
 
 import { matchScreenComponentTreeAsync } from './matchScreenComponentTreeAsync';
-import type { ScreenImageComponentMeta, ScreenImageVisualNode } from './types';
+import type { ScreenImageVisualNode } from './types';
 
-const components: readonly ScreenImageComponentMeta[] = [
+const stringProp = { type: 'string', category: 'Content' } as const;
+
+const components: readonly UiComponentMeta[] = [
   {
     name: 'Screen',
     category: 'layout',
     directManifestNode: true,
-    allowedChildren: ['Hero', 'Stack', 'Text'],
+    allowedChildren: ['Hero', 'Stack', 'Text', 'MissingElement'],
+    props: {},
   },
   {
     name: 'Hero',
     category: 'pattern',
     directManifestNode: true,
-    allowedChildren: ['Text'],
+    allowedChildren: [],
     description: 'Hero section with heading and supporting text',
+    i18n: {
+      fields: [
+        { keyProp: 'titleI18nKey', defaultTextProp: 'title' },
+        { keyProp: 'descriptionI18nKey', defaultTextProp: 'description' },
+      ],
+    },
+    props: { title: stringProp, description: stringProp },
   },
   {
     name: 'Stack',
@@ -23,13 +34,25 @@ const components: readonly ScreenImageComponentMeta[] = [
     directManifestNode: true,
     allowedChildren: ['Text'],
     description: 'Vertical stack layout',
+    props: {},
   },
   {
     name: 'Text',
     category: 'component',
     directManifestNode: true,
     allowedChildren: [],
-    props: { text: {} },
+    props: { text: stringProp },
+  },
+  {
+    name: 'MissingElement',
+    category: 'pattern',
+    directManifestNode: true,
+    allowedChildren: [],
+    blueprint: {
+      label: 'Missing element',
+      defaultProps: { reason: 'No matching component.' },
+    },
+    props: { reason: stringProp },
   },
 ];
 
@@ -67,7 +90,7 @@ const root: ScreenImageVisualNode = {
 };
 
 describe('matchScreenComponentTreeAsync', () => {
-  test('prefers a valid semantic pattern over primitive decomposition', async () => {
+  test('lets a semantic pattern consume a visual text subtree into declared props', async () => {
     const result = await matchScreenComponentTreeAsync({
       image: new Uint8Array(),
       root,
@@ -78,12 +101,16 @@ describe('matchScreenComponentTreeAsync', () => {
 
     expect(result.root.type).toBe('Screen');
     expect(result.root.children?.[0]?.type).toBe('Hero');
-    expect(result.root.children?.[0]?.children?.[0]?.props).toEqual({ text: 'Welcome' });
+    expect(result.root.children?.[0]?.children).toBeUndefined();
+    expect(result.root.children?.[0]?.props).toEqual({
+      title: 'Welcome',
+      description: 'Start here',
+    });
   });
 
-  test('rejects a high-scoring parent when its allowed children cannot represent the subtree', async () => {
+  test('rejects a pattern that cannot represent its visual subtree', async () => {
     const invalidHero = components.map((component) =>
-      component.name === 'Hero' ? { ...component, allowedChildren: [] } : component,
+      component.name === 'Hero' ? { ...component, i18n: undefined, props: {} } : component,
     );
     const result = await matchScreenComponentTreeAsync({
       image: new Uint8Array(),
@@ -94,6 +121,7 @@ describe('matchScreenComponentTreeAsync', () => {
     });
 
     expect(result.root.children?.[0]?.type).toBe('Stack');
+    expect(result.root.children?.[0]?.children?.[0]?.type).toBe('Text');
   });
 
   test('uses optional visual similarity as additional evidence', async () => {
@@ -109,5 +137,50 @@ describe('matchScreenComponentTreeAsync', () => {
     });
 
     expect(result.candidates.some((candidate) => candidate.componentName === 'Stack')).toBe(true);
+  });
+
+  test('reports multiple ranked alternatives as ambiguity evidence', async () => {
+    const result = await matchScreenComponentTreeAsync({
+      image: new Uint8Array(),
+      root,
+      components,
+      screenId: 'home',
+      minConfidence: 0.4,
+    });
+    const alternatives = result.candidates.filter((candidate) => candidate.nodeId === 'region-001');
+
+    expect(alternatives.length).toBeGreaterThan(1);
+    expect(alternatives[0]?.score).toBeGreaterThanOrEqual(alternatives[1]?.score ?? 0);
+  });
+
+  test('uses an explicit unresolved marker instead of a low-confidence invented component', async () => {
+    const blankRoot: ScreenImageVisualNode = {
+      ...root,
+      children: [
+        {
+          id: 'region-blank',
+          bounds: { x: 20, y: 20, width: 160, height: 100 },
+          arrangement: 'none',
+          repeated: false,
+          children: [],
+        },
+      ],
+    };
+    const result = await matchScreenComponentTreeAsync({
+      image: new Uint8Array(),
+      root: blankRoot,
+      components,
+      screenId: 'home',
+      minConfidence: 0.9,
+      unresolvedComponentName: 'MissingElement',
+      visualSimilarity: {
+        scoreAsync: ({ component }) => Promise.resolve(component.name === 'Screen' ? 1 : 0),
+      },
+    });
+
+    expect(result.root.type).toBe('Screen');
+    expect(result.root.children?.[0]?.type).toBe('MissingElement');
+    expect(result.root.children?.[0]?.props).toEqual({ reason: 'No matching component.' });
+    expect(result.diagnostics.some((diagnostic) => diagnostic.kind === 'unresolved')).toBe(true);
   });
 });

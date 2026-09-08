@@ -7,7 +7,6 @@ export type {
   ScreenImageArrangement,
   ScreenImageCandidateEvidence,
   ScreenImageComparisonResult,
-  ScreenImageComponentMeta,
   ScreenImageDiagnostic,
   ScreenImageInput,
   ScreenImageOcr,

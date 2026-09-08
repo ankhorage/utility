@@ -1,4 +1,4 @@
-import type { ScreenSpec } from '@ankhorage/contracts';
+import type { ScreenSpec, UiComponentMeta } from '@ankhorage/contracts';
 
 export type ScreenImageInput = string | Uint8Array;
 
@@ -36,20 +36,11 @@ export interface ScreenImageOcr {
   readonly terminateAsync?: () => Promise<void>;
 }
 
-export interface ScreenImageComponentMeta {
-  readonly name: string;
-  readonly category: string;
-  readonly description?: string;
-  readonly directManifestNode?: boolean;
-  readonly allowedChildren?: readonly string[];
-  readonly props?: Readonly<Record<string, unknown>>;
-}
-
 export interface ScreenImageVisualSimilarity {
   readonly scoreAsync: (input: {
     readonly image: Uint8Array;
     readonly node: ScreenImageVisualNode;
-    readonly component: ScreenImageComponentMeta;
+    readonly component: UiComponentMeta;
   }) => Promise<number>;
 }
 
@@ -72,7 +63,8 @@ export interface ScreenImageAnalysisOptions {
     readonly title?: string;
     readonly description?: string;
   };
-  readonly components: readonly ScreenImageComponentMeta[];
+  readonly components: readonly UiComponentMeta[];
+  readonly unresolvedComponentName?: string;
   readonly ocr?: ScreenImageOcr;
   readonly visualSimilarity?: ScreenImageVisualSimilarity;
   readonly minConfidence?: number;

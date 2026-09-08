@@ -1,21 +1,25 @@
 import { describe, expect, test } from 'bun:test';
+import type { UiComponentMeta } from '@ankhorage/contracts';
 import sharp from 'sharp';
 
 import { analyzeScreenImageAsync } from './analyzeScreenImageAsync';
-import type { ScreenImageComponentMeta } from './types';
 
-const components: readonly ScreenImageComponentMeta[] = [
+const components: readonly UiComponentMeta[] = [
   {
     name: 'Screen',
     category: 'layout',
     directManifestNode: true,
+    allowedChildren: ['Box'],
     description: 'Application screen layout',
+    props: {},
   },
   {
     name: 'Box',
     category: 'foundation',
     directManifestNode: true,
+    allowedChildren: ['Box'],
     description: 'Container box',
+    props: {},
   },
 ];
 
@@ -46,6 +50,8 @@ describe('analyzeScreenImageAsync', () => {
     expect(result.screen.root.type).toBe('Screen');
     expect(result.graph.width).toBe(200);
     expect(result.graph.height).toBe(300);
+    expect(result.graph.root.arrangement).toBe('vertical');
+    expect(result.graph.root.repeated).toBe(true);
   });
 
   test('keeps OCR failure supplementary to geometry analysis', async () => {

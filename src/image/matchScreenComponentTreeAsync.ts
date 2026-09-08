@@ -1,17 +1,19 @@
-import type { UiNode } from '@ankhorage/contracts';
+import type { UiComponentMeta, UiNode } from '@ankhorage/contracts';
 
 import type {
   ScreenImageCandidateEvidence,
-  ScreenImageComponentMeta,
   ScreenImageDiagnostic,
   ScreenImageVisualNode,
   ScreenImageVisualSimilarity,
 } from './types.js';
 
+const LARGE_UNTEXTED_LEAF_RATIO = 0.08;
+
 interface MatchContext {
   readonly image: Uint8Array;
-  readonly components: readonly ScreenImageComponentMeta[];
+  readonly components: readonly UiComponentMeta[];
   readonly minConfidence: number;
+  readonly unresolvedComponentName?: string;
   readonly visualSimilarity?: ScreenImageVisualSimilarity;
   readonly candidates: ScreenImageCandidateEvidence[];
   readonly diagnostics: ScreenImageDiagnostic[];
@@ -19,9 +21,10 @@ interface MatchContext {
 }
 
 interface MatchedNode {
-  readonly component: ScreenImageComponentMeta;
+  readonly component: UiComponentMeta;
   readonly score: number;
   readonly visual: ScreenImageVisualNode;
+  readonly props?: Readonly<Record<string, unknown>>;
   readonly children: readonly MatchedNode[];
 }
 
@@ -29,9 +32,10 @@ interface MatchedNode {
 export async function matchScreenComponentTreeAsync(input: {
   readonly image: Uint8Array;
   readonly root: ScreenImageVisualNode;
-  readonly components: readonly ScreenImageComponentMeta[];
+  readonly components: readonly UiComponentMeta[];
   readonly screenId: string;
   readonly minConfidence: number;
+  readonly unresolvedComponentName?: string;
   readonly visualSimilarity?: ScreenImageVisualSimilarity;
 }): Promise<{
   readonly root: UiNode;
@@ -48,6 +52,9 @@ export async function matchScreenComponentTreeAsync(input: {
     candidates,
     diagnostics,
     screenId: input.screenId,
+    ...(input.unresolvedComponentName
+      ? { unresolvedComponentName: input.unresolvedComponentName }
+      : {}),
     ...(input.visualSimilarity ? { visualSimilarity: input.visualSimilarity } : {}),
   };
   const matched = await solveNodeAsync(input.root, context);
@@ -67,7 +74,7 @@ export async function matchScreenComponentTreeAsync(input: {
   };
 }
 
-/*** Solve one visual subtree by trying specific high-level candidates before primitive fallbacks. */
+/*** Solve one visual subtree by trying specific high-level candidates before structural fallbacks. */
 async function solveNodeAsync(
   visual: ScreenImageVisualNode,
   context: MatchContext,
@@ -75,17 +82,27 @@ async function solveNodeAsync(
 ): Promise<MatchedNode | undefined> {
   const scored = await scoreCandidatesAsync(visual, context, allowedNames);
   const preferred = scored.filter((entry) => entry.score >= context.minConfidence);
-  const ordered = preferred.length > 0 ? preferred : scored;
 
-  for (const entry of ordered) {
-    const { allowedChildren } = entry.component;
-    if (visual.children.length > 0 && allowedChildren?.length === 0) {
+  for (const entry of preferred) {
+    const consumedProps = consumeVisualTextProps(visual, entry.component);
+    if (visual.children.length > 0 && consumedProps) {
+      return {
+        component: entry.component,
+        score: entry.score,
+        visual,
+        props: consumedProps,
+        children: [],
+      };
+    }
+
+    const allowedChildren = resolveAllowedChildren(entry.component);
+    if (visual.children.length > 0 && allowedChildren.length === 0) {
       continue;
     }
 
-    const childAllowedNames = allowedChildren ? new Set(allowedChildren) : undefined;
     const children: MatchedNode[] = [];
     let valid = true;
+    const childAllowedNames = new Set(allowedChildren);
     for (const child of visual.children) {
       const matchedChild = await solveNodeAsync(child, context, childAllowedNames);
       if (!matchedChild) {
@@ -98,22 +115,59 @@ async function solveNodeAsync(
       continue;
     }
 
-    if (entry.score < context.minConfidence) {
-      context.diagnostics.push({
-        kind: 'unresolved',
-        nodeId: visual.id,
-        message: `Low-confidence region ${visual.id} fell back to ${entry.component.name} (${entry.score.toFixed(2)}).`,
-      });
-    }
-    return { component: entry.component, score: entry.score, visual, children };
+    return {
+      component: entry.component,
+      score: entry.score,
+      visual,
+      ...(consumedProps ? { props: consumedProps } : {}),
+      children,
+    };
   }
 
+  return resolveUnresolvedNode(visual, context, allowedNames, scored);
+}
+
+/*** Resolve a configured unresolved marker instead of inventing a low-confidence real component. */
+function resolveUnresolvedNode(
+  visual: ScreenImageVisualNode,
+  context: MatchContext,
+  allowedNames: ReadonlySet<string> | undefined,
+  scored: readonly { readonly component: UiComponentMeta; readonly score: number }[],
+): MatchedNode | undefined {
+  const { unresolvedComponentName } = context;
+  const component = unresolvedComponentName
+    ? context.components.find((candidate) => candidate.name === unresolvedComponentName)
+    : undefined;
+  if (
+    !component ||
+    !component.directManifestNode ||
+    (allowedNames && !allowedNames.has(component.name))
+  ) {
+    context.diagnostics.push({
+      kind: 'structure',
+      nodeId: visual.id,
+      message: `No component candidate can satisfy the confidence and parent/child constraints for ${visual.id}.`,
+    });
+    return undefined;
+  }
+
+  const best = scored.at(0);
   context.diagnostics.push({
-    kind: 'structure',
+    kind: 'unresolved',
     nodeId: visual.id,
-    message: `No component candidate can satisfy parent/child constraints for ${visual.id}.`,
+    message: best
+      ? `Region ${visual.id} remained unresolved; best candidate ${best.component.name} scored ${best.score.toFixed(2)}.`
+      : `Region ${visual.id} remained unresolved because no eligible component candidate exists.`,
   });
-  return undefined;
+  return {
+    component,
+    score: 0,
+    visual,
+    ...(component.blueprint?.defaultProps
+      ? { props: { ...component.blueprint.defaultProps } }
+      : {}),
+    children: [],
+  };
 }
 
 /*** Score all eligible components from semantic, structural, geometry, and optional visual evidence. */
@@ -121,10 +175,12 @@ async function scoreCandidatesAsync(
   visual: ScreenImageVisualNode,
   context: MatchContext,
   allowedNames?: ReadonlySet<string>,
-): Promise<readonly { readonly component: ScreenImageComponentMeta; readonly score: number }[]> {
+): Promise<readonly { readonly component: UiComponentMeta; readonly score: number }[]> {
   const eligible = context.components.filter(
     (component) =>
-      component.directManifestNode !== false && (!allowedNames || allowedNames.has(component.name)),
+      component.directManifestNode &&
+      component.name !== context.unresolvedComponentName &&
+      (!allowedNames || allowedNames.has(component.name)),
   );
   const scored = await Promise.all(
     eligible.map(async (component) => {
@@ -158,7 +214,7 @@ async function scoreCandidatesAsync(
 }
 
 /*** Score component metadata against one visual subtree without product-specific component tables. */
-function scoreMetadata(visual: ScreenImageVisualNode, component: ScreenImageComponentMeta): number {
+function scoreMetadata(visual: ScreenImageVisualNode, component: UiComponentMeta): number {
   const haystack = `${component.name} ${component.description ?? ''}`.toLowerCase();
   const base = categoryBaseScore(component.category, visual.children.length > 0);
   return clamp(
@@ -167,6 +223,7 @@ function scoreMetadata(visual: ScreenImageVisualNode, component: ScreenImageComp
       arrangementSemanticScore(visual, haystack) +
       repeatedSemanticScore(visual, haystack) +
       textSemanticScore(visual, haystack) +
+      propConsumptionSemanticScore(visual, component) +
       patternSemanticScore(visual, component),
   );
 }
@@ -203,22 +260,112 @@ function repeatedSemanticScore(visual: ScreenImageVisualNode, haystack: string):
     : 0;
 }
 
-/*** Score OCR text evidence against generic text-bearing component semantics. */
+/*** Score OCR evidence against generic text-bearing component semantics. */
 function textSemanticScore(visual: ScreenImageVisualNode, haystack: string): number {
-  return visual.text &&
+  return collectVisualTexts(visual).length > 0 &&
     containsAny(haystack, ['text', 'heading', 'label', 'title', 'input', 'search'])
     ? 0.2
     : 0;
 }
 
-/*** Slightly favor semantic patterns that can consume a meaningful visual subtree. */
-function patternSemanticScore(
+/*** Reward a component when its declared string props can consume the visible text subtree. */
+function propConsumptionSemanticScore(
   visual: ScreenImageVisualNode,
-  component: ScreenImageComponentMeta,
+  component: UiComponentMeta,
 ): number {
+  return consumeVisualTextProps(visual, component) ? 0.25 : 0;
+}
+
+/*** Slightly favor semantic patterns that can consume a meaningful visual subtree. */
+function patternSemanticScore(visual: ScreenImageVisualNode, component: UiComponentMeta): number {
   return component.category === 'pattern' && visual.children.length >= 2
     ? Math.min(0.15, visual.children.length * 0.03)
     : 0;
+}
+
+/*** Return the direct manifest child contract, including an explicit children slot when present. */
+function resolveAllowedChildren(component: UiComponentMeta): readonly string[] {
+  if (component.allowedChildren.length > 0) {
+    return component.allowedChildren;
+  }
+  return component.slots?.children?.allowedChildren ?? component.allowedChildren;
+}
+
+/*** Consume a text-only visual subtree into string props declared by component metadata. */
+function consumeVisualTextProps(
+  visual: ScreenImageVisualNode,
+  component: UiComponentMeta,
+): Readonly<Record<string, unknown>> | undefined {
+  const texts = collectVisualTexts(visual);
+  if (texts.length === 0 || hasSubstantialUntextedLeaf(visual)) {
+    return undefined;
+  }
+
+  const propNames = resolveConsumableTextPropNames(component);
+  if (propNames.length < texts.length) {
+    return undefined;
+  }
+
+  return Object.fromEntries(texts.map((text, index) => [propNames.at(index), text] as const).filter(hasDefinedKey));
+}
+
+/*** Resolve declared string content props in owner-defined authoring order. */
+function resolveConsumableTextPropNames(component: UiComponentMeta): readonly string[] {
+  const i18nNames = component.i18n?.fields.map((field) => field.defaultTextProp) ?? [];
+  const remainingNames = Object.entries(component.props)
+    .filter(([name, schema]) => schema.type === 'string' && isTextContentPropName(name))
+    .map(([name]) => name)
+    .filter((name) => !i18nNames.includes(name));
+  return [...i18nNames, ...remainingNames];
+}
+
+/*** Limit automatic OCR mapping to visible copy-like prop names rather than identifiers or URLs. */
+function isTextContentPropName(name: string): boolean {
+  const normalized = name.toLowerCase();
+  return [
+    'body',
+    'brand',
+    'caption',
+    'description',
+    'eyebrow',
+    'label',
+    'message',
+    'name',
+    'price',
+    'subtitle',
+    'text',
+    'title',
+    'vendor',
+  ].some((token) => normalized.includes(token));
+}
+
+/*** Collect OCR text from a visual subtree in deterministic screen-tree order. */
+function collectVisualTexts(visual: ScreenImageVisualNode): readonly string[] {
+  const ownText = visual.text?.trim();
+  return [
+    ...(ownText ? [ownText] : []),
+    ...visual.children.flatMap((child) => collectVisualTexts(child)),
+  ];
+}
+
+/*** Detect a large geometry leaf that cannot safely be discarded as text-only detail. */
+function hasSubstantialUntextedLeaf(visual: ScreenImageVisualNode): boolean {
+  const parentArea = Math.max(1, visual.bounds.width * visual.bounds.height);
+  return visual.children.some((child) => {
+    if (child.children.length > 0) {
+      return hasSubstantialUntextedLeaf(child);
+    }
+    if (child.text?.trim()) {
+      return false;
+    }
+    const childArea = child.bounds.width * child.bounds.height;
+    return childArea / parentArea >= LARGE_UNTEXTED_LEAF_RATIO;
+  });
+}
+
+/*** Keep only text-to-prop entries whose metadata key was resolved. */
+function hasDefinedKey(entry: readonly [string | undefined, string]): entry is readonly [string, string] {
+  return entry[0] !== undefined;
 }
 
 /*** Return a base confidence favoring semantic components for subtrees and components for leaves. */
@@ -239,7 +386,7 @@ function categoryBaseScore(category: string, hasChildren: boolean): number {
 }
 
 /*** Rank component categories so larger semantic patterns win score ties over primitives. */
-function specificity(component: ScreenImageComponentMeta): number {
+function specificity(component: UiComponentMeta): number {
   if (component.category === 'pattern') return 4;
   if (component.category === 'component') return 3;
   if (component.category === 'layout') return 2;
@@ -249,27 +396,13 @@ function specificity(component: ScreenImageComponentMeta): number {
 
 /*** Convert a matched component subtree to the canonical Contracts UiNode shape. */
 function toUiNode(node: MatchedNode, screenId: string): UiNode {
-  const props = textProps(node.component, node.visual.text);
   const children = node.children.map((child) => toUiNode(child, screenId));
   return {
     id: `${screenId}-${node.visual.id}`,
     type: node.component.name,
-    ...(props ? { props } : {}),
+    ...(node.props ? { props: { ...node.props } } : {}),
     ...(children.length > 0 ? { children } : {}),
   };
-}
-
-/*** Map OCR text only to a prop that the supplied component metadata explicitly declares. */
-function textProps(
-  component: ScreenImageComponentMeta,
-  text: string | undefined,
-): Record<string, unknown> | undefined {
-  const { props } = component;
-  if (!text || !props) {
-    return undefined;
-  }
-  const key = ['text', 'label', 'title'].find((candidate) => candidate in props);
-  return key ? { [key]: text } : undefined;
 }
 
 /*** Collect selected confidence scores from the matched component tree. */

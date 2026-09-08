@@ -44,6 +44,9 @@ export async function analyzeScreenImageAsync(
     components: options.components,
     screenId: options.screen.id,
     minConfidence: options.minConfidence ?? DEFAULT_MIN_CONFIDENCE,
+    ...(options.unresolvedComponentName
+      ? { unresolvedComponentName: options.unresolvedComponentName }
+      : {}),
     ...(options.visualSimilarity ? { visualSimilarity: options.visualSimilarity } : {}),
   });
   const screen = createScreenSpec(options, matched.root);
