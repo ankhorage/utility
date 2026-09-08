@@ -165,8 +165,7 @@ test('allows interactive metadata when injected visual similarity is strong enou
     minConfidence: 0.42,
     unresolvedComponentName: 'MissingElement',
     visualSimilarity: {
-      scoreAsync: ({ component }) =>
-        Promise.resolve(component.name === 'ActionSurface' ? 1 : 0),
+      scoreAsync: ({ component }) => Promise.resolve(component.name === 'ActionSurface' ? 1 : 0),
     },
   });
 
