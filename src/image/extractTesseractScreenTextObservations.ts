@@ -9,6 +9,7 @@ interface TesseractBboxLike {
 
 interface TesseractLineLike {
   readonly bbox: TesseractBboxLike;
+  readonly confidence?: number;
   readonly text: string;
 }
 
@@ -18,6 +19,7 @@ interface TesseractParagraphLike {
 
 interface TesseractBlockLike {
   readonly bbox: TesseractBboxLike;
+  readonly confidence?: number;
   readonly paragraphs: readonly TesseractParagraphLike[];
   readonly text: string;
 }
@@ -28,9 +30,9 @@ export function extractTesseractScreenTextObservations(
 ): readonly ScreenImageTextObservation[] {
   return blocks.flatMap((block) => {
     const lines = block.paragraphs.flatMap((paragraph) =>
-      paragraph.lines.flatMap((line) => toObservation(line.text, line.bbox)),
+      paragraph.lines.flatMap((line) => toObservation(line.text, line.bbox, line.confidence)),
     );
-    return lines.length > 0 ? lines : toObservation(block.text, block.bbox);
+    return lines.length > 0 ? lines : toObservation(block.text, block.bbox, block.confidence);
   });
 }
 
@@ -38,6 +40,7 @@ export function extractTesseractScreenTextObservations(
 function toObservation(
   text: string,
   bbox: TesseractBboxLike,
+  confidence?: number,
 ): readonly ScreenImageTextObservation[] {
   const normalized = text.trim();
   if (!normalized) return [];
@@ -50,6 +53,12 @@ function toObservation(
         width: Math.max(0, bbox.x1 - bbox.x0),
         height: Math.max(0, bbox.y1 - bbox.y0),
       },
+      ...(confidence === undefined ? {} : { confidence: normalizeTesseractConfidence(confidence) }),
     },
   ];
+}
+
+/*** Normalize Tesseract's percentage confidence to the public zero-to-one evidence scale. */
+function normalizeTesseractConfidence(confidence: number): number {
+  return Math.max(0, Math.min(1, Number.isFinite(confidence) ? confidence / 100 : 0));
 }

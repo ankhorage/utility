@@ -4,6 +4,7 @@ import { applyScreenTextObservations } from './applyScreenTextObservations.js';
 import { detectScreenRegionsAsync } from './detectScreenRegionsAsync.js';
 import { loadScreenImageAsync } from './loadScreenImageAsync.js';
 import { matchScreenComponentTreeAsync } from './matchScreenComponentTreeAsync.js';
+import { recoverScreenRegionTextObservationsAsync } from './recoverScreenRegionTextObservationsAsync.js';
 import type {
   ScreenImageAnalysisOptions,
   ScreenImageAnalysisResult,
@@ -28,8 +29,15 @@ export async function analyzeScreenImageAsync(
 
   if (options.ocr) {
     try {
-      const observations = await options.ocr.recognizeAsync(pixels.png);
+      const observations = await options.ocr.recognizeAsync(pixels.png, { scope: 'screen' });
       graph = applyScreenTextObservations(graph, observations);
+      const recovered = await recoverScreenRegionTextObservationsAsync({
+        image: pixels.png,
+        graph,
+        ocr: options.ocr,
+      });
+      graph = applyScreenTextObservations(graph, recovered.observations);
+      diagnostics.push(...recovered.diagnostics);
     } catch (error) {
       diagnostics.push({
         kind: 'ocr',

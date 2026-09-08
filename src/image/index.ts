@@ -10,6 +10,7 @@ export type {
   ScreenImageDiagnostic,
   ScreenImageInput,
   ScreenImageOcr,
+  ScreenImageOcrRequest,
   ScreenImageRect,
   ScreenImageTextObservation,
   ScreenImageVisualGraph,
