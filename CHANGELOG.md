@@ -1,5 +1,11 @@
 # @ankhorage/utility
 
+## 0.5.4
+
+### Patch Changes
+
+- 526b9a9: Skip redundant region OCR for containers whose descendants already own text evidence.
+
 ## 0.5.3
 
 ### Patch Changes
