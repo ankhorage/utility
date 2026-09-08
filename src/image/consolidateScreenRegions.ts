@@ -72,15 +72,16 @@ function sharesVisualRow(left: IndexedScreenRegion, right: IndexedScreenRegion):
   const aligned =
     verticalOverlapRatio(leftRegion, rightRegion) >= MIN_ROW_VERTICAL_OVERLAP ||
     centerOffsetY(leftRegion, rightRegion) <= maxHeight * MAX_ROW_CENTER_OFFSET_FACTOR;
-  return aligned && horizontalGap(leftRegion, rightRegion) <= maxHeight * MAX_ROW_HORIZONTAL_GAP_FACTOR;
+  return (
+    aligned &&
+    horizontalGap(leftRegion, rightRegion) <= maxHeight * MAX_ROW_HORIZONTAL_GAP_FACTOR
+  );
 }
 
 /*** Merge adjacent fragment rows when their bounds form one tight multiline visual block. */
 function mergeAdjacentRows(rows: readonly ScreenRegionGroup[]): ScreenRegionGroup[] {
   const rowClusters = clusterItems(rows, sharesVisualBlock);
-  return rowClusters.map((cluster) =>
-    createRegionGroup(cluster.flatMap((row) => row.members)),
-  );
+  return rowClusters.map((cluster) => createRegionGroup(cluster.flatMap((row) => row.members)));
 }
 
 /*** Determine whether two consolidated rows plausibly form one multiline visual block. */
@@ -123,17 +124,14 @@ function findDroppedIndexes(
 }
 
 /*** Cluster values by the transitive closure of one symmetric compatibility relation. */
-function clusterItems<T>(
-  items: readonly T[],
-  related: (left: T, right: T) => boolean,
-): T[][] {
+function clusterItems<T>(items: readonly T[], related: (left: T, right: T) => boolean): T[][] {
   const remaining = new Set(items.map((_item, index) => index));
   const clusters: T[][] = [];
   while (remaining.size > 0) {
     const first = remaining.values().next().value;
     if (first === undefined) break;
     const clusterIndexes = collectConnectedIndexes(items, related, first, remaining);
-    clusters.push(clusterIndexes.map((index) => items[index]).filter(isDefined));
+    clusters.push(clusterIndexes.map((index) => items.at(index)).filter(isDefined));
   }
   return clusters;
 }
@@ -150,11 +148,11 @@ function collectConnectedIndexes<T>(
   remaining.delete(first);
   while (pending.length > 0) {
     const current = pending.pop();
-    const currentItem = current === undefined ? undefined : items[current];
+    const currentItem = current === undefined ? undefined : items.at(current);
     if (current === undefined || currentItem === undefined) continue;
     connected.push(current);
     for (const candidate of [...remaining]) {
-      const candidateItem = items[candidate];
+      const candidateItem = items.at(candidate);
       if (candidateItem === undefined || !related(currentItem, candidateItem)) continue;
       remaining.delete(candidate);
       pending.push(candidate);
