@@ -150,10 +150,12 @@ function collectConnectedIndexes<T>(
   remaining.delete(first);
   while (pending.length > 0) {
     const current = pending.pop();
-    if (current === undefined) continue;
+    const currentItem = current === undefined ? undefined : items[current];
+    if (current === undefined || currentItem === undefined) continue;
     connected.push(current);
     for (const candidate of [...remaining]) {
-      if (!related(items[current] as T, items[candidate] as T)) continue;
+      const candidateItem = items[candidate];
+      if (candidateItem === undefined || !related(currentItem, candidateItem)) continue;
       remaining.delete(candidate);
       pending.push(candidate);
     }
