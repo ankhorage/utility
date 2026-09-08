@@ -150,7 +150,8 @@ function arrangementSemanticScore(visual: ScreenImageVisualNode, haystack: strin
 
 /*** Score repeated visual geometry against generic repeated-content semantics. */
 function repeatedSemanticScore(visual: ScreenImageVisualNode, haystack: string): number {
-  return visual.repeated && containsAny(haystack, ['card', 'item', 'list', 'grid', 'rail', 'row', 'group'])
+  return visual.repeated &&
+    containsAny(haystack, ['card', 'item', 'list', 'grid', 'rail', 'row', 'group'])
     ? 0.2
     : 0;
 }
