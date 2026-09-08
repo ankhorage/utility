@@ -58,7 +58,7 @@ async function scoreCandidateAsync(
   const visualScore = clamp(
     await context.visualSimilarity.scoreAsync({ image: context.image, node: visual, component }),
   );
-  const combined = clamp(base * 0.65 + visualScore * 0.35);
+  const combined = clamp(Math.max(visualScore, base * 0.65 + visualScore * 0.35));
   return {
     component,
     score: applyInteractionEvidenceGate(
