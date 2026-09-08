@@ -83,6 +83,27 @@ async function matchPreferredNodeAsync(
   return { scored };
 }
 
+/*** Match a matcher-created repeated group only through owner-declared structured consumption. */
+async function matchRepeatedGroupAsync(
+  visual: ScreenImageVisualNode,
+  context: ScreenImageMatchContext,
+  allowedNames: ReadonlySet<string>,
+): Promise<MatchedScreenImageNode | undefined> {
+  const scored = await scoreScreenComponentCandidatesAsync(visual, context, allowedNames);
+  for (const entry of scored.filter((candidate) => candidate.score >= context.minConfidence)) {
+    const props = consumeScreenVisualRepeatedProps(visual, entry.component);
+    if (!props) continue;
+    return {
+      component: entry.component,
+      score: entry.score,
+      visual,
+      props,
+      children: [],
+    };
+  }
+  return undefined;
+}
+
 /*** Try to represent one visual subtree with an already-scored component candidate. */
 async function createCandidateMatchAsync(
   visual: ScreenImageVisualNode,
@@ -135,13 +156,13 @@ async function matchChildrenAsync(
 
   for (const segment of segments) {
     if (segment.length > 1) {
-      const grouped = await matchPreferredNodeAsync(
+      const grouped = await matchRepeatedGroupAsync(
         createRepeatedGroupVisualNode(segment),
         context,
         allowedNames,
       );
-      if (grouped.match) {
-        matchedChildren.push(grouped.match);
+      if (grouped) {
+        matchedChildren.push(grouped);
         continue;
       }
     }
