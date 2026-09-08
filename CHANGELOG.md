@@ -1,5 +1,11 @@
 # @ankhorage/utility
 
+## 0.5.3
+
+### Patch Changes
+
+- ba0fdea: Keep screenshot-derived component props limited to observed visual evidence, identity scaffolding, and explicit runtime state defaults.
+
 ## 0.5.2
 
 ### Patch Changes
