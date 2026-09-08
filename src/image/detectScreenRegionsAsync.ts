@@ -23,12 +23,7 @@ export async function detectScreenRegionsAsync(
   const rgbaToGray = readCvConstant(cv.COLOR_RGBA2GRAY, 'COLOR_RGBA2GRAY');
   const retrievalMode = readCvConstant(cv.RETR_LIST, 'RETR_LIST');
   const contourApproximation = readCvConstant(cv.CHAIN_APPROX_SIMPLE, 'CHAIN_APPROX_SIMPLE');
-  const source = cv.matFromArray(
-    pixels.height,
-    pixels.width,
-    pixelType,
-    Array.from(pixels.data),
-  );
+  const source = cv.matFromArray(pixels.height, pixels.width, pixelType, Array.from(pixels.data));
   const gray = new cv.Mat();
   const edges = new cv.Mat();
   const contours = new cv.MatVector();
