@@ -100,6 +100,11 @@
       "import": "./dist/function/index.js",
       "default": "./dist/function/index.js"
     },
+    "./generator": {
+      "types": "./dist/generator/index.d.ts",
+      "import": "./dist/generator/index.js",
+      "default": "./dist/generator/index.js"
+    },
     "./geometry": {
       "types": "./dist/geometry/index.d.ts",
       "import": "./dist/geometry/index.js",
