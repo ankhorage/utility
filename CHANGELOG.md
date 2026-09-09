@@ -1,5 +1,11 @@
 # @ankhorage/utility
 
+## 0.6.0
+
+### Minor Changes
+
+- 6405b51: Add a generic async generator that executes lazy input sequences and yields each completed result.
+
 ## 0.5.5
 
 ### Patch Changes
