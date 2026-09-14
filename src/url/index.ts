@@ -1,6 +1,7 @@
 export { appendEncodedPathSegment } from './appendEncodedPathSegment.js';
 export { decodeFirstPathSegmentAfterPrefix } from './decodeFirstPathSegmentAfterPrefix.js';
 export { decodeSinglePathSegmentAfterPrefix } from './decodeSinglePathSegmentAfterPrefix.js';
+export { ensureTrailingSlash } from './ensureTrailingSlash.js';
 export { firstStringParam } from './firstStringParam.js';
 export { isExactHttpUrl } from './isExactHttpUrl.js';
 export { isPathAtOrBelow } from './isPathAtOrBelow.js';
