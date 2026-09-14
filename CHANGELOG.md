@@ -1,5 +1,11 @@
 # @ankhorage/utility
 
+## 1.1.0
+
+### Minor Changes
+
+- 875d001: Add `ensureTrailingSlash` to the public URL utilities.
+
 ## 1.0.0
 
 ### Major Changes
