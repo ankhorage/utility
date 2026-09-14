@@ -16,7 +16,6 @@
   "keywords": [
     "typescript",
     "utilities",
-    "project-detection",
     "regex",
     "react",
     "react-native",
@@ -169,11 +168,6 @@
       "types": "./dist/observer/index.d.ts",
       "import": "./dist/observer/index.js",
       "default": "./dist/observer/index.js"
-    },
-    "./project": {
-      "types": "./dist/project/index.d.ts",
-      "import": "./dist/project/index.js",
-      "default": "./dist/project/index.js"
     },
     "./react-native/measurement": {
       "types": "./dist/react-native/measurement/index.d.ts",

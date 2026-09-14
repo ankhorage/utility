@@ -9,7 +9,7 @@ export default defineParadoxConfig({
   },
   package: {
     root: '.',
-    entrypoints: ['src/project/index.ts', 'src/regex/index.ts'],
+    entrypoints: ['src/regex/index.ts'],
   },
   output: {
     dir: './paradox',
