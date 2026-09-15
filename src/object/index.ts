@@ -1,9 +1,11 @@
 export { asRecord } from './asRecord.js';
 export { assertNoNestedKeys } from './assertNoNestedKeys.js';
+export { deepMerge } from './deepMerge.js';
 export { deleteOwnProperty } from './deleteOwnProperty.js';
 export { findNestedKey, type NestedKeyMatch } from './findNestedKey.js';
 export { findOwnPropertyValue } from './findOwnPropertyValue.js';
 export { hasOnlyKeys } from './hasOnlyKeys.js';
+export { isDeepEqual } from './isDeepEqual.js';
 export { isEmptyRecord } from './isEmptyRecord.js';
 export { isRecord } from './isRecord.js';
 export { isRecordOf } from './isRecordOf.js';
