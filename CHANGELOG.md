@@ -1,5 +1,11 @@
 # @ankhorage/utility
 
+## 1.2.0
+
+### Minor Changes
+
+- 82bb78d: Add reusable deep equality and immutable deep merge operations to the object utility API.
+
 ## 1.1.0
 
 ### Minor Changes
