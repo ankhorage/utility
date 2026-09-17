@@ -14,12 +14,13 @@
     "url": "git+https://github.com/ankhorage/utility.git"
   },
   "keywords": [
-    "typescript",
-    "utilities",
-    "regex",
+    "ankhorage",
+    "expo",
     "react",
     "react-native",
-    "expo"
+    "regex",
+    "typescript",
+    "utilities"
   ],
   "files": [
     "dist",
