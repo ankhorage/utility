@@ -1,5 +1,11 @@
 # @ankhorage/utility
 
+## 1.4.0
+
+### Minor Changes
+
+- 5cf2161: Add strict boolean and finite number readers to the public Node environment utility entrypoint.
+
 ## 1.3.0
 
 ### Minor Changes
