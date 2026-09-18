@@ -1,3 +1,4 @@
+export { escapeRegExp } from './escapeRegExp.js';
 export { isEmail } from './isEmail.js';
 export { isHttpUrl } from './isHttpUrl.js';
 export { isPhone } from './isPhone.js';

@@ -1,6 +1,6 @@
 import { expect, test } from 'bun:test';
 
-import { isEmail, isHttpUrl, isPhone, isUsername } from './index.js';
+import { escapeRegExp, isEmail, isHttpUrl, isPhone, isUsername } from './index.js';
 
 test('validates email addresses', () => {
   expect(isEmail('hello@example.com')).toBe(true);
@@ -31,4 +31,16 @@ test('validates HTTP and HTTPS URLs', () => {
   expect(isHttpUrl('http://localhost:3000/path')).toBe(true);
   expect(isHttpUrl('ftp://ankhorage.com')).toBe(false);
   expect(isHttpUrl('https://ankhorage.com/has space')).toBe(false);
+});
+
+test('escapes regular-expression metacharacters for literal matching', () => {
+  const value = String.raw`file.[name]+(draft)?^$|{}\\`;
+  const pattern = new RegExp(`^${escapeRegExp(value)}$`);
+
+  expect(pattern.test(value)).toBe(true);
+  expect(pattern.test('fileXname')).toBe(false);
+});
+
+test('leaves ordinary regular-expression literal text unchanged', () => {
+  expect(escapeRegExp('PackageName_123')).toBe('PackageName_123');
 });
