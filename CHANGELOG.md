@@ -1,5 +1,11 @@
 # @ankhorage/utility
 
+## 1.3.0
+
+### Minor Changes
+
+- eba3d9b: Add a safe reusable Node.js browser launcher that opens only HTTP(S) URLs without invoking a command shell.
+
 ## 1.2.1
 
 ### Patch Changes
