@@ -18,15 +18,13 @@ test('resolves contained filesystem paths and rejects lexical escapes', async ()
     await mkdir(root);
     await writeFile(path.join(root, 'inside.txt'), 'inside');
 
-    expect(resolveFileSystemPathWithinRoot(root, 'inside.txt')).toBe(
-      path.join(root, 'inside.txt')
-    );
+    expect(resolveFileSystemPathWithinRoot(root, 'inside.txt')).toBe(path.join(root, 'inside.txt'));
     expect(() => resolveFileSystemPathWithinRoot(root, '../outside.txt')).toThrow(
-      'Path escaped the allowed root'
+      'Path escaped the allowed root',
     );
-    expect(() =>
-      resolveFileSystemPathWithinRoot(root, path.join(parent, 'outside.txt'))
-    ).toThrow('Path escaped the allowed root');
+    expect(() => resolveFileSystemPathWithinRoot(root, path.join(parent, 'outside.txt'))).toThrow(
+      'Path escaped the allowed root',
+    );
   } finally {
     await rm(parent, { force: true, recursive: true });
   }
@@ -44,23 +42,23 @@ test('rejects symlink escapes for reads and writes', async () => {
     await symlink(
       outside,
       path.join(root, 'escape'),
-      process.platform === 'win32' ? 'junction' : 'dir'
+      process.platform === 'win32' ? 'junction' : 'dir',
     );
 
     expect(() =>
       readTextFileWithinRoot({
         rootPath: root,
         filePath: 'escape/secret.txt',
-      })
+      }),
     ).toThrow('Path escaped the allowed root');
 
-    await expect(
+    expect(
       writeFileWithinRoot({
         rootPath: root,
         filePath: 'escape/output.txt',
         body: new TextEncoder().encode('blocked'),
         exclusive: false,
-      })
+      }),
     ).rejects.toThrow('Path escaped the allowed root');
   } finally {
     await rm(parent, { force: true, recursive: true });
@@ -79,7 +77,7 @@ test('reads files and directories within the root', async () => {
     expect(file.path).toBe(path.join(root, 'src', 'index.ts'));
 
     const directory = readDirectoryWithinRoot({ rootPath: root, directoryPath: 'src' });
-    expect(directory.entries.map(entry => entry.name)).toEqual(['index.ts']);
+    expect(directory.entries.map((entry) => entry.name)).toEqual(['index.ts']);
 
     await writeFileWithinRoot({
       rootPath: root,

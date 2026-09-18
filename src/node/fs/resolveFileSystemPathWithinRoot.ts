@@ -5,7 +5,7 @@ import path from 'node:path';
 export function resolveFileSystemPathWithinRoot(
   rootPath: string,
   filePath: string,
-  options: { readonly allowRoot?: boolean } = {}
+  options: { readonly allowRoot?: boolean } = {},
 ): string {
   const lexicalRoot = path.resolve(rootPath);
   const lexicalTarget = path.isAbsolute(filePath)
@@ -19,10 +19,7 @@ export function resolveFileSystemPathWithinRoot(
   const realAncestor = realpathSync(existingAncestor);
   assertContainedPath(realRoot, realAncestor, filePath, options.allowRoot === true);
 
-  const resolvedTarget = path.resolve(
-    realAncestor,
-    path.relative(existingAncestor, lexicalTarget)
-  );
+  const resolvedTarget = path.resolve(realAncestor, path.relative(existingAncestor, lexicalTarget));
   assertContainedPath(realRoot, resolvedTarget, filePath, options.allowRoot === true);
 
   return resolvedTarget;
@@ -33,7 +30,7 @@ function assertContainedPath(
   rootPath: string,
   targetPath: string,
   inputPath: string,
-  allowRoot: boolean
+  allowRoot: boolean,
 ): void {
   const relativePath = path.relative(rootPath, targetPath);
   const isRoot = relativePath.length === 0;

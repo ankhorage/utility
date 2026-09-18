@@ -1,4 +1,4 @@
-import { readdirSync, type Dirent } from 'node:fs';
+import { type Dirent, readdirSync } from 'node:fs';
 
 import { resolveFileSystemPathWithinRoot } from './resolveFileSystemPathWithinRoot.js';
 
