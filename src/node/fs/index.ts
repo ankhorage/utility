@@ -1,3 +1,6 @@
+export { readDirectoryWithinRoot } from './readDirectoryWithinRoot.js';
+export { readTextFileWithinRoot } from './readTextFileWithinRoot.js';
+export { resolveFileSystemPathWithinRoot } from './resolveFileSystemPathWithinRoot.js';
 export { assertTextFilesDoNotMatch } from './assertTextFilesDoNotMatch.js';
 export { isDirectory } from './isDirectory.js';
 export { isDirectoryNotEmptyError } from './isDirectoryNotEmptyError.js';

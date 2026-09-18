@@ -1,0 +1,15 @@
+import { readFileSync } from 'node:fs';
+
+import { resolveFileSystemPathWithinRoot } from './resolveFileSystemPathWithinRoot.js';
+
+/*** Reads UTF-8 text only when the requested file stays inside the allowed filesystem root. */
+export function readTextFileWithinRoot(args: {
+  readonly rootPath: string;
+  readonly filePath: string;
+}): { readonly content: string; readonly path: string } {
+  const path = resolveFileSystemPathWithinRoot(args.rootPath, args.filePath);
+  return {
+    content: readFileSync(path, 'utf8'),
+    path,
+  };
+}
