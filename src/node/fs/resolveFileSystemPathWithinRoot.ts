@@ -17,7 +17,7 @@ export function resolveFileSystemPathWithinRoot(
   const realRoot = realpathSync(lexicalRoot);
   const existingAncestor = findExistingAncestor(lexicalTarget);
   const realAncestor = realpathSync(existingAncestor);
-  assertContainedPath(realRoot, realAncestor, filePath, options.allowRoot === true);
+  assertContainedPath(realRoot, realAncestor, filePath, true);
 
   const resolvedTarget = path.resolve(realAncestor, path.relative(existingAncestor, lexicalTarget));
   assertContainedPath(realRoot, resolvedTarget, filePath, options.allowRoot === true);
