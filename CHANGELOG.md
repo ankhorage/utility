@@ -1,5 +1,11 @@
 # @ankhorage/utility
 
+## 1.2.1
+
+### Patch Changes
+
+- 431aebe: Add reusable regular-expression escaping and symlink-aware rooted filesystem helpers.
+
 ## 1.2.0
 
 ### Minor Changes
