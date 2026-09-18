@@ -1,3 +1,4 @@
 export { collectProcessOutput } from './collectProcessOutput.js';
+export { openBrowser } from './openBrowser.js';
 export { runProcessWithTimeout } from './runProcessWithTimeout.js';
 export { stopProcess } from './stopProcess.js';

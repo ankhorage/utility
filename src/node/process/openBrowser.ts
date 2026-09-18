@@ -1,0 +1,32 @@
+import { spawn } from 'node:child_process';
+
+/***
+ * Open an HTTP(S) URL with the platform browser without invoking a command shell.
+ */
+export function openBrowser(url: string): void {
+  const parsedUrl = new URL(url);
+  if (parsedUrl.protocol !== 'http:' && parsedUrl.protocol !== 'https:') {
+    throw new Error(`Unsupported browser URL protocol: ${parsedUrl.protocol}`);
+  }
+
+  const { command, args } = resolveBrowserCommand(parsedUrl.href);
+  const child = spawn(command, args, {
+    detached: true,
+    shell: false,
+    stdio: 'ignore',
+  });
+  child.unref();
+}
+
+/*** Resolve the fixed platform executable and argument vector for one browser URL. */
+function resolveBrowserCommand(url: string): { readonly command: string; readonly args: string[] } {
+  if (process.platform === 'darwin') {
+    return { command: 'open', args: [url] };
+  }
+
+  if (process.platform === 'win32') {
+    return { command: 'rundll32.exe', args: ['url.dll,FileProtocolHandler', url] };
+  }
+
+  return { command: 'xdg-open', args: [url] };
+}
