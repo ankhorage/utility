@@ -6,7 +6,9 @@ const MAX_ITERATIONS = 64;
  * The acceptance predicate is expected to be pure and monotone from false to true.
  * Runtime is bounded by at most 64 predicate evaluations after the endpoint checks.
  */
-export function findMinimumAcceptedNumber(input: FindMinimumAcceptedNumberInput): number | undefined {
+export function findMinimumAcceptedNumber(
+  input: FindMinimumAcceptedNumberInput,
+): number | undefined {
   validateInput(input);
   const { accepts, maximum, minimum } = input;
   const iterations = input.iterations ?? DEFAULT_ITERATIONS;
