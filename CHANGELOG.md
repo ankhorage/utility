@@ -1,5 +1,11 @@
 # @ankhorage/utility
 
+## 1.5.0
+
+### Minor Changes
+
+- a13c7a7: Add a reusable bounded monotone numeric search algorithm for deterministic minimum-accepted boundary optimization.
+
 ## 1.4.0
 
 ### Minor Changes

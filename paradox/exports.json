@@ -1,0 +1,172 @@
+[
+  {
+    "name": "escapeRegExp",
+    "description": "Escapes a literal string so it can be safely embedded in a regular-expression source.",
+    "isReadme": false,
+    "examples": [],
+    "kind": "function",
+    "modulePath": "src/regex/escapeRegExp.ts",
+    "sourceLocation": {
+      "filePath": "src/regex/escapeRegExp.ts",
+      "line": 2,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/regex/index.ts"
+    ],
+    "relatedSymbols": [],
+    "signatures": [
+      {
+        "label": "(value: string) => string",
+        "parameters": [
+          {
+            "name": "value",
+            "type": "string",
+            "required": true,
+            "description": null
+          }
+        ],
+        "returnType": "string",
+        "returnDescription": null
+      }
+    ],
+    "members": [],
+    "structuredRows": []
+  },
+  {
+    "name": "isEmail",
+    "description": "Return whether a string satisfies Utility's conservative email-address shape validation.",
+    "isReadme": false,
+    "examples": [],
+    "kind": "function",
+    "modulePath": "src/regex/isEmail.ts",
+    "sourceLocation": {
+      "filePath": "src/regex/isEmail.ts",
+      "line": 7,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/regex/index.ts"
+    ],
+    "relatedSymbols": [],
+    "signatures": [
+      {
+        "label": "(value: string) => boolean",
+        "parameters": [
+          {
+            "name": "value",
+            "type": "string",
+            "required": true,
+            "description": null
+          }
+        ],
+        "returnType": "boolean",
+        "returnDescription": null
+      }
+    ],
+    "members": [],
+    "structuredRows": []
+  },
+  {
+    "name": "isHttpUrl",
+    "description": "Return whether a string is a non-empty HTTP or HTTPS URL with a hostname.",
+    "isReadme": false,
+    "examples": [],
+    "kind": "function",
+    "modulePath": "src/regex/isHttpUrl.ts",
+    "sourceLocation": {
+      "filePath": "src/regex/isHttpUrl.ts",
+      "line": 4,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/regex/index.ts"
+    ],
+    "relatedSymbols": [],
+    "signatures": [
+      {
+        "label": "(value: string) => boolean",
+        "parameters": [
+          {
+            "name": "value",
+            "type": "string",
+            "required": true,
+            "description": null
+          }
+        ],
+        "returnType": "boolean",
+        "returnDescription": null
+      }
+    ],
+    "members": [],
+    "structuredRows": []
+  },
+  {
+    "name": "isPhone",
+    "description": "Return whether a string has a plausible international phone-number shape.",
+    "isReadme": false,
+    "examples": [],
+    "kind": "function",
+    "modulePath": "src/regex/isPhone.ts",
+    "sourceLocation": {
+      "filePath": "src/regex/isPhone.ts",
+      "line": 6,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/regex/index.ts"
+    ],
+    "relatedSymbols": [],
+    "signatures": [
+      {
+        "label": "(value: string) => boolean",
+        "parameters": [
+          {
+            "name": "value",
+            "type": "string",
+            "required": true,
+            "description": null
+          }
+        ],
+        "returnType": "boolean",
+        "returnDescription": null
+      }
+    ],
+    "members": [],
+    "structuredRows": []
+  },
+  {
+    "name": "isUsername",
+    "description": "Return whether a string satisfies Utility's username character and length policy.",
+    "isReadme": false,
+    "examples": [],
+    "kind": "function",
+    "modulePath": "src/regex/isUsername.ts",
+    "sourceLocation": {
+      "filePath": "src/regex/isUsername.ts",
+      "line": 6,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/regex/index.ts"
+    ],
+    "relatedSymbols": [],
+    "signatures": [
+      {
+        "label": "(value: string) => boolean",
+        "parameters": [
+          {
+            "name": "value",
+            "type": "string",
+            "required": true,
+            "description": null
+          }
+        ],
+        "returnType": "boolean",
+        "returnDescription": null
+      }
+    ],
+    "members": [],
+    "structuredRows": []
+  }
+]
