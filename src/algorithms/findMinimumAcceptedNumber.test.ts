@@ -54,9 +54,9 @@ test('does not mutate its readonly input and validates bounded search arguments'
 
   expect(findMinimumAcceptedNumber(input)).toBeGreaterThanOrEqual(0.5);
   expect(input.minimum).toBe(0);
-  expect(() =>
-    findMinimumAcceptedNumber({ minimum: 2, maximum: 1, accepts: () => true }),
-  ).toThrow(RangeError);
+  expect(() => findMinimumAcceptedNumber({ minimum: 2, maximum: 1, accepts: () => true })).toThrow(
+    RangeError,
+  );
   expect(() =>
     findMinimumAcceptedNumber({ minimum: 0, maximum: 1, iterations: 65, accepts: () => true }),
   ).toThrow(RangeError);
