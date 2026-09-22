@@ -30,6 +30,11 @@
     "LICENSE"
   ],
   "exports": {
+    "./algorithms": {
+      "types": "./dist/algorithms/index.d.ts",
+      "import": "./dist/algorithms/index.js",
+      "default": "./dist/algorithms/index.js"
+    },
     "./array": {
       "types": "./dist/array/index.d.ts",
       "import": "./dist/array/index.js",
