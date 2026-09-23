@@ -1,5 +1,11 @@
 # @ankhorage/utility
 
+## 1.6.0
+
+### Minor Changes
+
+- 984d843: Add canonical SemVer patterns for exact, prerelease, caret, tilde, major-wildcard, and minor-wildcard syntax.
+
 ## 1.5.0
 
 ### Minor Changes

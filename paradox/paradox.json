@@ -14,7 +14,7 @@
     {
       "id": "npm",
       "label": "npm",
-      "value": "v1.5.0",
+      "value": "v1.6.0",
       "color": "cb3837"
     },
     {
@@ -2301,7 +2301,8 @@
         "compareSemanticVersions",
         "parseSemanticVersion",
         "satisfiesCaretSemverRange",
-        "SemanticVersion"
+        "SemanticVersion",
+        "SEMVER_PATTERNS"
       ]
     },
     {
@@ -2329,9 +2330,18 @@
       "path": "src/semver/semver.test.ts",
       "isEntrypoint": false,
       "dependencies": [
-        "src/semver/satisfiesCaretSemverRange.ts"
+        "src/semver/satisfiesCaretSemverRange.ts",
+        "src/semver/semverPatterns.ts"
       ],
       "exports": []
+    },
+    {
+      "path": "src/semver/semverPatterns.ts",
+      "isEntrypoint": false,
+      "dependencies": [],
+      "exports": [
+        "SEMVER_PATTERNS"
+      ]
     },
     {
       "path": "src/semver/types.ts",
@@ -6606,6 +6616,11 @@
       },
       {
         "fromPath": "src/semver/index.ts",
+        "toPath": "src/semver/semverPatterns.ts",
+        "sourcePath": "src/semver/index.ts"
+      },
+      {
+        "fromPath": "src/semver/index.ts",
         "toPath": "src/semver/types.ts",
         "sourcePath": "src/semver/index.ts"
       },
@@ -6627,6 +6642,11 @@
       {
         "fromPath": "src/semver/semver.test.ts",
         "toPath": "src/semver/satisfiesCaretSemverRange.ts",
+        "sourcePath": "src/semver/semver.test.ts"
+      },
+      {
+        "fromPath": "src/semver/semver.test.ts",
+        "toPath": "src/semver/semverPatterns.ts",
         "sourcePath": "src/semver/semver.test.ts"
       },
       {
