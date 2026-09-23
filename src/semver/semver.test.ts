@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'bun:test';
 
-import { SEMVER_PATTERNS } from './semverPatterns.js';
 import { satisfiesCaretSemverRange } from './satisfiesCaretSemverRange.js';
+import { SEMVER_PATTERNS } from './semverPatterns.js';
 
 describe('SEMVER_PATTERNS', () => {
   it.each([
