@@ -7,6 +7,7 @@ export { parseCommaSeparatedList } from './parseCommaSeparatedList.js';
 export { quoteJavaScriptString } from './quoteJavaScriptString.js';
 export { readSafeRegexCapture, type SafeRegexCaptureOptions } from './readSafeRegexCapture.js';
 export { serializeJavaScriptLiteral } from './serializeJavaScriptLiteral.js';
+export { slugifyAscii } from './slugifyAscii.js';
 export { splitCommaSeparated } from './splitCommaSeparated.js';
 export { stringifyJson } from './stringifyJson.js';
 export { titleCaseIdentifier } from './titleCaseIdentifier.js';
