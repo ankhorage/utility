@@ -99,7 +99,7 @@ async function resolvePublicTargetAsync(
   const hostname = normalizeHostname(url.hostname);
   const literalFamily = isIP(hostname);
 
-  if (literalFamily !== 0) {
+  if (literalFamily === 4 || literalFamily === 6) {
     if (!isPublicIpAddress(hostname)) {
       throw new Error('HTTPS target resolves to a non-public IP address.');
     }
