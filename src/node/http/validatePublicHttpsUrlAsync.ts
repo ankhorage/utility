@@ -2,7 +2,6 @@ import { lookup } from 'node:dns/promises';
 import { request as httpsRequest } from 'node:https';
 import { isIP } from 'node:net';
 
-import { isPublicIpAddress } from '../net/isPublicIpAddress.js';
 import type {
   PublicHttpsAddress,
   PublicHttpsLookup,
@@ -12,6 +11,7 @@ import type {
   PublicHttpsValidationOptions,
   PublicHttpsValidationResult,
 } from '../../types/publicHttps.js';
+import { isPublicIpAddress } from '../net/isPublicIpAddress.js';
 
 const DEFAULT_TIMEOUT_MS = 5_000;
 const DEFAULT_MAX_REDIRECTS = 5;
@@ -165,7 +165,9 @@ function isBlockedHostname(hostname: string): boolean {
 /***
  * Resolves all addresses for a hostname without applying a local search-domain policy.
  */
-async function lookupPublicAddressesAsync(hostname: string): Promise<readonly PublicHttpsAddress[]> {
+async function lookupPublicAddressesAsync(
+  hostname: string,
+): Promise<readonly PublicHttpsAddress[]> {
   const addresses = await lookup(hostname, { all: true, verbatim: true });
   return addresses.flatMap((entry): PublicHttpsAddress[] =>
     entry.family === 4 || entry.family === 6
