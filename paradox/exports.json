@@ -1,9 +1,11 @@
 [
   {
     "name": "escapeRegExp",
+    "title": null,
     "description": "Escapes a literal string so it can be safely embedded in a regular-expression source.",
     "isReadme": false,
-    "examples": [],
+    "see": [],
+    "security": [],
     "kind": "function",
     "modulePath": "src/regex/escapeRegExp.ts",
     "sourceLocation": {
@@ -35,9 +37,11 @@
   },
   {
     "name": "isEmail",
+    "title": null,
     "description": "Return whether a string satisfies Utility's conservative email-address shape validation.",
     "isReadme": false,
-    "examples": [],
+    "see": [],
+    "security": [],
     "kind": "function",
     "modulePath": "src/regex/isEmail.ts",
     "sourceLocation": {
@@ -69,9 +73,11 @@
   },
   {
     "name": "isHttpUrl",
+    "title": null,
     "description": "Return whether a string is a non-empty HTTP or HTTPS URL with a hostname.",
     "isReadme": false,
-    "examples": [],
+    "see": [],
+    "security": [],
     "kind": "function",
     "modulePath": "src/regex/isHttpUrl.ts",
     "sourceLocation": {
@@ -103,9 +109,11 @@
   },
   {
     "name": "isPhone",
+    "title": null,
     "description": "Return whether a string has a plausible international phone-number shape.",
     "isReadme": false,
-    "examples": [],
+    "see": [],
+    "security": [],
     "kind": "function",
     "modulePath": "src/regex/isPhone.ts",
     "sourceLocation": {
@@ -137,9 +145,11 @@
   },
   {
     "name": "isUsername",
+    "title": null,
     "description": "Return whether a string satisfies Utility's username character and length policy.",
     "isReadme": false,
-    "examples": [],
+    "see": [],
+    "security": [],
     "kind": "function",
     "modulePath": "src/regex/isUsername.ts",
     "sourceLocation": {

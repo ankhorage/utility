@@ -413,6 +413,9 @@ graph TD
   module_src_node_path_resolvePackageRoot_ts --> module_src_node_path_resolveModuleRelativePath_ts
   module_src_node_path_resolvePathWithinRoot_ts["src/node/path/resolvePathWithinRoot.ts"]
   package__ankhorage_utility -.-> module_src_node_path_resolvePathWithinRoot_ts
+  module_src_node_path_toPortablePath_test_ts["src/node/path/toPortablePath.test.ts"]
+  package__ankhorage_utility -.-> module_src_node_path_toPortablePath_test_ts
+  module_src_node_path_toPortablePath_test_ts --> module_src_node_path_toPortablePath_ts
   module_src_node_path_toPortablePath_ts["src/node/path/toPortablePath.ts"]
   package__ankhorage_utility -.-> module_src_node_path_toPortablePath_ts
   module_src_node_path_toRelativeImportPath_ts["src/node/path/toRelativeImportPath.ts"]

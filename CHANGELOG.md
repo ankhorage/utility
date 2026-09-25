@@ -1,5 +1,11 @@
 # @ankhorage/utility
 
+## 1.8.1
+
+### Patch Changes
+
+- a5655a5: Make portable path conversion normalize Windows separators independently of the host operating system.
+
 ## 1.8.0
 
 ### Minor Changes

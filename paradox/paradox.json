@@ -14,7 +14,7 @@
     {
       "id": "npm",
       "label": "npm",
-      "value": "v1.8.0",
+      "value": "v1.8.1",
       "color": "cb3837"
     },
     {
@@ -55,16 +55,23 @@
     },
     {
       "id": "docs",
-      "label": "docs",
-      "value": "paradox",
-      "color": "0f766e"
+      "label": "paradox",
+      "value": "canonical",
+      "color": "0a7f3f"
     }
   ],
-  "usage": null,
-  "readmeUsageDescription": null,
-  "readmeUsage": [],
-  "readmeCli": null,
-  "readmeConfig": null,
+  "usage": {
+    "packageName": "@ankhorage/utility",
+    "command": "ankh utility --help"
+  },
+  "usageEntries": [],
+  "exampleCount": 0,
+  "findings": [],
+  "readmeConfig": {
+    "language": "ts",
+    "code": "import { defineParadoxConfig } from '@ankhorage/paradox';\n\nexport default defineParadoxConfig({\n  mode: 'write',\n  docs: {\n    title: '@ankhorage/utility',\n    description:\n      'Shared, runtime-neutral utilities for Ankhorage packages and compatible external projects.',\n  },\n  package: {\n    root: '.',\n    entrypoints: ['src/regex/index.ts'],\n  },\n  output: {\n    dir: './paradox',\n  },\n});",
+    "sourcePath": "paradox.config.ts"
+  },
   "config": null,
   "entrypoints": [
     "src/regex/index.ts"
@@ -1588,6 +1595,14 @@
       "exports": [
         "resolvePathWithinRoot"
       ]
+    },
+    {
+      "path": "src/node/path/toPortablePath.test.ts",
+      "isEntrypoint": false,
+      "dependencies": [
+        "src/node/path/toPortablePath.ts"
+      ],
+      "exports": []
     },
     {
       "path": "src/node/path/toPortablePath.ts",
@@ -3177,9 +3192,11 @@
   "exports": [
     {
       "name": "escapeRegExp",
+      "title": null,
       "description": "Escapes a literal string so it can be safely embedded in a regular-expression source.",
       "isReadme": false,
-      "examples": [],
+      "see": [],
+      "security": [],
       "kind": "function",
       "modulePath": "src/regex/escapeRegExp.ts",
       "sourceLocation": {
@@ -3211,9 +3228,11 @@
     },
     {
       "name": "isEmail",
+      "title": null,
       "description": "Return whether a string satisfies Utility's conservative email-address shape validation.",
       "isReadme": false,
-      "examples": [],
+      "see": [],
+      "security": [],
       "kind": "function",
       "modulePath": "src/regex/isEmail.ts",
       "sourceLocation": {
@@ -3245,9 +3264,11 @@
     },
     {
       "name": "isHttpUrl",
+      "title": null,
       "description": "Return whether a string is a non-empty HTTP or HTTPS URL with a hostname.",
       "isReadme": false,
-      "examples": [],
+      "see": [],
+      "security": [],
       "kind": "function",
       "modulePath": "src/regex/isHttpUrl.ts",
       "sourceLocation": {
@@ -3279,9 +3300,11 @@
     },
     {
       "name": "isPhone",
+      "title": null,
       "description": "Return whether a string has a plausible international phone-number shape.",
       "isReadme": false,
-      "examples": [],
+      "see": [],
+      "security": [],
       "kind": "function",
       "modulePath": "src/regex/isPhone.ts",
       "sourceLocation": {
@@ -3313,9 +3336,11 @@
     },
     {
       "name": "isUsername",
+      "title": null,
       "description": "Return whether a string satisfies Utility's username character and length policy.",
       "isReadme": false,
-      "examples": [],
+      "see": [],
+      "security": [],
       "kind": "function",
       "modulePath": "src/regex/isUsername.ts",
       "sourceLocation": {
@@ -3351,6 +3376,8 @@
     {
       "name": "findMinimumAcceptedNumber",
       "description": "Find the smallest accepted approximation inside one monotone numeric interval.\nThe acceptance predicate is expected to be pure and monotone from false to true.\nRuntime is bounded by at most 64 predicate evaluations after the endpoint checks.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/algorithms/findMinimumAcceptedNumber.ts",
         "line": 9,
@@ -3360,6 +3387,8 @@
     {
       "name": "searchAcceptedBoundary",
       "description": "Narrow one known false/true bracket without allocating intermediate collections.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/algorithms/findMinimumAcceptedNumber.ts",
         "line": 23,
@@ -3369,6 +3398,8 @@
     {
       "name": "validateInput",
       "description": "Reject invalid numeric bounds before evaluating the caller-owned predicate.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/algorithms/findMinimumAcceptedNumber.ts",
         "line": 43,
@@ -3378,6 +3409,8 @@
     {
       "name": "arraysEqual",
       "description": "Return whether two arrays contain equal values in the same order according to a comparator.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/array/arraysEqual.ts",
         "line": 2,
@@ -3387,6 +3420,8 @@
     {
       "name": "dedupeBy",
       "description": "Return the first item for each key while preserving insertion order.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/array/dedupeBy.ts",
         "line": 2,
@@ -3396,6 +3431,8 @@
     {
       "name": "filterAndSort",
       "description": "Filter an immutable input collection and return a sorted copy of the retained values.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/array/filterAndSort.ts",
         "line": 2,
@@ -3405,6 +3442,8 @@
     {
       "name": "filterBy",
       "description": "Filter values through a type-guard predicate while preserving the narrowed result type.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/array/filterBy.ts",
         "line": 2,
@@ -3414,6 +3453,8 @@
     {
       "name": "findByKey",
       "description": "Find the first item whose derived key equals a requested key.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/array/findByKey.ts",
         "line": 2,
@@ -3423,6 +3464,8 @@
     {
       "name": "isStringArray",
       "description": "Narrow an unknown value to an array containing only strings.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/array/isStringArray.ts",
         "line": 2,
@@ -3432,6 +3475,8 @@
     {
       "name": "uniqueSortedStrings",
       "description": "Remove duplicate strings and return them sorted with locale comparison.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/array/uniqueSortedStrings.ts",
         "line": 2,
@@ -3441,6 +3486,8 @@
     {
       "name": "upsertBy",
       "description": "Return a new array with an item replaced by matching key or appended when no match exists.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/array/upsertBy.ts",
         "line": 2,
@@ -3450,6 +3497,8 @@
     {
       "name": "captureAsync",
       "description": "Convert a promise into a ready/error loadable result while normalizing unknown failures to text.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/async/captureAsync.ts",
         "line": 4,
@@ -3459,6 +3508,8 @@
     {
       "name": "toStandaloneArrayBuffer",
       "description": "Copy a Uint8Array into a standalone ArrayBuffer containing exactly the visible byte range.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/binary/toStandaloneArrayBuffer.ts",
         "line": 2,
@@ -3468,6 +3519,8 @@
     {
       "name": "invertBoolean",
       "description": "Invert a boolean value.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/boolean/invertBoolean.ts",
         "line": 2,
@@ -3477,6 +3530,8 @@
     {
       "name": "classifySupportedKey",
       "description": "Classify a string key against a primary predicate and an explicit supported-key record.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/classification/classifySupportedKey.ts",
         "line": 5,
@@ -3486,6 +3541,8 @@
     {
       "name": "isSupportedKey",
       "description": "Return whether a string key is accepted by either a primary predicate or explicit support record.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/classification/isSupportedKey.ts",
         "line": 4,
@@ -3495,6 +3552,8 @@
     {
       "name": "resolveSupportedPolicy",
       "description": "Resolve one of two policy values for supported keys and return undefined for unsupported keys.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/classification/resolveSupportedPolicy.ts",
         "line": 4,
@@ -3504,6 +3563,8 @@
     {
       "name": "readFlag",
       "description": "Read the non-empty value following a named CLI flag, returning null when absent or blank.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/cli/readFlag.ts",
         "line": 2,
@@ -3513,6 +3574,8 @@
     {
       "name": "groupBy",
       "description": "Group items by key while preserving first-seen key order and item order within each group.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/collection/groupBy.ts",
         "line": 2,
@@ -3522,6 +3585,8 @@
     {
       "name": "mapRecordEntries",
       "description": "Project own enumerable record entries into a result array.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/collection/mapRecordEntries.ts",
         "line": 2,
@@ -3531,6 +3596,8 @@
     {
       "name": "createDeferred",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/concurrency/concurrency.test.ts",
         "line": 5,
@@ -3540,6 +3607,8 @@
     {
       "name": "createCoordinatorState",
       "description": "Create the isolated mutable state owned by one concurrency coordinator.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/concurrency/createExclusiveKeyedAsyncCoordinator.ts",
         "line": 11,
@@ -3549,6 +3618,8 @@
     {
       "name": "runExclusive",
       "description": "Execute a whole-resource operation unless whole-resource or keyed work is already active.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/concurrency/createExclusiveKeyedAsyncCoordinator.ts",
         "line": 24,
@@ -3558,6 +3629,8 @@
     {
       "name": "runKeyed",
       "description": "Execute an operation while atomically reserving one primary and one secondary key.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/concurrency/createExclusiveKeyedAsyncCoordinator.ts",
         "line": 39,
@@ -3567,6 +3640,8 @@
     {
       "name": "runSecondaryExclusive",
       "description": "Execute an operation while reserving one secondary key against keyed and peer exclusive use.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/concurrency/createExclusiveKeyedAsyncCoordinator.ts",
         "line": 62,
@@ -3576,6 +3651,8 @@
     {
       "name": "createExclusiveKeyedAsyncCoordinator",
       "description": "Coordinate one whole-resource async lock, independently keyed operations, and secondary-key-exclusive operations.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/concurrency/createExclusiveKeyedAsyncCoordinator.ts",
         "line": 80,
@@ -3585,6 +3662,8 @@
     {
       "name": "releaseFirst",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/concurrency/createKeyedAsyncMutex.test.ts",
         "line": 9,
@@ -3594,6 +3673,8 @@
     {
       "name": "captureError",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/concurrency/createKeyedAsyncMutex.test.ts",
         "line": 29,
@@ -3603,6 +3684,8 @@
     {
       "name": "createKeyedAsyncMutex",
       "description": "Coordinate async operations so only one operation per key can run at a time.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/concurrency/createKeyedAsyncMutex.ts",
         "line": 4,
@@ -3612,6 +3695,8 @@
     {
       "name": "run",
       "description": "Run one keyed async operation while rejecting overlapping work for the same key.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/concurrency/createKeyedAsyncMutex.ts",
         "line": 11,
@@ -3621,6 +3706,8 @@
     {
       "name": "formatDateTime",
       "description": "Format an optional date input for human display with configurable missing and invalid-value behavior.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/date/formatDateTime.ts",
         "line": 4,
@@ -3630,6 +3717,8 @@
     {
       "name": "createDiagnostic",
       "description": "Create a minimal diagnostic value from code, message, and severity.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/diagnostics/createDiagnostic.ts",
         "line": 4,
@@ -3639,6 +3728,8 @@
     {
       "name": "formatDiagnostic",
       "description": "Format one code/message/severity diagnostic as a compact display line.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/diagnostics/formatDiagnostic.ts",
         "line": 4,
@@ -3648,6 +3739,8 @@
     {
       "name": "formatDiagnostics",
       "description": "Format multiple diagnostics as newline-separated display text.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/diagnostics/formatDiagnostics.ts",
         "line": 5,
@@ -3657,6 +3750,8 @@
     {
       "name": "highestSeverity",
       "description": "Resolve the highest-ranked severity from a diagnostics collection.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/diagnostics/highestSeverity.ts",
         "line": 4,
@@ -3666,6 +3761,8 @@
     {
       "name": "sortDiagnostics",
       "description": "Return a stable copy sorted by severity rank and a caller-provided deterministic key.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/diagnostics/sortDiagnostics.ts",
         "line": 4,
@@ -3675,6 +3772,8 @@
     {
       "name": "pickCodeMessage",
       "description": "Project a structured error-like value to its public code/message pair.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/error/pickCodeMessage.ts",
         "line": 2,
@@ -3684,6 +3783,8 @@
     {
       "name": "readErrorMessage",
       "description": "Read a non-empty `message` field from an unknown structured error value.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/error/readErrorMessage.ts",
         "line": 2,
@@ -3693,6 +3794,8 @@
     {
       "name": "toErrorMessage",
       "description": "Convert an unknown thrown value into a stable human-readable message.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/error/toErrorMessage.ts",
         "line": 2,
@@ -3702,6 +3805,8 @@
     {
       "name": "readExpoHostUri",
       "description": "Read a non-empty Expo development host URI from an Expo-constants-like value.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/expo/readExpoHostUri.ts",
         "line": 4,
@@ -3711,6 +3816,8 @@
     {
       "name": "createFormDraft",
       "description": "Project typed configuration values into editable string fields according to a compact control schema.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/form/createFormDraft.ts",
         "line": 5,
@@ -3720,6 +3827,8 @@
     {
       "name": "formatDraftValue",
       "description": "Format one typed value for editing by a text, string-list, or JSON control.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/form/createFormDraft.ts",
         "line": 13,
@@ -3729,6 +3838,8 @@
     {
       "name": "parseFormDraft",
       "description": "Parse editable string fields back into typed values while preserving unrelated current values.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/form/parseFormDraft.ts",
         "line": 5,
@@ -3738,6 +3849,8 @@
     {
       "name": "composeFirstDefined",
       "description": "Compose resolvers and return the first defined result for an input.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/function/composeFirstDefined.ts",
         "line": 4,
@@ -3747,6 +3860,8 @@
     {
       "name": "noop",
       "description": "Intentionally perform no operation.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/function/noop.ts",
         "line": 2,
@@ -3756,6 +3871,8 @@
     {
       "name": "createInputs",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/generator/generateAsync.test.ts",
         "line": 48,
@@ -3765,6 +3882,8 @@
     {
       "name": "createInputs",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/generator/generateAsync.test.ts",
         "line": 98,
@@ -3774,6 +3893,8 @@
     {
       "name": "generateAsync",
       "description": "Execute synchronous or asynchronous inputs lazily and yield each completed result before continuing.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/generator/generateAsync.ts",
         "line": 6,
@@ -3783,6 +3904,8 @@
     {
       "name": "rectArraysEqual",
       "description": "Return whether two ordered rectangle arrays are equal within a numeric tolerance.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/geometry/rectArraysEqual.ts",
         "line": 5,
@@ -3792,6 +3915,8 @@
     {
       "name": "rectsEqual",
       "description": "Return whether two rectangles are equal within a numeric tolerance.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/geometry/rectsEqual.ts",
         "line": 4,
@@ -3801,6 +3926,8 @@
     {
       "name": "resolveDropZoneRect",
       "description": "Resolve before, inside, or after drop-zone geometry from target and dragged rectangles.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/geometry/resolveDropZoneRect.ts",
         "line": 7,
@@ -3810,6 +3937,8 @@
     {
       "name": "sortByRectArea",
       "description": "Return a new array ordered from smallest rectangle area to largest.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/geometry/sortByRectArea.ts",
         "line": 2,
@@ -3819,6 +3948,8 @@
     {
       "name": "toRect",
       "description": "Convert a left/top rectangle shape into the canonical x/y rectangle shape.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/geometry/toRect.ts",
         "line": 4,
@@ -3828,6 +3959,8 @@
     {
       "name": "unionRects",
       "description": "Return the smallest rectangle containing every supplied rectangle.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/geometry/unionRects.ts",
         "line": 4,
@@ -3837,6 +3970,8 @@
     {
       "name": "createBaseUrlFetch",
       "description": "Create a fetch function that resolves relative request paths against one base URL.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/http/createBaseUrlFetch.ts",
         "line": 5,
@@ -3846,6 +3981,8 @@
     {
       "name": "createJsonRequestInit",
       "description": "Create JSON request options while preserving caller headers and additional request settings.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/http/createJsonRequestInit.ts",
         "line": 2,
@@ -3855,6 +3992,8 @@
     {
       "name": "decodeJsonResponse",
       "description": "Decode a response body as JSON and attach response context to invalid-JSON failures.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/http/decodeJsonResponse.ts",
         "line": 2,
@@ -3864,6 +4003,8 @@
     {
       "name": "joinBaseUrl",
       "description": "Join a base URL and relative request path without duplicate boundary slashes.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/http/joinBaseUrl.ts",
         "line": 2,
@@ -3873,6 +4014,8 @@
     {
       "name": "readResponseTextLimited",
       "description": "Read a response body as text while rejecting declared or measured payload sizes above a limit.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/http/readResponseTextLimited.ts",
         "line": 2,
@@ -3882,6 +4025,8 @@
     {
       "name": "requestJson",
       "description": "Execute a fetch request and decode its body as JSON without imposing domain-specific status policy.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/http/requestJson.ts",
         "line": 5,
@@ -3891,6 +4036,8 @@
     {
       "name": "requestParsedJson",
       "description": "Execute an injected HTTP request, decode JSON, run an optional safety assertion, map non-success status, and parse the payload.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/http/requestParsedJson.ts",
         "line": 5,
@@ -3900,6 +4047,8 @@
     {
       "name": "readBlockedMessage",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/http/requestTrustedHttp.test.ts",
         "line": 5,
@@ -3909,6 +4058,8 @@
     {
       "name": "requestTrustedHttp",
       "description": "Execute a credential-free, redirect-rejecting HTTP request with timeout, target, and response-size safeguards.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/http/requestTrustedHttp.ts",
         "line": 13,
@@ -3918,6 +4069,8 @@
     {
       "name": "waitForHttp",
       "description": "Poll an HTTP endpoint until a caller-selected response is ready or a timeout expires.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/http/waitForHttp.ts",
         "line": 4,
@@ -3927,6 +4080,8 @@
     {
       "name": "createCompactId",
       "description": "Create a compact time/random identifier with injectable sources for deterministic testing.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/id/createCompactId.ts",
         "line": 4,
@@ -3936,6 +4091,8 @@
     {
       "name": "confirmAction",
       "description": "Confirm an action with an injected synchronous confirm implementation or fallback alert buttons.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/interaction/confirmAction.ts",
         "line": 4,
@@ -3945,6 +4102,8 @@
     {
       "name": "beginTransaction",
       "description": "Start a fresh interaction transaction and return its monotonically increasing identifier.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/interaction/createStationarySelectionCoordinator.ts",
         "line": 13,
@@ -3954,6 +4113,8 @@
     {
       "name": "recordNode",
       "description": "Record one unique candidate value when the supplied generation matches the active transaction.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/interaction/createStationarySelectionCoordinator.ts",
         "line": 26,
@@ -3963,6 +4124,8 @@
     {
       "name": "commitSelection",
       "description": "Finalize the active transaction into one selection outcome without committing invalid interaction states.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/interaction/createStationarySelectionCoordinator.ts",
         "line": 37,
@@ -3972,6 +4135,8 @@
     {
       "name": "clearTransaction",
       "description": "Clear the active transaction unconditionally or only when a supplied generation matches it.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/interaction/createStationarySelectionCoordinator.ts",
         "line": 59,
@@ -3981,6 +4146,8 @@
     {
       "name": "markMoved",
       "description": "Mark the matching active transaction as moved so it cannot commit a stationary selection.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/interaction/createStationarySelectionCoordinator.ts",
         "line": 66,
@@ -3990,6 +4157,8 @@
     {
       "name": "createStationarySelectionCoordinator",
       "description": "Coordinate a generation-scoped interaction transaction that records an ordered path and commits one stationary selection once.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/interaction/createStationarySelectionCoordinator.ts",
         "line": 72,
@@ -3999,6 +4168,8 @@
     {
       "name": "createStationarySelectionInputState",
       "description": "Buffer unique values per pointer or touch interaction until an active transaction can consume them.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/interaction/createStationarySelectionInputState.ts",
         "line": 6,
@@ -4008,6 +4179,8 @@
     {
       "name": "clear",
       "description": "Reset the pending interaction identity and buffered path.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/interaction/createStationarySelectionInputState.ts",
         "line": 14,
@@ -4017,6 +4190,8 @@
     {
       "name": "recordNode",
       "description": "Record one value into the active transaction or current pending interaction path.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/interaction/createStationarySelectionInputState.ts",
         "line": 20,
@@ -4026,6 +4201,8 @@
     {
       "name": "beginTransaction",
       "description": "Replay the pending path into a newly begun transaction and clear the buffer.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/interaction/createStationarySelectionInputState.ts",
         "line": 36,
@@ -4035,6 +4212,8 @@
     {
       "name": "completePendingInteraction",
       "description": "Clear a pending interaction after completion when no active transaction owns it.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/interaction/createStationarySelectionInputState.ts",
         "line": 42,
@@ -4044,6 +4223,8 @@
     {
       "name": "getInteractionKey",
       "description": "Build a stable interaction key from pointer or touch identity plus its interaction identifier.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/interaction/getInteractionKey.ts",
         "line": 4,
@@ -4053,6 +4234,8 @@
     {
       "name": "isSupportedPointerInput",
       "description": "Return whether a pointer interaction is primary and, for mouse input, uses the primary button.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/interaction/isSupportedPointerInput.ts",
         "line": 4,
@@ -4062,6 +4245,8 @@
     {
       "name": "pointer",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/interaction/stationarySelectionInputState.test.ts",
         "line": 6,
@@ -4071,6 +4256,8 @@
     {
       "name": "touch",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/interaction/stationarySelectionInputState.test.ts",
         "line": 18,
@@ -4080,6 +4267,8 @@
     {
       "name": "createHarness",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/interaction/stationarySelectionInputState.test.ts",
         "line": 27,
@@ -4089,6 +4278,8 @@
     {
       "name": "matchesFileType",
       "description": "Validate a filename extension and optional MIME type against caller-provided allowlists.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/media/matchesFileType.ts",
         "line": 2,
@@ -4098,6 +4289,8 @@
     {
       "name": "sanitizeFileName",
       "description": "Sanitize a possibly path-qualified filename while preserving safe dots, underscores, and hyphens.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/media/sanitizeFileName.ts",
         "line": 2,
@@ -4107,6 +4300,8 @@
     {
       "name": "sanitizePathSegment",
       "description": "Sanitize an arbitrary path segment to letters, digits, underscores, and hyphens with a fallback.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/media/sanitizePathSegment.ts",
         "line": 2,
@@ -4116,6 +4311,8 @@
     {
       "name": "environment",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/node/env/env.test.ts",
         "line": 5,
@@ -4125,6 +4322,8 @@
     {
       "name": "readEnvBoolean",
       "description": "Read a strict boolean environment variable from a Node-style environment record.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/node/env/readEnvBoolean.ts",
         "line": 4,
@@ -4134,6 +4333,8 @@
     {
       "name": "readEnvNumber",
       "description": "Read a finite numeric environment variable from a Node-style environment record.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/node/env/readEnvNumber.ts",
         "line": 4,
@@ -4143,6 +4344,8 @@
     {
       "name": "readEnvString",
       "description": "Read a non-empty own string environment variable from a Node-style environment record.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/node/env/readEnvString.ts",
         "line": 2,
@@ -4152,6 +4355,8 @@
     {
       "name": "assertTextFilesDoNotMatch",
       "description": "Assert that readable text files do not match a forbidden pattern, optionally ignoring missing files.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/node/fs/assertTextFilesDoNotMatch.ts",
         "line": 6,
@@ -4161,6 +4366,8 @@
     {
       "name": "isDirectory",
       "description": "Return whether a filesystem path currently resolves to a directory.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/node/fs/isDirectory.ts",
         "line": 4,
@@ -4170,6 +4377,8 @@
     {
       "name": "isDirectoryNotEmptyError",
       "description": "Return whether an unknown Node-style error reports a non-empty directory.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/node/fs/isDirectoryNotEmptyError.ts",
         "line": 2,
@@ -4179,6 +4388,8 @@
     {
       "name": "isMissingPathError",
       "description": "Return whether an unknown Node-style error reports a missing filesystem path.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/node/fs/isMissingPathError.ts",
         "line": 2,
@@ -4188,6 +4399,8 @@
     {
       "name": "listFilesRecursive",
       "description": "Recursively list files under a root in deterministic lexical order, returning an empty list when the root is absent.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/node/fs/listFilesRecursive.ts",
         "line": 7,
@@ -4197,6 +4410,8 @@
     {
       "name": "pathExists",
       "description": "Return whether a filesystem path currently exists.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/node/fs/pathExists.ts",
         "line": 4,
@@ -4206,6 +4421,8 @@
     {
       "name": "pruneEmptyDirectories",
       "description": "Remove empty directories upward from a starting directory until reaching a protected root.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/node/fs/pruneEmptyDirectories.ts",
         "line": 8,
@@ -4215,6 +4432,8 @@
     {
       "name": "readDirectoryWithinRoot",
       "description": "Reads directory entries only when the directory stays inside the allowed filesystem root.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/node/fs/readDirectoryWithinRoot.ts",
         "line": 6,
@@ -4224,6 +4443,8 @@
     {
       "name": "readTextFileWithinRoot",
       "description": "Reads UTF-8 text only when the requested file stays inside the allowed filesystem root.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/node/fs/readTextFileWithinRoot.ts",
         "line": 6,
@@ -4233,6 +4454,8 @@
     {
       "name": "removeFileWithinRoot",
       "description": "Remove a file only when it stays inside an allowed root, optionally pruning empty parents.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/node/fs/removeFileWithinRoot.ts",
         "line": 7,
@@ -4242,6 +4465,8 @@
     {
       "name": "removePath",
       "description": "Remove a filesystem path recursively while tolerating an already-absent path.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/node/fs/removePath.ts",
         "line": 4,
@@ -4251,6 +4476,8 @@
     {
       "name": "resolveFileSystemPathWithinRoot",
       "description": "Resolves a filesystem path beneath a root while rejecting lexical and symlink escapes.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/node/fs/resolveFileSystemPathWithinRoot.ts",
         "line": 5,
@@ -4260,6 +4487,8 @@
     {
       "name": "assertContainedPath",
       "description": "Rejects paths outside the root and optionally rejects the root path itself.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/node/fs/resolveFileSystemPathWithinRoot.ts",
         "line": 29,
@@ -4269,6 +4498,8 @@
     {
       "name": "findExistingAncestor",
       "description": "Finds the nearest existing path so symlink ancestry can be resolved safely.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/node/fs/resolveFileSystemPathWithinRoot.ts",
         "line": 48,
@@ -4278,6 +4509,8 @@
     {
       "name": "writeFileWithinRoot",
       "description": "Write bytes to a destination only when the resolved file stays inside an allowed root.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/node/fs/writeFileWithinRoot.ts",
         "line": 7,
@@ -4287,6 +4520,8 @@
     {
       "name": "writeJsonFileAtomic",
       "description": "Serialize a value as pretty JSON and atomically replace a file through a same-directory temporary file.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/node/fs/writeJsonFileAtomic.ts",
         "line": 5,
@@ -4296,6 +4531,8 @@
     {
       "name": "publicLookup",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/node/http/validatePublicHttpsUrlAsync.test.ts",
         "line": 10,
@@ -4305,6 +4542,8 @@
     {
       "name": "lookup",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/node/http/validatePublicHttpsUrlAsync.test.ts",
         "line": 52,
@@ -4314,6 +4553,8 @@
     {
       "name": "request",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/node/http/validatePublicHttpsUrlAsync.test.ts",
         "line": 70,
@@ -4323,6 +4564,8 @@
     {
       "name": "lookup",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/node/http/validatePublicHttpsUrlAsync.test.ts",
         "line": 90,
@@ -4332,6 +4575,8 @@
     {
       "name": "request",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/node/http/validatePublicHttpsUrlAsync.test.ts",
         "line": 96,
@@ -4341,6 +4586,8 @@
     {
       "name": "request",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/node/http/validatePublicHttpsUrlAsync.test.ts",
         "line": 112,
@@ -4350,6 +4597,8 @@
     {
       "name": "request",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/node/http/validatePublicHttpsUrlAsync.test.ts",
         "line": 129,
@@ -4359,6 +4608,8 @@
     {
       "name": "readRejectionMessageAsync",
       "description": "Returns the error message produced by a rejected validation promise.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/node/http/validatePublicHttpsUrlAsync.test.ts",
         "line": 143,
@@ -4368,6 +4619,8 @@
     {
       "name": "unexpectedRequest",
       "description": "Fails a test when validation reaches the request boundary unexpectedly.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/node/http/validatePublicHttpsUrlAsync.test.ts",
         "line": 155,
@@ -4377,6 +4630,8 @@
     {
       "name": "validatePublicHttpsUrlAsync",
       "description": "Validates that a URL is reachable through public HTTPS without allowing requests to private\nnetwork targets or unsafe redirect destinations.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/node/http/validatePublicHttpsUrlAsync.ts",
         "line": 34,
@@ -4386,6 +4641,8 @@
     {
       "name": "validateHopAsync",
       "description": "Validates one URL hop and recursively validates each redirect before requesting it.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/node/http/validatePublicHttpsUrlAsync.ts",
         "line": 61,
@@ -4395,6 +4652,8 @@
     {
       "name": "resolvePublicTargetAsync",
       "description": "Parses and resolves one HTTPS target while rejecting credentials, local names, and non-public IPs.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/node/http/validatePublicHttpsUrlAsync.ts",
         "line": 94,
@@ -4404,6 +4663,8 @@
     {
       "name": "parsePublicHttpsUrl",
       "description": "Parses the public HTTPS URL syntax accepted by the hardened validator.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/node/http/validatePublicHttpsUrlAsync.ts",
         "line": 136,
@@ -4413,6 +4674,8 @@
     {
       "name": "normalizeHostname",
       "description": "Normalizes bracketed IPv6 URL hostnames for IP classification and DNS policy.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/node/http/validatePublicHttpsUrlAsync.ts",
         "line": 150,
@@ -4422,6 +4685,8 @@
     {
       "name": "isBlockedHostname",
       "description": "Rejects names reserved for local, example, testing, or internal resolution.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/node/http/validatePublicHttpsUrlAsync.ts",
         "line": 157,
@@ -4431,6 +4696,8 @@
     {
       "name": "lookupPublicAddressesAsync",
       "description": "Resolves all addresses for a hostname without applying a local search-domain policy.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/node/http/validatePublicHttpsUrlAsync.ts",
         "line": 168,
@@ -4440,6 +4707,8 @@
     {
       "name": "requestPinnedHttpsAsync",
       "description": "Performs an HTTPS request pinned to the previously validated address so DNS cannot change\nbetween validation and connection establishment.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/node/http/validatePublicHttpsUrlAsync.ts",
         "line": 183,
@@ -4449,6 +4718,8 @@
     {
       "name": "isPublicIpAddress",
       "description": "Returns whether an IPv4 or IPv6 address is globally routable enough for untrusted outbound access.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/node/net/isPublicIpAddress.ts",
         "line": 48,
@@ -4458,6 +4729,8 @@
     {
       "name": "reserveTcpPort",
       "description": "Ask the operating system for an available TCP port and release it before resolving.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/node/net/reserveTcpPort.ts",
         "line": 4,
@@ -4467,6 +4740,8 @@
     {
       "name": "findAncestorDirectory",
       "description": "Walk parent directories from a start path and return the first directory accepted by a predicate.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/node/path/findAncestorDirectory.ts",
         "line": 4,
@@ -4476,6 +4751,8 @@
     {
       "name": "normalizePortablePath",
       "description": "Normalize filesystem separators and dot segments to a portable POSIX-style path.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/node/path/normalizePortablePath.ts",
         "line": 4,
@@ -4485,6 +4762,8 @@
     {
       "name": "resolveModuleRelativePath",
       "description": "Resolve a filesystem path relative to the directory containing a module URL.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/node/path/resolveModuleRelativePath.ts",
         "line": 5,
@@ -4494,6 +4773,8 @@
     {
       "name": "resolvePackageRoot",
       "description": "Resolve a package root relative to a module URL using a configurable ascent path.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/node/path/resolvePackageRoot.ts",
         "line": 4,
@@ -4503,6 +4784,8 @@
     {
       "name": "resolvePathWithinRoot",
       "description": "Resolve a relative path beneath a root while rejecting absolute, escaping, and optionally root-self paths.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/node/path/resolvePathWithinRoot.ts",
         "line": 4,
@@ -4511,16 +4794,20 @@
     },
     {
       "name": "toPortablePath",
-      "description": "Convert platform-specific path separators to portable forward slashes.",
+      "description": "Convert backslash path separators to portable forward slashes without normalizing path segments.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/node/path/toPortablePath.ts",
-        "line": 4,
+        "line": 2,
         "column": 1
       }
     },
     {
       "name": "toRelativeImportPath",
       "description": "Convert a relative filesystem path to a portable relative module import path.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/node/path/toRelativeImportPath.ts",
         "line": 4,
@@ -4530,6 +4817,8 @@
     {
       "name": "collectProcessOutput",
       "description": "Collect stdout and stderr chunks from a child process into one ordered string buffer.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/node/process/collectProcessOutput.ts",
         "line": 4,
@@ -4539,6 +4828,8 @@
     {
       "name": "openBrowser",
       "description": "Open an HTTP(S) URL with the platform browser without invoking a command shell.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/node/process/openBrowser.ts",
         "line": 6,
@@ -4548,6 +4839,8 @@
     {
       "name": "resolveBrowserCommand",
       "description": "Resolve the fixed platform executable and argument vector for one browser URL.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/node/process/openBrowser.ts",
         "line": 22,
@@ -4557,6 +4850,8 @@
     {
       "name": "runProcessWithTimeout",
       "description": "Run a child process with bounded spawn/runtime timeouts and SIGTERM/SIGKILL escalation.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/node/process/runProcessWithTimeout.ts",
         "line": 29,
@@ -4566,6 +4861,8 @@
     {
       "name": "createProcessLifecycle",
       "description": "Create the mutable state owned by one spawned-process lifecycle boundary.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/node/process/runProcessWithTimeout.ts",
         "line": 41,
@@ -4575,6 +4872,8 @@
     {
       "name": "bindProcessLifecycle",
       "description": "Bind process lifecycle events to the bounded timeout coordinator.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/node/process/runProcessWithTimeout.ts",
         "line": 55,
@@ -4584,6 +4883,8 @@
     {
       "name": "handleProcessSpawn",
       "description": "Replace the spawn deadline with the hard runtime deadline after the process starts.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/node/process/runProcessWithTimeout.ts",
         "line": 64,
@@ -4593,6 +4894,8 @@
     {
       "name": "rejectProcessTimeout",
       "description": "Terminate an overdue process with SIGTERM/SIGKILL escalation and reject its lifecycle.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/node/process/runProcessWithTimeout.ts",
         "line": 74,
@@ -4602,6 +4905,8 @@
     {
       "name": "rejectProcessError",
       "description": "Normalize a child-process spawn error and reject the lifecycle once.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/node/process/runProcessWithTimeout.ts",
         "line": 94,
@@ -4611,6 +4916,8 @@
     {
       "name": "settleProcessClose",
       "description": "Resolve or reject one process lifecycle from its final exit code or signal.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/node/process/runProcessWithTimeout.ts",
         "line": 104,
@@ -4620,6 +4927,8 @@
     {
       "name": "rejectProcessOnce",
       "description": "Reject a process lifecycle once and clear all timers owned by it.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/node/process/runProcessWithTimeout.ts",
         "line": 129,
@@ -4629,6 +4938,8 @@
     {
       "name": "clearProcessTimers",
       "description": "Clear every timeout owned by one spawned-process lifecycle.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/node/process/runProcessWithTimeout.ts",
         "line": 137,
@@ -4638,6 +4949,8 @@
     {
       "name": "stopProcess",
       "description": "Stop a child-process group when possible and fall back to stopping the child process itself.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/node/process/stopProcess.ts",
         "line": 4,
@@ -4647,6 +4960,8 @@
     {
       "name": "parseFiniteNumber",
       "description": "Parse a finite number from a string, returning null for blank or invalid input.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/number/parseFiniteNumber.ts",
         "line": 2,
@@ -4656,6 +4971,8 @@
     {
       "name": "parseNonNegativeNumber",
       "description": "Parse a finite non-negative number from a string, returning null for blank, invalid, or negative input.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/number/parseNonNegativeNumber.ts",
         "line": 4,
@@ -4665,6 +4982,8 @@
     {
       "name": "parseTcpPort",
       "description": "Parse a valid TCP port number from an optional string.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/number/parseTcpPort.ts",
         "line": 2,
@@ -4674,6 +4993,8 @@
     {
       "name": "asRecord",
       "description": "Narrow an unknown value to a record, or return undefined when it is not one.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/object/asRecord.ts",
         "line": 4,
@@ -4683,6 +5004,8 @@
     {
       "name": "assertNoNestedKeys",
       "description": "Throw when an unknown nested value contains any forbidden record key.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/object/assertNoNestedKeys.ts",
         "line": 4,
@@ -4692,6 +5015,8 @@
     {
       "name": "deepMerge",
       "description": "Deeply merge defined source values into a target record without mutating either input.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/object/deepMerge.ts",
         "line": 5,
@@ -4701,6 +5026,8 @@
     {
       "name": "mergeValue",
       "description": "Merge two unknown values, recursively combining records and replacing all other values.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/object/deepMerge.ts",
         "line": 10,
@@ -4710,6 +5037,8 @@
     {
       "name": "deleteOwnProperty",
       "description": "Delete an own property when present and report whether the deletion succeeded.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/object/deleteOwnProperty.ts",
         "line": 2,
@@ -4719,6 +5048,8 @@
     {
       "name": "findNestedKey",
       "description": "Return the first nested record key contained in a forbidden-key set, including its traversal path.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/object/findNestedKey.ts",
         "line": 9,
@@ -4728,6 +5059,8 @@
     {
       "name": "findOwnPropertyValue",
       "description": "Return the first own property value accepted by a predicate from an ordered key list.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/object/findOwnPropertyValue.ts",
         "line": 2,
@@ -4737,6 +5070,8 @@
     {
       "name": "hasOnlyKeys",
       "description": "Return whether every own enumerable string key belongs to the allowed key set.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/object/hasOnlyKeys.ts",
         "line": 2,
@@ -4746,6 +5081,8 @@
     {
       "name": "isDeepEqual",
       "description": "Compare unknown values recursively using structural equality for arrays and records.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/object/isDeepEqual.ts",
         "line": 5,
@@ -4755,6 +5092,8 @@
     {
       "name": "isEmptyRecord",
       "description": "Return whether a record has no own enumerable string keys.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/object/isEmptyRecord.ts",
         "line": 2,
@@ -4764,6 +5103,8 @@
     {
       "name": "isRecord",
       "description": "Return whether an unknown value is a non-null, non-array record.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/object/isRecord.ts",
         "line": 2,
@@ -4773,6 +5114,8 @@
     {
       "name": "isRecordOf",
       "description": "Narrow an unknown value to a record whose values all satisfy the supplied predicate.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/object/isRecordOf.ts",
         "line": 4,
@@ -4782,6 +5125,8 @@
     {
       "name": "readOwnProperty",
       "description": "Read an own property without traversing the prototype chain.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/object/readOwnProperty.ts",
         "line": 2,
@@ -4791,6 +5136,8 @@
     {
       "name": "setOwnProperty",
       "description": "Define an enumerable, writable, configurable own data property on an object.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/object/setOwnProperty.ts",
         "line": 2,
@@ -4800,6 +5147,8 @@
     {
       "name": "walkNestedValues",
       "description": "Walk an unknown array/record graph depth-first while preventing object cycles.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/object/walkNestedValues.ts",
         "line": 8,
@@ -4809,6 +5158,8 @@
     {
       "name": "walk",
       "description": "Visit one nested value and recursively traverse its children when it is an unseen object.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/object/walkNestedValues.ts",
         "line": 16,
@@ -4818,6 +5169,8 @@
     {
       "name": "withOptionalOwnProperty",
       "description": "Return a shallow copy that removes a property for undefined or sets it for a defined value.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/object/withOptionalOwnProperty.ts",
         "line": 5,
@@ -4827,6 +5180,8 @@
     {
       "name": "withoutOwnProperty",
       "description": "Return a shallow copy without one own property.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/object/withoutOwnProperty.ts",
         "line": 2,
@@ -4836,6 +5191,8 @@
     {
       "name": "withOwnProperty",
       "description": "Return a shallow copy with one own property set to a supplied value.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/object/withOwnProperty.ts",
         "line": 2,
@@ -4845,6 +5202,8 @@
     {
       "name": "createObservedSetCoordinator",
       "description": "Synchronize an observer against a desired set using only required observe and unobserve calls.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/observer/createObservedSetCoordinator.ts",
         "line": 4,
@@ -4854,6 +5213,8 @@
     {
       "name": "disconnect",
       "description": "Disconnect the underlying observer once and clear tracked values.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/observer/createObservedSetCoordinator.ts",
         "line": 11,
@@ -4863,6 +5224,8 @@
     {
       "name": "sync",
       "description": "Diff desired values against observed values and apply only required observer changes.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/observer/createObservedSetCoordinator.ts",
         "line": 19,
@@ -4872,6 +5235,8 @@
     {
       "name": "isNativeMeasurableView",
       "description": "Detect a React-Native-like view that exposes `measureInWindow`.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/react-native/measurement/isNativeMeasurableView.ts",
         "line": 4,
@@ -4881,6 +5246,8 @@
     {
       "name": "measureCrossPlatformView",
       "description": "Measure an unknown cross-platform view using web geometry on web and native window measurement otherwise.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/react-native/measurement/measureCrossPlatformView.ts",
         "line": 8,
@@ -4890,6 +5257,8 @@
     {
       "name": "measureNativeView",
       "description": "Measure a React-Native-like view in window coordinates and reject zero-area results.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/react-native/measurement/measureNativeView.ts",
         "line": 5,
@@ -4899,6 +5268,8 @@
     {
       "name": "resolveWebResizeTarget",
       "description": "Resolve an unknown view to a resize target only for web execution and when a caller-provided guard accepts it.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/react-native/web/resolveWebResizeTarget.ts",
         "line": 2,
@@ -4908,6 +5279,8 @@
     {
       "name": "escapeRegExp",
       "description": "Escapes a literal string so it can be safely embedded in a regular-expression source.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/regex/escapeRegExp.ts",
         "line": 2,
@@ -4917,6 +5290,8 @@
     {
       "name": "isEmail",
       "description": "Return whether a string satisfies Utility's conservative email-address shape validation.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/regex/isEmail.ts",
         "line": 7,
@@ -4926,6 +5301,8 @@
     {
       "name": "isInvalidDomainLabel",
       "description": "Return whether one email domain label violates Utility's domain-label constraints.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/regex/isEmail.ts",
         "line": 32,
@@ -4935,6 +5312,8 @@
     {
       "name": "isHttpUrl",
       "description": "Return whether a string is a non-empty HTTP or HTTPS URL with a hostname.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/regex/isHttpUrl.ts",
         "line": 4,
@@ -4944,6 +5323,8 @@
     {
       "name": "isPhone",
       "description": "Return whether a string has a plausible international phone-number shape.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/regex/isPhone.ts",
         "line": 6,
@@ -4953,6 +5334,8 @@
     {
       "name": "hasBalancedParentheses",
       "description": "Return whether a phone string contains at most one balanced parenthesized group.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/regex/isPhone.ts",
         "line": 22,
@@ -4962,6 +5345,8 @@
     {
       "name": "isUsername",
       "description": "Return whether a string satisfies Utility's username character and length policy.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/regex/isUsername.ts",
         "line": 6,
@@ -4971,6 +5356,8 @@
     {
       "name": "createKeyedMultiValueRegistry",
       "description": "Create a keyed multi-value registry with idempotent unregister callbacks and optional change notifications.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/registry/createKeyedMultiValueRegistry.ts",
         "line": 4,
@@ -4980,6 +5367,8 @@
     {
       "name": "register",
       "description": "Register one value under a key and return an idempotent unregister callback.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/registry/createKeyedMultiValueRegistry.ts",
         "line": 10,
@@ -4989,6 +5378,8 @@
     {
       "name": "createKeyedValueStore",
       "description": "Create an in-memory keyed value store with replacement semantics and predicate-based delete-and-return support.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/registry/createKeyedValueStore.ts",
         "line": 4,
@@ -4998,6 +5389,8 @@
     {
       "name": "deleteWhere",
       "description": "Delete and return every stored value accepted by a predicate.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/registry/createKeyedValueStore.ts",
         "line": 10,
@@ -5007,6 +5400,8 @@
     {
       "name": "createLink",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/registry/keyedValueStore.test.ts",
         "line": 10,
@@ -5016,6 +5411,8 @@
     {
       "name": "isRouteGroupSegment",
       "description": "Return whether a route segment is an Expo-style grouping segment.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/route/isRouteGroupSegment.ts",
         "line": 2,
@@ -5025,6 +5422,8 @@
     {
       "name": "normalizePathnameSegments",
       "description": "Normalize a pathname into non-empty segments while ignoring query and hash suffixes.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/route/normalizePathnameSegments.ts",
         "line": 2,
@@ -5034,6 +5433,8 @@
     {
       "name": "normalizeRoutePatternSegments",
       "description": "Normalize route-pattern fragments by splitting nested paths, removing route groups, and trimming edge index segments.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/route/normalizeRoutePatternSegments.ts",
         "line": 4,
@@ -5043,6 +5444,8 @@
     {
       "name": "scoreRoutePatternMatch",
       "description": "Score an exact, dynamic, catch-all, or optional-catch-all route match against pathname segments.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/route/scoreRoutePatternMatch.ts",
         "line": 6,
@@ -5052,6 +5455,8 @@
     {
       "name": "createFakeFrameScheduler",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/scheduling/coalescedTask.test.ts",
         "line": 5,
@@ -5061,6 +5466,8 @@
     {
       "name": "createCoalescedTask",
       "description": "Coalesce repeated requests into at most one pending scheduler callback.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/scheduling/createCoalescedTask.ts",
         "line": 4,
@@ -5070,6 +5477,8 @@
     {
       "name": "cancel",
       "description": "Cancel the currently pending task when one exists.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/scheduling/createCoalescedTask.ts",
         "line": 12,
@@ -5079,6 +5488,8 @@
     {
       "name": "request",
       "description": "Schedule one task unless another callback is already pending.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/scheduling/createCoalescedTask.ts",
         "line": 19,
@@ -5088,6 +5499,8 @@
     {
       "name": "createLatestAsyncCoordinator",
       "description": "Apply only the latest asynchronous request result and ignore stale completions.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/scheduling/createLatestAsyncCoordinator.ts",
         "line": 4,
@@ -5097,6 +5510,8 @@
     {
       "name": "clearPending",
       "description": "Clear a scheduled sample without changing active state.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/scheduling/createSettleCoordinator.ts",
         "line": 14,
@@ -5106,6 +5521,8 @@
     {
       "name": "cancel",
       "description": "Cancel sampling and invalidate any in-flight sample result.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/scheduling/createSettleCoordinator.ts",
         "line": 24,
@@ -5115,6 +5532,8 @@
     {
       "name": "scheduleNext",
       "description": "Schedule the next sample only when no sample is running or pending.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/scheduling/createSettleCoordinator.ts",
         "line": 37,
@@ -5124,6 +5543,8 @@
     {
       "name": "sampleNext",
       "description": "Take one sample and settle, cancel, or schedule the next sample from its result.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/scheduling/createSettleCoordinator.ts",
         "line": 50,
@@ -5133,6 +5554,8 @@
     {
       "name": "trigger",
       "description": "Start or restart settle sampling and report whether the coordinator was previously inactive.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/scheduling/createSettleCoordinator.ts",
         "line": 81,
@@ -5142,6 +5565,8 @@
     {
       "name": "createSettleCoordinator",
       "description": "Repeatedly sample an asynchronous value until it is stable or reaches a configured sample limit.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/scheduling/createSettleCoordinator.ts",
         "line": 96,
@@ -5151,6 +5576,8 @@
     {
       "name": "createFakeScheduler",
       "description": null,
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/scheduling/settleCoordinator.test.ts",
         "line": 5,
@@ -5160,6 +5587,8 @@
     {
       "name": "resolveEffectiveSchemaType",
       "description": "Normalize JSON-schema-like type, format, and structural hints into one effective value type.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/schema/resolveEffectiveSchemaType.ts",
         "line": 5,
@@ -5169,6 +5598,8 @@
     {
       "name": "resolveSchemaReference",
       "description": "Resolve a reference recursively through a keyed schema registry while preventing reference cycles.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/schema/resolveSchemaReference.ts",
         "line": 4,
@@ -5178,6 +5609,8 @@
     {
       "name": "resolveSingleSchemaType",
       "description": "Return a declared schema type only when the declaration contains exactly one primitive type.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/schema/resolveSingleSchemaType.ts",
         "line": 2,
@@ -5187,6 +5620,8 @@
     {
       "name": "filterByTextFields",
       "description": "Filter values by a normalized query matched against caller-provided text fields.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/search/filterByTextFields.ts",
         "line": 4,
@@ -5196,6 +5631,8 @@
     {
       "name": "scoreBestTextMatch",
       "description": "Return the highest text-match score across a set of already-normalized candidate strings.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/search/scoreBestTextMatch.ts",
         "line": 4,
@@ -5205,6 +5642,8 @@
     {
       "name": "scoreTextMatch",
       "description": "Score an already-normalized target by exact, prefix, or substring match quality.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/search/scoreTextMatch.ts",
         "line": 2,
@@ -5214,6 +5653,8 @@
     {
       "name": "arrayToSingleSelection",
       "description": "Adapt a selected-values array into one nullable single selection using its first value.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/selection/arrayToSingleSelection.ts",
         "line": 2,
@@ -5223,6 +5664,8 @@
     {
       "name": "singleSelectionToArray",
       "description": "Adapt a nullable single selection into a zero-or-one selected-values array.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/selection/singleSelectionToArray.ts",
         "line": 2,
@@ -5232,6 +5675,8 @@
     {
       "name": "compareSemanticVersions",
       "description": "Compare two semantic versions by major, minor, then patch number.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/semver/compareSemanticVersions.ts",
         "line": 4,
@@ -5241,6 +5686,8 @@
     {
       "name": "parseSemanticVersion",
       "description": "Parse an exact three-part semantic version without prerelease or build metadata.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/semver/parseSemanticVersion.ts",
         "line": 4,
@@ -5250,6 +5697,8 @@
     {
       "name": "satisfiesCaretSemverRange",
       "description": "Return whether an exact semantic version satisfies a caret range with an exact three-part minimum.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/semver/satisfiesCaretSemverRange.ts",
         "line": 5,
@@ -5259,6 +5708,8 @@
     {
       "name": "chainComparators",
       "description": "Compose comparators in priority order and return the first non-zero comparison result.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/sort/chainComparators.ts",
         "line": 4,
@@ -5268,6 +5719,8 @@
     {
       "name": "createCompositeKey",
       "description": "Join scalar key parts into one stable composite key using a configurable delimiter.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/string/createCompositeKey.ts",
         "line": 2,
@@ -5277,6 +5730,8 @@
     {
       "name": "formatJavaScriptObjectKey",
       "description": "Format a string as a bare JavaScript identifier key when valid, otherwise as a JSON-quoted object key.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/string/formatJavaScriptObjectKey.ts",
         "line": 2,
@@ -5286,6 +5741,8 @@
     {
       "name": "isNonEmptyString",
       "description": "Return whether a value is a non-empty string after trimming whitespace.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/string/isNonEmptyString.ts",
         "line": 2,
@@ -5295,6 +5752,8 @@
     {
       "name": "isOptionalString",
       "description": "Accept undefined or any primitive string, including empty and whitespace-only strings.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/string/isOptionalString.ts",
         "line": 2,
@@ -5304,6 +5763,8 @@
     {
       "name": "normalizeSearchText",
       "description": "Normalize text for case-insensitive searching and comparison.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/string/normalizeSearchText.ts",
         "line": 2,
@@ -5313,6 +5774,8 @@
     {
       "name": "parseCommaSeparatedList",
       "description": "Parse a comma-separated list into trimmed unique non-empty values while preserving order.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/string/parseCommaSeparatedList.ts",
         "line": 2,
@@ -5322,6 +5785,8 @@
     {
       "name": "quoteJavaScriptString",
       "description": "Serialize a JavaScript string literal with single quotes and escaped control characters.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/string/quoteJavaScriptString.ts",
         "line": 2,
@@ -5331,6 +5796,8 @@
     {
       "name": "readSafeRegexCapture",
       "description": "Read and trim the first regex capture only when it satisfies configured length and whitespace constraints.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/string/readSafeRegexCapture.ts",
         "line": 7,
@@ -5340,6 +5807,8 @@
     {
       "name": "serializeJavaScriptLiteral",
       "description": "Serialize finite JSON-like data as source, omitting undefined properties and nulling array entries.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/string/serializeJavaScriptLiteral.ts",
         "line": 4,
@@ -5349,6 +5818,8 @@
     {
       "name": "slugifyAscii",
       "description": "Convert arbitrary text to a lowercase ASCII-alphanumeric slug separated by single hyphens.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/string/slugifyAscii.ts",
         "line": 2,
@@ -5358,6 +5829,8 @@
     {
       "name": "splitCommaSeparated",
       "description": "Split an optional comma-separated string into trimmed non-empty values while preserving duplicates and order.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/string/splitCommaSeparated.ts",
         "line": 2,
@@ -5367,6 +5840,8 @@
     {
       "name": "stringifyJson",
       "description": "Serialize a value as formatted JSON and optionally truncate the resulting text.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/string/stringifyJson.ts",
         "line": 4,
@@ -5376,6 +5851,8 @@
     {
       "name": "titleCaseIdentifier",
       "description": "Convert a camelCase, PascalCase, underscore, or hyphen identifier into a space-separated title label.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/string/titleCaseIdentifier.ts",
         "line": 2,
@@ -5385,6 +5862,8 @@
     {
       "name": "trimOutput",
       "description": "Limit text to a maximum character count while preserving original length and reporting truncation.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/string/trimOutput.ts",
         "line": 4,
@@ -5394,6 +5873,8 @@
     {
       "name": "truncateText",
       "description": "Trim whitespace and limit a string to a maximum length with an optional suffix.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/string/truncateText.ts",
         "line": 2,
@@ -5403,6 +5884,8 @@
     {
       "name": "cloneTreeWithNewIds",
       "description": "Deep-clone a tree while assigning a fresh id to every cloned node.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/tree/cloneTreeWithNewIds.ts",
         "line": 4,
@@ -5412,6 +5895,8 @@
     {
       "name": "findTreeNode",
       "description": "Find the first tree node with a matching id using depth-first traversal.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/tree/findTreeNode.ts",
         "line": 4,
@@ -5421,6 +5906,8 @@
     {
       "name": "findTreeNodeWithParent",
       "description": "Find a tree node together with its parent and sibling index.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/tree/findTreeNodeWithParent.ts",
         "line": 4,
@@ -5430,6 +5917,8 @@
     {
       "name": "insertTreeChildAtIndex",
       "description": "Immutably insert a child at a bounded index under a matching parent id.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/tree/insertTreeChildAtIndex.ts",
         "line": 4,
@@ -5439,6 +5928,8 @@
     {
       "name": "isTreeDescendant",
       "description": "Return whether one id identifies a strict descendant of another node in the tree.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/tree/isTreeDescendant.ts",
         "line": 6,
@@ -5448,6 +5939,8 @@
     {
       "name": "removeTreeNode",
       "description": "Immutably remove a node by id, returning undefined when the root itself is removed.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/tree/removeTreeNode.ts",
         "line": 5,
@@ -5457,6 +5950,8 @@
     {
       "name": "removeTreeNodeWithValue",
       "description": "Immutably remove a node by id and return both the next tree and removed node.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/tree/removeTreeNodeWithValue.ts",
         "line": 4,
@@ -5466,6 +5961,8 @@
     {
       "name": "treeContainsId",
       "description": "Return whether a tree contains a node with the supplied id.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/tree/treeContainsId.ts",
         "line": 5,
@@ -5475,6 +5972,8 @@
     {
       "name": "updateTreeNode",
       "description": "Immutably update one tree node while preserving unchanged branches by reference.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/tree/updateTreeNode.ts",
         "line": 4,
@@ -5484,6 +5983,8 @@
     {
       "name": "appendEncodedPathSegment",
       "description": "Append one URL-encoded path segment to a path prefix.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/url/appendEncodedPathSegment.ts",
         "line": 4,
@@ -5493,6 +5994,8 @@
     {
       "name": "decodeFirstPathSegmentAfterPrefix",
       "description": "Read the first path segment after a required prefix and decode it, preserving the encoded segment when decoding fails.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/url/decodeFirstPathSegmentAfterPrefix.ts",
         "line": 2,
@@ -5502,6 +6005,8 @@
     {
       "name": "decodeSinglePathSegmentAfterPrefix",
       "description": "Read exactly one URL-encoded segment after a required prefix and reject empty, nested, or undecodable values.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/url/decodeSinglePathSegmentAfterPrefix.ts",
         "line": 2,
@@ -5511,6 +6016,8 @@
     {
       "name": "ensureTrailingSlash",
       "description": "Ensure a string ends with a trailing slash without changing an existing trailing slash.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/url/ensureTrailingSlash.ts",
         "line": 2,
@@ -5520,6 +6027,8 @@
     {
       "name": "firstStringParam",
       "description": "Read the first string value from a scalar-or-array route/search parameter.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/url/firstStringParam.ts",
         "line": 2,
@@ -5529,6 +6038,8 @@
     {
       "name": "isExactHttpUrl",
       "description": "Return whether a string is an exact HTTP(S) URL candidate without wildcard syntax.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/url/isExactHttpUrl.ts",
         "line": 2,
@@ -5538,6 +6049,8 @@
     {
       "name": "isPathAtOrBelow",
       "description": "Return whether a pathname is equal to or nested below a path prefix.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/url/isPathAtOrBelow.ts",
         "line": 4,
@@ -5547,6 +6060,8 @@
     {
       "name": "normalizeCredentialFreeHttpUrl",
       "description": "Normalize an HTTP(S) URL and reject embedded credentials or non-HTTP protocols.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/url/normalizeCredentialFreeHttpUrl.ts",
         "line": 2,
@@ -5556,6 +6071,8 @@
     {
       "name": "normalizePathname",
       "description": "Normalize a pathname by trimming whitespace, query/hash suffixes, duplicate slashes, and trailing slashes.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/url/normalizePathname.ts",
         "line": 2,
@@ -5565,6 +6082,8 @@
     {
       "name": "parseTrustedHttpUrl",
       "description": "Parse an HTTP(S) URL while rejecting inline credentials and configured sensitive hosts.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/url/parseTrustedHttpUrl.ts",
         "line": 9,
@@ -5574,6 +6093,8 @@
     {
       "name": "redactUrlQueryValues",
       "description": "Redact every query-parameter value from a URL while preserving its shape and tolerating invalid input.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/url/redactUrlQueryValues.ts",
         "line": 2,
@@ -5583,6 +6104,8 @@
     {
       "name": "resolveHttpOrigin",
       "description": "Resolve an HTTP origin from a URL value or a localhost port fallback.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/url/resolveHttpOrigin.ts",
         "line": 4,
@@ -5592,6 +6115,8 @@
     {
       "name": "setOptionalQueryParam",
       "description": "Set a query parameter only when an optional scalar value is present.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/url/setOptionalQueryParam.ts",
         "line": 2,
@@ -5601,6 +6126,8 @@
     {
       "name": "assertNoForbiddenNestedKeys",
       "description": "Throw when an object graph contains a forbidden own property key.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/validation/assertNoForbiddenNestedKeys.ts",
         "line": 4,
@@ -5610,6 +6137,8 @@
     {
       "name": "assertStaticImportBinding",
       "description": "Reject module specifiers and export names outside the safe static named-import subset.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/validation/assertStaticImportBinding.ts",
         "line": 2,
@@ -5619,6 +6148,8 @@
     {
       "name": "hasBooleanResultFlag",
       "description": "Narrow an unknown value to a record containing a boolean result flag at a caller-selected key.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/validation/hasBooleanResultFlag.ts",
         "line": 2,
@@ -5628,6 +6159,8 @@
     {
       "name": "hasForbiddenNestedKey",
       "description": "Return whether an object or array graph contains any forbidden own property key.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/validation/hasForbiddenNestedKey.ts",
         "line": 2,
@@ -5637,6 +6170,8 @@
     {
       "name": "hasForbiddenNestedKeyInternal",
       "description": "Traverse an object graph cycle-safely while checking each own enumerable key against a forbidden set.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/validation/hasForbiddenNestedKey.ts",
         "line": 7,
@@ -5646,6 +6181,8 @@
     {
       "name": "isCodeMessageFailure",
       "description": "Narrow an unknown value to a minimal `{ code, message }` failure shape.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/validation/isCodeMessageFailure.ts",
         "line": 4,
@@ -5655,6 +6192,8 @@
     {
       "name": "asFiniteNumber",
       "description": "Narrow an unknown value to a finite number.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/value/asFiniteNumber.ts",
         "line": 2,
@@ -5664,6 +6203,8 @@
     {
       "name": "asNonEmptyString",
       "description": "Narrow an unknown value to a trimmed non-empty string.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/value/asNonEmptyString.ts",
         "line": 2,
@@ -5673,6 +6214,8 @@
     {
       "name": "assertArray",
       "description": "Assert that an unknown value is an array and return it without claiming element-level validation.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/value/assertArray.ts",
         "line": 2,
@@ -5682,6 +6225,8 @@
     {
       "name": "asString",
       "description": "Narrow an unknown value to a string without changing its contents.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/value/asString.ts",
         "line": 2,
@@ -5691,6 +6236,8 @@
     {
       "name": "isOneOf",
       "description": "Narrow an unknown value to one of the supplied literal values.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/value/isOneOf.ts",
         "line": 2,
@@ -5700,6 +6247,8 @@
     {
       "name": "collectWebDescendants",
       "description": "Recursively collect every descendant from a DOM-like element in depth-first order.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/web/collectWebDescendants.ts",
         "line": 4,
@@ -5709,6 +6258,8 @@
     {
       "name": "isBrowserRuntime",
       "description": "Return whether a browser-style window object is exposed by the active runtime.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/web/isBrowserRuntime.ts",
         "line": 2,
@@ -5718,6 +6269,8 @@
     {
       "name": "isWebElementLike",
       "description": "Detect a DOM-like value that supports child traversal and bounding-rectangle measurement.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/web/isWebElementLike.ts",
         "line": 4,
@@ -5727,6 +6280,8 @@
     {
       "name": "isWebPlatform",
       "description": "Return whether a platform identifier represents web execution.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/web/isWebPlatform.ts",
         "line": 2,
@@ -5736,6 +6291,8 @@
     {
       "name": "measureNonZeroWebElement",
       "description": "Measure an element directly and return null for zero-area geometry.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/web/measureNonZeroWebElement.ts",
         "line": 6,
@@ -5745,6 +6302,8 @@
     {
       "name": "measureRenderedWebBoxes",
       "description": "Measure an element, falling through zero-area wrappers to rendered descendant boxes.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/web/measureRenderedWebBoxes.ts",
         "line": 6,
@@ -5754,6 +6313,8 @@
     {
       "name": "measureWebDescendantUnion",
       "description": "Measure rendered descendant boxes and return their union rectangle.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/web/measureWebDescendantUnion.ts",
         "line": 7,
@@ -5763,6 +6324,8 @@
     {
       "name": "openUrl",
       "description": "Open a URL in a new browser tab without opener access when an opener implementation is available.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/web/openUrl.ts",
         "line": 4,
@@ -5772,6 +6335,8 @@
     {
       "name": "resolveNavigableLocation",
       "description": "Preserve search and hash suffixes when a requested pathname matches the current browser pathname.",
+      "see": [],
+      "security": [],
       "sourceLocation": {
         "filePath": "src/web/resolveNavigableLocation.ts",
         "line": 4,
@@ -7667,6 +8232,11 @@
         "fromPath": "src/node/path/resolvePackageRoot.ts",
         "toPath": "src/node/path/resolveModuleRelativePath.ts",
         "sourcePath": "src/node/path/resolvePackageRoot.ts"
+      },
+      {
+        "fromPath": "src/node/path/toPortablePath.test.ts",
+        "toPath": "src/node/path/toPortablePath.ts",
+        "sourcePath": "src/node/path/toPortablePath.test.ts"
       },
       {
         "fromPath": "src/node/path/toRelativeImportPath.ts",
@@ -10086,6 +10656,24 @@
         "toSymbol": "resolveModuleRelativePath",
         "callExpression": "resolveModuleRelativePath",
         "sourcePath": "src/node/path/resolvePackageRoot.ts"
+      },
+      {
+        "fromSymbol": "src/node/path/toPortablePath.test.ts",
+        "toSymbol": "describe",
+        "callExpression": "describe",
+        "sourcePath": "src/node/path/toPortablePath.test.ts"
+      },
+      {
+        "fromSymbol": "src/node/path/toPortablePath.test.ts",
+        "toSymbol": "expect",
+        "callExpression": "expect",
+        "sourcePath": "src/node/path/toPortablePath.test.ts"
+      },
+      {
+        "fromSymbol": "src/node/path/toPortablePath.test.ts",
+        "toSymbol": "toPortablePath",
+        "callExpression": "toPortablePath",
+        "sourcePath": "src/node/path/toPortablePath.test.ts"
       },
       {
         "fromSymbol": "toRelativeImportPath",
