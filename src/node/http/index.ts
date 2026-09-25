@@ -1,4 +1,3 @@
-export { validatePublicHttpsUrlAsync } from './validatePublicHttpsUrlAsync.js';
 export type {
   PublicHttpsAddress,
   PublicHttpsLookup,
@@ -8,3 +7,4 @@ export type {
   PublicHttpsValidationOptions,
   PublicHttpsValidationResult,
 } from '../../types/publicHttps.js';
+export { validatePublicHttpsUrlAsync } from './validatePublicHttpsUrlAsync.js';
