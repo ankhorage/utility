@@ -13,9 +13,7 @@ export interface PublicHttpsResponseMetadata {
   readonly location: string | null;
 }
 
-export type PublicHttpsLookup = (
-  hostname: string,
-) => Promise<readonly PublicHttpsAddress[]>;
+export type PublicHttpsLookup = (hostname: string) => Promise<readonly PublicHttpsAddress[]>;
 
 export type PublicHttpsRequest = (
   target: PublicHttpsResolvedTarget,
