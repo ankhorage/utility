@@ -1,5 +1,13 @@
 # @ankhorage/utility
 
+## 1.7.0
+
+### Minor Changes
+
+- 65c7882: Add SSRF-hardened public HTTPS validation with public IP classification, DNS target validation,
+  pinned-address requests, safe redirect validation, bounded request behavior, and deterministic
+  injectable test boundaries.
+
 ## 1.6.0
 
 ### Minor Changes

@@ -154,7 +154,12 @@ graph LR
   module_src_node_fs_rootedFileSystem_test_ts["src/node/fs/rootedFileSystem.test.ts"]
   module_src_node_fs_writeFileWithinRoot_ts["src/node/fs/writeFileWithinRoot.ts"]
   module_src_node_fs_writeJsonFileAtomic_ts["src/node/fs/writeJsonFileAtomic.ts"]
+  module_src_node_http_index_ts["src/node/http/index.ts"]
+  module_src_node_http_validatePublicHttpsUrlAsync_test_ts["src/node/http/validatePublicHttpsUrlAsync.test.ts"]
+  module_src_node_http_validatePublicHttpsUrlAsync_ts["src/node/http/validatePublicHttpsUrlAsync.ts"]
   module_src_node_net_index_ts["src/node/net/index.ts"]
+  module_src_node_net_isPublicIpAddress_test_ts["src/node/net/isPublicIpAddress.test.ts"]
+  module_src_node_net_isPublicIpAddress_ts["src/node/net/isPublicIpAddress.ts"]
   module_src_node_net_reserveTcpPort_ts["src/node/net/reserveTcpPort.ts"]
   module_src_node_path_findAncestorDirectory_ts["src/node/path/findAncestorDirectory.ts"]
   module_src_node_path_index_ts["src/node/path/index.ts"]
@@ -280,6 +285,7 @@ graph LR
   module_src_tree_treeContainsId_ts["src/tree/treeContainsId.ts"]
   module_src_tree_types_ts["src/tree/types.ts"]
   module_src_tree_updateTreeNode_ts["src/tree/updateTreeNode.ts"]
+  module_src_types_publicHttps_ts["src/types/publicHttps.ts"]
   module_src_url_appendEncodedPathSegment_ts["src/url/appendEncodedPathSegment.ts"]
   module_src_url_decodeFirstPathSegmentAfterPrefix_test_ts["src/url/decodeFirstPathSegmentAfterPrefix.test.ts"]
   module_src_url_decodeFirstPathSegmentAfterPrefix_ts["src/url/decodeFirstPathSegmentAfterPrefix.ts"]
@@ -392,6 +398,11 @@ graph LR
   module_src_node_fs_removeFileWithinRoot_ts --> module_src_node_fs_pruneEmptyDirectories_ts
   module_src_node_fs_rootedFileSystem_test_ts --> module_src_node_fs_index_ts
   module_src_node_fs_writeFileWithinRoot_ts --> module_src_node_fs_resolveFileSystemPathWithinRoot_ts
+  module_src_node_http_validatePublicHttpsUrlAsync_test_ts --> module_src_node_http_validatePublicHttpsUrlAsync_ts
+  module_src_node_http_validatePublicHttpsUrlAsync_test_ts --> module_src_types_publicHttps_ts
+  module_src_node_http_validatePublicHttpsUrlAsync_ts --> module_src_node_net_isPublicIpAddress_ts
+  module_src_node_http_validatePublicHttpsUrlAsync_ts --> module_src_types_publicHttps_ts
+  module_src_node_net_isPublicIpAddress_test_ts --> module_src_node_net_isPublicIpAddress_ts
   module_src_node_path_resolvePackageRoot_ts --> module_src_node_path_resolveModuleRelativePath_ts
   module_src_node_path_toRelativeImportPath_ts --> module_src_node_path_toPortablePath_ts
   module_src_node_process_openBrowser_test_ts --> module_src_node_process_openBrowser_ts

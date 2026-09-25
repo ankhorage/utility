@@ -14,7 +14,7 @@
     {
       "id": "npm",
       "label": "npm",
-      "value": "v1.6.0",
+      "value": "v1.7.0",
       "color": "cb3837"
     },
     {
@@ -1466,11 +1466,63 @@
       ]
     },
     {
+      "path": "src/node/http/index.ts",
+      "isEntrypoint": false,
+      "dependencies": [],
+      "exports": [
+        "PublicHttpsAddress",
+        "PublicHttpsLookup",
+        "PublicHttpsRequest",
+        "PublicHttpsResolvedTarget",
+        "PublicHttpsResponseMetadata",
+        "PublicHttpsValidationOptions",
+        "PublicHttpsValidationResult",
+        "validatePublicHttpsUrlAsync"
+      ]
+    },
+    {
+      "path": "src/node/http/validatePublicHttpsUrlAsync.test.ts",
+      "isEntrypoint": false,
+      "dependencies": [
+        "src/node/http/validatePublicHttpsUrlAsync.ts",
+        "src/types/publicHttps.ts"
+      ],
+      "exports": []
+    },
+    {
+      "path": "src/node/http/validatePublicHttpsUrlAsync.ts",
+      "isEntrypoint": false,
+      "dependencies": [
+        "src/node/net/isPublicIpAddress.ts",
+        "src/types/publicHttps.ts"
+      ],
+      "exports": [
+        "validatePublicHttpsUrlAsync"
+      ]
+    },
+    {
       "path": "src/node/net/index.ts",
       "isEntrypoint": false,
       "dependencies": [],
       "exports": [
+        "isPublicIpAddress",
         "reserveTcpPort"
+      ]
+    },
+    {
+      "path": "src/node/net/isPublicIpAddress.test.ts",
+      "isEntrypoint": false,
+      "dependencies": [
+        "src/node/net/isPublicIpAddress.ts"
+      ],
+      "exports": []
+    },
+    {
+      "path": "src/node/net/isPublicIpAddress.ts",
+      "isEntrypoint": false,
+      "dependencies": [],
+      "exports": [
+        "isPublicIpAddress"
       ]
     },
     {
@@ -2677,6 +2729,20 @@
       ],
       "exports": [
         "updateTreeNode"
+      ]
+    },
+    {
+      "path": "src/types/publicHttps.ts",
+      "isEntrypoint": false,
+      "dependencies": [],
+      "exports": [
+        "PublicHttpsAddress",
+        "PublicHttpsLookup",
+        "PublicHttpsRequest",
+        "PublicHttpsResolvedTarget",
+        "PublicHttpsResponseMetadata",
+        "PublicHttpsValidationOptions",
+        "PublicHttpsValidationResult"
       ]
     },
     {
@@ -4207,6 +4273,168 @@
       "sourceLocation": {
         "filePath": "src/node/fs/writeJsonFileAtomic.ts",
         "line": 5,
+        "column": 1
+      }
+    },
+    {
+      "name": "publicLookup",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/node/http/validatePublicHttpsUrlAsync.test.ts",
+        "line": 10,
+        "column": 7
+      }
+    },
+    {
+      "name": "lookup",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/node/http/validatePublicHttpsUrlAsync.test.ts",
+        "line": 52,
+        "column": 11
+      }
+    },
+    {
+      "name": "request",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/node/http/validatePublicHttpsUrlAsync.test.ts",
+        "line": 70,
+        "column": 11
+      }
+    },
+    {
+      "name": "lookup",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/node/http/validatePublicHttpsUrlAsync.test.ts",
+        "line": 90,
+        "column": 11
+      }
+    },
+    {
+      "name": "request",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/node/http/validatePublicHttpsUrlAsync.test.ts",
+        "line": 96,
+        "column": 11
+      }
+    },
+    {
+      "name": "request",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/node/http/validatePublicHttpsUrlAsync.test.ts",
+        "line": 112,
+        "column": 11
+      }
+    },
+    {
+      "name": "request",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/node/http/validatePublicHttpsUrlAsync.test.ts",
+        "line": 129,
+        "column": 11
+      }
+    },
+    {
+      "name": "readRejectionMessageAsync",
+      "description": "Returns the error message produced by a rejected validation promise.",
+      "sourceLocation": {
+        "filePath": "src/node/http/validatePublicHttpsUrlAsync.test.ts",
+        "line": 143,
+        "column": 1
+      }
+    },
+    {
+      "name": "unexpectedRequest",
+      "description": "Fails a test when validation reaches the request boundary unexpectedly.",
+      "sourceLocation": {
+        "filePath": "src/node/http/validatePublicHttpsUrlAsync.test.ts",
+        "line": 155,
+        "column": 1
+      }
+    },
+    {
+      "name": "validatePublicHttpsUrlAsync",
+      "description": "Validates that a URL is reachable through public HTTPS without allowing requests to private\nnetwork targets or unsafe redirect destinations.",
+      "sourceLocation": {
+        "filePath": "src/node/http/validatePublicHttpsUrlAsync.ts",
+        "line": 34,
+        "column": 1
+      }
+    },
+    {
+      "name": "validateHopAsync",
+      "description": "Validates one URL hop and recursively validates each redirect before requesting it.",
+      "sourceLocation": {
+        "filePath": "src/node/http/validatePublicHttpsUrlAsync.ts",
+        "line": 61,
+        "column": 1
+      }
+    },
+    {
+      "name": "resolvePublicTargetAsync",
+      "description": "Parses and resolves one HTTPS target while rejecting credentials, local names, and non-public IPs.",
+      "sourceLocation": {
+        "filePath": "src/node/http/validatePublicHttpsUrlAsync.ts",
+        "line": 94,
+        "column": 1
+      }
+    },
+    {
+      "name": "parsePublicHttpsUrl",
+      "description": "Parses the public HTTPS URL syntax accepted by the hardened validator.",
+      "sourceLocation": {
+        "filePath": "src/node/http/validatePublicHttpsUrlAsync.ts",
+        "line": 136,
+        "column": 1
+      }
+    },
+    {
+      "name": "normalizeHostname",
+      "description": "Normalizes bracketed IPv6 URL hostnames for IP classification and DNS policy.",
+      "sourceLocation": {
+        "filePath": "src/node/http/validatePublicHttpsUrlAsync.ts",
+        "line": 150,
+        "column": 1
+      }
+    },
+    {
+      "name": "isBlockedHostname",
+      "description": "Rejects names reserved for local, example, testing, or internal resolution.",
+      "sourceLocation": {
+        "filePath": "src/node/http/validatePublicHttpsUrlAsync.ts",
+        "line": 157,
+        "column": 1
+      }
+    },
+    {
+      "name": "lookupPublicAddressesAsync",
+      "description": "Resolves all addresses for a hostname without applying a local search-domain policy.",
+      "sourceLocation": {
+        "filePath": "src/node/http/validatePublicHttpsUrlAsync.ts",
+        "line": 168,
+        "column": 1
+      }
+    },
+    {
+      "name": "requestPinnedHttpsAsync",
+      "description": "Performs an HTTPS request pinned to the previously validated address so DNS cannot change\nbetween validation and connection establishment.",
+      "sourceLocation": {
+        "filePath": "src/node/http/validatePublicHttpsUrlAsync.ts",
+        "line": 183,
+        "column": 1
+      }
+    },
+    {
+      "name": "isPublicIpAddress",
+      "description": "Returns whether an IPv4 or IPv6 address is globally routable enough for untrusted outbound access.",
+      "sourceLocation": {
+        "filePath": "src/node/net/isPublicIpAddress.ts",
+        "line": 48,
         "column": 1
       }
     },
@@ -7320,9 +7548,49 @@
         "sourcePath": "src/node/fs/writeFileWithinRoot.ts"
       },
       {
+        "fromPath": "src/node/http/index.ts",
+        "toPath": "src/types/publicHttps.ts",
+        "sourcePath": "src/node/http/index.ts"
+      },
+      {
+        "fromPath": "src/node/http/index.ts",
+        "toPath": "src/node/http/validatePublicHttpsUrlAsync.ts",
+        "sourcePath": "src/node/http/index.ts"
+      },
+      {
+        "fromPath": "src/node/http/validatePublicHttpsUrlAsync.test.ts",
+        "toPath": "src/types/publicHttps.ts",
+        "sourcePath": "src/node/http/validatePublicHttpsUrlAsync.test.ts"
+      },
+      {
+        "fromPath": "src/node/http/validatePublicHttpsUrlAsync.test.ts",
+        "toPath": "src/node/http/validatePublicHttpsUrlAsync.ts",
+        "sourcePath": "src/node/http/validatePublicHttpsUrlAsync.test.ts"
+      },
+      {
+        "fromPath": "src/node/http/validatePublicHttpsUrlAsync.ts",
+        "toPath": "src/types/publicHttps.ts",
+        "sourcePath": "src/node/http/validatePublicHttpsUrlAsync.ts"
+      },
+      {
+        "fromPath": "src/node/http/validatePublicHttpsUrlAsync.ts",
+        "toPath": "src/node/net/isPublicIpAddress.ts",
+        "sourcePath": "src/node/http/validatePublicHttpsUrlAsync.ts"
+      },
+      {
+        "fromPath": "src/node/net/index.ts",
+        "toPath": "src/node/net/isPublicIpAddress.ts",
+        "sourcePath": "src/node/net/index.ts"
+      },
+      {
         "fromPath": "src/node/net/index.ts",
         "toPath": "src/node/net/reserveTcpPort.ts",
         "sourcePath": "src/node/net/index.ts"
+      },
+      {
+        "fromPath": "src/node/net/isPublicIpAddress.test.ts",
+        "toPath": "src/node/net/isPublicIpAddress.ts",
+        "sourcePath": "src/node/net/isPublicIpAddress.test.ts"
       },
       {
         "fromPath": "src/node/path/index.ts",
@@ -9578,6 +9846,156 @@
         "toSymbol": "resolveFileSystemPathWithinRoot",
         "callExpression": "resolveFileSystemPathWithinRoot",
         "sourcePath": "src/node/fs/writeFileWithinRoot.ts"
+      },
+      {
+        "fromSymbol": "src/node/http/validatePublicHttpsUrlAsync.test.ts",
+        "toSymbol": "describe",
+        "callExpression": "describe",
+        "sourcePath": "src/node/http/validatePublicHttpsUrlAsync.test.ts"
+      },
+      {
+        "fromSymbol": "src/node/http/validatePublicHttpsUrlAsync.test.ts",
+        "toSymbol": "test",
+        "callExpression": "test",
+        "sourcePath": "src/node/http/validatePublicHttpsUrlAsync.test.ts"
+      },
+      {
+        "fromSymbol": "src/node/http/validatePublicHttpsUrlAsync.test.ts",
+        "toSymbol": "readRejectionMessageAsync",
+        "callExpression": "readRejectionMessageAsync",
+        "sourcePath": "src/node/http/validatePublicHttpsUrlAsync.test.ts"
+      },
+      {
+        "fromSymbol": "src/node/http/validatePublicHttpsUrlAsync.test.ts",
+        "toSymbol": "validatePublicHttpsUrlAsync",
+        "callExpression": "validatePublicHttpsUrlAsync",
+        "sourcePath": "src/node/http/validatePublicHttpsUrlAsync.test.ts"
+      },
+      {
+        "fromSymbol": "src/node/http/validatePublicHttpsUrlAsync.test.ts",
+        "toSymbol": "expect",
+        "callExpression": "expect",
+        "sourcePath": "src/node/http/validatePublicHttpsUrlAsync.test.ts"
+      },
+      {
+        "fromSymbol": "validatePublicHttpsUrlAsync",
+        "toSymbol": "validateHopAsync",
+        "callExpression": "validateHopAsync",
+        "sourcePath": "src/node/http/validatePublicHttpsUrlAsync.ts"
+      },
+      {
+        "fromSymbol": "validateHopAsync",
+        "toSymbol": "resolvePublicTargetAsync",
+        "callExpression": "resolvePublicTargetAsync",
+        "sourcePath": "src/node/http/validatePublicHttpsUrlAsync.ts"
+      },
+      {
+        "fromSymbol": "validateHopAsync",
+        "toSymbol": "requestAsync",
+        "callExpression": "context.requestAsync",
+        "sourcePath": "src/node/http/validatePublicHttpsUrlAsync.ts"
+      },
+      {
+        "fromSymbol": "validateHopAsync",
+        "toSymbol": "validateHopAsync",
+        "callExpression": "validateHopAsync",
+        "sourcePath": "src/node/http/validatePublicHttpsUrlAsync.ts"
+      },
+      {
+        "fromSymbol": "resolvePublicTargetAsync",
+        "toSymbol": "parsePublicHttpsUrl",
+        "callExpression": "parsePublicHttpsUrl",
+        "sourcePath": "src/node/http/validatePublicHttpsUrlAsync.ts"
+      },
+      {
+        "fromSymbol": "resolvePublicTargetAsync",
+        "toSymbol": "normalizeHostname",
+        "callExpression": "normalizeHostname",
+        "sourcePath": "src/node/http/validatePublicHttpsUrlAsync.ts"
+      },
+      {
+        "fromSymbol": "resolvePublicTargetAsync",
+        "toSymbol": "isIP",
+        "callExpression": "isIP",
+        "sourcePath": "src/node/http/validatePublicHttpsUrlAsync.ts"
+      },
+      {
+        "fromSymbol": "resolvePublicTargetAsync",
+        "toSymbol": "isPublicIpAddress",
+        "callExpression": "isPublicIpAddress",
+        "sourcePath": "src/node/http/validatePublicHttpsUrlAsync.ts"
+      },
+      {
+        "fromSymbol": "resolvePublicTargetAsync",
+        "toSymbol": "isBlockedHostname",
+        "callExpression": "isBlockedHostname",
+        "sourcePath": "src/node/http/validatePublicHttpsUrlAsync.ts"
+      },
+      {
+        "fromSymbol": "resolvePublicTargetAsync",
+        "toSymbol": "lookupAsync",
+        "callExpression": "lookupAsync",
+        "sourcePath": "src/node/http/validatePublicHttpsUrlAsync.ts"
+      },
+      {
+        "fromSymbol": "src/node/http/validatePublicHttpsUrlAsync.ts",
+        "toSymbol": "isPublicIpAddress",
+        "callExpression": "isPublicIpAddress",
+        "sourcePath": "src/node/http/validatePublicHttpsUrlAsync.ts"
+      },
+      {
+        "fromSymbol": "lookupPublicAddressesAsync",
+        "toSymbol": "lookup",
+        "callExpression": "lookup",
+        "sourcePath": "src/node/http/validatePublicHttpsUrlAsync.ts"
+      },
+      {
+        "fromSymbol": "src/node/http/validatePublicHttpsUrlAsync.ts",
+        "toSymbol": "httpsRequest",
+        "callExpression": "httpsRequest",
+        "sourcePath": "src/node/http/validatePublicHttpsUrlAsync.ts"
+      },
+      {
+        "fromSymbol": "lookup",
+        "toSymbol": "callback",
+        "callExpression": "callback",
+        "sourcePath": "src/node/http/validatePublicHttpsUrlAsync.ts"
+      },
+      {
+        "fromSymbol": "src/node/http/validatePublicHttpsUrlAsync.ts",
+        "toSymbol": "resolve",
+        "callExpression": "resolve",
+        "sourcePath": "src/node/http/validatePublicHttpsUrlAsync.ts"
+      },
+      {
+        "fromSymbol": "src/node/net/isPublicIpAddress.test.ts",
+        "toSymbol": "describe",
+        "callExpression": "describe",
+        "sourcePath": "src/node/net/isPublicIpAddress.test.ts"
+      },
+      {
+        "fromSymbol": "src/node/net/isPublicIpAddress.test.ts",
+        "toSymbol": "test",
+        "callExpression": "test",
+        "sourcePath": "src/node/net/isPublicIpAddress.test.ts"
+      },
+      {
+        "fromSymbol": "src/node/net/isPublicIpAddress.test.ts",
+        "toSymbol": "expect",
+        "callExpression": "expect",
+        "sourcePath": "src/node/net/isPublicIpAddress.test.ts"
+      },
+      {
+        "fromSymbol": "src/node/net/isPublicIpAddress.test.ts",
+        "toSymbol": "isPublicIpAddress",
+        "callExpression": "isPublicIpAddress",
+        "sourcePath": "src/node/net/isPublicIpAddress.test.ts"
+      },
+      {
+        "fromSymbol": "isPublicIpAddress",
+        "toSymbol": "isIP",
+        "callExpression": "isIP",
+        "sourcePath": "src/node/net/isPublicIpAddress.ts"
       },
       {
         "fromSymbol": "src/node/net/reserveTcpPort.ts",
