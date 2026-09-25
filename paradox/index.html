@@ -927,6 +927,11 @@
       <small>1 function</small>
     </button>
   </li><li>
+    <button class="nav-button" type="button" data-target="src/string/slugifyAscii.ts">
+      src/string/slugifyAscii.ts
+      <small>1 function</small>
+    </button>
+  </li><li>
     <button class="nav-button" type="button" data-target="src/string/splitCommaSeparated.ts">
       src/string/splitCommaSeparated.ts
       <small>1 function</small>
@@ -1168,7 +1173,7 @@
       <div class="summary">
         <div><strong>5</strong><span class="muted">public exports</span></div>
         <div><strong>0</strong><span class="muted">components</span></div>
-        <div><strong>330</strong><span class="muted">modules</span></div>
+        <div><strong>332</strong><span class="muted">modules</span></div>
         <div><strong>1</strong><span class="muted">entrypoints</span></div>
       </div>
       <h3>Entrypoints</h3>
@@ -2474,11 +2479,11 @@
     <p class="muted">Referenced module</p>
     <p><strong>Dependencies:</strong> <span class="empty">None</span></p>
     <p><strong>Exports:</strong> <code>formatJavaScriptObjectKey</code></p>
-  </article><article class="item" data-search="src/string/index.ts createCompositeKey formatJavaScriptObjectKey isNonEmptyString isOptionalString normalizeSearchText parseCommaSeparatedList quoteJavaScriptString readSafeRegexCapture SafeRegexCaptureOptions serializeJavaScriptLiteral splitCommaSeparated stringifyJson titleCaseIdentifier TrimmedText trimOutput truncateText">
+  </article><article class="item" data-search="src/string/index.ts createCompositeKey formatJavaScriptObjectKey isNonEmptyString isOptionalString normalizeSearchText parseCommaSeparatedList quoteJavaScriptString readSafeRegexCapture SafeRegexCaptureOptions serializeJavaScriptLiteral slugifyAscii splitCommaSeparated stringifyJson titleCaseIdentifier TrimmedText trimOutput truncateText">
     <h3>src/string/index.ts</h3>
     <p class="muted">Referenced module</p>
     <p><strong>Dependencies:</strong> <span class="empty">None</span></p>
-    <p><strong>Exports:</strong> <code>createCompositeKey</code>, <code>formatJavaScriptObjectKey</code>, <code>isNonEmptyString</code>, <code>isOptionalString</code>, <code>normalizeSearchText</code>, <code>parseCommaSeparatedList</code>, <code>quoteJavaScriptString</code>, <code>readSafeRegexCapture</code>, <code>SafeRegexCaptureOptions</code>, <code>serializeJavaScriptLiteral</code>, <code>splitCommaSeparated</code>, <code>stringifyJson</code>, <code>titleCaseIdentifier</code>, <code>TrimmedText</code>, <code>trimOutput</code>, <code>truncateText</code></p>
+    <p><strong>Exports:</strong> <code>createCompositeKey</code>, <code>formatJavaScriptObjectKey</code>, <code>isNonEmptyString</code>, <code>isOptionalString</code>, <code>normalizeSearchText</code>, <code>parseCommaSeparatedList</code>, <code>quoteJavaScriptString</code>, <code>readSafeRegexCapture</code>, <code>SafeRegexCaptureOptions</code>, <code>serializeJavaScriptLiteral</code>, <code>slugifyAscii</code>, <code>splitCommaSeparated</code>, <code>stringifyJson</code>, <code>titleCaseIdentifier</code>, <code>TrimmedText</code>, <code>trimOutput</code>, <code>truncateText</code></p>
   </article><article class="item" data-search="src/string/isNonEmptyString.ts isNonEmptyString">
     <h3>src/string/isNonEmptyString.ts</h3>
     <p class="muted">Referenced module</p>
@@ -2524,6 +2529,16 @@
     <p class="muted">Referenced module</p>
     <p><strong>Dependencies:</strong> <code>src/string/quoteJavaScriptString.ts</code></p>
     <p><strong>Exports:</strong> <code>serializeJavaScriptLiteral</code></p>
+  </article><article class="item" data-search="src/string/slugifyAscii.test.ts src/string/slugifyAscii.ts">
+    <h3>src/string/slugifyAscii.test.ts</h3>
+    <p class="muted">Referenced module</p>
+    <p><strong>Dependencies:</strong> <code>src/string/slugifyAscii.ts</code></p>
+    <p><strong>Exports:</strong> <span class="empty">None</span></p>
+  </article><article class="item" data-search="src/string/slugifyAscii.ts slugifyAscii">
+    <h3>src/string/slugifyAscii.ts</h3>
+    <p class="muted">Referenced module</p>
+    <p><strong>Dependencies:</strong> <span class="empty">None</span></p>
+    <p><strong>Exports:</strong> <code>slugifyAscii</code></p>
   </article><article class="item" data-search="src/string/splitCommaSeparated.ts splitCommaSeparated">
     <h3>src/string/splitCommaSeparated.ts</h3>
     <p class="muted">Referenced module</p>
@@ -3645,6 +3660,11 @@
   module_src_string_serializeJavaScriptLiteral_ts[&quot;src/string/serializeJavaScriptLiteral.ts&quot;]
   package__ankhorage_utility -.-&gt; module_src_string_serializeJavaScriptLiteral_ts
   module_src_string_serializeJavaScriptLiteral_ts --&gt; module_src_string_quoteJavaScriptString_ts
+  module_src_string_slugifyAscii_test_ts[&quot;src/string/slugifyAscii.test.ts&quot;]
+  package__ankhorage_utility -.-&gt; module_src_string_slugifyAscii_test_ts
+  module_src_string_slugifyAscii_test_ts --&gt; module_src_string_slugifyAscii_ts
+  module_src_string_slugifyAscii_ts[&quot;src/string/slugifyAscii.ts&quot;]
+  package__ankhorage_utility -.-&gt; module_src_string_slugifyAscii_ts
   module_src_string_splitCommaSeparated_ts[&quot;src/string/splitCommaSeparated.ts&quot;]
   package__ankhorage_utility -.-&gt; module_src_string_splitCommaSeparated_ts
   module_src_string_stringifyJson_ts[&quot;src/string/stringifyJson.ts&quot;]
@@ -4475,6 +4495,11 @@
   module_src_string_serializeJavaScriptLiteral_ts[&quot;src/string/serializeJavaScriptLiteral.ts&quot;]
   package__ankhorage_utility -.-&gt; module_src_string_serializeJavaScriptLiteral_ts
   module_src_string_serializeJavaScriptLiteral_ts --&gt; module_src_string_quoteJavaScriptString_ts
+  module_src_string_slugifyAscii_test_ts[&quot;src/string/slugifyAscii.test.ts&quot;]
+  package__ankhorage_utility -.-&gt; module_src_string_slugifyAscii_test_ts
+  module_src_string_slugifyAscii_test_ts --&gt; module_src_string_slugifyAscii_ts
+  module_src_string_slugifyAscii_ts[&quot;src/string/slugifyAscii.ts&quot;]
+  package__ankhorage_utility -.-&gt; module_src_string_slugifyAscii_ts
   module_src_string_splitCommaSeparated_ts[&quot;src/string/splitCommaSeparated.ts&quot;]
   package__ankhorage_utility -.-&gt; module_src_string_splitCommaSeparated_ts
   module_src_string_stringifyJson_ts[&quot;src/string/stringifyJson.ts&quot;]
@@ -4911,6 +4936,8 @@
   module_src_string_quoteJavaScriptString_ts[&quot;src/string/quoteJavaScriptString.ts&quot;]
   module_src_string_readSafeRegexCapture_ts[&quot;src/string/readSafeRegexCapture.ts&quot;]
   module_src_string_serializeJavaScriptLiteral_ts[&quot;src/string/serializeJavaScriptLiteral.ts&quot;]
+  module_src_string_slugifyAscii_test_ts[&quot;src/string/slugifyAscii.test.ts&quot;]
+  module_src_string_slugifyAscii_ts[&quot;src/string/slugifyAscii.ts&quot;]
   module_src_string_splitCommaSeparated_ts[&quot;src/string/splitCommaSeparated.ts&quot;]
   module_src_string_stringifyJson_ts[&quot;src/string/stringifyJson.ts&quot;]
   module_src_string_titleCaseIdentifier_ts[&quot;src/string/titleCaseIdentifier.ts&quot;]
@@ -5097,6 +5124,7 @@
   module_src_string_isOptionalString_test_ts --&gt; module_src_string_index_ts
   module_src_string_javaScriptLiterals_test_ts --&gt; module_src_string_index_ts
   module_src_string_serializeJavaScriptLiteral_ts --&gt; module_src_string_quoteJavaScriptString_ts
+  module_src_string_slugifyAscii_test_ts --&gt; module_src_string_slugifyAscii_ts
   module_src_string_stringifyJson_ts --&gt; module_src_string_truncateText_ts
   module_src_string_trimOutput_ts --&gt; module_src_string_types_ts
   module_src_tree_cloneTreeWithNewIds_ts --&gt; module_src_tree_types_ts
@@ -5409,6 +5437,8 @@
   module_src_string_quoteJavaScriptString_ts[&quot;src/string/quoteJavaScriptString.ts&quot;]
   module_src_string_readSafeRegexCapture_ts[&quot;src/string/readSafeRegexCapture.ts&quot;]
   module_src_string_serializeJavaScriptLiteral_ts[&quot;src/string/serializeJavaScriptLiteral.ts&quot;]
+  module_src_string_slugifyAscii_test_ts[&quot;src/string/slugifyAscii.test.ts&quot;]
+  module_src_string_slugifyAscii_ts[&quot;src/string/slugifyAscii.ts&quot;]
   module_src_string_splitCommaSeparated_ts[&quot;src/string/splitCommaSeparated.ts&quot;]
   module_src_string_stringifyJson_ts[&quot;src/string/stringifyJson.ts&quot;]
   module_src_string_titleCaseIdentifier_ts[&quot;src/string/titleCaseIdentifier.ts&quot;]
@@ -5595,6 +5625,7 @@
   module_src_string_isOptionalString_test_ts --&gt; module_src_string_index_ts
   module_src_string_javaScriptLiterals_test_ts --&gt; module_src_string_index_ts
   module_src_string_serializeJavaScriptLiteral_ts --&gt; module_src_string_quoteJavaScriptString_ts
+  module_src_string_slugifyAscii_test_ts --&gt; module_src_string_slugifyAscii_ts
   module_src_string_stringifyJson_ts --&gt; module_src_string_truncateText_ts
   module_src_string_trimOutput_ts --&gt; module_src_string_types_ts
   module_src_tree_cloneTreeWithNewIds_ts --&gt; module_src_tree_types_ts
@@ -5909,6 +5940,8 @@
   module_src_string_quoteJavaScriptString_ts[&quot;src/string/quoteJavaScriptString.ts&quot;]
   module_src_string_readSafeRegexCapture_ts[&quot;src/string/readSafeRegexCapture.ts&quot;]
   module_src_string_serializeJavaScriptLiteral_ts[&quot;src/string/serializeJavaScriptLiteral.ts&quot;]
+  module_src_string_slugifyAscii_test_ts[&quot;src/string/slugifyAscii.test.ts&quot;]
+  module_src_string_slugifyAscii_ts[&quot;src/string/slugifyAscii.ts&quot;]
   module_src_string_splitCommaSeparated_ts[&quot;src/string/splitCommaSeparated.ts&quot;]
   module_src_string_stringifyJson_ts[&quot;src/string/stringifyJson.ts&quot;]
   module_src_string_titleCaseIdentifier_ts[&quot;src/string/titleCaseIdentifier.ts&quot;]
@@ -6253,6 +6286,8 @@
   module_src_string_quoteJavaScriptString_ts[&quot;src/string/quoteJavaScriptString.ts&quot;]
   module_src_string_readSafeRegexCapture_ts[&quot;src/string/readSafeRegexCapture.ts&quot;]
   module_src_string_serializeJavaScriptLiteral_ts[&quot;src/string/serializeJavaScriptLiteral.ts&quot;]
+  module_src_string_slugifyAscii_test_ts[&quot;src/string/slugifyAscii.test.ts&quot;]
+  module_src_string_slugifyAscii_ts[&quot;src/string/slugifyAscii.ts&quot;]
   module_src_string_splitCommaSeparated_ts[&quot;src/string/splitCommaSeparated.ts&quot;]
   module_src_string_stringifyJson_ts[&quot;src/string/stringifyJson.ts&quot;]
   module_src_string_titleCaseIdentifier_ts[&quot;src/string/titleCaseIdentifier.ts&quot;]
@@ -8037,6 +8072,15 @@ between validation and connection establishment.</p>
     <h3>serializeJavaScriptLiteral</h3>
     <p class="muted"><code>src/string/serializeJavaScriptLiteral.ts:4:1</code></p>
     <p>Serialize finite JSON-like data as source, omitting undefined properties and nulling array entries.</p>
+  </article>
+    </section>
+  </section><section id="view-src-string-slugifyascii-ts" class="view" data-view="src/string/slugifyAscii.ts" hidden>
+    <section class="panel">
+      <h2>src/string/slugifyAscii.ts</h2>
+      <article class="item" data-search="slugifyAscii src/string/slugifyAscii.ts Convert arbitrary text to a lowercase ASCII-alphanumeric slug separated by single hyphens.">
+    <h3>slugifyAscii</h3>
+    <p class="muted"><code>src/string/slugifyAscii.ts:2:1</code></p>
+    <p>Convert arbitrary text to a lowercase ASCII-alphanumeric slug separated by single hyphens.</p>
   </article>
     </section>
   </section><section id="view-src-string-splitcommaseparated-ts" class="view" data-view="src/string/splitCommaSeparated.ts" hidden>

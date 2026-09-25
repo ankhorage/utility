@@ -1,5 +1,11 @@
 # @ankhorage/utility
 
+## 1.8.0
+
+### Minor Changes
+
+- b7d3307: Add a canonical ASCII slugifier for shared identifier and anchor generation.
+
 ## 1.7.0
 
 ### Minor Changes

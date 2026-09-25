@@ -14,7 +14,7 @@
     {
       "id": "npm",
       "label": "npm",
-      "value": "v1.7.0",
+      "value": "v1.8.0",
       "color": "cb3837"
     },
     {
@@ -2469,6 +2469,7 @@
         "readSafeRegexCapture",
         "SafeRegexCaptureOptions",
         "serializeJavaScriptLiteral",
+        "slugifyAscii",
         "splitCommaSeparated",
         "stringifyJson",
         "titleCaseIdentifier",
@@ -2550,6 +2551,22 @@
       ],
       "exports": [
         "serializeJavaScriptLiteral"
+      ]
+    },
+    {
+      "path": "src/string/slugifyAscii.test.ts",
+      "isEntrypoint": false,
+      "dependencies": [
+        "src/string/slugifyAscii.ts"
+      ],
+      "exports": []
+    },
+    {
+      "path": "src/string/slugifyAscii.ts",
+      "isEntrypoint": false,
+      "dependencies": [],
+      "exports": [
+        "slugifyAscii"
       ]
     },
     {
@@ -5330,6 +5347,15 @@
       }
     },
     {
+      "name": "slugifyAscii",
+      "description": "Convert arbitrary text to a lowercase ASCII-alphanumeric slug separated by single hyphens.",
+      "sourceLocation": {
+        "filePath": "src/string/slugifyAscii.ts",
+        "line": 2,
+        "column": 1
+      }
+    },
+    {
       "name": "splitCommaSeparated",
       "description": "Split an optional comma-separated string into trimmed non-empty values while preserving duplicates and order.",
       "sourceLocation": {
@@ -6944,6 +6970,11 @@
       },
       {
         "fromPath": "src/string/index.ts",
+        "toPath": "src/string/slugifyAscii.ts",
+        "sourcePath": "src/string/index.ts"
+      },
+      {
+        "fromPath": "src/string/index.ts",
         "toPath": "src/string/splitCommaSeparated.ts",
         "sourcePath": "src/string/index.ts"
       },
@@ -6986,6 +7017,11 @@
         "fromPath": "src/string/serializeJavaScriptLiteral.ts",
         "toPath": "src/string/quoteJavaScriptString.ts",
         "sourcePath": "src/string/serializeJavaScriptLiteral.ts"
+      },
+      {
+        "fromPath": "src/string/slugifyAscii.test.ts",
+        "toPath": "src/string/slugifyAscii.ts",
+        "sourcePath": "src/string/slugifyAscii.test.ts"
       },
       {
         "fromPath": "src/string/stringifyJson.ts",
@@ -9258,6 +9294,24 @@
         "toSymbol": "quoteJavaScriptString",
         "callExpression": "quoteJavaScriptString",
         "sourcePath": "src/string/serializeJavaScriptLiteral.ts"
+      },
+      {
+        "fromSymbol": "src/string/slugifyAscii.test.ts",
+        "toSymbol": "describe",
+        "callExpression": "describe",
+        "sourcePath": "src/string/slugifyAscii.test.ts"
+      },
+      {
+        "fromSymbol": "src/string/slugifyAscii.test.ts",
+        "toSymbol": "expect",
+        "callExpression": "expect",
+        "sourcePath": "src/string/slugifyAscii.test.ts"
+      },
+      {
+        "fromSymbol": "src/string/slugifyAscii.test.ts",
+        "toSymbol": "slugifyAscii",
+        "callExpression": "slugifyAscii",
+        "sourcePath": "src/string/slugifyAscii.test.ts"
       },
       {
         "fromSymbol": "stringifyJson",
