@@ -260,7 +260,12 @@
       "import": "./dist/web/index.js",
       "default": "./dist/web/index.js"
     },
-    "./package.json": "./package.json"
+    "./package.json": "./package.json",
+    "./node/http": {
+      "types": "./dist/node/http/index.d.ts",
+      "import": "./dist/node/http/index.js",
+      "default": "./dist/node/http/index.js"
+    }
   },
   "publishConfig": {
     "access": "public"
