@@ -1,6 +1,4 @@
-import path from 'node:path';
-
-/*** Convert platform-specific path separators to portable forward slashes. */
+/*** Convert backslash path separators to portable forward slashes without normalizing path segments. */
 export function toPortablePath(value: string): string {
-  return value.split(path.sep).join('/');
+  return value.replaceAll('\\', '/');
 }
