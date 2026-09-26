@@ -1,5 +1,7 @@
 export { findAncestorDirectory } from './findAncestorDirectory.js';
+export { isPathInsideResolved } from './isPathInsideResolved.js';
 export { normalizePortablePath } from './normalizePortablePath.js';
+export { resolveInstalledPackageProvenanceAsync } from './resolveInstalledPackageProvenanceAsync.js';
 export { resolveModuleRelativePath } from './resolveModuleRelativePath.js';
 export { resolvePackageRoot } from './resolvePackageRoot.js';
 export { resolvePathWithinRoot } from './resolvePathWithinRoot.js';

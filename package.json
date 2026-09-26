@@ -30,6 +30,11 @@
     "LICENSE"
   ],
   "exports": {
+    "./bun": {
+      "types": "./dist/bun/index.d.ts",
+      "import": "./dist/bun/index.js",
+      "default": "./dist/bun/index.js"
+    },
     "./algorithms": {
       "types": "./dist/algorithms/index.d.ts",
       "import": "./dist/algorithms/index.js",
@@ -149,6 +154,11 @@
       "types": "./dist/node/net/index.d.ts",
       "import": "./dist/node/net/index.js",
       "default": "./dist/node/net/index.js"
+    },
+    "./node/package": {
+      "types": "./dist/node/package/index.d.ts",
+      "import": "./dist/node/package/index.js",
+      "default": "./dist/node/package/index.js"
     },
     "./node/path": {
       "types": "./dist/node/path/index.d.ts",
@@ -274,6 +284,7 @@
     "build": "rm -rf dist tsconfig.tsbuildinfo && bun x tsc -p tsconfig.build.json",
     "changeset": "ankhorage-changeset",
     "changeset:status": "ankhorage-changeset status --since=origin/main",
+    "check-types": "bun x tsc --noEmit -p tsconfig.json",
     "docs": "paradox",
     "format": "ankhorage-prettier --write .",
     "format:check": "ankhorage-prettier --check .",
