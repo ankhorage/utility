@@ -1,5 +1,5 @@
-import { isRecord } from '../../object/isRecord.js';
-import { readOwnProperty } from '../../object/readOwnProperty.js';
+import { isRecord } from '../object/isRecord.js';
+import { readOwnProperty } from '../object/readOwnProperty.js';
 
 /*** Read a package dependency range from one declared dependency group. */
 export function readDependencyRange(
