@@ -35,6 +35,16 @@
       "import": "./dist/bun/index.js",
       "default": "./dist/bun/index.js"
     },
+    "./bun/http": {
+      "types": "./dist/bun/http/index.d.ts",
+      "import": "./dist/bun/http/index.js",
+      "default": "./dist/bun/http/index.js"
+    },
+    "./bun/process": {
+      "types": "./dist/bun/process/index.d.ts",
+      "import": "./dist/bun/process/index.js",
+      "default": "./dist/bun/process/index.js"
+    },
     "./algorithms": {
       "types": "./dist/algorithms/index.d.ts",
       "import": "./dist/algorithms/index.js",
@@ -124,6 +134,11 @@
       "types": "./dist/http/index.d.ts",
       "import": "./dist/http/index.js",
       "default": "./dist/http/index.js"
+    },
+    "./http/fastify": {
+      "types": "./dist/http/fastify/index.d.ts",
+      "import": "./dist/http/fastify/index.js",
+      "default": "./dist/http/fastify/index.js"
     },
     "./id": {
       "types": "./dist/id/index.d.ts",
@@ -301,7 +316,16 @@
     "@ankhorage/paradox": "^0.2.6",
     "@types/bun": "^1.4.1",
     "@types/node": "^25.6.0",
+    "fastify": "^5.12.5",
     "typescript": "^5.9.3"
+  },
+  "peerDependencies": {
+    "fastify": "^5.12.5"
+  },
+  "peerDependenciesMeta": {
+    "fastify": {
+      "optional": true
+    }
   },
   "packageManager": "bun@1.4.2"
 }

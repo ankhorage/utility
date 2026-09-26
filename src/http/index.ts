@@ -6,6 +6,7 @@ export { readResponseTextLimited } from './readResponseTextLimited.js';
 export { requestJson } from './requestJson.js';
 export { requestParsedJson } from './requestParsedJson.js';
 export { requestTrustedHttp } from './requestTrustedHttp.js';
+export { resolveStaticExportPaths } from './resolveStaticExportPaths.js';
 export type {
   FetchLike,
   JsonHttpResponse,
