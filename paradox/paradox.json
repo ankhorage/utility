@@ -14,7 +14,7 @@
     {
       "id": "npm",
       "label": "npm",
-      "value": "v1.8.1",
+      "value": "v1.9.0",
       "color": "cb3837"
     },
     {
@@ -152,6 +152,7 @@
         "filterBy",
         "findByKey",
         "isStringArray",
+        "uniqueNonEmptyStrings",
         "uniqueSortedStrings",
         "upsertBy"
       ]
@@ -162,6 +163,14 @@
       "dependencies": [],
       "exports": [
         "isStringArray"
+      ]
+    },
+    {
+      "path": "src/array/uniqueNonEmptyStrings.ts",
+      "isEntrypoint": false,
+      "dependencies": [],
+      "exports": [
+        "uniqueNonEmptyStrings"
       ]
     },
     {
@@ -240,6 +249,56 @@
       ]
     },
     {
+      "path": "src/bun/bunLockfileReferencesPackageVersion.ts",
+      "isEntrypoint": false,
+      "dependencies": [],
+      "exports": [
+        "bunLockfileReferencesPackageVersion"
+      ]
+    },
+    {
+      "path": "src/bun/http/createStaticExportServer.ts",
+      "isEntrypoint": false,
+      "dependencies": [
+        "src/http/resolveStaticExportPaths.ts"
+      ],
+      "exports": [
+        "createStaticExportServer"
+      ]
+    },
+    {
+      "path": "src/bun/http/index.ts",
+      "isEntrypoint": false,
+      "dependencies": [],
+      "exports": [
+        "createStaticExportServer"
+      ]
+    },
+    {
+      "path": "src/bun/index.ts",
+      "isEntrypoint": false,
+      "dependencies": [],
+      "exports": [
+        "bunLockfileReferencesPackageVersion"
+      ]
+    },
+    {
+      "path": "src/bun/process/index.ts",
+      "isEntrypoint": false,
+      "dependencies": [],
+      "exports": [
+        "runBunCommandAsync"
+      ]
+    },
+    {
+      "path": "src/bun/process/runBunCommandAsync.ts",
+      "isEntrypoint": false,
+      "dependencies": [],
+      "exports": [
+        "runBunCommandAsync"
+      ]
+    },
+    {
       "path": "src/classification/classifySupportedKey.ts",
       "isEntrypoint": false,
       "dependencies": [
@@ -303,6 +362,36 @@
       "dependencies": [],
       "exports": [
         "readFlag"
+      ]
+    },
+    {
+      "path": "src/codegen/imports/composeGeneratedImports.ts",
+      "isEntrypoint": false,
+      "dependencies": [
+        "src/codegen/imports/types.ts"
+      ],
+      "exports": [
+        "composeGeneratedImports"
+      ]
+    },
+    {
+      "path": "src/codegen/imports/index.ts",
+      "isEntrypoint": false,
+      "dependencies": [],
+      "exports": [
+        "composeGeneratedImports",
+        "GeneratedImportInput",
+        "GeneratedImportRequirement"
+      ]
+    },
+    {
+      "path": "src/codegen/imports/types.ts",
+      "isEntrypoint": false,
+      "dependencies": [],
+      "exports": [
+        "GeneratedImportInput",
+        "GeneratedImportRequirement",
+        "GeneratedNamedImport"
       ]
     },
     {
@@ -489,6 +578,22 @@
       "dependencies": [],
       "exports": [
         "DiagnosticLike"
+      ]
+    },
+    {
+      "path": "src/equality/index.ts",
+      "isEntrypoint": false,
+      "dependencies": [],
+      "exports": [
+        "isJsonSerializationEqual"
+      ]
+    },
+    {
+      "path": "src/equality/isJsonSerializationEqual.ts",
+      "isEntrypoint": false,
+      "dependencies": [],
+      "exports": [
+        "isJsonSerializationEqual"
       ]
     },
     {
@@ -800,6 +905,49 @@
       ]
     },
     {
+      "path": "src/http/fastify/ensureBinaryBodyParser.ts",
+      "isEntrypoint": false,
+      "dependencies": [],
+      "exports": [
+        "ensureBinaryBodyParser"
+      ]
+    },
+    {
+      "path": "src/http/fastify/index.ts",
+      "isEntrypoint": false,
+      "dependencies": [],
+      "exports": [
+        "ensureBinaryBodyParser",
+        "readFastifyRouteParam",
+        "respondWithMappedErrorAsync",
+        "sendOkOrError"
+      ]
+    },
+    {
+      "path": "src/http/fastify/readFastifyRouteParam.ts",
+      "isEntrypoint": false,
+      "dependencies": [],
+      "exports": [
+        "readFastifyRouteParam"
+      ]
+    },
+    {
+      "path": "src/http/fastify/respondWithMappedErrorAsync.ts",
+      "isEntrypoint": false,
+      "dependencies": [],
+      "exports": [
+        "respondWithMappedErrorAsync"
+      ]
+    },
+    {
+      "path": "src/http/fastify/sendOkOrError.ts",
+      "isEntrypoint": false,
+      "dependencies": [],
+      "exports": [
+        "sendOkOrError"
+      ]
+    },
+    {
       "path": "src/http/index.ts",
       "isEntrypoint": false,
       "dependencies": [],
@@ -811,10 +959,12 @@
         "joinBaseUrl",
         "JsonHttpResponse",
         "ParsedJsonRequestOptions",
+        "readJsonRecordAsync",
         "readResponseTextLimited",
         "requestJson",
         "requestParsedJson",
         "requestTrustedHttp",
+        "resolveStaticExportPaths",
         "TrustedHttpRequestInit",
         "TrustedHttpRequestOptions",
         "TrustedHttpResponse",
@@ -828,6 +978,16 @@
       "dependencies": [],
       "exports": [
         "joinBaseUrl"
+      ]
+    },
+    {
+      "path": "src/http/readJsonRecordAsync.ts",
+      "isEntrypoint": false,
+      "dependencies": [
+        "src/object/isRecord.ts"
+      ],
+      "exports": [
+        "readJsonRecordAsync"
       ]
     },
     {
@@ -878,6 +1038,14 @@
       ],
       "exports": [
         "requestTrustedHttp"
+      ]
+    },
+    {
+      "path": "src/http/resolveStaticExportPaths.ts",
+      "isEntrypoint": false,
+      "dependencies": [],
+      "exports": [
+        "resolveStaticExportPaths"
       ]
     },
     {
@@ -1237,6 +1405,22 @@
       ]
     },
     {
+      "path": "src/json/index.ts",
+      "isEntrypoint": false,
+      "dependencies": [],
+      "exports": [
+        "parseJsonWithFallback"
+      ]
+    },
+    {
+      "path": "src/json/parseJsonWithFallback.ts",
+      "isEntrypoint": false,
+      "dependencies": [],
+      "exports": [
+        "parseJsonWithFallback"
+      ]
+    },
+    {
       "path": "src/media/index.ts",
       "isEntrypoint": false,
       "dependencies": [],
@@ -1271,6 +1455,22 @@
       ]
     },
     {
+      "path": "src/network/security/index.ts",
+      "isEntrypoint": false,
+      "dependencies": [],
+      "exports": [
+        "isOriginAllowed"
+      ]
+    },
+    {
+      "path": "src/network/security/isOriginAllowed.ts",
+      "isEntrypoint": false,
+      "dependencies": [],
+      "exports": [
+        "isOriginAllowed"
+      ]
+    },
+    {
       "path": "src/node/env/env.test.ts",
       "isEntrypoint": false,
       "dependencies": [
@@ -1283,9 +1483,20 @@
       "isEntrypoint": false,
       "dependencies": [],
       "exports": [
+        "readDotEnvValue",
         "readEnvBoolean",
         "readEnvNumber",
         "readEnvString"
+      ]
+    },
+    {
+      "path": "src/node/env/readDotEnvValue.ts",
+      "isEntrypoint": false,
+      "dependencies": [
+        "src/string/stripMatchingQuotes.ts"
+      ],
+      "exports": [
+        "readDotEnvValue"
       ]
     },
     {
@@ -1327,11 +1538,20 @@
       ]
     },
     {
+      "path": "src/node/fs/findFileTreeChange.ts",
+      "isEntrypoint": false,
+      "dependencies": [],
+      "exports": [
+        "findFileTreeChange"
+      ]
+    },
+    {
       "path": "src/node/fs/index.ts",
       "isEntrypoint": false,
       "dependencies": [],
       "exports": [
         "assertTextFilesDoNotMatch",
+        "findFileTreeChange",
         "isDirectory",
         "isDirectoryNotEmptyError",
         "isMissingPathError",
@@ -1339,10 +1559,13 @@
         "pathExists",
         "pruneEmptyDirectories",
         "readDirectoryWithinRoot",
+        "readMatchingFilesAsync",
         "readTextFileWithinRoot",
         "removeFileWithinRoot",
         "removePath",
         "resolveFileSystemPathWithinRoot",
+        "snapshotFileTreeAsync",
+        "statPathExistsAsync",
         "writeFileWithinRoot",
         "writeJsonFileAtomic"
       ]
@@ -1411,6 +1634,16 @@
       ]
     },
     {
+      "path": "src/node/fs/readMatchingFilesAsync.ts",
+      "isEntrypoint": false,
+      "dependencies": [
+        "src/node/fs/listFilesRecursive.ts"
+      ],
+      "exports": [
+        "readMatchingFilesAsync"
+      ]
+    },
+    {
       "path": "src/node/fs/readTextFileWithinRoot.ts",
       "isEntrypoint": false,
       "dependencies": [
@@ -1453,6 +1686,24 @@
         "src/node/fs/index.ts"
       ],
       "exports": []
+    },
+    {
+      "path": "src/node/fs/snapshotFileTreeAsync.ts",
+      "isEntrypoint": false,
+      "dependencies": [
+        "src/node/fs/listFilesRecursive.ts"
+      ],
+      "exports": [
+        "snapshotFileTreeAsync"
+      ]
+    },
+    {
+      "path": "src/node/fs/statPathExistsAsync.ts",
+      "isEntrypoint": false,
+      "dependencies": [],
+      "exports": [
+        "statPathExistsAsync"
+      ]
     },
     {
       "path": "src/node/fs/writeFileWithinRoot.ts",
@@ -1541,6 +1792,36 @@
       ]
     },
     {
+      "path": "src/node/package/index.ts",
+      "isEntrypoint": false,
+      "dependencies": [],
+      "exports": [
+        "listNodeModulesRootsAsync",
+        "readPackageJsonAsync"
+      ]
+    },
+    {
+      "path": "src/node/package/listNodeModulesRootsAsync.ts",
+      "isEntrypoint": false,
+      "dependencies": [
+        "src/node/fs/isDirectory.ts",
+        "src/node/fs/pathExists.ts"
+      ],
+      "exports": [
+        "listNodeModulesRootsAsync"
+      ]
+    },
+    {
+      "path": "src/node/package/readPackageJsonAsync.ts",
+      "isEntrypoint": false,
+      "dependencies": [
+        "src/object/isRecord.ts"
+      ],
+      "exports": [
+        "readPackageJsonAsync"
+      ]
+    },
+    {
       "path": "src/node/path/findAncestorDirectory.ts",
       "isEntrypoint": false,
       "dependencies": [],
@@ -1554,7 +1835,9 @@
       "dependencies": [],
       "exports": [
         "findAncestorDirectory",
+        "isPathInsideResolved",
         "normalizePortablePath",
+        "resolveInstalledPackageProvenanceAsync",
         "resolveModuleRelativePath",
         "resolvePackageRoot",
         "resolvePathWithinRoot",
@@ -1563,11 +1846,27 @@
       ]
     },
     {
+      "path": "src/node/path/isPathInsideResolved.ts",
+      "isEntrypoint": false,
+      "dependencies": [],
+      "exports": [
+        "isPathInsideResolved"
+      ]
+    },
+    {
       "path": "src/node/path/normalizePortablePath.ts",
       "isEntrypoint": false,
       "dependencies": [],
       "exports": [
         "normalizePortablePath"
+      ]
+    },
+    {
+      "path": "src/node/path/resolveInstalledPackageProvenanceAsync.ts",
+      "isEntrypoint": false,
+      "dependencies": [],
+      "exports": [
+        "resolveInstalledPackageProvenanceAsync"
       ]
     },
     {
@@ -1637,6 +1936,7 @@
       "exports": [
         "collectProcessOutput",
         "openBrowser",
+        "resolveProjectOwnedExecutableAsync",
         "runProcessWithTimeout",
         "stopProcess"
       ]
@@ -1655,6 +1955,14 @@
       "dependencies": [],
       "exports": [
         "openBrowser"
+      ]
+    },
+    {
+      "path": "src/node/process/resolveProjectOwnedExecutableAsync.ts",
+      "isEntrypoint": false,
+      "dependencies": [],
+      "exports": [
+        "resolveProjectOwnedExecutableAsync"
       ]
     },
     {
@@ -1936,6 +2244,34 @@
       ]
     },
     {
+      "path": "src/package/findPackageScript.ts",
+      "isEntrypoint": false,
+      "dependencies": [],
+      "exports": [
+        "findPackageScript"
+      ]
+    },
+    {
+      "path": "src/package/index.ts",
+      "isEntrypoint": false,
+      "dependencies": [],
+      "exports": [
+        "findPackageScript",
+        "readDependencyRange"
+      ]
+    },
+    {
+      "path": "src/package/readDependencyRange.ts",
+      "isEntrypoint": false,
+      "dependencies": [
+        "src/object/isRecord.ts",
+        "src/object/readOwnProperty.ts"
+      ],
+      "exports": [
+        "readDependencyRange"
+      ]
+    },
+    {
       "path": "src/react-native/measurement/index.ts",
       "isEntrypoint": false,
       "dependencies": [],
@@ -2114,13 +2450,26 @@
       ]
     },
     {
+      "path": "src/route/formatRouteSegments.ts",
+      "isEntrypoint": false,
+      "dependencies": [],
+      "exports": [
+        "formatRouteSegments"
+      ]
+    },
+    {
       "path": "src/route/index.ts",
       "isEntrypoint": false,
       "dependencies": [],
       "exports": [
+        "formatRouteSegments",
         "isRouteGroupSegment",
+        "normalizeCanonicalRelativeRoute",
         "normalizePathnameSegments",
         "normalizeRoutePatternSegments",
+        "routeNameToGroupedHref",
+        "routeNameToHref",
+        "routePathToRouteName",
         "scoreRoutePatternMatch"
       ]
     },
@@ -2130,6 +2479,14 @@
       "dependencies": [],
       "exports": [
         "isRouteGroupSegment"
+      ]
+    },
+    {
+      "path": "src/route/normalizeCanonicalRelativeRoute.ts",
+      "isEntrypoint": false,
+      "dependencies": [],
+      "exports": [
+        "normalizeCanonicalRelativeRoute"
       ]
     },
     {
@@ -2148,6 +2505,30 @@
       ],
       "exports": [
         "normalizeRoutePatternSegments"
+      ]
+    },
+    {
+      "path": "src/route/routeNameToGroupedHref.ts",
+      "isEntrypoint": false,
+      "dependencies": [],
+      "exports": [
+        "routeNameToGroupedHref"
+      ]
+    },
+    {
+      "path": "src/route/routeNameToHref.ts",
+      "isEntrypoint": false,
+      "dependencies": [],
+      "exports": [
+        "routeNameToHref"
+      ]
+    },
+    {
+      "path": "src/route/routePathToRouteName.ts",
+      "isEntrypoint": false,
+      "dependencies": [],
+      "exports": [
+        "routePathToRouteName"
       ]
     },
     {
@@ -2446,6 +2827,14 @@
       ]
     },
     {
+      "path": "src/string/asPresentString.ts",
+      "isEntrypoint": false,
+      "dependencies": [],
+      "exports": [
+        "asPresentString"
+      ]
+    },
+    {
       "path": "src/string/createCompositeKey.test.ts",
       "isEntrypoint": false,
       "dependencies": [
@@ -2470,23 +2859,37 @@
       ]
     },
     {
+      "path": "src/string/indentNonEmptyLines.ts",
+      "isEntrypoint": false,
+      "dependencies": [],
+      "exports": [
+        "indentNonEmptyLines"
+      ]
+    },
+    {
       "path": "src/string/index.ts",
       "isEntrypoint": false,
       "dependencies": [],
       "exports": [
+        "asPresentString",
         "createCompositeKey",
         "formatJavaScriptObjectKey",
+        "indentNonEmptyLines",
         "isNonEmptyString",
         "isOptionalString",
+        "joinNonEmptyBlocks",
         "normalizeSearchText",
         "parseCommaSeparatedList",
         "quoteJavaScriptString",
+        "readCheckSummary",
         "readSafeRegexCapture",
         "SafeRegexCaptureOptions",
         "serializeJavaScriptLiteral",
         "slugifyAscii",
         "splitCommaSeparated",
         "stringifyJson",
+        "stripMatchingQuotes",
+        "stripNonAlphanumeric",
         "titleCaseIdentifier",
         "TrimmedText",
         "trimOutput",
@@ -2526,6 +2929,14 @@
       "exports": []
     },
     {
+      "path": "src/string/joinNonEmptyBlocks.ts",
+      "isEntrypoint": false,
+      "dependencies": [],
+      "exports": [
+        "joinNonEmptyBlocks"
+      ]
+    },
+    {
       "path": "src/string/normalizeSearchText.ts",
       "isEntrypoint": false,
       "dependencies": [],
@@ -2547,6 +2958,14 @@
       "dependencies": [],
       "exports": [
         "quoteJavaScriptString"
+      ]
+    },
+    {
+      "path": "src/string/readCheckSummary.ts",
+      "isEntrypoint": false,
+      "dependencies": [],
+      "exports": [
+        "readCheckSummary"
       ]
     },
     {
@@ -2600,6 +3019,22 @@
       ],
       "exports": [
         "stringifyJson"
+      ]
+    },
+    {
+      "path": "src/string/stripMatchingQuotes.ts",
+      "isEntrypoint": false,
+      "dependencies": [],
+      "exports": [
+        "stripMatchingQuotes"
+      ]
+    },
+    {
+      "path": "src/string/stripNonAlphanumeric.ts",
+      "isEntrypoint": false,
+      "dependencies": [],
+      "exports": [
+        "stripNonAlphanumeric"
       ]
     },
     {
@@ -2788,6 +3223,14 @@
       ]
     },
     {
+      "path": "src/url/createOptionalQuery.ts",
+      "isEntrypoint": false,
+      "dependencies": [],
+      "exports": [
+        "createOptionalQuery"
+      ]
+    },
+    {
       "path": "src/url/decodeFirstPathSegmentAfterPrefix.test.ts",
       "isEntrypoint": false,
       "dependencies": [
@@ -2849,6 +3292,7 @@
       "dependencies": [],
       "exports": [
         "appendEncodedPathSegment",
+        "createOptionalQuery",
         "decodeFirstPathSegmentAfterPrefix",
         "decodeSinglePathSegmentAfterPrefix",
         "ensureTrailingSlash",
@@ -3473,6 +3917,17 @@
       }
     },
     {
+      "name": "uniqueNonEmptyStrings",
+      "description": "Trim strings, discard empty values, and preserve first-occurrence order.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/array/uniqueNonEmptyStrings.ts",
+        "line": 2,
+        "column": 1
+      }
+    },
+    {
       "name": "uniqueSortedStrings",
       "description": "Remove duplicate strings and return them sorted with locale comparison.",
       "see": [],
@@ -3528,6 +3983,39 @@
       }
     },
     {
+      "name": "bunLockfileReferencesPackageVersion",
+      "description": "Check whether a Bun text lockfile references an exact package and version tuple.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/bun/bunLockfileReferencesPackageVersion.ts",
+        "line": 2,
+        "column": 1
+      }
+    },
+    {
+      "name": "createStaticExportServer",
+      "description": "Serve static-export files through an ephemeral loopback Bun server.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/bun/http/createStaticExportServer.ts",
+        "line": 6,
+        "column": 1
+      }
+    },
+    {
+      "name": "runBunCommandAsync",
+      "description": "Run a Bun child process with optional stdout capture and a bounded timeout.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/bun/process/runBunCommandAsync.ts",
+        "line": 2,
+        "column": 1
+      }
+    },
+    {
       "name": "classifySupportedKey",
       "description": "Classify a string key against a primary predicate and an explicit supported-key record.",
       "see": [],
@@ -3568,6 +4056,171 @@
       "sourceLocation": {
         "filePath": "src/cli/readFlag.ts",
         "line": 2,
+        "column": 1
+      }
+    },
+    {
+      "name": "composeGeneratedImports",
+      "description": "Parse, merge, validate, sort, and render JavaScript/TypeScript import requirements into canonical generated source.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/codegen/imports/composeGeneratedImports.ts",
+        "line": 10,
+        "column": 1
+      }
+    },
+    {
+      "name": "compareImportRequirements",
+      "description": "Order merged import requirements deterministically by module source.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/codegen/imports/composeGeneratedImports.ts",
+        "line": 37,
+        "column": 1
+      }
+    },
+    {
+      "name": "parseGeneratedImportFragment",
+      "description": "Parse a text fragment containing only supported import statements into structured requirements.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/codegen/imports/composeGeneratedImports.ts",
+        "line": 45,
+        "column": 1
+      }
+    },
+    {
+      "name": "parseGeneratedImportStatement",
+      "description": "Parse one supported JavaScript/TypeScript import statement into a structured requirement.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/codegen/imports/composeGeneratedImports.ts",
+        "line": 61,
+        "column": 1
+      }
+    },
+    {
+      "name": "parseImportClause",
+      "description": "Parse one import clause into default, namespace, and named binding requirements.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/codegen/imports/composeGeneratedImports.ts",
+        "line": 81,
+        "column": 1
+      }
+    },
+    {
+      "name": "parseNamedImports",
+      "description": "Parse named import specifiers while preserving aliases and type-only semantics.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/codegen/imports/composeGeneratedImports.ts",
+        "line": 123,
+        "column": 1
+      }
+    },
+    {
+      "name": "mergeGeneratedImportRequirements",
+      "description": "Merge requirements by source while rejecting incompatible local binding ownership.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/codegen/imports/composeGeneratedImports.ts",
+        "line": 150,
+        "column": 1
+      }
+    },
+    {
+      "name": "createMutableRequirement",
+      "description": "Create the mutable aggregation state for one import source.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/codegen/imports/composeGeneratedImports.ts",
+        "line": 198,
+        "column": 1
+      }
+    },
+    {
+      "name": "mergeSingleBinding",
+      "description": "Merge one default or namespace binding and register its local-name ownership.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/codegen/imports/composeGeneratedImports.ts",
+        "line": 211,
+        "column": 1
+      }
+    },
+    {
+      "name": "mergeNamedImport",
+      "description": "Merge one named import, upgrading type-only bindings when a runtime binding is also required.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/codegen/imports/composeGeneratedImports.ts",
+        "line": 229,
+        "column": 1
+      }
+    },
+    {
+      "name": "registerLocalBinding",
+      "description": "Reject local import names claimed by more than one incompatible import owner.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/codegen/imports/composeGeneratedImports.ts",
+        "line": 256,
+        "column": 1
+      }
+    },
+    {
+      "name": "renderGeneratedImportRequirement",
+      "description": "Render one merged import requirement into one or more canonical source statements.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/codegen/imports/composeGeneratedImports.ts",
+        "line": 267,
+        "column": 1
+      }
+    },
+    {
+      "name": "renderImportStatement",
+      "description": "Render a regular import statement from optional default and secondary clauses.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/codegen/imports/composeGeneratedImports.ts",
+        "line": 309,
+        "column": 1
+      }
+    },
+    {
+      "name": "renderNamedClause",
+      "description": "Render named import entries in compact or multiline form based on the complete generated statement width.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/codegen/imports/composeGeneratedImports.ts",
+        "line": 319,
+        "column": 1
+      }
+    },
+    {
+      "name": "renderNamedImport",
+      "description": "Render one named import with its optional local alias.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/codegen/imports/composeGeneratedImports.ts",
+        "line": 333,
         "column": 1
       }
     },
@@ -3766,6 +4419,17 @@
       "sourceLocation": {
         "filePath": "src/diagnostics/sortDiagnostics.ts",
         "line": 4,
+        "column": 1
+      }
+    },
+    {
+      "name": "isJsonSerializationEqual",
+      "description": "Compare two JSON-compatible values by their serialized representation.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/equality/isJsonSerializationEqual.ts",
+        "line": 2,
         "column": 1
       }
     },
@@ -4001,6 +4665,50 @@
       }
     },
     {
+      "name": "ensureBinaryBodyParser",
+      "description": "Register an octet-stream Buffer parser once on a Fastify instance.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/http/fastify/ensureBinaryBodyParser.ts",
+        "line": 4,
+        "column": 1
+      }
+    },
+    {
+      "name": "readFastifyRouteParam",
+      "description": "Read a named string route parameter from a Fastify request.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/http/fastify/readFastifyRouteParam.ts",
+        "line": 4,
+        "column": 1
+      }
+    },
+    {
+      "name": "respondWithMappedErrorAsync",
+      "description": "Execute a Fastify route operation and map a thrown value to an HTTP response.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/http/fastify/respondWithMappedErrorAsync.ts",
+        "line": 4,
+        "column": 1
+      }
+    },
+    {
+      "name": "sendOkOrError",
+      "description": "Return an `ok` result or send a failed result with a caller-selected HTTP status.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/http/fastify/sendOkOrError.ts",
+        "line": 4,
+        "column": 1
+      }
+    },
+    {
       "name": "joinBaseUrl",
       "description": "Join a base URL and relative request path without duplicate boundary slashes.",
       "see": [],
@@ -4008,6 +4716,17 @@
       "sourceLocation": {
         "filePath": "src/http/joinBaseUrl.ts",
         "line": 2,
+        "column": 1
+      }
+    },
+    {
+      "name": "readJsonRecordAsync",
+      "description": "Read a request JSON body as a record, returning an empty record for invalid input.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/http/readJsonRecordAsync.ts",
+        "line": 4,
         "column": 1
       }
     },
@@ -4063,6 +4782,17 @@
       "sourceLocation": {
         "filePath": "src/http/requestTrustedHttp.ts",
         "line": 13,
+        "column": 1
+      }
+    },
+    {
+      "name": "resolveStaticExportPaths",
+      "description": "Resolve a static-export URL path to direct, HTML, and directory-index file candidates.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/http/resolveStaticExportPaths.ts",
+        "line": 4,
         "column": 1
       }
     },
@@ -4276,6 +5006,17 @@
       }
     },
     {
+      "name": "parseJsonWithFallback",
+      "description": "Parse JSON and return a fallback when parsing or a caller-provided value guard fails.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/json/parseJsonWithFallback.ts",
+        "line": 2,
+        "column": 1
+      }
+    },
+    {
       "name": "matchesFileType",
       "description": "Validate a filename extension and optional MIME type against caller-provided allowlists.",
       "see": [],
@@ -4309,6 +5050,39 @@
       }
     },
     {
+      "name": "isOriginAllowed",
+      "description": "Allow absent origins and HTTP(S) origins with the supported local or private hostnames.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/network/security/isOriginAllowed.ts",
+        "line": 2,
+        "column": 1
+      }
+    },
+    {
+      "name": "isAllowedIpv6",
+      "description": "Match the existing IPv6 ULA and link-local origin policy.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/network/security/isOriginAllowed.ts",
+        "line": 20,
+        "column": 1
+      }
+    },
+    {
+      "name": "isAllowedIpv4",
+      "description": "Match the existing IPv4 private-range origin policy.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/network/security/isOriginAllowed.ts",
+        "line": 31,
+        "column": 1
+      }
+    },
+    {
       "name": "environment",
       "description": null,
       "see": [],
@@ -4317,6 +5091,17 @@
         "filePath": "src/node/env/env.test.ts",
         "line": 5,
         "column": 7
+      }
+    },
+    {
+      "name": "readDotEnvValue",
+      "description": "Read a non-empty value by key from dotenv-formatted text.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/node/env/readDotEnvValue.ts",
+        "line": 4,
+        "column": 1
       }
     },
     {
@@ -4360,6 +5145,17 @@
       "sourceLocation": {
         "filePath": "src/node/fs/assertTextFilesDoNotMatch.ts",
         "line": 6,
+        "column": 1
+      }
+    },
+    {
+      "name": "findFileTreeChange",
+      "description": "Find a file-set or byte-content difference between two relative-path snapshots.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/node/fs/findFileTreeChange.ts",
+        "line": 2,
         "column": 1
       }
     },
@@ -4441,6 +5237,17 @@
       }
     },
     {
+      "name": "readMatchingFilesAsync",
+      "description": "Concatenate UTF-8 content of recursively discovered files matching a caller predicate.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/node/fs/readMatchingFilesAsync.ts",
+        "line": 6,
+        "column": 1
+      }
+    },
+    {
       "name": "readTextFileWithinRoot",
       "description": "Reads UTF-8 text only when the requested file stays inside the allowed filesystem root.",
       "see": [],
@@ -4503,6 +5310,28 @@
       "sourceLocation": {
         "filePath": "src/node/fs/resolveFileSystemPathWithinRoot.ts",
         "line": 48,
+        "column": 1
+      }
+    },
+    {
+      "name": "snapshotFileTreeAsync",
+      "description": "Capture recursively discovered files as relative paths mapped to byte content.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/node/fs/snapshotFileTreeAsync.ts",
+        "line": 7,
+        "column": 1
+      }
+    },
+    {
+      "name": "statPathExistsAsync",
+      "description": "Report whether stat finds a path while propagating failures other than ENOENT.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/node/fs/statPathExistsAsync.ts",
+        "line": 4,
         "column": 1
       }
     },
@@ -4738,6 +5567,39 @@
       }
     },
     {
+      "name": "listNodeModulesRootsAsync",
+      "description": "Discover physical node_modules roots through nested packages and Bun's package store.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/node/package/listNodeModulesRootsAsync.ts",
+        "line": 8,
+        "column": 1
+      }
+    },
+    {
+      "name": "findNestedNodeModulesPathsAsync",
+      "description": "Find nested node_modules paths for installed packages and Bun store entries.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/node/package/listNodeModulesRootsAsync.ts",
+        "line": 28,
+        "column": 1
+      }
+    },
+    {
+      "name": "readPackageJsonAsync",
+      "description": "Read package.json as a record without assuming a package-specific schema.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/node/package/readPackageJsonAsync.ts",
+        "line": 6,
+        "column": 1
+      }
+    },
+    {
       "name": "findAncestorDirectory",
       "description": "Walk parent directories from a start path and return the first directory accepted by a predicate.",
       "see": [],
@@ -4749,12 +5611,34 @@
       }
     },
     {
+      "name": "isPathInsideResolved",
+      "description": "Check strict containment between two already-resolved filesystem paths.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/node/path/isPathInsideResolved.ts",
+        "line": 4,
+        "column": 1
+      }
+    },
+    {
       "name": "normalizePortablePath",
       "description": "Normalize filesystem separators and dot segments to a portable POSIX-style path.",
       "see": [],
       "security": [],
       "sourceLocation": {
         "filePath": "src/node/path/normalizePortablePath.ts",
+        "line": 4,
+        "column": 1
+      }
+    },
+    {
+      "name": "resolveInstalledPackageProvenanceAsync",
+      "description": "Resolve both sides of a package provenance check through the filesystem.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/node/path/resolveInstalledPackageProvenanceAsync.ts",
         "line": 4,
         "column": 1
       }
@@ -4844,6 +5728,17 @@
       "sourceLocation": {
         "filePath": "src/node/process/openBrowser.ts",
         "line": 22,
+        "column": 1
+      }
+    },
+    {
+      "name": "resolveProjectOwnedExecutableAsync",
+      "description": "Resolve an executable installed inside a project's own node_modules binary directory.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/node/process/resolveProjectOwnedExecutableAsync.ts",
+        "line": 5,
         "column": 1
       }
     },
@@ -5233,6 +6128,28 @@
       }
     },
     {
+      "name": "findPackageScript",
+      "description": "Find a named script in a partial package scripts record.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/package/findPackageScript.ts",
+        "line": 2,
+        "column": 1
+      }
+    },
+    {
+      "name": "readDependencyRange",
+      "description": "Read a package dependency range from one declared dependency group.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/package/readDependencyRange.ts",
+        "line": 5,
+        "column": 1
+      }
+    },
+    {
       "name": "isNativeMeasurableView",
       "description": "Detect a React-Native-like view that exposes `measureInWindow`.",
       "see": [],
@@ -5409,12 +6326,34 @@
       }
     },
     {
+      "name": "formatRouteSegments",
+      "description": "Format route segments as a slash-delimited label with a root fallback.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/route/formatRouteSegments.ts",
+        "line": 2,
+        "column": 1
+      }
+    },
+    {
       "name": "isRouteGroupSegment",
       "description": "Return whether a route segment is an Expo-style grouping segment.",
       "see": [],
       "security": [],
       "sourceLocation": {
         "filePath": "src/route/isRouteGroupSegment.ts",
+        "line": 2,
+        "column": 1
+      }
+    },
+    {
+      "name": "normalizeCanonicalRelativeRoute",
+      "description": "Validate a non-empty relative route without query, hash, or traversal segments.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/route/normalizeCanonicalRelativeRoute.ts",
         "line": 2,
         "column": 1
       }
@@ -5438,6 +6377,39 @@
       "sourceLocation": {
         "filePath": "src/route/normalizeRoutePatternSegments.ts",
         "line": 4,
+        "column": 1
+      }
+    },
+    {
+      "name": "routeNameToGroupedHref",
+      "description": "Convert a file route name into its grouped Expo Router href.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/route/routeNameToGroupedHref.ts",
+        "line": 2,
+        "column": 1
+      }
+    },
+    {
+      "name": "routeNameToHref",
+      "description": "Convert a file route name into its public href, treating index as the root.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/route/routeNameToHref.ts",
+        "line": 2,
+        "column": 1
+      }
+    },
+    {
+      "name": "routePathToRouteName",
+      "description": "Normalize an application path to a file route name, using index at the root.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/route/routePathToRouteName.ts",
+        "line": 2,
         "column": 1
       }
     },
@@ -5717,6 +6689,17 @@
       }
     },
     {
+      "name": "asPresentString",
+      "description": "Narrow a value to a string containing at least one character.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/string/asPresentString.ts",
+        "line": 2,
+        "column": 1
+      }
+    },
+    {
       "name": "createCompositeKey",
       "description": "Join scalar key parts into one stable composite key using a configurable delimiter.",
       "see": [],
@@ -5739,6 +6722,17 @@
       }
     },
     {
+      "name": "indentNonEmptyLines",
+      "description": "Indent non-empty lines in a multiline string while preserving blank lines.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/string/indentNonEmptyLines.ts",
+        "line": 2,
+        "column": 1
+      }
+    },
+    {
       "name": "isNonEmptyString",
       "description": "Return whether a value is a non-empty string after trimming whitespace.",
       "see": [],
@@ -5756,6 +6750,17 @@
       "security": [],
       "sourceLocation": {
         "filePath": "src/string/isOptionalString.ts",
+        "line": 2,
+        "column": 1
+      }
+    },
+    {
+      "name": "joinNonEmptyBlocks",
+      "description": "Trim text blocks and join non-empty content with a blank line.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/string/joinNonEmptyBlocks.ts",
         "line": 2,
         "column": 1
       }
@@ -5789,6 +6794,17 @@
       "security": [],
       "sourceLocation": {
         "filePath": "src/string/quoteJavaScriptString.ts",
+        "line": 2,
+        "column": 1
+      }
+    },
+    {
+      "name": "readCheckSummary",
+      "description": "Read a completed/total pair from regex captures or throw a labeled error.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/string/readCheckSummary.ts",
         "line": 2,
         "column": 1
       }
@@ -5845,6 +6861,28 @@
       "sourceLocation": {
         "filePath": "src/string/stringifyJson.ts",
         "line": 4,
+        "column": 1
+      }
+    },
+    {
+      "name": "stripMatchingQuotes",
+      "description": "Remove one matching pair of single or double quotes around a string.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/string/stripMatchingQuotes.ts",
+        "line": 2,
+        "column": 1
+      }
+    },
+    {
+      "name": "stripNonAlphanumeric",
+      "description": "Remove non-ASCII-alphanumeric characters from an identifier fragment.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/string/stripNonAlphanumeric.ts",
+        "line": 2,
         "column": 1
       }
     },
@@ -5988,6 +7026,17 @@
       "sourceLocation": {
         "filePath": "src/url/appendEncodedPathSegment.ts",
         "line": 4,
+        "column": 1
+      }
+    },
+    {
+      "name": "createOptionalQuery",
+      "description": "Serialize defined non-empty string values into an optional URL query string.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/url/createOptionalQuery.ts",
+        "line": 2,
         "column": 1
       }
     },
@@ -6430,6 +7479,11 @@
       },
       {
         "fromPath": "src/array/index.ts",
+        "toPath": "src/array/uniqueNonEmptyStrings.ts",
+        "sourcePath": "src/array/index.ts"
+      },
+      {
+        "fromPath": "src/array/index.ts",
         "toPath": "src/array/uniqueSortedStrings.ts",
         "sourcePath": "src/array/index.ts"
       },
@@ -6462,6 +7516,11 @@
         "fromPath": "src/boolean/index.ts",
         "toPath": "src/boolean/invertBoolean.ts",
         "sourcePath": "src/boolean/index.ts"
+      },
+      {
+        "fromPath": "src/bun/index.ts",
+        "toPath": "src/bun/bunLockfileReferencesPackageVersion.ts",
+        "sourcePath": "src/bun/index.ts"
       },
       {
         "fromPath": "src/classification/classifySupportedKey.ts",
@@ -6627,6 +7686,11 @@
         "fromPath": "src/diagnostics/sortDiagnostics.ts",
         "toPath": "src/diagnostics/types.ts",
         "sourcePath": "src/diagnostics/sortDiagnostics.ts"
+      },
+      {
+        "fromPath": "src/equality/index.ts",
+        "toPath": "src/equality/isJsonSerializationEqual.ts",
+        "sourcePath": "src/equality/index.ts"
       },
       {
         "fromPath": "src/error/index.ts",
@@ -6840,6 +7904,11 @@
       },
       {
         "fromPath": "src/http/index.ts",
+        "toPath": "src/http/readJsonRecordAsync.ts",
+        "sourcePath": "src/http/index.ts"
+      },
+      {
+        "fromPath": "src/http/index.ts",
         "toPath": "src/http/readResponseTextLimited.ts",
         "sourcePath": "src/http/index.ts"
       },
@@ -6860,6 +7929,11 @@
       },
       {
         "fromPath": "src/http/index.ts",
+        "toPath": "src/http/resolveStaticExportPaths.ts",
+        "sourcePath": "src/http/index.ts"
+      },
+      {
+        "fromPath": "src/http/index.ts",
         "toPath": "src/http/types.ts",
         "sourcePath": "src/http/index.ts"
       },
@@ -6867,6 +7941,11 @@
         "fromPath": "src/http/index.ts",
         "toPath": "src/http/waitForHttp.ts",
         "sourcePath": "src/http/index.ts"
+      },
+      {
+        "fromPath": "src/http/readJsonRecordAsync.ts",
+        "toPath": "src/object/isRecord.ts",
+        "sourcePath": "src/http/readJsonRecordAsync.ts"
       },
       {
         "fromPath": "src/http/requestJson.ts",
@@ -7017,6 +8096,11 @@
         "fromPath": "src/interaction/stationarySelectionInputState.test.ts",
         "toPath": "src/interaction/types.ts",
         "sourcePath": "src/interaction/stationarySelectionInputState.test.ts"
+      },
+      {
+        "fromPath": "src/json/index.ts",
+        "toPath": "src/json/parseJsonWithFallback.ts",
+        "sourcePath": "src/json/index.ts"
       },
       {
         "fromPath": "src/media/index.ts",
@@ -7214,6 +8298,26 @@
         "sourcePath": "src/observer/index.ts"
       },
       {
+        "fromPath": "src/package/index.ts",
+        "toPath": "src/package/findPackageScript.ts",
+        "sourcePath": "src/package/index.ts"
+      },
+      {
+        "fromPath": "src/package/index.ts",
+        "toPath": "src/package/readDependencyRange.ts",
+        "sourcePath": "src/package/index.ts"
+      },
+      {
+        "fromPath": "src/package/readDependencyRange.ts",
+        "toPath": "src/object/isRecord.ts",
+        "sourcePath": "src/package/readDependencyRange.ts"
+      },
+      {
+        "fromPath": "src/package/readDependencyRange.ts",
+        "toPath": "src/object/readOwnProperty.ts",
+        "sourcePath": "src/package/readDependencyRange.ts"
+      },
+      {
         "fromPath": "src/regex/index.ts",
         "toPath": "src/regex/escapeRegExp.ts",
         "sourcePath": "src/regex/index.ts"
@@ -7275,7 +8379,17 @@
       },
       {
         "fromPath": "src/route/index.ts",
+        "toPath": "src/route/formatRouteSegments.ts",
+        "sourcePath": "src/route/index.ts"
+      },
+      {
+        "fromPath": "src/route/index.ts",
         "toPath": "src/route/isRouteGroupSegment.ts",
+        "sourcePath": "src/route/index.ts"
+      },
+      {
+        "fromPath": "src/route/index.ts",
+        "toPath": "src/route/normalizeCanonicalRelativeRoute.ts",
         "sourcePath": "src/route/index.ts"
       },
       {
@@ -7286,6 +8400,21 @@
       {
         "fromPath": "src/route/index.ts",
         "toPath": "src/route/normalizeRoutePatternSegments.ts",
+        "sourcePath": "src/route/index.ts"
+      },
+      {
+        "fromPath": "src/route/index.ts",
+        "toPath": "src/route/routeNameToGroupedHref.ts",
+        "sourcePath": "src/route/index.ts"
+      },
+      {
+        "fromPath": "src/route/index.ts",
+        "toPath": "src/route/routeNameToHref.ts",
+        "sourcePath": "src/route/index.ts"
+      },
+      {
+        "fromPath": "src/route/index.ts",
+        "toPath": "src/route/routePathToRouteName.ts",
         "sourcePath": "src/route/index.ts"
       },
       {
@@ -7490,6 +8619,11 @@
       },
       {
         "fromPath": "src/string/index.ts",
+        "toPath": "src/string/asPresentString.ts",
+        "sourcePath": "src/string/index.ts"
+      },
+      {
+        "fromPath": "src/string/index.ts",
         "toPath": "src/string/createCompositeKey.ts",
         "sourcePath": "src/string/index.ts"
       },
@@ -7500,12 +8634,22 @@
       },
       {
         "fromPath": "src/string/index.ts",
+        "toPath": "src/string/indentNonEmptyLines.ts",
+        "sourcePath": "src/string/index.ts"
+      },
+      {
+        "fromPath": "src/string/index.ts",
         "toPath": "src/string/isNonEmptyString.ts",
         "sourcePath": "src/string/index.ts"
       },
       {
         "fromPath": "src/string/index.ts",
         "toPath": "src/string/isOptionalString.ts",
+        "sourcePath": "src/string/index.ts"
+      },
+      {
+        "fromPath": "src/string/index.ts",
+        "toPath": "src/string/joinNonEmptyBlocks.ts",
         "sourcePath": "src/string/index.ts"
       },
       {
@@ -7521,6 +8665,11 @@
       {
         "fromPath": "src/string/index.ts",
         "toPath": "src/string/quoteJavaScriptString.ts",
+        "sourcePath": "src/string/index.ts"
+      },
+      {
+        "fromPath": "src/string/index.ts",
+        "toPath": "src/string/readCheckSummary.ts",
         "sourcePath": "src/string/index.ts"
       },
       {
@@ -7546,6 +8695,16 @@
       {
         "fromPath": "src/string/index.ts",
         "toPath": "src/string/stringifyJson.ts",
+        "sourcePath": "src/string/index.ts"
+      },
+      {
+        "fromPath": "src/string/index.ts",
+        "toPath": "src/string/stripMatchingQuotes.ts",
+        "sourcePath": "src/string/index.ts"
+      },
+      {
+        "fromPath": "src/string/index.ts",
+        "toPath": "src/string/stripNonAlphanumeric.ts",
         "sourcePath": "src/string/index.ts"
       },
       {
@@ -7736,6 +8895,11 @@
       {
         "fromPath": "src/url/index.ts",
         "toPath": "src/url/appendEncodedPathSegment.ts",
+        "sourcePath": "src/url/index.ts"
+      },
+      {
+        "fromPath": "src/url/index.ts",
+        "toPath": "src/url/createOptionalQuery.ts",
         "sourcePath": "src/url/index.ts"
       },
       {
@@ -8004,9 +9168,34 @@
         "sourcePath": "src/web/resolveNavigableLocation.ts"
       },
       {
+        "fromPath": "src/codegen/imports/composeGeneratedImports.ts",
+        "toPath": "src/codegen/imports/types.ts",
+        "sourcePath": "src/codegen/imports/composeGeneratedImports.ts"
+      },
+      {
+        "fromPath": "src/codegen/imports/index.ts",
+        "toPath": "src/codegen/imports/composeGeneratedImports.ts",
+        "sourcePath": "src/codegen/imports/index.ts"
+      },
+      {
+        "fromPath": "src/codegen/imports/index.ts",
+        "toPath": "src/codegen/imports/types.ts",
+        "sourcePath": "src/codegen/imports/index.ts"
+      },
+      {
+        "fromPath": "src/network/security/index.ts",
+        "toPath": "src/network/security/isOriginAllowed.ts",
+        "sourcePath": "src/network/security/index.ts"
+      },
+      {
         "fromPath": "src/node/env/env.test.ts",
         "toPath": "src/node/env/index.ts",
         "sourcePath": "src/node/env/env.test.ts"
+      },
+      {
+        "fromPath": "src/node/env/index.ts",
+        "toPath": "src/node/env/readDotEnvValue.ts",
+        "sourcePath": "src/node/env/index.ts"
       },
       {
         "fromPath": "src/node/env/index.ts",
@@ -8022,6 +9211,11 @@
         "fromPath": "src/node/env/index.ts",
         "toPath": "src/node/env/readEnvString.ts",
         "sourcePath": "src/node/env/index.ts"
+      },
+      {
+        "fromPath": "src/node/env/readDotEnvValue.ts",
+        "toPath": "src/string/stripMatchingQuotes.ts",
+        "sourcePath": "src/node/env/readDotEnvValue.ts"
       },
       {
         "fromPath": "src/node/env/readEnvBoolean.ts",
@@ -8041,6 +9235,11 @@
       {
         "fromPath": "src/node/fs/index.ts",
         "toPath": "src/node/fs/assertTextFilesDoNotMatch.ts",
+        "sourcePath": "src/node/fs/index.ts"
+      },
+      {
+        "fromPath": "src/node/fs/index.ts",
+        "toPath": "src/node/fs/findFileTreeChange.ts",
         "sourcePath": "src/node/fs/index.ts"
       },
       {
@@ -8080,6 +9279,11 @@
       },
       {
         "fromPath": "src/node/fs/index.ts",
+        "toPath": "src/node/fs/readMatchingFilesAsync.ts",
+        "sourcePath": "src/node/fs/index.ts"
+      },
+      {
+        "fromPath": "src/node/fs/index.ts",
         "toPath": "src/node/fs/readTextFileWithinRoot.ts",
         "sourcePath": "src/node/fs/index.ts"
       },
@@ -8096,6 +9300,16 @@
       {
         "fromPath": "src/node/fs/index.ts",
         "toPath": "src/node/fs/resolveFileSystemPathWithinRoot.ts",
+        "sourcePath": "src/node/fs/index.ts"
+      },
+      {
+        "fromPath": "src/node/fs/index.ts",
+        "toPath": "src/node/fs/snapshotFileTreeAsync.ts",
+        "sourcePath": "src/node/fs/index.ts"
+      },
+      {
+        "fromPath": "src/node/fs/index.ts",
+        "toPath": "src/node/fs/statPathExistsAsync.ts",
         "sourcePath": "src/node/fs/index.ts"
       },
       {
@@ -8129,6 +9343,11 @@
         "sourcePath": "src/node/fs/readDirectoryWithinRoot.ts"
       },
       {
+        "fromPath": "src/node/fs/readMatchingFilesAsync.ts",
+        "toPath": "src/node/fs/listFilesRecursive.ts",
+        "sourcePath": "src/node/fs/readMatchingFilesAsync.ts"
+      },
+      {
         "fromPath": "src/node/fs/readTextFileWithinRoot.ts",
         "toPath": "src/node/fs/resolveFileSystemPathWithinRoot.ts",
         "sourcePath": "src/node/fs/readTextFileWithinRoot.ts"
@@ -8142,6 +9361,11 @@
         "fromPath": "src/node/fs/rootedFileSystem.test.ts",
         "toPath": "src/node/fs/index.ts",
         "sourcePath": "src/node/fs/rootedFileSystem.test.ts"
+      },
+      {
+        "fromPath": "src/node/fs/snapshotFileTreeAsync.ts",
+        "toPath": "src/node/fs/listFilesRecursive.ts",
+        "sourcePath": "src/node/fs/snapshotFileTreeAsync.ts"
       },
       {
         "fromPath": "src/node/fs/writeFileWithinRoot.ts",
@@ -8194,13 +9418,48 @@
         "sourcePath": "src/node/net/isPublicIpAddress.test.ts"
       },
       {
+        "fromPath": "src/node/package/index.ts",
+        "toPath": "src/node/package/listNodeModulesRootsAsync.ts",
+        "sourcePath": "src/node/package/index.ts"
+      },
+      {
+        "fromPath": "src/node/package/index.ts",
+        "toPath": "src/node/package/readPackageJsonAsync.ts",
+        "sourcePath": "src/node/package/index.ts"
+      },
+      {
+        "fromPath": "src/node/package/listNodeModulesRootsAsync.ts",
+        "toPath": "src/node/fs/isDirectory.ts",
+        "sourcePath": "src/node/package/listNodeModulesRootsAsync.ts"
+      },
+      {
+        "fromPath": "src/node/package/listNodeModulesRootsAsync.ts",
+        "toPath": "src/node/fs/pathExists.ts",
+        "sourcePath": "src/node/package/listNodeModulesRootsAsync.ts"
+      },
+      {
+        "fromPath": "src/node/package/readPackageJsonAsync.ts",
+        "toPath": "src/object/isRecord.ts",
+        "sourcePath": "src/node/package/readPackageJsonAsync.ts"
+      },
+      {
         "fromPath": "src/node/path/index.ts",
         "toPath": "src/node/path/findAncestorDirectory.ts",
         "sourcePath": "src/node/path/index.ts"
       },
       {
         "fromPath": "src/node/path/index.ts",
+        "toPath": "src/node/path/isPathInsideResolved.ts",
+        "sourcePath": "src/node/path/index.ts"
+      },
+      {
+        "fromPath": "src/node/path/index.ts",
         "toPath": "src/node/path/normalizePortablePath.ts",
+        "sourcePath": "src/node/path/index.ts"
+      },
+      {
+        "fromPath": "src/node/path/index.ts",
+        "toPath": "src/node/path/resolveInstalledPackageProvenanceAsync.ts",
         "sourcePath": "src/node/path/index.ts"
       },
       {
@@ -8251,6 +9510,11 @@
       {
         "fromPath": "src/node/process/index.ts",
         "toPath": "src/node/process/openBrowser.ts",
+        "sourcePath": "src/node/process/index.ts"
+      },
+      {
+        "fromPath": "src/node/process/index.ts",
+        "toPath": "src/node/process/resolveProjectOwnedExecutableAsync.ts",
         "sourcePath": "src/node/process/index.ts"
       },
       {
@@ -8332,6 +9596,41 @@
         "fromPath": "src/react-native/web/index.ts",
         "toPath": "src/react-native/web/resolveWebResizeTarget.ts",
         "sourcePath": "src/react-native/web/index.ts"
+      },
+      {
+        "fromPath": "src/bun/http/createStaticExportServer.ts",
+        "toPath": "src/http/resolveStaticExportPaths.ts",
+        "sourcePath": "src/bun/http/createStaticExportServer.ts"
+      },
+      {
+        "fromPath": "src/bun/http/index.ts",
+        "toPath": "src/bun/http/createStaticExportServer.ts",
+        "sourcePath": "src/bun/http/index.ts"
+      },
+      {
+        "fromPath": "src/bun/process/index.ts",
+        "toPath": "src/bun/process/runBunCommandAsync.ts",
+        "sourcePath": "src/bun/process/index.ts"
+      },
+      {
+        "fromPath": "src/http/fastify/index.ts",
+        "toPath": "src/http/fastify/ensureBinaryBodyParser.ts",
+        "sourcePath": "src/http/fastify/index.ts"
+      },
+      {
+        "fromPath": "src/http/fastify/index.ts",
+        "toPath": "src/http/fastify/readFastifyRouteParam.ts",
+        "sourcePath": "src/http/fastify/index.ts"
+      },
+      {
+        "fromPath": "src/http/fastify/index.ts",
+        "toPath": "src/http/fastify/respondWithMappedErrorAsync.ts",
+        "sourcePath": "src/http/fastify/index.ts"
+      },
+      {
+        "fromPath": "src/http/fastify/index.ts",
+        "toPath": "src/http/fastify/sendOkOrError.ts",
+        "sourcePath": "src/http/fastify/index.ts"
       }
     ],
     "calls": [
@@ -8786,6 +10085,12 @@
         "sourcePath": "src/http/createBaseUrlFetch.ts"
       },
       {
+        "fromSymbol": "readJsonRecordAsync",
+        "toSymbol": "isRecord",
+        "callExpression": "isRecord",
+        "sourcePath": "src/http/readJsonRecordAsync.ts"
+      },
+      {
         "fromSymbol": "requestJson",
         "toSymbol": "fetcher",
         "callExpression": "fetcher",
@@ -9158,6 +10463,12 @@
         "sourcePath": "src/interaction/stationarySelectionInputState.test.ts"
       },
       {
+        "fromSymbol": "parseJsonWithFallback",
+        "toSymbol": "isValue",
+        "callExpression": "isValue",
+        "sourcePath": "src/json/parseJsonWithFallback.ts"
+      },
+      {
         "fromSymbol": "parseNonNegativeNumber",
         "toSymbol": "parseFiniteNumber",
         "callExpression": "parseFiniteNumber",
@@ -9342,6 +10653,18 @@
         "toSymbol": "observe",
         "callExpression": "observer.observe",
         "sourcePath": "src/observer/createObservedSetCoordinator.ts"
+      },
+      {
+        "fromSymbol": "readDependencyRange",
+        "toSymbol": "readOwnProperty",
+        "callExpression": "readOwnProperty",
+        "sourcePath": "src/package/readDependencyRange.ts"
+      },
+      {
+        "fromSymbol": "readDependencyRange",
+        "toSymbol": "isRecord",
+        "callExpression": "isRecord",
+        "sourcePath": "src/package/readDependencyRange.ts"
       },
       {
         "fromSymbol": "isPhone",
@@ -10238,6 +11561,90 @@
         "sourcePath": "src/web/resolveNavigableLocation.test.ts"
       },
       {
+        "fromSymbol": "src/codegen/imports/composeGeneratedImports.ts",
+        "toSymbol": "parseGeneratedImportFragment",
+        "callExpression": "parseGeneratedImportFragment",
+        "sourcePath": "src/codegen/imports/composeGeneratedImports.ts"
+      },
+      {
+        "fromSymbol": "composeGeneratedImports",
+        "toSymbol": "mergeGeneratedImportRequirements",
+        "callExpression": "mergeGeneratedImportRequirements",
+        "sourcePath": "src/codegen/imports/composeGeneratedImports.ts"
+      },
+      {
+        "fromSymbol": "parseGeneratedImportStatement",
+        "toSymbol": "parseImportClause",
+        "callExpression": "parseImportClause",
+        "sourcePath": "src/codegen/imports/composeGeneratedImports.ts"
+      },
+      {
+        "fromSymbol": "parseImportClause",
+        "toSymbol": "parseNamedImports",
+        "callExpression": "parseNamedImports",
+        "sourcePath": "src/codegen/imports/composeGeneratedImports.ts"
+      },
+      {
+        "fromSymbol": "mergeGeneratedImportRequirements",
+        "toSymbol": "createMutableRequirement",
+        "callExpression": "createMutableRequirement",
+        "sourcePath": "src/codegen/imports/composeGeneratedImports.ts"
+      },
+      {
+        "fromSymbol": "mergeGeneratedImportRequirements",
+        "toSymbol": "mergeSingleBinding",
+        "callExpression": "mergeSingleBinding",
+        "sourcePath": "src/codegen/imports/composeGeneratedImports.ts"
+      },
+      {
+        "fromSymbol": "mergeGeneratedImportRequirements",
+        "toSymbol": "mergeNamedImport",
+        "callExpression": "mergeNamedImport",
+        "sourcePath": "src/codegen/imports/composeGeneratedImports.ts"
+      },
+      {
+        "fromSymbol": "mergeSingleBinding",
+        "toSymbol": "registerLocalBinding",
+        "callExpression": "registerLocalBinding",
+        "sourcePath": "src/codegen/imports/composeGeneratedImports.ts"
+      },
+      {
+        "fromSymbol": "mergeNamedImport",
+        "toSymbol": "registerLocalBinding",
+        "callExpression": "registerLocalBinding",
+        "sourcePath": "src/codegen/imports/composeGeneratedImports.ts"
+      },
+      {
+        "fromSymbol": "renderGeneratedImportRequirement",
+        "toSymbol": "renderImportStatement",
+        "callExpression": "renderImportStatement",
+        "sourcePath": "src/codegen/imports/composeGeneratedImports.ts"
+      },
+      {
+        "fromSymbol": "src/codegen/imports/composeGeneratedImports.ts",
+        "toSymbol": "renderNamedImport",
+        "callExpression": "renderNamedImport",
+        "sourcePath": "src/codegen/imports/composeGeneratedImports.ts"
+      },
+      {
+        "fromSymbol": "renderGeneratedImportRequirement",
+        "toSymbol": "renderNamedClause",
+        "callExpression": "renderNamedClause",
+        "sourcePath": "src/codegen/imports/composeGeneratedImports.ts"
+      },
+      {
+        "fromSymbol": "isOriginAllowed",
+        "toSymbol": "isAllowedIpv6",
+        "callExpression": "isAllowedIpv6",
+        "sourcePath": "src/network/security/isOriginAllowed.ts"
+      },
+      {
+        "fromSymbol": "isOriginAllowed",
+        "toSymbol": "isAllowedIpv4",
+        "callExpression": "isAllowedIpv4",
+        "sourcePath": "src/network/security/isOriginAllowed.ts"
+      },
+      {
         "fromSymbol": "src/node/env/env.test.ts",
         "toSymbol": "test",
         "callExpression": "test",
@@ -10272,6 +11679,12 @@
         "toSymbol": "readEnvNumber",
         "callExpression": "readEnvNumber",
         "sourcePath": "src/node/env/env.test.ts"
+      },
+      {
+        "fromSymbol": "readDotEnvValue",
+        "toSymbol": "stripMatchingQuotes",
+        "callExpression": "stripMatchingQuotes",
+        "sourcePath": "src/node/env/readDotEnvValue.ts"
       },
       {
         "fromSymbol": "readEnvBoolean",
@@ -10338,6 +11751,18 @@
         "toSymbol": "readdirSync",
         "callExpression": "readdirSync",
         "sourcePath": "src/node/fs/readDirectoryWithinRoot.ts"
+      },
+      {
+        "fromSymbol": "readMatchingFilesAsync",
+        "toSymbol": "listFilesRecursive",
+        "callExpression": "listFilesRecursive",
+        "sourcePath": "src/node/fs/readMatchingFilesAsync.ts"
+      },
+      {
+        "fromSymbol": "src/node/fs/readMatchingFilesAsync.ts",
+        "toSymbol": "readFile",
+        "callExpression": "readFile",
+        "sourcePath": "src/node/fs/readMatchingFilesAsync.ts"
       },
       {
         "fromSymbol": "readTextFileWithinRoot",
@@ -10464,6 +11889,24 @@
         "toSymbol": "readFile",
         "callExpression": "readFile",
         "sourcePath": "src/node/fs/rootedFileSystem.test.ts"
+      },
+      {
+        "fromSymbol": "snapshotFileTreeAsync",
+        "toSymbol": "listFilesRecursive",
+        "callExpression": "listFilesRecursive",
+        "sourcePath": "src/node/fs/snapshotFileTreeAsync.ts"
+      },
+      {
+        "fromSymbol": "snapshotFileTreeAsync",
+        "toSymbol": "readFile",
+        "callExpression": "readFile",
+        "sourcePath": "src/node/fs/snapshotFileTreeAsync.ts"
+      },
+      {
+        "fromSymbol": "statPathExistsAsync",
+        "toSymbol": "stat",
+        "callExpression": "stat",
+        "sourcePath": "src/node/fs/statPathExistsAsync.ts"
       },
       {
         "fromSymbol": "writeFileWithinRoot",
@@ -10640,10 +12083,58 @@
         "sourcePath": "src/node/net/reserveTcpPort.ts"
       },
       {
+        "fromSymbol": "listNodeModulesRootsAsync",
+        "toSymbol": "pathExists",
+        "callExpression": "pathExists",
+        "sourcePath": "src/node/package/listNodeModulesRootsAsync.ts"
+      },
+      {
+        "fromSymbol": "listNodeModulesRootsAsync",
+        "toSymbol": "realpath",
+        "callExpression": "realpath",
+        "sourcePath": "src/node/package/listNodeModulesRootsAsync.ts"
+      },
+      {
+        "fromSymbol": "listNodeModulesRootsAsync",
+        "toSymbol": "findNestedNodeModulesPathsAsync",
+        "callExpression": "findNestedNodeModulesPathsAsync",
+        "sourcePath": "src/node/package/listNodeModulesRootsAsync.ts"
+      },
+      {
+        "fromSymbol": "findNestedNodeModulesPathsAsync",
+        "toSymbol": "readdir",
+        "callExpression": "readdir",
+        "sourcePath": "src/node/package/listNodeModulesRootsAsync.ts"
+      },
+      {
+        "fromSymbol": "findNestedNodeModulesPathsAsync",
+        "toSymbol": "isDirectory",
+        "callExpression": "isDirectory",
+        "sourcePath": "src/node/package/listNodeModulesRootsAsync.ts"
+      },
+      {
+        "fromSymbol": "readPackageJsonAsync",
+        "toSymbol": "readFile",
+        "callExpression": "readFile",
+        "sourcePath": "src/node/package/readPackageJsonAsync.ts"
+      },
+      {
+        "fromSymbol": "readPackageJsonAsync",
+        "toSymbol": "isRecord",
+        "callExpression": "isRecord",
+        "sourcePath": "src/node/package/readPackageJsonAsync.ts"
+      },
+      {
         "fromSymbol": "findAncestorDirectory",
         "toSymbol": "matches",
         "callExpression": "matches",
         "sourcePath": "src/node/path/findAncestorDirectory.ts"
+      },
+      {
+        "fromSymbol": "resolveInstalledPackageProvenanceAsync",
+        "toSymbol": "realpath",
+        "callExpression": "realpath",
+        "sourcePath": "src/node/path/resolveInstalledPackageProvenanceAsync.ts"
       },
       {
         "fromSymbol": "resolveModuleRelativePath",
@@ -10716,6 +12207,12 @@
         "toSymbol": "spawn",
         "callExpression": "spawn",
         "sourcePath": "src/node/process/openBrowser.ts"
+      },
+      {
+        "fromSymbol": "resolveProjectOwnedExecutableAsync",
+        "toSymbol": "access",
+        "callExpression": "access",
+        "sourcePath": "src/node/process/resolveProjectOwnedExecutableAsync.ts"
       },
       {
         "fromSymbol": "src/node/process/runProcessWithTimeout.ts",
@@ -10842,6 +12339,30 @@
         "toSymbol": "isResizeTarget",
         "callExpression": "isResizeTarget",
         "sourcePath": "src/react-native/web/resolveWebResizeTarget.ts"
+      },
+      {
+        "fromSymbol": "fetch",
+        "toSymbol": "resolveStaticExportPaths",
+        "callExpression": "resolveStaticExportPaths",
+        "sourcePath": "src/bun/http/createStaticExportServer.ts"
+      },
+      {
+        "fromSymbol": "src/http/fastify/ensureBinaryBodyParser.ts",
+        "toSymbol": "done",
+        "callExpression": "done",
+        "sourcePath": "src/http/fastify/ensureBinaryBodyParser.ts"
+      },
+      {
+        "fromSymbol": "respondWithMappedErrorAsync",
+        "toSymbol": "operation",
+        "callExpression": "operation",
+        "sourcePath": "src/http/fastify/respondWithMappedErrorAsync.ts"
+      },
+      {
+        "fromSymbol": "respondWithMappedErrorAsync",
+        "toSymbol": "mapError",
+        "callExpression": "mapError",
+        "sourcePath": "src/http/fastify/respondWithMappedErrorAsync.ts"
       }
     ],
     "typeReferences": [],

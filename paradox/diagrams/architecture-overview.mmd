@@ -23,6 +23,8 @@ graph TD
   package__ankhorage_utility -.-> module_src_array_index_ts
   module_src_array_isStringArray_ts["src/array/isStringArray.ts"]
   package__ankhorage_utility -.-> module_src_array_isStringArray_ts
+  module_src_array_uniqueNonEmptyStrings_ts["src/array/uniqueNonEmptyStrings.ts"]
+  package__ankhorage_utility -.-> module_src_array_uniqueNonEmptyStrings_ts
   module_src_array_uniqueSortedStrings_ts["src/array/uniqueSortedStrings.ts"]
   package__ankhorage_utility -.-> module_src_array_uniqueSortedStrings_ts
   module_src_array_upsertBy_ts["src/array/upsertBy.ts"]
@@ -42,6 +44,19 @@ graph TD
   package__ankhorage_utility -.-> module_src_boolean_index_ts
   module_src_boolean_invertBoolean_ts["src/boolean/invertBoolean.ts"]
   package__ankhorage_utility -.-> module_src_boolean_invertBoolean_ts
+  module_src_bun_bunLockfileReferencesPackageVersion_ts["src/bun/bunLockfileReferencesPackageVersion.ts"]
+  package__ankhorage_utility -.-> module_src_bun_bunLockfileReferencesPackageVersion_ts
+  module_src_bun_http_createStaticExportServer_ts["src/bun/http/createStaticExportServer.ts"]
+  package__ankhorage_utility -.-> module_src_bun_http_createStaticExportServer_ts
+  module_src_bun_http_createStaticExportServer_ts --> module_src_http_resolveStaticExportPaths_ts
+  module_src_bun_http_index_ts["src/bun/http/index.ts"]
+  package__ankhorage_utility -.-> module_src_bun_http_index_ts
+  module_src_bun_index_ts["src/bun/index.ts"]
+  package__ankhorage_utility -.-> module_src_bun_index_ts
+  module_src_bun_process_index_ts["src/bun/process/index.ts"]
+  package__ankhorage_utility -.-> module_src_bun_process_index_ts
+  module_src_bun_process_runBunCommandAsync_ts["src/bun/process/runBunCommandAsync.ts"]
+  package__ankhorage_utility -.-> module_src_bun_process_runBunCommandAsync_ts
   module_src_classification_classifySupportedKey_ts["src/classification/classifySupportedKey.ts"]
   package__ankhorage_utility -.-> module_src_classification_classifySupportedKey_ts
   module_src_classification_classifySupportedKey_ts --> module_src_classification_types_ts
@@ -60,6 +75,13 @@ graph TD
   package__ankhorage_utility -.-> module_src_cli_index_ts
   module_src_cli_readFlag_ts["src/cli/readFlag.ts"]
   package__ankhorage_utility -.-> module_src_cli_readFlag_ts
+  module_src_codegen_imports_composeGeneratedImports_ts["src/codegen/imports/composeGeneratedImports.ts"]
+  package__ankhorage_utility -.-> module_src_codegen_imports_composeGeneratedImports_ts
+  module_src_codegen_imports_composeGeneratedImports_ts --> module_src_codegen_imports_types_ts
+  module_src_codegen_imports_index_ts["src/codegen/imports/index.ts"]
+  package__ankhorage_utility -.-> module_src_codegen_imports_index_ts
+  module_src_codegen_imports_types_ts["src/codegen/imports/types.ts"]
+  package__ankhorage_utility -.-> module_src_codegen_imports_types_ts
   module_src_collection_groupBy_ts["src/collection/groupBy.ts"]
   package__ankhorage_utility -.-> module_src_collection_groupBy_ts
   module_src_collection_index_ts["src/collection/index.ts"]
@@ -109,6 +131,10 @@ graph TD
   module_src_diagnostics_sortDiagnostics_ts --> module_src_diagnostics_types_ts
   module_src_diagnostics_types_ts["src/diagnostics/types.ts"]
   package__ankhorage_utility -.-> module_src_diagnostics_types_ts
+  module_src_equality_index_ts["src/equality/index.ts"]
+  package__ankhorage_utility -.-> module_src_equality_index_ts
+  module_src_equality_isJsonSerializationEqual_ts["src/equality/isJsonSerializationEqual.ts"]
+  package__ankhorage_utility -.-> module_src_equality_isJsonSerializationEqual_ts
   module_src_error_index_ts["src/error/index.ts"]
   package__ankhorage_utility -.-> module_src_error_index_ts
   module_src_error_pickCodeMessage_ts["src/error/pickCodeMessage.ts"]
@@ -191,10 +217,23 @@ graph TD
   package__ankhorage_utility -.-> module_src_http_createJsonRequestInit_ts
   module_src_http_decodeJsonResponse_ts["src/http/decodeJsonResponse.ts"]
   package__ankhorage_utility -.-> module_src_http_decodeJsonResponse_ts
+  module_src_http_fastify_ensureBinaryBodyParser_ts["src/http/fastify/ensureBinaryBodyParser.ts"]
+  package__ankhorage_utility -.-> module_src_http_fastify_ensureBinaryBodyParser_ts
+  module_src_http_fastify_index_ts["src/http/fastify/index.ts"]
+  package__ankhorage_utility -.-> module_src_http_fastify_index_ts
+  module_src_http_fastify_readFastifyRouteParam_ts["src/http/fastify/readFastifyRouteParam.ts"]
+  package__ankhorage_utility -.-> module_src_http_fastify_readFastifyRouteParam_ts
+  module_src_http_fastify_respondWithMappedErrorAsync_ts["src/http/fastify/respondWithMappedErrorAsync.ts"]
+  package__ankhorage_utility -.-> module_src_http_fastify_respondWithMappedErrorAsync_ts
+  module_src_http_fastify_sendOkOrError_ts["src/http/fastify/sendOkOrError.ts"]
+  package__ankhorage_utility -.-> module_src_http_fastify_sendOkOrError_ts
   module_src_http_index_ts["src/http/index.ts"]
   package__ankhorage_utility -.-> module_src_http_index_ts
   module_src_http_joinBaseUrl_ts["src/http/joinBaseUrl.ts"]
   package__ankhorage_utility -.-> module_src_http_joinBaseUrl_ts
+  module_src_http_readJsonRecordAsync_ts["src/http/readJsonRecordAsync.ts"]
+  package__ankhorage_utility -.-> module_src_http_readJsonRecordAsync_ts
+  module_src_http_readJsonRecordAsync_ts --> module_src_object_isRecord_ts
   module_src_http_readResponseTextLimited_ts["src/http/readResponseTextLimited.ts"]
   package__ankhorage_utility -.-> module_src_http_readResponseTextLimited_ts
   module_src_http_requestJson_ts["src/http/requestJson.ts"]
@@ -213,6 +252,8 @@ graph TD
   module_src_http_requestTrustedHttp_ts --> module_src_http_readResponseTextLimited_ts
   module_src_http_requestTrustedHttp_ts --> module_src_http_types_ts
   module_src_http_requestTrustedHttp_ts --> module_src_url_parseTrustedHttpUrl_ts
+  module_src_http_resolveStaticExportPaths_ts["src/http/resolveStaticExportPaths.ts"]
+  package__ankhorage_utility -.-> module_src_http_resolveStaticExportPaths_ts
   module_src_http_types_ts["src/http/types.ts"]
   package__ankhorage_utility -.-> module_src_http_types_ts
   module_src_http_waitForHttp_ts["src/http/waitForHttp.ts"]
@@ -319,6 +360,10 @@ graph TD
   module_src_interaction_stationarySelectionInputState_test_ts --> module_src_interaction_types_ts
   module_src_interaction_types_ts["src/interaction/types.ts"]
   package__ankhorage_utility -.-> module_src_interaction_types_ts
+  module_src_json_index_ts["src/json/index.ts"]
+  package__ankhorage_utility -.-> module_src_json_index_ts
+  module_src_json_parseJsonWithFallback_ts["src/json/parseJsonWithFallback.ts"]
+  package__ankhorage_utility -.-> module_src_json_parseJsonWithFallback_ts
   module_src_media_index_ts["src/media/index.ts"]
   package__ankhorage_utility -.-> module_src_media_index_ts
   module_src_media_matchesFileType_ts["src/media/matchesFileType.ts"]
@@ -327,11 +372,18 @@ graph TD
   package__ankhorage_utility -.-> module_src_media_sanitizeFileName_ts
   module_src_media_sanitizePathSegment_ts["src/media/sanitizePathSegment.ts"]
   package__ankhorage_utility -.-> module_src_media_sanitizePathSegment_ts
+  module_src_network_security_index_ts["src/network/security/index.ts"]
+  package__ankhorage_utility -.-> module_src_network_security_index_ts
+  module_src_network_security_isOriginAllowed_ts["src/network/security/isOriginAllowed.ts"]
+  package__ankhorage_utility -.-> module_src_network_security_isOriginAllowed_ts
   module_src_node_env_env_test_ts["src/node/env/env.test.ts"]
   package__ankhorage_utility -.-> module_src_node_env_env_test_ts
   module_src_node_env_env_test_ts --> module_src_node_env_index_ts
   module_src_node_env_index_ts["src/node/env/index.ts"]
   package__ankhorage_utility -.-> module_src_node_env_index_ts
+  module_src_node_env_readDotEnvValue_ts["src/node/env/readDotEnvValue.ts"]
+  package__ankhorage_utility -.-> module_src_node_env_readDotEnvValue_ts
+  module_src_node_env_readDotEnvValue_ts --> module_src_string_stripMatchingQuotes_ts
   module_src_node_env_readEnvBoolean_ts["src/node/env/readEnvBoolean.ts"]
   package__ankhorage_utility -.-> module_src_node_env_readEnvBoolean_ts
   module_src_node_env_readEnvBoolean_ts --> module_src_node_env_readEnvString_ts
@@ -343,6 +395,8 @@ graph TD
   module_src_node_fs_assertTextFilesDoNotMatch_ts["src/node/fs/assertTextFilesDoNotMatch.ts"]
   package__ankhorage_utility -.-> module_src_node_fs_assertTextFilesDoNotMatch_ts
   module_src_node_fs_assertTextFilesDoNotMatch_ts --> module_src_node_fs_isMissingPathError_ts
+  module_src_node_fs_findFileTreeChange_ts["src/node/fs/findFileTreeChange.ts"]
+  package__ankhorage_utility -.-> module_src_node_fs_findFileTreeChange_ts
   module_src_node_fs_index_ts["src/node/fs/index.ts"]
   package__ankhorage_utility -.-> module_src_node_fs_index_ts
   module_src_node_fs_isDirectory_ts["src/node/fs/isDirectory.ts"]
@@ -363,6 +417,9 @@ graph TD
   module_src_node_fs_readDirectoryWithinRoot_ts["src/node/fs/readDirectoryWithinRoot.ts"]
   package__ankhorage_utility -.-> module_src_node_fs_readDirectoryWithinRoot_ts
   module_src_node_fs_readDirectoryWithinRoot_ts --> module_src_node_fs_resolveFileSystemPathWithinRoot_ts
+  module_src_node_fs_readMatchingFilesAsync_ts["src/node/fs/readMatchingFilesAsync.ts"]
+  package__ankhorage_utility -.-> module_src_node_fs_readMatchingFilesAsync_ts
+  module_src_node_fs_readMatchingFilesAsync_ts --> module_src_node_fs_listFilesRecursive_ts
   module_src_node_fs_readTextFileWithinRoot_ts["src/node/fs/readTextFileWithinRoot.ts"]
   package__ankhorage_utility -.-> module_src_node_fs_readTextFileWithinRoot_ts
   module_src_node_fs_readTextFileWithinRoot_ts --> module_src_node_fs_resolveFileSystemPathWithinRoot_ts
@@ -376,6 +433,11 @@ graph TD
   module_src_node_fs_rootedFileSystem_test_ts["src/node/fs/rootedFileSystem.test.ts"]
   package__ankhorage_utility -.-> module_src_node_fs_rootedFileSystem_test_ts
   module_src_node_fs_rootedFileSystem_test_ts --> module_src_node_fs_index_ts
+  module_src_node_fs_snapshotFileTreeAsync_ts["src/node/fs/snapshotFileTreeAsync.ts"]
+  package__ankhorage_utility -.-> module_src_node_fs_snapshotFileTreeAsync_ts
+  module_src_node_fs_snapshotFileTreeAsync_ts --> module_src_node_fs_listFilesRecursive_ts
+  module_src_node_fs_statPathExistsAsync_ts["src/node/fs/statPathExistsAsync.ts"]
+  package__ankhorage_utility -.-> module_src_node_fs_statPathExistsAsync_ts
   module_src_node_fs_writeFileWithinRoot_ts["src/node/fs/writeFileWithinRoot.ts"]
   package__ankhorage_utility -.-> module_src_node_fs_writeFileWithinRoot_ts
   module_src_node_fs_writeFileWithinRoot_ts --> module_src_node_fs_resolveFileSystemPathWithinRoot_ts
@@ -400,12 +462,25 @@ graph TD
   package__ankhorage_utility -.-> module_src_node_net_isPublicIpAddress_ts
   module_src_node_net_reserveTcpPort_ts["src/node/net/reserveTcpPort.ts"]
   package__ankhorage_utility -.-> module_src_node_net_reserveTcpPort_ts
+  module_src_node_package_index_ts["src/node/package/index.ts"]
+  package__ankhorage_utility -.-> module_src_node_package_index_ts
+  module_src_node_package_listNodeModulesRootsAsync_ts["src/node/package/listNodeModulesRootsAsync.ts"]
+  package__ankhorage_utility -.-> module_src_node_package_listNodeModulesRootsAsync_ts
+  module_src_node_package_listNodeModulesRootsAsync_ts --> module_src_node_fs_isDirectory_ts
+  module_src_node_package_listNodeModulesRootsAsync_ts --> module_src_node_fs_pathExists_ts
+  module_src_node_package_readPackageJsonAsync_ts["src/node/package/readPackageJsonAsync.ts"]
+  package__ankhorage_utility -.-> module_src_node_package_readPackageJsonAsync_ts
+  module_src_node_package_readPackageJsonAsync_ts --> module_src_object_isRecord_ts
   module_src_node_path_findAncestorDirectory_ts["src/node/path/findAncestorDirectory.ts"]
   package__ankhorage_utility -.-> module_src_node_path_findAncestorDirectory_ts
   module_src_node_path_index_ts["src/node/path/index.ts"]
   package__ankhorage_utility -.-> module_src_node_path_index_ts
+  module_src_node_path_isPathInsideResolved_ts["src/node/path/isPathInsideResolved.ts"]
+  package__ankhorage_utility -.-> module_src_node_path_isPathInsideResolved_ts
   module_src_node_path_normalizePortablePath_ts["src/node/path/normalizePortablePath.ts"]
   package__ankhorage_utility -.-> module_src_node_path_normalizePortablePath_ts
+  module_src_node_path_resolveInstalledPackageProvenanceAsync_ts["src/node/path/resolveInstalledPackageProvenanceAsync.ts"]
+  package__ankhorage_utility -.-> module_src_node_path_resolveInstalledPackageProvenanceAsync_ts
   module_src_node_path_resolveModuleRelativePath_ts["src/node/path/resolveModuleRelativePath.ts"]
   package__ankhorage_utility -.-> module_src_node_path_resolveModuleRelativePath_ts
   module_src_node_path_resolvePackageRoot_ts["src/node/path/resolvePackageRoot.ts"]
@@ -430,6 +505,8 @@ graph TD
   module_src_node_process_openBrowser_test_ts --> module_src_node_process_openBrowser_ts
   module_src_node_process_openBrowser_ts["src/node/process/openBrowser.ts"]
   package__ankhorage_utility -.-> module_src_node_process_openBrowser_ts
+  module_src_node_process_resolveProjectOwnedExecutableAsync_ts["src/node/process/resolveProjectOwnedExecutableAsync.ts"]
+  package__ankhorage_utility -.-> module_src_node_process_resolveProjectOwnedExecutableAsync_ts
   module_src_node_process_runProcessWithTimeout_ts["src/node/process/runProcessWithTimeout.ts"]
   package__ankhorage_utility -.-> module_src_node_process_runProcessWithTimeout_ts
   module_src_node_process_stopProcess_ts["src/node/process/stopProcess.ts"]
@@ -502,6 +579,14 @@ graph TD
   package__ankhorage_utility -.-> module_src_observer_index_ts
   module_src_observer_types_ts["src/observer/types.ts"]
   package__ankhorage_utility -.-> module_src_observer_types_ts
+  module_src_package_findPackageScript_ts["src/package/findPackageScript.ts"]
+  package__ankhorage_utility -.-> module_src_package_findPackageScript_ts
+  module_src_package_index_ts["src/package/index.ts"]
+  package__ankhorage_utility -.-> module_src_package_index_ts
+  module_src_package_readDependencyRange_ts["src/package/readDependencyRange.ts"]
+  package__ankhorage_utility -.-> module_src_package_readDependencyRange_ts
+  module_src_package_readDependencyRange_ts --> module_src_object_isRecord_ts
+  module_src_package_readDependencyRange_ts --> module_src_object_readOwnProperty_ts
   module_src_react_native_measurement_index_ts["src/react-native/measurement/index.ts"]
   package__ankhorage_utility -.-> module_src_react_native_measurement_index_ts
   module_src_react_native_measurement_isNativeMeasurableView_ts["src/react-native/measurement/isNativeMeasurableView.ts"]
@@ -551,15 +636,25 @@ graph TD
   module_src_registry_keyedValueStore_test_ts --> module_src_registry_createKeyedValueStore_ts
   module_src_registry_types_ts["src/registry/types.ts"]
   package__ankhorage_utility -.-> module_src_registry_types_ts
+  module_src_route_formatRouteSegments_ts["src/route/formatRouteSegments.ts"]
+  package__ankhorage_utility -.-> module_src_route_formatRouteSegments_ts
   module_src_route_index_ts["src/route/index.ts"]
   package__ankhorage_utility -.-> module_src_route_index_ts
   module_src_route_isRouteGroupSegment_ts["src/route/isRouteGroupSegment.ts"]
   package__ankhorage_utility -.-> module_src_route_isRouteGroupSegment_ts
+  module_src_route_normalizeCanonicalRelativeRoute_ts["src/route/normalizeCanonicalRelativeRoute.ts"]
+  package__ankhorage_utility -.-> module_src_route_normalizeCanonicalRelativeRoute_ts
   module_src_route_normalizePathnameSegments_ts["src/route/normalizePathnameSegments.ts"]
   package__ankhorage_utility -.-> module_src_route_normalizePathnameSegments_ts
   module_src_route_normalizeRoutePatternSegments_ts["src/route/normalizeRoutePatternSegments.ts"]
   package__ankhorage_utility -.-> module_src_route_normalizeRoutePatternSegments_ts
   module_src_route_normalizeRoutePatternSegments_ts --> module_src_route_isRouteGroupSegment_ts
+  module_src_route_routeNameToGroupedHref_ts["src/route/routeNameToGroupedHref.ts"]
+  package__ankhorage_utility -.-> module_src_route_routeNameToGroupedHref_ts
+  module_src_route_routeNameToHref_ts["src/route/routeNameToHref.ts"]
+  package__ankhorage_utility -.-> module_src_route_routeNameToHref_ts
+  module_src_route_routePathToRouteName_ts["src/route/routePathToRouteName.ts"]
+  package__ankhorage_utility -.-> module_src_route_routePathToRouteName_ts
   module_src_route_scoreRoutePatternMatch_ts["src/route/scoreRoutePatternMatch.ts"]
   package__ankhorage_utility -.-> module_src_route_scoreRoutePatternMatch_ts
   module_src_scheduling_coalescedTask_test_ts["src/scheduling/coalescedTask.test.ts"]
@@ -637,6 +732,8 @@ graph TD
   package__ankhorage_utility -.-> module_src_sort_index_ts
   module_src_sort_types_ts["src/sort/types.ts"]
   package__ankhorage_utility -.-> module_src_sort_types_ts
+  module_src_string_asPresentString_ts["src/string/asPresentString.ts"]
+  package__ankhorage_utility -.-> module_src_string_asPresentString_ts
   module_src_string_createCompositeKey_test_ts["src/string/createCompositeKey.test.ts"]
   package__ankhorage_utility -.-> module_src_string_createCompositeKey_test_ts
   module_src_string_createCompositeKey_test_ts --> module_src_string_createCompositeKey_ts
@@ -644,6 +741,8 @@ graph TD
   package__ankhorage_utility -.-> module_src_string_createCompositeKey_ts
   module_src_string_formatJavaScriptObjectKey_ts["src/string/formatJavaScriptObjectKey.ts"]
   package__ankhorage_utility -.-> module_src_string_formatJavaScriptObjectKey_ts
+  module_src_string_indentNonEmptyLines_ts["src/string/indentNonEmptyLines.ts"]
+  package__ankhorage_utility -.-> module_src_string_indentNonEmptyLines_ts
   module_src_string_index_ts["src/string/index.ts"]
   package__ankhorage_utility -.-> module_src_string_index_ts
   module_src_string_isNonEmptyString_ts["src/string/isNonEmptyString.ts"]
@@ -656,12 +755,16 @@ graph TD
   module_src_string_javaScriptLiterals_test_ts["src/string/javaScriptLiterals.test.ts"]
   package__ankhorage_utility -.-> module_src_string_javaScriptLiterals_test_ts
   module_src_string_javaScriptLiterals_test_ts --> module_src_string_index_ts
+  module_src_string_joinNonEmptyBlocks_ts["src/string/joinNonEmptyBlocks.ts"]
+  package__ankhorage_utility -.-> module_src_string_joinNonEmptyBlocks_ts
   module_src_string_normalizeSearchText_ts["src/string/normalizeSearchText.ts"]
   package__ankhorage_utility -.-> module_src_string_normalizeSearchText_ts
   module_src_string_parseCommaSeparatedList_ts["src/string/parseCommaSeparatedList.ts"]
   package__ankhorage_utility -.-> module_src_string_parseCommaSeparatedList_ts
   module_src_string_quoteJavaScriptString_ts["src/string/quoteJavaScriptString.ts"]
   package__ankhorage_utility -.-> module_src_string_quoteJavaScriptString_ts
+  module_src_string_readCheckSummary_ts["src/string/readCheckSummary.ts"]
+  package__ankhorage_utility -.-> module_src_string_readCheckSummary_ts
   module_src_string_readSafeRegexCapture_ts["src/string/readSafeRegexCapture.ts"]
   package__ankhorage_utility -.-> module_src_string_readSafeRegexCapture_ts
   module_src_string_serializeJavaScriptLiteral_ts["src/string/serializeJavaScriptLiteral.ts"]
@@ -677,6 +780,10 @@ graph TD
   module_src_string_stringifyJson_ts["src/string/stringifyJson.ts"]
   package__ankhorage_utility -.-> module_src_string_stringifyJson_ts
   module_src_string_stringifyJson_ts --> module_src_string_truncateText_ts
+  module_src_string_stripMatchingQuotes_ts["src/string/stripMatchingQuotes.ts"]
+  package__ankhorage_utility -.-> module_src_string_stripMatchingQuotes_ts
+  module_src_string_stripNonAlphanumeric_ts["src/string/stripNonAlphanumeric.ts"]
+  package__ankhorage_utility -.-> module_src_string_stripNonAlphanumeric_ts
   module_src_string_titleCaseIdentifier_ts["src/string/titleCaseIdentifier.ts"]
   package__ankhorage_utility -.-> module_src_string_titleCaseIdentifier_ts
   module_src_string_trimOutput_ts["src/string/trimOutput.ts"]
@@ -726,6 +833,8 @@ graph TD
   module_src_url_appendEncodedPathSegment_ts["src/url/appendEncodedPathSegment.ts"]
   package__ankhorage_utility -.-> module_src_url_appendEncodedPathSegment_ts
   module_src_url_appendEncodedPathSegment_ts --> module_src_url_normalizePathname_ts
+  module_src_url_createOptionalQuery_ts["src/url/createOptionalQuery.ts"]
+  package__ankhorage_utility -.-> module_src_url_createOptionalQuery_ts
   module_src_url_decodeFirstPathSegmentAfterPrefix_test_ts["src/url/decodeFirstPathSegmentAfterPrefix.test.ts"]
   package__ankhorage_utility -.-> module_src_url_decodeFirstPathSegmentAfterPrefix_test_ts
   module_src_url_decodeFirstPathSegmentAfterPrefix_test_ts --> module_src_url_decodeFirstPathSegmentAfterPrefix_ts
