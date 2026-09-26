@@ -2,6 +2,7 @@ export { createBaseUrlFetch } from './createBaseUrlFetch.js';
 export { createJsonRequestInit } from './createJsonRequestInit.js';
 export { decodeJsonResponse } from './decodeJsonResponse.js';
 export { joinBaseUrl } from './joinBaseUrl.js';
+export { readJsonRecordAsync } from './readJsonRecordAsync.js';
 export { readResponseTextLimited } from './readResponseTextLimited.js';
 export { requestJson } from './requestJson.js';
 export { requestParsedJson } from './requestParsedJson.js';

@@ -1,4 +1,9 @@
+export { formatRouteSegments } from './formatRouteSegments.js';
 export { isRouteGroupSegment } from './isRouteGroupSegment.js';
+export { normalizeCanonicalRelativeRoute } from './normalizeCanonicalRelativeRoute.js';
 export { normalizePathnameSegments } from './normalizePathnameSegments.js';
 export { normalizeRoutePatternSegments } from './normalizeRoutePatternSegments.js';
+export { routeNameToGroupedHref } from './routeNameToGroupedHref.js';
+export { routeNameToHref } from './routeNameToHref.js';
+export { routePathToRouteName } from './routePathToRouteName.js';
 export { scoreRoutePatternMatch } from './scoreRoutePatternMatch.js';
