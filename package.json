@@ -30,6 +30,21 @@
     "LICENSE"
   ],
   "exports": {
+    "./bun": {
+      "types": "./dist/bun/index.d.ts",
+      "import": "./dist/bun/index.js",
+      "default": "./dist/bun/index.js"
+    },
+    "./bun/http": {
+      "types": "./dist/bun/http/index.d.ts",
+      "import": "./dist/bun/http/index.js",
+      "default": "./dist/bun/http/index.js"
+    },
+    "./bun/process": {
+      "types": "./dist/bun/process/index.d.ts",
+      "import": "./dist/bun/process/index.js",
+      "default": "./dist/bun/process/index.js"
+    },
     "./algorithms": {
       "types": "./dist/algorithms/index.d.ts",
       "import": "./dist/algorithms/index.js",
@@ -65,6 +80,11 @@
       "import": "./dist/cli/index.js",
       "default": "./dist/cli/index.js"
     },
+    "./codegen/imports": {
+      "types": "./dist/codegen/imports/index.d.ts",
+      "import": "./dist/codegen/imports/index.js",
+      "default": "./dist/codegen/imports/index.js"
+    },
     "./collection": {
       "types": "./dist/collection/index.d.ts",
       "import": "./dist/collection/index.js",
@@ -89,6 +109,11 @@
       "types": "./dist/error/index.d.ts",
       "import": "./dist/error/index.js",
       "default": "./dist/error/index.js"
+    },
+    "./equality": {
+      "types": "./dist/equality/index.d.ts",
+      "import": "./dist/equality/index.js",
+      "default": "./dist/equality/index.js"
     },
     "./expo": {
       "types": "./dist/expo/index.d.ts",
@@ -120,6 +145,11 @@
       "import": "./dist/http/index.js",
       "default": "./dist/http/index.js"
     },
+    "./http/fastify": {
+      "types": "./dist/http/fastify/index.d.ts",
+      "import": "./dist/http/fastify/index.js",
+      "default": "./dist/http/fastify/index.js"
+    },
     "./id": {
       "types": "./dist/id/index.d.ts",
       "import": "./dist/id/index.js",
@@ -130,10 +160,20 @@
       "import": "./dist/interaction/index.js",
       "default": "./dist/interaction/index.js"
     },
+    "./json": {
+      "types": "./dist/json/index.d.ts",
+      "import": "./dist/json/index.js",
+      "default": "./dist/json/index.js"
+    },
     "./media": {
       "types": "./dist/media/index.d.ts",
       "import": "./dist/media/index.js",
       "default": "./dist/media/index.js"
+    },
+    "./network/security": {
+      "types": "./dist/network/security/index.d.ts",
+      "import": "./dist/network/security/index.js",
+      "default": "./dist/network/security/index.js"
     },
     "./node/env": {
       "types": "./dist/node/env/index.d.ts",
@@ -149,6 +189,11 @@
       "types": "./dist/node/net/index.d.ts",
       "import": "./dist/node/net/index.js",
       "default": "./dist/node/net/index.js"
+    },
+    "./node/package": {
+      "types": "./dist/node/package/index.d.ts",
+      "import": "./dist/node/package/index.js",
+      "default": "./dist/node/package/index.js"
     },
     "./node/path": {
       "types": "./dist/node/path/index.d.ts",
@@ -169,6 +214,11 @@
       "types": "./dist/object/index.d.ts",
       "import": "./dist/object/index.js",
       "default": "./dist/object/index.js"
+    },
+    "./package": {
+      "types": "./dist/package/index.d.ts",
+      "import": "./dist/package/index.js",
+      "default": "./dist/package/index.js"
     },
     "./observer": {
       "types": "./dist/observer/index.d.ts",
@@ -274,6 +324,7 @@
     "build": "rm -rf dist tsconfig.tsbuildinfo && bun x tsc -p tsconfig.build.json",
     "changeset": "ankhorage-changeset",
     "changeset:status": "ankhorage-changeset status --since=origin/main",
+    "check-types": "bun x tsc --noEmit -p tsconfig.json",
     "docs": "paradox",
     "format": "ankhorage-prettier --write .",
     "format:check": "ankhorage-prettier --check .",
@@ -290,7 +341,16 @@
     "@ankhorage/paradox": "^0.2.6",
     "@types/bun": "^1.4.1",
     "@types/node": "^25.6.0",
+    "fastify": "^5.12.5",
     "typescript": "^5.9.3"
+  },
+  "peerDependencies": {
+    "fastify": "^5.12.5"
+  },
+  "peerDependenciesMeta": {
+    "fastify": {
+      "optional": true
+    }
   },
   "packageManager": "bun@1.4.2"
 }

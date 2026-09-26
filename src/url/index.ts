@@ -1,4 +1,5 @@
 export { appendEncodedPathSegment } from './appendEncodedPathSegment.js';
+export { createOptionalQuery } from './createOptionalQuery.js';
 export { decodeFirstPathSegmentAfterPrefix } from './decodeFirstPathSegmentAfterPrefix.js';
 export { decodeSinglePathSegmentAfterPrefix } from './decodeSinglePathSegmentAfterPrefix.js';
 export { ensureTrailingSlash } from './ensureTrailingSlash.js';

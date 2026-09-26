@@ -4,5 +4,6 @@ export { filterAndSort } from './filterAndSort.js';
 export { filterBy } from './filterBy.js';
 export { findByKey } from './findByKey.js';
 export { isStringArray } from './isStringArray.js';
+export { uniqueNonEmptyStrings } from './uniqueNonEmptyStrings.js';
 export { uniqueSortedStrings } from './uniqueSortedStrings.js';
 export { upsertBy } from './upsertBy.js';
