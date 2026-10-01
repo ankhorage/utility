@@ -3,7 +3,7 @@
 
 # @ankhorage/utility
 
-![license: MIT](././paradox/badges/license.svg) ![npm: v1.9.12](././paradox/badges/npm.svg) ![runtime: bun](././paradox/badges/runtime.svg) ![typescript: strict](././paradox/badges/typescript.svg) ![eslint: checked](././paradox/badges/eslint.svg) ![prettier: checked](././paradox/badges/prettier.svg) ![build: checked](././paradox/badges/build.svg) ![tests: checked](././paradox/badges/tests.svg) ![paradox: canonical](././paradox/badges/docs.svg)
+![license: MIT](././paradox/badges/license.svg) ![npm: v1.9.13](././paradox/badges/npm.svg) ![runtime: bun](././paradox/badges/runtime.svg) ![typescript: strict](././paradox/badges/typescript.svg) ![eslint: checked](././paradox/badges/eslint.svg) ![prettier: checked](././paradox/badges/prettier.svg) ![build: checked](././paradox/badges/build.svg) ![tests: checked](././paradox/badges/tests.svg) ![paradox: canonical](././paradox/badges/docs.svg)
 
 Shared, runtime-neutral utilities for Ankhorage packages and compatible external projects.
 
