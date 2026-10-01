@@ -1,5 +1,12 @@
 # @ankhorage/utility
 
+## 1.9.27
+
+### Patch Changes
+
+- 48e1049: Update Renovate-managed workflows.
+- f39b037: Update dependencies: `@ankhorage/paradox`.
+
 ## 1.9.26
 
 ### Patch Changes
