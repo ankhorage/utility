@@ -1,5 +1,11 @@
 # @ankhorage/utility
 
+## 1.9.32
+
+### Patch Changes
+
+- 71c32d6: Update dependencies: `@types/node`.
+
 ## 1.9.31
 
 ### Patch Changes
