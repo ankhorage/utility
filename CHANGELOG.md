@@ -1,5 +1,11 @@
 # @ankhorage/utility
 
+## 1.9.17
+
+### Patch Changes
+
+- 9f41da6: Update dependencies: `@ankhorage/devtools`.
+
 ## 1.9.16
 
 ### Patch Changes
