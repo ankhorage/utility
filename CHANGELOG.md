@@ -1,5 +1,11 @@
 # @ankhorage/utility
 
+## 1.9.5
+
+### Patch Changes
+
+- db13104: Update Renovate-managed workflows.
+
 ## 1.9.4
 
 ### Patch Changes
