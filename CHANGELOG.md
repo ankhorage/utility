@@ -1,5 +1,12 @@
 # @ankhorage/utility
 
+## 1.9.77
+
+### Patch Changes
+
+- ea48f2d: Update Renovate-managed workflows.
+- ffcdf4e: Update dependencies: `@ankhorage/devtools`.
+
 ## 1.9.76
 
 ### Patch Changes
