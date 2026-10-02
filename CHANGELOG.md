@@ -1,5 +1,11 @@
 # @ankhorage/utility
 
+## 1.9.75
+
+### Patch Changes
+
+- ceb2705: Update Renovate-managed workflows.
+
 ## 1.9.74
 
 ### Patch Changes
