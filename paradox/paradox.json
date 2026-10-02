@@ -14,7 +14,7 @@
     {
       "id": "npm",
       "label": "npm",
-      "value": "v1.9.64",
+      "value": "v1.9.65",
       "color": "cb3837"
     },
     {
@@ -67,7 +67,6 @@
   "usageEntries": [],
   "exampleCount": 0,
   "findings": [],
-  "readmeConfig": null,
   "config": null,
   "entrypoints": [
     "src/regex/index.ts"
