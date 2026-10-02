@@ -1,5 +1,11 @@
 # @ankhorage/utility
 
+## 1.9.38
+
+### Patch Changes
+
+- adb5f03: Update dependencies: `@ankhorage/devtools`.
+
 ## 1.9.37
 
 ### Patch Changes
