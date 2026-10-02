@@ -14,7 +14,7 @@
     {
       "id": "npm",
       "label": "npm",
-      "value": "v1.9.56",
+      "value": "v1.9.57",
       "color": "cb3837"
     },
     {
@@ -1039,6 +1039,14 @@
       "exports": [
         "requestTrustedHttp"
       ]
+    },
+    {
+      "path": "src/http/resolveStaticExportPaths.test.ts",
+      "isEntrypoint": false,
+      "dependencies": [
+        "src/http/resolveStaticExportPaths.ts"
+      ],
+      "exports": []
     },
     {
       "path": "src/http/resolveStaticExportPaths.ts",
@@ -4792,7 +4800,7 @@
       "security": [],
       "sourceLocation": {
         "filePath": "src/http/resolveStaticExportPaths.ts",
-        "line": 4,
+        "line": 2,
         "column": 1
       }
     },
@@ -7988,6 +7996,11 @@
         "sourcePath": "src/http/requestTrustedHttp.ts"
       },
       {
+        "fromPath": "src/http/resolveStaticExportPaths.test.ts",
+        "toPath": "src/http/resolveStaticExportPaths.ts",
+        "sourcePath": "src/http/resolveStaticExportPaths.test.ts"
+      },
+      {
         "fromPath": "src/http/waitForHttp.ts",
         "toPath": "src/http/types.ts",
         "sourcePath": "src/http/waitForHttp.ts"
@@ -10179,6 +10192,30 @@
         "toSymbol": "readResponseTextLimited",
         "callExpression": "readResponseTextLimited",
         "sourcePath": "src/http/requestTrustedHttp.ts"
+      },
+      {
+        "fromSymbol": "src/http/resolveStaticExportPaths.test.ts",
+        "toSymbol": "describe",
+        "callExpression": "describe",
+        "sourcePath": "src/http/resolveStaticExportPaths.test.ts"
+      },
+      {
+        "fromSymbol": "src/http/resolveStaticExportPaths.test.ts",
+        "toSymbol": "test",
+        "callExpression": "test",
+        "sourcePath": "src/http/resolveStaticExportPaths.test.ts"
+      },
+      {
+        "fromSymbol": "src/http/resolveStaticExportPaths.test.ts",
+        "toSymbol": "expect",
+        "callExpression": "expect",
+        "sourcePath": "src/http/resolveStaticExportPaths.test.ts"
+      },
+      {
+        "fromSymbol": "src/http/resolveStaticExportPaths.test.ts",
+        "toSymbol": "resolveStaticExportPaths",
+        "callExpression": "resolveStaticExportPaths",
+        "sourcePath": "src/http/resolveStaticExportPaths.test.ts"
       },
       {
         "fromSymbol": "waitForHttp",

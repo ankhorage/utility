@@ -1,5 +1,14 @@
 # @ankhorage/utility
 
+## 1.9.57
+
+### Patch Changes
+
+- 4352851: Update dependencies: `@ankhorage/paradox`.
+- dce89cf: Update Renovate-managed workflows.
+- 125d234: Keep the public HTTP utility surface browser and React Native compatible by removing its Node path
+  dependency.
+
 ## 1.9.56
 
 ### Patch Changes
