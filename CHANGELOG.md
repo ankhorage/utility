@@ -1,5 +1,12 @@
 # @ankhorage/utility
 
+## 1.9.71
+
+### Patch Changes
+
+- 7580e32: Update Renovate-managed workflows.
+- 14b9467: Update dependencies: `@ankhorage/devtools`.
+
 ## 1.9.70
 
 ### Patch Changes
