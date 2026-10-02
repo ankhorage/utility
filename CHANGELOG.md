@@ -1,5 +1,11 @@
 # @ankhorage/utility
 
+## 1.9.37
+
+### Patch Changes
+
+- 6fe7149: Update dependencies: `@ankhorage/paradox`.
+
 ## 1.9.36
 
 ### Patch Changes
