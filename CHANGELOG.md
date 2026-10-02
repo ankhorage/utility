@@ -1,5 +1,11 @@
 # @ankhorage/utility
 
+## 1.9.80
+
+### Patch Changes
+
+- d09981f: Update Renovate-managed workflows.
+
 ## 1.9.79
 
 ### Patch Changes
