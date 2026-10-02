@@ -1,5 +1,11 @@
 # @ankhorage/utility
 
+## 1.9.46
+
+### Patch Changes
+
+- a7000f0: Update dependencies: `@ankhorage/devtools`.
+
 ## 1.9.45
 
 ### Patch Changes
