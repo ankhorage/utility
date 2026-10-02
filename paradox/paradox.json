@@ -14,7 +14,7 @@
     {
       "id": "npm",
       "label": "npm",
-      "value": "v1.9.63",
+      "value": "v1.9.64",
       "color": "cb3837"
     },
     {
@@ -67,11 +67,7 @@
   "usageEntries": [],
   "exampleCount": 0,
   "findings": [],
-  "readmeConfig": {
-    "language": "ts",
-    "code": "import { defineParadoxConfig } from '@ankhorage/paradox';\n\nexport default defineParadoxConfig({\n  mode: 'write',\n  docs: {\n    title: '@ankhorage/utility',\n    description:\n      'Shared, runtime-neutral utilities for Ankhorage packages and compatible external projects.',\n  },\n  package: {\n    root: '.',\n    entrypoints: ['src/regex/index.ts'],\n  },\n  output: {\n    dir: './paradox',\n  },\n});",
-    "sourcePath": "paradox.config.ts"
-  },
+  "readmeConfig": null,
   "config": null,
   "entrypoints": [
     "src/regex/index.ts"
