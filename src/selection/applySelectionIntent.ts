@@ -1,6 +1,6 @@
 import type { SelectionIntent } from './types.js';
 
- /*** Apply one semantic selection intent without mutating or duplicating selected values. */
+/*** Apply one semantic selection intent without mutating or duplicating selected values. */
 export function applySelectionIntent<TValue>(
   selectedValues: readonly TValue[],
   value: TValue,
