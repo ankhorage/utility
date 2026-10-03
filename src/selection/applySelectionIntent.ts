@@ -7,9 +7,7 @@ export function applySelectionIntent<TValue>(
   intent: SelectionIntent,
 ): readonly TValue[] {
   if (intent === 'replace') {
-    return selectedValues.length === 1 && Object.is(selectedValues[0], value)
-      ? selectedValues
-      : [value];
+    return selectedValues.length === 1 && Object.is(selectedValues[0], value) ? [] : [value];
   }
 
   const selectedIndex = selectedValues.findIndex((candidate) => Object.is(candidate, value));
