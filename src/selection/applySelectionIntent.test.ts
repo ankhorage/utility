@@ -7,9 +7,12 @@ describe('applySelectionIntent', () => {
     expect(applySelectionIntent(['a', 'b'], 'c', 'replace')).toEqual(['c']);
   });
 
-  test('reuses an unchanged single replacement', () => {
-    const selected = ['a'] as const;
-    expect(applySelectionIntent(selected, 'a', 'replace')).toBe(selected);
+  test('clears a repeated lone replacement', () => {
+    expect(applySelectionIntent(['a'], 'a', 'replace')).toEqual([]);
+  });
+
+  test('reduces a multi-selection to the activated replacement', () => {
+    expect(applySelectionIntent(['a', 'b'], 'a', 'replace')).toEqual(['a']);
   });
 
   test('adds an unselected value in stable order', () => {
