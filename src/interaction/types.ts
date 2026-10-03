@@ -27,6 +27,20 @@ export interface ConfirmationRequest {
 export type CommitSelectionResult =
   'committed' | 'already-selected' | 'preview' | 'moved' | 'empty' | 'stale' | 'already-finalized';
 
+export interface InteractionModifiers {
+  readonly altKey?: boolean;
+  readonly ctrlKey?: boolean;
+  readonly metaKey?: boolean;
+  readonly shiftKey?: boolean;
+}
+
+export type SelectionActivationKind = 'keyboard' | 'pointer' | 'touch';
+
+export interface SelectionInteractionInput {
+  readonly kind: SelectionActivationKind;
+  readonly modifiers?: InteractionModifiers;
+}
+
 export interface InteractionSelectionTransaction<TValue> {
   readonly transactionId: number;
   readonly path: TValue[];
