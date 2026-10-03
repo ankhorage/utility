@@ -7,6 +7,7 @@ export { firstStringParam } from './firstStringParam.js';
 export { isExactHttpUrl } from './isExactHttpUrl.js';
 export { isPathAtOrBelow } from './isPathAtOrBelow.js';
 export { normalizeCredentialFreeHttpUrl } from './normalizeCredentialFreeHttpUrl.js';
+export { normalizeGitHubRepositoryUrl } from './normalizeGitHubRepositoryUrl.js';
 export { normalizePathname } from './normalizePathname.js';
 export { parseTrustedHttpUrl } from './parseTrustedHttpUrl.js';
 export { redactUrlQueryValues } from './redactUrlQueryValues.js';
