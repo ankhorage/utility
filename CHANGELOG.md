@@ -1,5 +1,11 @@
 # @ankhorage/utility
 
+## 1.9.85
+
+### Patch Changes
+
+- bead53c: Clear a lone selected value when the same value is activated again with replace intent.
+
 ## 1.9.84
 
 ### Patch Changes
