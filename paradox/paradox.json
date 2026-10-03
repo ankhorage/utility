@@ -14,7 +14,7 @@
     {
       "id": "npm",
       "label": "npm",
-      "value": "v1.9.82",
+      "value": "v1.9.83",
       "color": "cb3837"
     },
     {
@@ -3303,6 +3303,7 @@
         "isExactHttpUrl",
         "isPathAtOrBelow",
         "normalizeCredentialFreeHttpUrl",
+        "normalizeGitHubRepositoryUrl",
         "normalizePathname",
         "parseTrustedHttpUrl",
         "redactUrlQueryValues",
@@ -3334,6 +3335,22 @@
       "dependencies": [],
       "exports": [
         "normalizeCredentialFreeHttpUrl"
+      ]
+    },
+    {
+      "path": "src/url/normalizeGitHubRepositoryUrl.test.ts",
+      "isEntrypoint": false,
+      "dependencies": [
+        "src/url/normalizeGitHubRepositoryUrl.ts"
+      ],
+      "exports": []
+    },
+    {
+      "path": "src/url/normalizeGitHubRepositoryUrl.ts",
+      "isEntrypoint": false,
+      "dependencies": [],
+      "exports": [
+        "normalizeGitHubRepositoryUrl"
       ]
     },
     {
@@ -7121,6 +7138,39 @@
       }
     },
     {
+      "name": "normalizeGitHubRepositoryUrl",
+      "description": "Normalize a GitHub repository URL or owner/repository shorthand to one HTTPS GitHub URL.\n\nExisting normal GitHub repository, tree, blob, and commit links keep their path semantics.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/url/normalizeGitHubRepositoryUrl.ts",
+        "line": 6,
+        "column": 1
+      }
+    },
+    {
+      "name": "normalizeAbsoluteGitHubUrl",
+      "description": "Validate one absolute GitHub URL without rewriting its normal route semantics.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/url/normalizeGitHubRepositoryUrl.ts",
+        "line": 25,
+        "column": 1
+      }
+    },
+    {
+      "name": "invalidGitHubRepositoryUrl",
+      "description": "Create the stable validation error for unsupported repository input.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/url/normalizeGitHubRepositoryUrl.ts",
+        "line": 49,
+        "column": 1
+      }
+    },
+    {
       "name": "normalizePathname",
       "description": "Normalize a pathname by trimming whitespace, query/hash suffixes, duplicate slashes, and trailing slashes.",
       "see": [],
@@ -8947,6 +8997,11 @@
       },
       {
         "fromPath": "src/url/index.ts",
+        "toPath": "src/url/normalizeGitHubRepositoryUrl.ts",
+        "sourcePath": "src/url/index.ts"
+      },
+      {
+        "fromPath": "src/url/index.ts",
         "toPath": "src/url/normalizePathname.ts",
         "sourcePath": "src/url/index.ts"
       },
@@ -8974,6 +9029,11 @@
         "fromPath": "src/url/isPathAtOrBelow.ts",
         "toPath": "src/url/normalizePathname.ts",
         "sourcePath": "src/url/isPathAtOrBelow.ts"
+      },
+      {
+        "fromPath": "src/url/normalizeGitHubRepositoryUrl.test.ts",
+        "toPath": "src/url/normalizeGitHubRepositoryUrl.ts",
+        "sourcePath": "src/url/normalizeGitHubRepositoryUrl.test.ts"
       },
       {
         "fromPath": "src/url/resolveHttpOrigin.ts",
@@ -11483,6 +11543,48 @@
         "toSymbol": "normalizePathname",
         "callExpression": "normalizePathname",
         "sourcePath": "src/url/isPathAtOrBelow.ts"
+      },
+      {
+        "fromSymbol": "src/url/normalizeGitHubRepositoryUrl.test.ts",
+        "toSymbol": "describe",
+        "callExpression": "describe",
+        "sourcePath": "src/url/normalizeGitHubRepositoryUrl.test.ts"
+      },
+      {
+        "fromSymbol": "src/url/normalizeGitHubRepositoryUrl.test.ts",
+        "toSymbol": "test",
+        "callExpression": "test",
+        "sourcePath": "src/url/normalizeGitHubRepositoryUrl.test.ts"
+      },
+      {
+        "fromSymbol": "src/url/normalizeGitHubRepositoryUrl.test.ts",
+        "toSymbol": "expect",
+        "callExpression": "expect",
+        "sourcePath": "src/url/normalizeGitHubRepositoryUrl.test.ts"
+      },
+      {
+        "fromSymbol": "src/url/normalizeGitHubRepositoryUrl.test.ts",
+        "toSymbol": "normalizeGitHubRepositoryUrl",
+        "callExpression": "normalizeGitHubRepositoryUrl",
+        "sourcePath": "src/url/normalizeGitHubRepositoryUrl.test.ts"
+      },
+      {
+        "fromSymbol": "normalizeGitHubRepositoryUrl",
+        "toSymbol": "normalizeAbsoluteGitHubUrl",
+        "callExpression": "normalizeAbsoluteGitHubUrl",
+        "sourcePath": "src/url/normalizeGitHubRepositoryUrl.ts"
+      },
+      {
+        "fromSymbol": "normalizeGitHubRepositoryUrl",
+        "toSymbol": "invalidGitHubRepositoryUrl",
+        "callExpression": "invalidGitHubRepositoryUrl",
+        "sourcePath": "src/url/normalizeGitHubRepositoryUrl.ts"
+      },
+      {
+        "fromSymbol": "normalizeAbsoluteGitHubUrl",
+        "toSymbol": "invalidGitHubRepositoryUrl",
+        "callExpression": "invalidGitHubRepositoryUrl",
+        "sourcePath": "src/url/normalizeGitHubRepositoryUrl.ts"
       },
       {
         "fromSymbol": "resolveHttpOrigin",

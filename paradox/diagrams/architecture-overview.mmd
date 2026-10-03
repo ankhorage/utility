@@ -864,6 +864,11 @@ graph TD
   module_src_url_isPathAtOrBelow_ts --> module_src_url_normalizePathname_ts
   module_src_url_normalizeCredentialFreeHttpUrl_ts["src/url/normalizeCredentialFreeHttpUrl.ts"]
   package__ankhorage_utility -.-> module_src_url_normalizeCredentialFreeHttpUrl_ts
+  module_src_url_normalizeGitHubRepositoryUrl_test_ts["src/url/normalizeGitHubRepositoryUrl.test.ts"]
+  package__ankhorage_utility -.-> module_src_url_normalizeGitHubRepositoryUrl_test_ts
+  module_src_url_normalizeGitHubRepositoryUrl_test_ts --> module_src_url_normalizeGitHubRepositoryUrl_ts
+  module_src_url_normalizeGitHubRepositoryUrl_ts["src/url/normalizeGitHubRepositoryUrl.ts"]
+  package__ankhorage_utility -.-> module_src_url_normalizeGitHubRepositoryUrl_ts
   module_src_url_normalizePathname_ts["src/url/normalizePathname.ts"]
   package__ankhorage_utility -.-> module_src_url_normalizePathname_ts
   module_src_url_parseTrustedHttpUrl_ts["src/url/parseTrustedHttpUrl.ts"]

@@ -1,5 +1,12 @@
 # @ankhorage/utility
 
+## 1.9.83
+
+### Patch Changes
+
+- dc67c88: Add GitHub repository URL normalization for owner/repository shorthand and normal GitHub
+  links.
+
 ## 1.9.82
 
 ### Patch Changes

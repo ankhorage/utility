@@ -351,6 +351,8 @@ graph LR
   module_src_url_isExactHttpUrl_ts["src/url/isExactHttpUrl.ts"]
   module_src_url_isPathAtOrBelow_ts["src/url/isPathAtOrBelow.ts"]
   module_src_url_normalizeCredentialFreeHttpUrl_ts["src/url/normalizeCredentialFreeHttpUrl.ts"]
+  module_src_url_normalizeGitHubRepositoryUrl_test_ts["src/url/normalizeGitHubRepositoryUrl.test.ts"]
+  module_src_url_normalizeGitHubRepositoryUrl_ts["src/url/normalizeGitHubRepositoryUrl.ts"]
   module_src_url_normalizePathname_ts["src/url/normalizePathname.ts"]
   module_src_url_parseTrustedHttpUrl_ts["src/url/parseTrustedHttpUrl.ts"]
   module_src_url_redactUrlQueryValues_ts["src/url/redactUrlQueryValues.ts"]
@@ -541,6 +543,7 @@ graph LR
   module_src_url_decodeSinglePathSegmentAfterPrefix_test_ts --> module_src_url_decodeSinglePathSegmentAfterPrefix_ts
   module_src_url_ensureTrailingSlash_test_ts --> module_src_url_ensureTrailingSlash_ts
   module_src_url_isPathAtOrBelow_ts --> module_src_url_normalizePathname_ts
+  module_src_url_normalizeGitHubRepositoryUrl_test_ts --> module_src_url_normalizeGitHubRepositoryUrl_ts
   module_src_url_resolveHttpOrigin_ts --> module_src_number_parseTcpPort_ts
   module_src_validation_assertNoForbiddenNestedKeys_ts --> module_src_validation_hasForbiddenNestedKey_ts
   module_src_validation_assertStaticImportBinding_test_ts --> module_src_validation_index_ts

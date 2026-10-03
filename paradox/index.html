@@ -1232,6 +1232,11 @@
       <small>1 function</small>
     </button>
   </li><li>
+    <button class="nav-button" type="button" data-target="src/url/normalizeGitHubRepositoryUrl.ts">
+      src/url/normalizeGitHubRepositoryUrl.ts
+      <small>3 functions</small>
+    </button>
+  </li><li>
     <button class="nav-button" type="button" data-target="src/url/normalizePathname.ts">
       src/url/normalizePathname.ts
       <small>1 function</small>
@@ -1363,7 +1368,7 @@
       <div class="summary">
         <div><strong>5</strong><span class="muted">public exports</span></div>
         <div><strong>0</strong><span class="muted">components</span></div>
-        <div><strong>383</strong><span class="muted">modules</span></div>
+        <div><strong>385</strong><span class="muted">modules</span></div>
         <div><strong>1</strong><span class="muted">entrypoints</span></div>
       </div>
       <h3>Entrypoints</h3>
@@ -3115,11 +3120,11 @@
     <p class="muted">Referenced module</p>
     <p><strong>Dependencies:</strong> <span class="empty">None</span></p>
     <p><strong>Exports:</strong> <code>firstStringParam</code></p>
-  </article><article class="item" data-search="src/url/index.ts appendEncodedPathSegment createOptionalQuery decodeFirstPathSegmentAfterPrefix decodeSinglePathSegmentAfterPrefix ensureTrailingSlash firstStringParam isExactHttpUrl isPathAtOrBelow normalizeCredentialFreeHttpUrl normalizePathname parseTrustedHttpUrl redactUrlQueryValues resolveHttpOrigin setOptionalQueryParam">
+  </article><article class="item" data-search="src/url/index.ts appendEncodedPathSegment createOptionalQuery decodeFirstPathSegmentAfterPrefix decodeSinglePathSegmentAfterPrefix ensureTrailingSlash firstStringParam isExactHttpUrl isPathAtOrBelow normalizeCredentialFreeHttpUrl normalizeGitHubRepositoryUrl normalizePathname parseTrustedHttpUrl redactUrlQueryValues resolveHttpOrigin setOptionalQueryParam">
     <h3>src/url/index.ts</h3>
     <p class="muted">Referenced module</p>
     <p><strong>Dependencies:</strong> <span class="empty">None</span></p>
-    <p><strong>Exports:</strong> <code>appendEncodedPathSegment</code>, <code>createOptionalQuery</code>, <code>decodeFirstPathSegmentAfterPrefix</code>, <code>decodeSinglePathSegmentAfterPrefix</code>, <code>ensureTrailingSlash</code>, <code>firstStringParam</code>, <code>isExactHttpUrl</code>, <code>isPathAtOrBelow</code>, <code>normalizeCredentialFreeHttpUrl</code>, <code>normalizePathname</code>, <code>parseTrustedHttpUrl</code>, <code>redactUrlQueryValues</code>, <code>resolveHttpOrigin</code>, <code>setOptionalQueryParam</code></p>
+    <p><strong>Exports:</strong> <code>appendEncodedPathSegment</code>, <code>createOptionalQuery</code>, <code>decodeFirstPathSegmentAfterPrefix</code>, <code>decodeSinglePathSegmentAfterPrefix</code>, <code>ensureTrailingSlash</code>, <code>firstStringParam</code>, <code>isExactHttpUrl</code>, <code>isPathAtOrBelow</code>, <code>normalizeCredentialFreeHttpUrl</code>, <code>normalizeGitHubRepositoryUrl</code>, <code>normalizePathname</code>, <code>parseTrustedHttpUrl</code>, <code>redactUrlQueryValues</code>, <code>resolveHttpOrigin</code>, <code>setOptionalQueryParam</code></p>
   </article><article class="item" data-search="src/url/isExactHttpUrl.ts isExactHttpUrl">
     <h3>src/url/isExactHttpUrl.ts</h3>
     <p class="muted">Referenced module</p>
@@ -3135,6 +3140,16 @@
     <p class="muted">Referenced module</p>
     <p><strong>Dependencies:</strong> <span class="empty">None</span></p>
     <p><strong>Exports:</strong> <code>normalizeCredentialFreeHttpUrl</code></p>
+  </article><article class="item" data-search="src/url/normalizeGitHubRepositoryUrl.test.ts src/url/normalizeGitHubRepositoryUrl.ts">
+    <h3>src/url/normalizeGitHubRepositoryUrl.test.ts</h3>
+    <p class="muted">Referenced module</p>
+    <p><strong>Dependencies:</strong> <code>src/url/normalizeGitHubRepositoryUrl.ts</code></p>
+    <p><strong>Exports:</strong> <span class="empty">None</span></p>
+  </article><article class="item" data-search="src/url/normalizeGitHubRepositoryUrl.ts normalizeGitHubRepositoryUrl">
+    <h3>src/url/normalizeGitHubRepositoryUrl.ts</h3>
+    <p class="muted">Referenced module</p>
+    <p><strong>Dependencies:</strong> <span class="empty">None</span></p>
+    <p><strong>Exports:</strong> <code>normalizeGitHubRepositoryUrl</code></p>
   </article><article class="item" data-search="src/url/normalizePathname.ts normalizePathname">
     <h3>src/url/normalizePathname.ts</h3>
     <p class="muted">Referenced module</p>
@@ -4316,6 +4331,11 @@
   module_src_url_isPathAtOrBelow_ts --&gt; module_src_url_normalizePathname_ts
   module_src_url_normalizeCredentialFreeHttpUrl_ts[&quot;src/url/normalizeCredentialFreeHttpUrl.ts&quot;]
   package__ankhorage_utility -.-&gt; module_src_url_normalizeCredentialFreeHttpUrl_ts
+  module_src_url_normalizeGitHubRepositoryUrl_test_ts[&quot;src/url/normalizeGitHubRepositoryUrl.test.ts&quot;]
+  package__ankhorage_utility -.-&gt; module_src_url_normalizeGitHubRepositoryUrl_test_ts
+  module_src_url_normalizeGitHubRepositoryUrl_test_ts --&gt; module_src_url_normalizeGitHubRepositoryUrl_ts
+  module_src_url_normalizeGitHubRepositoryUrl_ts[&quot;src/url/normalizeGitHubRepositoryUrl.ts&quot;]
+  package__ankhorage_utility -.-&gt; module_src_url_normalizeGitHubRepositoryUrl_ts
   module_src_url_normalizePathname_ts[&quot;src/url/normalizePathname.ts&quot;]
   package__ankhorage_utility -.-&gt; module_src_url_normalizePathname_ts
   module_src_url_parseTrustedHttpUrl_ts[&quot;src/url/parseTrustedHttpUrl.ts&quot;]
@@ -5266,6 +5286,11 @@
   module_src_url_isPathAtOrBelow_ts --&gt; module_src_url_normalizePathname_ts
   module_src_url_normalizeCredentialFreeHttpUrl_ts[&quot;src/url/normalizeCredentialFreeHttpUrl.ts&quot;]
   package__ankhorage_utility -.-&gt; module_src_url_normalizeCredentialFreeHttpUrl_ts
+  module_src_url_normalizeGitHubRepositoryUrl_test_ts[&quot;src/url/normalizeGitHubRepositoryUrl.test.ts&quot;]
+  package__ankhorage_utility -.-&gt; module_src_url_normalizeGitHubRepositoryUrl_test_ts
+  module_src_url_normalizeGitHubRepositoryUrl_test_ts --&gt; module_src_url_normalizeGitHubRepositoryUrl_ts
+  module_src_url_normalizeGitHubRepositoryUrl_ts[&quot;src/url/normalizeGitHubRepositoryUrl.ts&quot;]
+  package__ankhorage_utility -.-&gt; module_src_url_normalizeGitHubRepositoryUrl_ts
   module_src_url_normalizePathname_ts[&quot;src/url/normalizePathname.ts&quot;]
   package__ankhorage_utility -.-&gt; module_src_url_normalizePathname_ts
   module_src_url_parseTrustedHttpUrl_ts[&quot;src/url/parseTrustedHttpUrl.ts&quot;]
@@ -5705,6 +5730,8 @@
   module_src_url_isExactHttpUrl_ts[&quot;src/url/isExactHttpUrl.ts&quot;]
   module_src_url_isPathAtOrBelow_ts[&quot;src/url/isPathAtOrBelow.ts&quot;]
   module_src_url_normalizeCredentialFreeHttpUrl_ts[&quot;src/url/normalizeCredentialFreeHttpUrl.ts&quot;]
+  module_src_url_normalizeGitHubRepositoryUrl_test_ts[&quot;src/url/normalizeGitHubRepositoryUrl.test.ts&quot;]
+  module_src_url_normalizeGitHubRepositoryUrl_ts[&quot;src/url/normalizeGitHubRepositoryUrl.ts&quot;]
   module_src_url_normalizePathname_ts[&quot;src/url/normalizePathname.ts&quot;]
   module_src_url_parseTrustedHttpUrl_ts[&quot;src/url/parseTrustedHttpUrl.ts&quot;]
   module_src_url_redactUrlQueryValues_ts[&quot;src/url/redactUrlQueryValues.ts&quot;]
@@ -5895,6 +5922,7 @@
   module_src_url_decodeSinglePathSegmentAfterPrefix_test_ts --&gt; module_src_url_decodeSinglePathSegmentAfterPrefix_ts
   module_src_url_ensureTrailingSlash_test_ts --&gt; module_src_url_ensureTrailingSlash_ts
   module_src_url_isPathAtOrBelow_ts --&gt; module_src_url_normalizePathname_ts
+  module_src_url_normalizeGitHubRepositoryUrl_test_ts --&gt; module_src_url_normalizeGitHubRepositoryUrl_ts
   module_src_url_resolveHttpOrigin_ts --&gt; module_src_number_parseTcpPort_ts
   module_src_validation_assertNoForbiddenNestedKeys_ts --&gt; module_src_validation_hasForbiddenNestedKey_ts
   module_src_validation_assertStaticImportBinding_test_ts --&gt; module_src_validation_index_ts
@@ -6270,6 +6298,8 @@
   module_src_url_isExactHttpUrl_ts[&quot;src/url/isExactHttpUrl.ts&quot;]
   module_src_url_isPathAtOrBelow_ts[&quot;src/url/isPathAtOrBelow.ts&quot;]
   module_src_url_normalizeCredentialFreeHttpUrl_ts[&quot;src/url/normalizeCredentialFreeHttpUrl.ts&quot;]
+  module_src_url_normalizeGitHubRepositoryUrl_test_ts[&quot;src/url/normalizeGitHubRepositoryUrl.test.ts&quot;]
+  module_src_url_normalizeGitHubRepositoryUrl_ts[&quot;src/url/normalizeGitHubRepositoryUrl.ts&quot;]
   module_src_url_normalizePathname_ts[&quot;src/url/normalizePathname.ts&quot;]
   module_src_url_parseTrustedHttpUrl_ts[&quot;src/url/parseTrustedHttpUrl.ts&quot;]
   module_src_url_redactUrlQueryValues_ts[&quot;src/url/redactUrlQueryValues.ts&quot;]
@@ -6460,6 +6490,7 @@
   module_src_url_decodeSinglePathSegmentAfterPrefix_test_ts --&gt; module_src_url_decodeSinglePathSegmentAfterPrefix_ts
   module_src_url_ensureTrailingSlash_test_ts --&gt; module_src_url_ensureTrailingSlash_ts
   module_src_url_isPathAtOrBelow_ts --&gt; module_src_url_normalizePathname_ts
+  module_src_url_normalizeGitHubRepositoryUrl_test_ts --&gt; module_src_url_normalizeGitHubRepositoryUrl_ts
   module_src_url_resolveHttpOrigin_ts --&gt; module_src_number_parseTcpPort_ts
   module_src_validation_assertNoForbiddenNestedKeys_ts --&gt; module_src_validation_hasForbiddenNestedKey_ts
   module_src_validation_assertStaticImportBinding_test_ts --&gt; module_src_validation_index_ts
@@ -6837,6 +6868,8 @@
   module_src_url_isExactHttpUrl_ts[&quot;src/url/isExactHttpUrl.ts&quot;]
   module_src_url_isPathAtOrBelow_ts[&quot;src/url/isPathAtOrBelow.ts&quot;]
   module_src_url_normalizeCredentialFreeHttpUrl_ts[&quot;src/url/normalizeCredentialFreeHttpUrl.ts&quot;]
+  module_src_url_normalizeGitHubRepositoryUrl_test_ts[&quot;src/url/normalizeGitHubRepositoryUrl.test.ts&quot;]
+  module_src_url_normalizeGitHubRepositoryUrl_ts[&quot;src/url/normalizeGitHubRepositoryUrl.ts&quot;]
   module_src_url_normalizePathname_ts[&quot;src/url/normalizePathname.ts&quot;]
   module_src_url_parseTrustedHttpUrl_ts[&quot;src/url/parseTrustedHttpUrl.ts&quot;]
   module_src_url_redactUrlQueryValues_ts[&quot;src/url/redactUrlQueryValues.ts&quot;]
@@ -7234,6 +7267,8 @@
   module_src_url_isExactHttpUrl_ts[&quot;src/url/isExactHttpUrl.ts&quot;]
   module_src_url_isPathAtOrBelow_ts[&quot;src/url/isPathAtOrBelow.ts&quot;]
   module_src_url_normalizeCredentialFreeHttpUrl_ts[&quot;src/url/normalizeCredentialFreeHttpUrl.ts&quot;]
+  module_src_url_normalizeGitHubRepositoryUrl_test_ts[&quot;src/url/normalizeGitHubRepositoryUrl.test.ts&quot;]
+  module_src_url_normalizeGitHubRepositoryUrl_ts[&quot;src/url/normalizeGitHubRepositoryUrl.ts&quot;]
   module_src_url_normalizePathname_ts[&quot;src/url/normalizePathname.ts&quot;]
   module_src_url_parseTrustedHttpUrl_ts[&quot;src/url/parseTrustedHttpUrl.ts&quot;]
   module_src_url_redactUrlQueryValues_ts[&quot;src/url/redactUrlQueryValues.ts&quot;]
@@ -9904,6 +9939,28 @@ between validation and connection establishment.</p>
     <h3>normalizeCredentialFreeHttpUrl</h3>
     <p class="muted"><code>src/url/normalizeCredentialFreeHttpUrl.ts:2:1</code></p>
     <p>Normalize an HTTP(S) URL and reject embedded credentials or non-HTTP protocols.</p>
+    
+  </article>
+    </section>
+  </section><section id="view-src-url-normalizegithubrepositoryurl-ts" class="view" data-view="src/url/normalizeGitHubRepositoryUrl.ts" hidden>
+    <section class="panel">
+      <h2>src/url/normalizeGitHubRepositoryUrl.ts</h2>
+      <article class="item" data-search="normalizeGitHubRepositoryUrl src/url/normalizeGitHubRepositoryUrl.ts Normalize a GitHub repository URL or owner/repository shorthand to one HTTPS GitHub URL.&#10;&#10;Existing normal GitHub repository, tree, blob, and commit links keep their path semantics.">
+    <h3>normalizeGitHubRepositoryUrl</h3>
+    <p class="muted"><code>src/url/normalizeGitHubRepositoryUrl.ts:6:1</code></p>
+    <p>Normalize a GitHub repository URL or owner/repository shorthand to one HTTPS GitHub URL.
+
+Existing normal GitHub repository, tree, blob, and commit links keep their path semantics.</p>
+    
+  </article><article class="item" data-search="normalizeAbsoluteGitHubUrl src/url/normalizeGitHubRepositoryUrl.ts Validate one absolute GitHub URL without rewriting its normal route semantics.">
+    <h3>normalizeAbsoluteGitHubUrl</h3>
+    <p class="muted"><code>src/url/normalizeGitHubRepositoryUrl.ts:25:1</code></p>
+    <p>Validate one absolute GitHub URL without rewriting its normal route semantics.</p>
+    
+  </article><article class="item" data-search="invalidGitHubRepositoryUrl src/url/normalizeGitHubRepositoryUrl.ts Create the stable validation error for unsupported repository input.">
+    <h3>invalidGitHubRepositoryUrl</h3>
+    <p class="muted"><code>src/url/normalizeGitHubRepositoryUrl.ts:49:1</code></p>
+    <p>Create the stable validation error for unsupported repository input.</p>
     
   </article>
     </section>
