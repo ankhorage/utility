@@ -10,7 +10,11 @@ export function normalizeGitHubRepositoryUrl(value: string): string {
   const candidate = input.startsWith('github.com/') ? `https://${input}` : input;
   if (candidate.startsWith('https://')) return normalizeAbsoluteGitHubUrl(candidate);
 
-  if (/^[A-Za-z0-9](?:[A-Za-z0-9-]{0,98}[A-Za-z0-9])?\/[A-Za-z0-9._-]{1,100}(?:\.git)?$/u.test(candidate)) {
+  if (
+    /^[A-Za-z0-9](?:[A-Za-z0-9-]{0,98}[A-Za-z0-9])?\/[A-Za-z0-9._-]{1,100}(?:\.git)?$/u.test(
+      candidate,
+    )
+  ) {
     return `https://github.com/${candidate}`;
   }
 
@@ -44,6 +48,6 @@ function normalizeAbsoluteGitHubUrl(value: string): string {
 /*** Create the stable validation error for unsupported repository input. */
 function invalidGitHubRepositoryUrl(): Error {
   return new Error(
-    'GitHub repository must be owner/repository or a normal https://github.com repository URL.'
+    'GitHub repository must be owner/repository or a normal https://github.com repository URL.',
   );
 }
