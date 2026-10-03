@@ -14,7 +14,7 @@
     {
       "id": "npm",
       "label": "npm",
-      "value": "v1.9.83",
+      "value": "v1.9.84",
       "color": "cb3837"
     },
     {
@@ -1353,8 +1353,12 @@
         "createStationarySelectionCoordinator",
         "createStationarySelectionInputState",
         "getInteractionKey",
+        "InteractionModifiers",
         "InteractionSelectionTransaction",
         "isSupportedPointerInput",
+        "resolveSelectionIntent",
+        "SelectionActivationKind",
+        "SelectionInteractionInput",
         "StationaryPointerInput",
         "StationarySelectionCoordinator",
         "StationarySelectionInput",
@@ -1370,6 +1374,25 @@
       ],
       "exports": [
         "isSupportedPointerInput"
+      ]
+    },
+    {
+      "path": "src/interaction/resolveSelectionIntent.test.ts",
+      "isEntrypoint": false,
+      "dependencies": [
+        "src/interaction/resolveSelectionIntent.ts"
+      ],
+      "exports": []
+    },
+    {
+      "path": "src/interaction/resolveSelectionIntent.ts",
+      "isEntrypoint": false,
+      "dependencies": [
+        "src/interaction/types.ts",
+        "src/selection/types.ts"
+      ],
+      "exports": [
+        "resolveSelectionIntent"
       ]
     },
     {
@@ -1399,7 +1422,10 @@
         "ConfirmationButton",
         "ConfirmationDependencies",
         "ConfirmationRequest",
+        "InteractionModifiers",
         "InteractionSelectionTransaction",
+        "SelectionActivationKind",
+        "SelectionInteractionInput",
         "StationaryPointerInput",
         "StationarySelectionCoordinator",
         "StationarySelectionInput",
@@ -2710,6 +2736,24 @@
       ]
     },
     {
+      "path": "src/selection/applySelectionIntent.test.ts",
+      "isEntrypoint": false,
+      "dependencies": [
+        "src/selection/applySelectionIntent.ts"
+      ],
+      "exports": []
+    },
+    {
+      "path": "src/selection/applySelectionIntent.ts",
+      "isEntrypoint": false,
+      "dependencies": [
+        "src/selection/types.ts"
+      ],
+      "exports": [
+        "applySelectionIntent"
+      ]
+    },
+    {
       "path": "src/selection/arrayToSingleSelection.ts",
       "isEntrypoint": false,
       "dependencies": [],
@@ -2722,7 +2766,9 @@
       "isEntrypoint": false,
       "dependencies": [],
       "exports": [
+        "applySelectionIntent",
         "arrayToSingleSelection",
+        "SelectionIntent",
         "singleSelectionToArray"
       ]
     },
@@ -2732,6 +2778,14 @@
       "dependencies": [],
       "exports": [
         "singleSelectionToArray"
+      ]
+    },
+    {
+      "path": "src/selection/types.ts",
+      "isEntrypoint": false,
+      "dependencies": [],
+      "exports": [
+        "SelectionIntent"
       ]
     },
     {
@@ -4993,6 +5047,17 @@
       }
     },
     {
+      "name": "resolveSelectionIntent",
+      "description": "Translate cross-platform activation state into semantic replace or toggle selection intent.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/interaction/resolveSelectionIntent.ts",
+        "line": 5,
+        "column": 1
+      }
+    },
+    {
       "name": "pointer",
       "description": null,
       "see": [],
@@ -6643,6 +6708,17 @@
       }
     },
     {
+      "name": "applySelectionIntent",
+      "description": "Apply one semantic selection intent without mutating or duplicating selected values.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/selection/applySelectionIntent.ts",
+        "line": 4,
+        "column": 1
+      }
+    },
+    {
       "name": "arrayToSingleSelection",
       "description": "Adapt a selected-values array into one nullable single selection using its first value.",
       "see": [],
@@ -8132,6 +8208,11 @@
       },
       {
         "fromPath": "src/interaction/index.ts",
+        "toPath": "src/interaction/resolveSelectionIntent.ts",
+        "sourcePath": "src/interaction/index.ts"
+      },
+      {
+        "fromPath": "src/interaction/index.ts",
         "toPath": "src/interaction/types.ts",
         "sourcePath": "src/interaction/index.ts"
       },
@@ -8139,6 +8220,21 @@
         "fromPath": "src/interaction/isSupportedPointerInput.ts",
         "toPath": "src/interaction/types.ts",
         "sourcePath": "src/interaction/isSupportedPointerInput.ts"
+      },
+      {
+        "fromPath": "src/interaction/resolveSelectionIntent.test.ts",
+        "toPath": "src/interaction/resolveSelectionIntent.ts",
+        "sourcePath": "src/interaction/resolveSelectionIntent.test.ts"
+      },
+      {
+        "fromPath": "src/interaction/resolveSelectionIntent.ts",
+        "toPath": "src/selection/types.ts",
+        "sourcePath": "src/interaction/resolveSelectionIntent.ts"
+      },
+      {
+        "fromPath": "src/interaction/resolveSelectionIntent.ts",
+        "toPath": "src/interaction/types.ts",
+        "sourcePath": "src/interaction/resolveSelectionIntent.ts"
       },
       {
         "fromPath": "src/interaction/stationarySelectionCoordinator.test.ts",
@@ -8591,6 +8687,21 @@
         "sourcePath": "src/search/scoreBestTextMatch.ts"
       },
       {
+        "fromPath": "src/selection/applySelectionIntent.test.ts",
+        "toPath": "src/selection/applySelectionIntent.ts",
+        "sourcePath": "src/selection/applySelectionIntent.test.ts"
+      },
+      {
+        "fromPath": "src/selection/applySelectionIntent.ts",
+        "toPath": "src/selection/types.ts",
+        "sourcePath": "src/selection/applySelectionIntent.ts"
+      },
+      {
+        "fromPath": "src/selection/index.ts",
+        "toPath": "src/selection/applySelectionIntent.ts",
+        "sourcePath": "src/selection/index.ts"
+      },
+      {
         "fromPath": "src/selection/index.ts",
         "toPath": "src/selection/arrayToSingleSelection.ts",
         "sourcePath": "src/selection/index.ts"
@@ -8598,6 +8709,11 @@
       {
         "fromPath": "src/selection/index.ts",
         "toPath": "src/selection/singleSelectionToArray.ts",
+        "sourcePath": "src/selection/index.ts"
+      },
+      {
+        "fromPath": "src/selection/index.ts",
+        "toPath": "src/selection/types.ts",
         "sourcePath": "src/selection/index.ts"
       },
       {
@@ -10435,6 +10551,30 @@
         "sourcePath": "src/interaction/createStationarySelectionInputState.ts"
       },
       {
+        "fromSymbol": "src/interaction/resolveSelectionIntent.test.ts",
+        "toSymbol": "describe",
+        "callExpression": "describe",
+        "sourcePath": "src/interaction/resolveSelectionIntent.test.ts"
+      },
+      {
+        "fromSymbol": "src/interaction/resolveSelectionIntent.test.ts",
+        "toSymbol": "test",
+        "callExpression": "test",
+        "sourcePath": "src/interaction/resolveSelectionIntent.test.ts"
+      },
+      {
+        "fromSymbol": "src/interaction/resolveSelectionIntent.test.ts",
+        "toSymbol": "expect",
+        "callExpression": "expect",
+        "sourcePath": "src/interaction/resolveSelectionIntent.test.ts"
+      },
+      {
+        "fromSymbol": "src/interaction/resolveSelectionIntent.test.ts",
+        "toSymbol": "resolveSelectionIntent",
+        "callExpression": "resolveSelectionIntent",
+        "sourcePath": "src/interaction/resolveSelectionIntent.test.ts"
+      },
+      {
         "fromSymbol": "src/interaction/stationarySelectionCoordinator.test.ts",
         "toSymbol": "it",
         "callExpression": "it",
@@ -11159,6 +11299,30 @@
         "toSymbol": "scoreTextMatch",
         "callExpression": "scoreTextMatch",
         "sourcePath": "src/search/scoreBestTextMatch.ts"
+      },
+      {
+        "fromSymbol": "src/selection/applySelectionIntent.test.ts",
+        "toSymbol": "describe",
+        "callExpression": "describe",
+        "sourcePath": "src/selection/applySelectionIntent.test.ts"
+      },
+      {
+        "fromSymbol": "src/selection/applySelectionIntent.test.ts",
+        "toSymbol": "test",
+        "callExpression": "test",
+        "sourcePath": "src/selection/applySelectionIntent.test.ts"
+      },
+      {
+        "fromSymbol": "src/selection/applySelectionIntent.test.ts",
+        "toSymbol": "expect",
+        "callExpression": "expect",
+        "sourcePath": "src/selection/applySelectionIntent.test.ts"
+      },
+      {
+        "fromSymbol": "src/selection/applySelectionIntent.test.ts",
+        "toSymbol": "applySelectionIntent",
+        "callExpression": "applySelectionIntent",
+        "sourcePath": "src/selection/applySelectionIntent.test.ts"
       },
       {
         "fromSymbol": "satisfiesCaretSemverRange",

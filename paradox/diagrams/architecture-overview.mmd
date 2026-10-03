@@ -354,6 +354,13 @@ graph TD
   module_src_interaction_isSupportedPointerInput_ts["src/interaction/isSupportedPointerInput.ts"]
   package__ankhorage_utility -.-> module_src_interaction_isSupportedPointerInput_ts
   module_src_interaction_isSupportedPointerInput_ts --> module_src_interaction_types_ts
+  module_src_interaction_resolveSelectionIntent_test_ts["src/interaction/resolveSelectionIntent.test.ts"]
+  package__ankhorage_utility -.-> module_src_interaction_resolveSelectionIntent_test_ts
+  module_src_interaction_resolveSelectionIntent_test_ts --> module_src_interaction_resolveSelectionIntent_ts
+  module_src_interaction_resolveSelectionIntent_ts["src/interaction/resolveSelectionIntent.ts"]
+  package__ankhorage_utility -.-> module_src_interaction_resolveSelectionIntent_ts
+  module_src_interaction_resolveSelectionIntent_ts --> module_src_interaction_types_ts
+  module_src_interaction_resolveSelectionIntent_ts --> module_src_selection_types_ts
   module_src_interaction_stationarySelectionCoordinator_test_ts["src/interaction/stationarySelectionCoordinator.test.ts"]
   package__ankhorage_utility -.-> module_src_interaction_stationarySelectionCoordinator_test_ts
   module_src_interaction_stationarySelectionCoordinator_test_ts --> module_src_interaction_createStationarySelectionCoordinator_ts
@@ -702,12 +709,20 @@ graph TD
   module_src_search_scoreBestTextMatch_ts --> module_src_search_scoreTextMatch_ts
   module_src_search_scoreTextMatch_ts["src/search/scoreTextMatch.ts"]
   package__ankhorage_utility -.-> module_src_search_scoreTextMatch_ts
+  module_src_selection_applySelectionIntent_test_ts["src/selection/applySelectionIntent.test.ts"]
+  package__ankhorage_utility -.-> module_src_selection_applySelectionIntent_test_ts
+  module_src_selection_applySelectionIntent_test_ts --> module_src_selection_applySelectionIntent_ts
+  module_src_selection_applySelectionIntent_ts["src/selection/applySelectionIntent.ts"]
+  package__ankhorage_utility -.-> module_src_selection_applySelectionIntent_ts
+  module_src_selection_applySelectionIntent_ts --> module_src_selection_types_ts
   module_src_selection_arrayToSingleSelection_ts["src/selection/arrayToSingleSelection.ts"]
   package__ankhorage_utility -.-> module_src_selection_arrayToSingleSelection_ts
   module_src_selection_index_ts["src/selection/index.ts"]
   package__ankhorage_utility -.-> module_src_selection_index_ts
   module_src_selection_singleSelectionToArray_ts["src/selection/singleSelectionToArray.ts"]
   package__ankhorage_utility -.-> module_src_selection_singleSelectionToArray_ts
+  module_src_selection_types_ts["src/selection/types.ts"]
+  package__ankhorage_utility -.-> module_src_selection_types_ts
   module_src_semver_compareSemanticVersions_ts["src/semver/compareSemanticVersions.ts"]
   package__ankhorage_utility -.-> module_src_semver_compareSemanticVersions_ts
   module_src_semver_compareSemanticVersions_ts --> module_src_semver_types_ts

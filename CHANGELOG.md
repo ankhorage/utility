@@ -1,5 +1,11 @@
 # @ankhorage/utility
 
+## 1.9.84
+
+### Patch Changes
+
+- dc4dc58: Add reusable cross-platform selection intent and immutable multi-selection primitives.
+
 ## 1.9.83
 
 ### Patch Changes
