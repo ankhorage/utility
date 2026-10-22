@@ -737,6 +737,11 @@
       <small>1 function</small>
     </button>
   </li><li>
+    <button class="nav-button" type="button" data-target="src/number/formatBytes.ts">
+      src/number/formatBytes.ts
+      <small>2 functions</small>
+    </button>
+  </li><li>
     <button class="nav-button" type="button" data-target="src/number/parseFiniteNumber.ts">
       src/number/parseFiniteNumber.ts
       <small>1 function</small>
@@ -1378,7 +1383,7 @@
       <div class="summary">
         <div><strong>5</strong><span class="muted">public exports</span></div>
         <div><strong>0</strong><span class="muted">components</span></div>
-        <div><strong>390</strong><span class="muted">modules</span></div>
+        <div><strong>392</strong><span class="muted">modules</span></div>
         <div><strong>1</strong><span class="muted">entrypoints</span></div>
       </div>
       <h3>Entrypoints</h3>
@@ -2460,11 +2465,21 @@
     <p class="muted">Referenced module</p>
     <p><strong>Dependencies:</strong> <span class="empty">None</span></p>
     <p><strong>Exports:</strong> <code>stopProcess</code></p>
-  </article><article class="item" data-search="src/number/index.ts parseFiniteNumber parseNonNegativeNumber parseTcpPort">
+  </article><article class="item" data-search="src/number/formatBytes.test.ts src/number/formatBytes.ts">
+    <h3>src/number/formatBytes.test.ts</h3>
+    <p class="muted">Referenced module</p>
+    <p><strong>Dependencies:</strong> <code>src/number/formatBytes.ts</code></p>
+    <p><strong>Exports:</strong> <span class="empty">None</span></p>
+  </article><article class="item" data-search="src/number/formatBytes.ts formatBytes">
+    <h3>src/number/formatBytes.ts</h3>
+    <p class="muted">Referenced module</p>
+    <p><strong>Dependencies:</strong> <span class="empty">None</span></p>
+    <p><strong>Exports:</strong> <code>formatBytes</code></p>
+  </article><article class="item" data-search="src/number/index.ts formatBytes parseFiniteNumber parseNonNegativeNumber parseTcpPort">
     <h3>src/number/index.ts</h3>
     <p class="muted">Referenced module</p>
     <p><strong>Dependencies:</strong> <span class="empty">None</span></p>
-    <p><strong>Exports:</strong> <code>parseFiniteNumber</code>, <code>parseNonNegativeNumber</code>, <code>parseTcpPort</code></p>
+    <p><strong>Exports:</strong> <code>formatBytes</code>, <code>parseFiniteNumber</code>, <code>parseNonNegativeNumber</code>, <code>parseTcpPort</code></p>
   </article><article class="item" data-search="src/number/parseFiniteNumber.ts parseFiniteNumber">
     <h3>src/number/parseFiniteNumber.ts</h3>
     <p class="muted">Referenced module</p>
@@ -4023,6 +4038,11 @@
   package__ankhorage_utility -.-&gt; module_src_node_process_runProcessWithTimeout_ts
   module_src_node_process_stopProcess_ts[&quot;src/node/process/stopProcess.ts&quot;]
   package__ankhorage_utility -.-&gt; module_src_node_process_stopProcess_ts
+  module_src_number_formatBytes_test_ts[&quot;src/number/formatBytes.test.ts&quot;]
+  package__ankhorage_utility -.-&gt; module_src_number_formatBytes_test_ts
+  module_src_number_formatBytes_test_ts --&gt; module_src_number_formatBytes_ts
+  module_src_number_formatBytes_ts[&quot;src/number/formatBytes.ts&quot;]
+  package__ankhorage_utility -.-&gt; module_src_number_formatBytes_ts
   module_src_number_index_ts[&quot;src/number/index.ts&quot;]
   package__ankhorage_utility -.-&gt; module_src_number_index_ts
   module_src_number_parseFiniteNumber_ts[&quot;src/number/parseFiniteNumber.ts&quot;]
@@ -4993,6 +5013,11 @@
   package__ankhorage_utility -.-&gt; module_src_node_process_runProcessWithTimeout_ts
   module_src_node_process_stopProcess_ts[&quot;src/node/process/stopProcess.ts&quot;]
   package__ankhorage_utility -.-&gt; module_src_node_process_stopProcess_ts
+  module_src_number_formatBytes_test_ts[&quot;src/number/formatBytes.test.ts&quot;]
+  package__ankhorage_utility -.-&gt; module_src_number_formatBytes_test_ts
+  module_src_number_formatBytes_test_ts --&gt; module_src_number_formatBytes_ts
+  module_src_number_formatBytes_ts[&quot;src/number/formatBytes.ts&quot;]
+  package__ankhorage_utility -.-&gt; module_src_number_formatBytes_ts
   module_src_number_index_ts[&quot;src/number/index.ts&quot;]
   package__ankhorage_utility -.-&gt; module_src_number_index_ts
   module_src_number_parseFiniteNumber_ts[&quot;src/number/parseFiniteNumber.ts&quot;]
@@ -5657,6 +5682,8 @@
   module_src_node_process_resolveProjectOwnedExecutableAsync_ts[&quot;src/node/process/resolveProjectOwnedExecutableAsync.ts&quot;]
   module_src_node_process_runProcessWithTimeout_ts[&quot;src/node/process/runProcessWithTimeout.ts&quot;]
   module_src_node_process_stopProcess_ts[&quot;src/node/process/stopProcess.ts&quot;]
+  module_src_number_formatBytes_test_ts[&quot;src/number/formatBytes.test.ts&quot;]
+  module_src_number_formatBytes_ts[&quot;src/number/formatBytes.ts&quot;]
   module_src_number_index_ts[&quot;src/number/index.ts&quot;]
   module_src_number_parseFiniteNumber_ts[&quot;src/number/parseFiniteNumber.ts&quot;]
   module_src_number_parseNonNegativeNumber_ts[&quot;src/number/parseNonNegativeNumber.ts&quot;]
@@ -5924,6 +5951,7 @@
   module_src_node_path_toPortablePath_test_ts --&gt; module_src_node_path_toPortablePath_ts
   module_src_node_path_toRelativeImportPath_ts --&gt; module_src_node_path_toPortablePath_ts
   module_src_node_process_openBrowser_test_ts --&gt; module_src_node_process_openBrowser_ts
+  module_src_number_formatBytes_test_ts --&gt; module_src_number_formatBytes_ts
   module_src_number_parseNonNegativeNumber_ts --&gt; module_src_number_parseFiniteNumber_ts
   module_src_object_asRecord_ts --&gt; module_src_object_isRecord_ts
   module_src_object_assertNoNestedKeys_ts --&gt; module_src_object_findNestedKey_ts
@@ -6235,6 +6263,8 @@
   module_src_node_process_resolveProjectOwnedExecutableAsync_ts[&quot;src/node/process/resolveProjectOwnedExecutableAsync.ts&quot;]
   module_src_node_process_runProcessWithTimeout_ts[&quot;src/node/process/runProcessWithTimeout.ts&quot;]
   module_src_node_process_stopProcess_ts[&quot;src/node/process/stopProcess.ts&quot;]
+  module_src_number_formatBytes_test_ts[&quot;src/number/formatBytes.test.ts&quot;]
+  module_src_number_formatBytes_ts[&quot;src/number/formatBytes.ts&quot;]
   module_src_number_index_ts[&quot;src/number/index.ts&quot;]
   module_src_number_parseFiniteNumber_ts[&quot;src/number/parseFiniteNumber.ts&quot;]
   module_src_number_parseNonNegativeNumber_ts[&quot;src/number/parseNonNegativeNumber.ts&quot;]
@@ -6502,6 +6532,7 @@
   module_src_node_path_toPortablePath_test_ts --&gt; module_src_node_path_toPortablePath_ts
   module_src_node_path_toRelativeImportPath_ts --&gt; module_src_node_path_toPortablePath_ts
   module_src_node_process_openBrowser_test_ts --&gt; module_src_node_process_openBrowser_ts
+  module_src_number_formatBytes_test_ts --&gt; module_src_number_formatBytes_ts
   module_src_number_parseNonNegativeNumber_ts --&gt; module_src_number_parseFiniteNumber_ts
   module_src_object_asRecord_ts --&gt; module_src_object_isRecord_ts
   module_src_object_assertNoNestedKeys_ts --&gt; module_src_object_findNestedKey_ts
@@ -6815,6 +6846,8 @@
   module_src_node_process_resolveProjectOwnedExecutableAsync_ts[&quot;src/node/process/resolveProjectOwnedExecutableAsync.ts&quot;]
   module_src_node_process_runProcessWithTimeout_ts[&quot;src/node/process/runProcessWithTimeout.ts&quot;]
   module_src_node_process_stopProcess_ts[&quot;src/node/process/stopProcess.ts&quot;]
+  module_src_number_formatBytes_test_ts[&quot;src/number/formatBytes.test.ts&quot;]
+  module_src_number_formatBytes_ts[&quot;src/number/formatBytes.ts&quot;]
   module_src_number_index_ts[&quot;src/number/index.ts&quot;]
   module_src_number_parseFiniteNumber_ts[&quot;src/number/parseFiniteNumber.ts&quot;]
   module_src_number_parseNonNegativeNumber_ts[&quot;src/number/parseNonNegativeNumber.ts&quot;]
@@ -7219,6 +7252,8 @@
   module_src_node_process_resolveProjectOwnedExecutableAsync_ts[&quot;src/node/process/resolveProjectOwnedExecutableAsync.ts&quot;]
   module_src_node_process_runProcessWithTimeout_ts[&quot;src/node/process/runProcessWithTimeout.ts&quot;]
   module_src_node_process_stopProcess_ts[&quot;src/node/process/stopProcess.ts&quot;]
+  module_src_number_formatBytes_test_ts[&quot;src/number/formatBytes.test.ts&quot;]
+  module_src_number_formatBytes_ts[&quot;src/number/formatBytes.ts&quot;]
   module_src_number_index_ts[&quot;src/number/index.ts&quot;]
   module_src_number_parseFiniteNumber_ts[&quot;src/number/parseFiniteNumber.ts&quot;]
   module_src_number_parseNonNegativeNumber_ts[&quot;src/number/parseNonNegativeNumber.ts&quot;]
@@ -8969,6 +9004,21 @@ between validation and connection establishment.</p>
     <h3>stopProcess</h3>
     <p class="muted"><code>src/node/process/stopProcess.ts:4:1</code></p>
     <p>Stop a child-process group when possible and fall back to stopping the child process itself.</p>
+    
+  </article>
+    </section>
+  </section><section id="view-src-number-formatbytes-ts" class="view" data-view="src/number/formatBytes.ts" hidden>
+    <section class="panel">
+      <h2>src/number/formatBytes.ts</h2>
+      <article class="item" data-search="formatBytes src/number/formatBytes.ts Formats a byte count with binary units and at most one fractional digit.">
+    <h3>formatBytes</h3>
+    <p class="muted"><code>src/number/formatBytes.ts:4:1</code></p>
+    <p>Formats a byte count with binary units and at most one fractional digit.</p>
+    
+  </article><article class="item" data-search="resolveByteUnitIndex src/number/formatBytes.ts Resolves the largest supported binary unit for a positive byte count.">
+    <h3>resolveByteUnitIndex</h3>
+    <p class="muted"><code>src/number/formatBytes.ts:16:1</code></p>
+    <p>Resolves the largest supported binary unit for a positive byte count.</p>
     
   </article>
     </section>

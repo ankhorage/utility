@@ -521,6 +521,11 @@ graph TD
   package__ankhorage_utility -.-> module_src_node_process_runProcessWithTimeout_ts
   module_src_node_process_stopProcess_ts["src/node/process/stopProcess.ts"]
   package__ankhorage_utility -.-> module_src_node_process_stopProcess_ts
+  module_src_number_formatBytes_test_ts["src/number/formatBytes.test.ts"]
+  package__ankhorage_utility -.-> module_src_number_formatBytes_test_ts
+  module_src_number_formatBytes_test_ts --> module_src_number_formatBytes_ts
+  module_src_number_formatBytes_ts["src/number/formatBytes.ts"]
+  package__ankhorage_utility -.-> module_src_number_formatBytes_ts
   module_src_number_index_ts["src/number/index.ts"]
   package__ankhorage_utility -.-> module_src_number_index_ts
   module_src_number_parseFiniteNumber_ts["src/number/parseFiniteNumber.ts"]

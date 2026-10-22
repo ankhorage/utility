@@ -14,7 +14,7 @@
     {
       "id": "npm",
       "label": "npm",
-      "value": "v1.9.85",
+      "value": "v1.9.86",
       "color": "cb3837"
     },
     {
@@ -2011,10 +2011,27 @@
       ]
     },
     {
+      "path": "src/number/formatBytes.test.ts",
+      "isEntrypoint": false,
+      "dependencies": [
+        "src/number/formatBytes.ts"
+      ],
+      "exports": []
+    },
+    {
+      "path": "src/number/formatBytes.ts",
+      "isEntrypoint": false,
+      "dependencies": [],
+      "exports": [
+        "formatBytes"
+      ]
+    },
+    {
       "path": "src/number/index.ts",
       "isEntrypoint": false,
       "dependencies": [],
       "exports": [
+        "formatBytes",
         "parseFiniteNumber",
         "parseNonNegativeNumber",
         "parseTcpPort"
@@ -5938,6 +5955,28 @@
       }
     },
     {
+      "name": "formatBytes",
+      "description": "Formats a byte count with binary units and at most one fractional digit.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/number/formatBytes.ts",
+        "line": 4,
+        "column": 1
+      }
+    },
+    {
+      "name": "resolveByteUnitIndex",
+      "description": "Resolves the largest supported binary unit for a positive byte count.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/number/formatBytes.ts",
+        "line": 16,
+        "column": 1
+      }
+    },
+    {
       "name": "parseFiniteNumber",
       "description": "Parse a finite number from a string, returning null for blank or invalid input.",
       "see": [],
@@ -8270,6 +8309,16 @@
         "fromPath": "src/media/index.ts",
         "toPath": "src/media/sanitizePathSegment.ts",
         "sourcePath": "src/media/index.ts"
+      },
+      {
+        "fromPath": "src/number/formatBytes.test.ts",
+        "toPath": "src/number/formatBytes.ts",
+        "sourcePath": "src/number/formatBytes.test.ts"
+      },
+      {
+        "fromPath": "src/number/index.ts",
+        "toPath": "src/number/formatBytes.ts",
+        "sourcePath": "src/number/index.ts"
       },
       {
         "fromPath": "src/number/index.ts",
@@ -10699,6 +10748,36 @@
         "toSymbol": "isValue",
         "callExpression": "isValue",
         "sourcePath": "src/json/parseJsonWithFallback.ts"
+      },
+      {
+        "fromSymbol": "src/number/formatBytes.test.ts",
+        "toSymbol": "describe",
+        "callExpression": "describe",
+        "sourcePath": "src/number/formatBytes.test.ts"
+      },
+      {
+        "fromSymbol": "src/number/formatBytes.test.ts",
+        "toSymbol": "test",
+        "callExpression": "test",
+        "sourcePath": "src/number/formatBytes.test.ts"
+      },
+      {
+        "fromSymbol": "src/number/formatBytes.test.ts",
+        "toSymbol": "expect",
+        "callExpression": "expect",
+        "sourcePath": "src/number/formatBytes.test.ts"
+      },
+      {
+        "fromSymbol": "src/number/formatBytes.test.ts",
+        "toSymbol": "formatBytes",
+        "callExpression": "formatBytes",
+        "sourcePath": "src/number/formatBytes.test.ts"
+      },
+      {
+        "fromSymbol": "formatBytes",
+        "toSymbol": "resolveByteUnitIndex",
+        "callExpression": "resolveByteUnitIndex",
+        "sourcePath": "src/number/formatBytes.ts"
       },
       {
         "fromSymbol": "parseNonNegativeNumber",

@@ -1,5 +1,11 @@
 # @ankhorage/utility
 
+## 1.9.86
+
+### Patch Changes
+
+- 0d45c65: Add `formatBytes` for concise binary byte-count formatting.
+
 ## 1.9.85
 
 ### Patch Changes
