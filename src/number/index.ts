@@ -1,3 +1,4 @@
+export { formatBytes } from './formatBytes.js';
 export { parseFiniteNumber } from './parseFiniteNumber.js';
 export { parseNonNegativeNumber } from './parseNonNegativeNumber.js';
 export { parseTcpPort } from './parseTcpPort.js';
