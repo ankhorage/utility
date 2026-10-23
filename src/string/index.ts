@@ -1,6 +1,7 @@
 export { asPresentString } from './asPresentString.js';
 export { createCompositeKey } from './createCompositeKey.js';
 export { formatJavaScriptObjectKey } from './formatJavaScriptObjectKey.js';
+export { formatSlugDisplayName } from './formatSlugDisplayName.js';
 export { indentNonEmptyLines } from './indentNonEmptyLines.js';
 export { isNonEmptyString } from './isNonEmptyString.js';
 export { isOptionalString } from './isOptionalString.js';
