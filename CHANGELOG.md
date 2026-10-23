@@ -1,5 +1,11 @@
 # @ankhorage/utility
 
+## 1.10.0
+
+### Minor Changes
+
+- 9cb4b21: Add a reusable slug display-name formatter that capitalizes each hyphen-separated word.
+
 ## 1.9.86
 
 ### Patch Changes

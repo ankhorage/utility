@@ -14,7 +14,7 @@
     {
       "id": "npm",
       "label": "npm",
-      "value": "v1.9.86",
+      "value": "v1.10.0",
       "color": "cb3837"
     },
     {
@@ -2933,6 +2933,22 @@
       ]
     },
     {
+      "path": "src/string/formatSlugDisplayName.test.ts",
+      "isEntrypoint": false,
+      "dependencies": [
+        "src/string/index.ts"
+      ],
+      "exports": []
+    },
+    {
+      "path": "src/string/formatSlugDisplayName.ts",
+      "isEntrypoint": false,
+      "dependencies": [],
+      "exports": [
+        "formatSlugDisplayName"
+      ]
+    },
+    {
       "path": "src/string/indentNonEmptyLines.ts",
       "isEntrypoint": false,
       "dependencies": [],
@@ -2948,6 +2964,7 @@
         "asPresentString",
         "createCompositeKey",
         "formatJavaScriptObjectKey",
+        "formatSlugDisplayName",
         "indentNonEmptyLines",
         "isNonEmptyString",
         "isOptionalString",
@@ -6857,6 +6874,17 @@
       }
     },
     {
+      "name": "formatSlugDisplayName",
+      "description": "Format a hyphen-separated slug as a display name with each word's initial capitalized.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/string/formatSlugDisplayName.ts",
+        "line": 2,
+        "column": 1
+      }
+    },
+    {
       "name": "indentNonEmptyLines",
       "description": "Indent non-empty lines in a multiline string while preserving blank lines.",
       "see": [],
@@ -8841,6 +8869,11 @@
         "sourcePath": "src/string/createCompositeKey.test.ts"
       },
       {
+        "fromPath": "src/string/formatSlugDisplayName.test.ts",
+        "toPath": "src/string/index.ts",
+        "sourcePath": "src/string/formatSlugDisplayName.test.ts"
+      },
+      {
         "fromPath": "src/string/index.ts",
         "toPath": "src/string/asPresentString.ts",
         "sourcePath": "src/string/index.ts"
@@ -8853,6 +8886,11 @@
       {
         "fromPath": "src/string/index.ts",
         "toPath": "src/string/formatJavaScriptObjectKey.ts",
+        "sourcePath": "src/string/index.ts"
+      },
+      {
+        "fromPath": "src/string/index.ts",
+        "toPath": "src/string/formatSlugDisplayName.ts",
         "sourcePath": "src/string/index.ts"
       },
       {
@@ -11456,6 +11494,24 @@
         "toSymbol": "createCompositeKey",
         "callExpression": "createCompositeKey",
         "sourcePath": "src/string/createCompositeKey.test.ts"
+      },
+      {
+        "fromSymbol": "src/string/formatSlugDisplayName.test.ts",
+        "toSymbol": "describe",
+        "callExpression": "describe",
+        "sourcePath": "src/string/formatSlugDisplayName.test.ts"
+      },
+      {
+        "fromSymbol": "src/string/formatSlugDisplayName.test.ts",
+        "toSymbol": "expect",
+        "callExpression": "expect",
+        "sourcePath": "src/string/formatSlugDisplayName.test.ts"
+      },
+      {
+        "fromSymbol": "src/string/formatSlugDisplayName.test.ts",
+        "toSymbol": "formatSlugDisplayName",
+        "callExpression": "formatSlugDisplayName",
+        "sourcePath": "src/string/formatSlugDisplayName.test.ts"
       },
       {
         "fromSymbol": "src/string/isOptionalString.test.ts",
