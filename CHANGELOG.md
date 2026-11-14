@@ -1,5 +1,11 @@
 # @ankhorage/utility
 
+## 1.10.1
+
+### Patch Changes
+
+- 4fafd69: Add canonical repository metadata for package discovery and documentation.
+
 ## 1.10.0
 
 ### Minor Changes

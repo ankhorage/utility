@@ -2,8 +2,10 @@
   "packageName": "@ankhorage/utility",
   "packageId": "@ankhorage/utility",
   "description": "Shared, runtime-neutral utilities for Ankhorage packages and compatible external projects.",
-  "collaborators": null,
-  "donation": null,
+  "collaborators": true,
+  "donation": {
+    "account": "ankhorage"
+  },
   "badges": [
     {
       "id": "license",
@@ -14,7 +16,7 @@
     {
       "id": "npm",
       "label": "npm",
-      "value": "v1.10.0",
+      "value": "v1.10.1",
       "color": "cb3837"
     },
     {
@@ -62,7 +64,7 @@
   ],
   "usage": {
     "packageName": "@ankhorage/utility",
-    "command": "ankh utility --help"
+    "command": null
   },
   "usageEntries": [],
   "exampleCount": 0,
