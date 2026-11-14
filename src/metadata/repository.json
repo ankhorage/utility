@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "kind": "library",
+  "title": "Ankhorage Utility",
+  "summary": "Provides shared functional utilities for Ankhorage packages and compatible external projects.",
+  "purpose": "Centralize reusable runtime-neutral utility behavior so packages do not duplicate generic implementations.",
+  "domain": "software utilities",
+  "responsibilities": ["Expose focused utility modules across collection, validation, serialization, networking, and platform topics.", "Provide explicit public subpaths for reusable helpers."],
+  "boundaries": ["Does not own product-specific policy or feature behavior.", "Does not provide application composition or provider configuration."],
+  "audience": ["Ankhorage packages and compatible external projects."],
+  "useCases": ["Reuse generic functional helpers through documented public subpaths.", "Avoid duplicate utility implementations across packages."],
+  "architecture": {"role": "Shared runtime-neutral utility library.", "invariants": ["Consumers use declared public subpaths rather than internal deep imports."]},
+  "constraints": {"limitations": ["Utility semantics are generic and do not encode product-specific policy."]}
+}
