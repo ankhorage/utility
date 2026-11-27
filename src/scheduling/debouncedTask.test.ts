@@ -29,60 +29,74 @@ function createFakeScheduler() {
   };
 }
 
+function expectTrailingEdgeDebounce() {
+  const clock = createFakeScheduler();
+  let value = 'H';
+  const calls: string[] = [];
+  const task = createDebouncedTask(() => calls.push(value), clock.scheduler, 600);
+
+  task.request();
+  clock.advance(500);
+  value = 'Hallo';
+  task.request();
+  clock.advance(599);
+
+  expect(calls).toEqual([]);
+  expect(task.hasPending()).toBe(true);
+  clock.advance(1);
+  expect(calls).toEqual(['Hallo']);
+  expect(task.hasPending()).toBe(false);
+  clock.advance(600);
+  expect(calls).toEqual(['Hallo']);
+}
+
+function expectFlushAndReuse() {
+  const clock = createFakeScheduler();
+  let calls = 0;
+  const task = createDebouncedTask(
+    () => {
+      calls += 1;
+    },
+    clock.scheduler,
+    600,
+  );
+
+  expect(task.flush()).toBe(false);
+  task.request();
+  expect(task.flush()).toBe(true);
+  expect(task.hasPending()).toBe(false);
+  expect(task.flush()).toBe(false);
+  clock.advance(600);
+  expect(calls).toBe(1);
+
+  task.request();
+  clock.advance(600);
+  expect(calls).toBe(2);
+}
+
+function expectCancellation() {
+  const clock = createFakeScheduler();
+  let calls = 0;
+  const task = createDebouncedTask(
+    () => {
+      calls += 1;
+    },
+    clock.scheduler,
+    600,
+  );
+
+  task.request();
+  task.cancel();
+  expect(task.hasPending()).toBe(false);
+  expect(task.flush()).toBe(false);
+  clock.advance(600);
+  expect(calls).toBe(0);
+}
+
 describe('debounced task', () => {
-  it('restarts the delay and executes only after the final request', () => {
-    const clock = createFakeScheduler();
-    let value = 'H';
-    const calls: string[] = [];
-    const task = createDebouncedTask(() => calls.push(value), clock.scheduler, 600);
+  it('restarts the delay and executes only after the final request', expectTrailingEdgeDebounce);
 
-    task.request();
-    clock.advance(500);
-    value = 'Hallo';
-    task.request();
-    clock.advance(599);
+  it('flushes a pending callback once and can be reused', expectFlushAndReuse);
 
-    expect(calls).toEqual([]);
-    expect(task.hasPending()).toBe(true);
-    clock.advance(1);
-    expect(calls).toEqual(['Hallo']);
-    expect(task.hasPending()).toBe(false);
-    clock.advance(600);
-    expect(calls).toEqual(['Hallo']);
-  });
-
-  it('flushes a pending callback once and can be reused', () => {
-    const clock = createFakeScheduler();
-    let calls = 0;
-    const task = createDebouncedTask(() => {
-      calls += 1;
-    }, clock.scheduler, 600);
-
-    expect(task.flush()).toBe(false);
-    task.request();
-    expect(task.flush()).toBe(true);
-    expect(task.hasPending()).toBe(false);
-    expect(task.flush()).toBe(false);
-    clock.advance(600);
-    expect(calls).toBe(1);
-
-    task.request();
-    clock.advance(600);
-    expect(calls).toBe(2);
-  });
-
-  it('cancels pending work without running it', () => {
-    const clock = createFakeScheduler();
-    let calls = 0;
-    const task = createDebouncedTask(() => {
-      calls += 1;
-    }, clock.scheduler, 600);
-
-    task.request();
-    task.cancel();
-    expect(task.hasPending()).toBe(false);
-    expect(task.flush()).toBe(false);
-    clock.advance(600);
-    expect(calls).toBe(0);
-  });
+  it('cancels pending work without running it', expectCancellation);
 });
