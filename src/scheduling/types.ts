@@ -9,6 +9,13 @@ export interface CoalescedTask {
   readonly request: () => boolean;
 }
 
+export interface DebouncedTask {
+  readonly cancel: () => void;
+  readonly flush: () => boolean;
+  readonly hasPending: () => boolean;
+  readonly request: () => void;
+}
+
 export interface SettleCoordinator {
   readonly cancel: () => void;
   readonly isActive: () => boolean;
