@@ -116,7 +116,8 @@
       <aside class="sidebar">
         <p class="muted">Generated with Paradox</p>
         <h1>@ankhorage/utility</h1>
-        <p>Shared, runtime-neutral utilities for Ankhorage packages and compatible external projects.</p>
+        <p>Provides shared functional utilities for Ankhorage packages and compatible external projects.</p>
+        <p>Centralize reusable runtime-neutral utility behavior so packages do not duplicate generic implementations.</p>
         <input id="search" class="search" type="search" placeholder="Search current view" />
         <nav aria-label="Documentation sections">
           <ul class="nav-list">
@@ -972,6 +973,11 @@
       <small>3 functions</small>
     </button>
   </li><li>
+    <button class="nav-button" type="button" data-target="src/scheduling/createDebouncedTask.ts">
+      src/scheduling/createDebouncedTask.ts
+      <small>4 functions</small>
+    </button>
+  </li><li>
     <button class="nav-button" type="button" data-target="src/scheduling/createLatestAsyncCoordinator.ts">
       src/scheduling/createLatestAsyncCoordinator.ts
       <small>1 function</small>
@@ -980,6 +986,11 @@
     <button class="nav-button" type="button" data-target="src/scheduling/createSettleCoordinator.ts">
       src/scheduling/createSettleCoordinator.ts
       <small>6 functions</small>
+    </button>
+  </li><li>
+    <button class="nav-button" type="button" data-target="src/scheduling/debouncedTask.test.ts">
+      src/scheduling/debouncedTask.test.ts
+      <small>4 functions</small>
     </button>
   </li><li>
     <button class="nav-button" type="button" data-target="src/scheduling/settleCoordinator.test.ts">
@@ -1388,7 +1399,7 @@
       <div class="summary">
         <div><strong>5</strong><span class="muted">public exports</span></div>
         <div><strong>0</strong><span class="muted">components</span></div>
-        <div><strong>394</strong><span class="muted">modules</span></div>
+        <div><strong>396</strong><span class="muted">modules</span></div>
         <div><strong>1</strong><span class="muted">entrypoints</span></div>
       </div>
       <h3>Entrypoints</h3>
@@ -1396,6 +1407,7 @@
         <li><code>src/regex/index.ts</code></li>
       </ul>
     </section>
+
     
     <section class="panel"><h2>Policy</h2><p>No documentation findings.</p></section>
     <section class="panel">
@@ -2785,6 +2797,11 @@
     <p class="muted">Referenced module</p>
     <p><strong>Dependencies:</strong> <code>src/scheduling/types.ts</code></p>
     <p><strong>Exports:</strong> <code>createCoalescedTask</code></p>
+  </article><article class="item" data-search="src/scheduling/createDebouncedTask.ts src/scheduling/types.ts createDebouncedTask">
+    <h3>src/scheduling/createDebouncedTask.ts</h3>
+    <p class="muted">Referenced module</p>
+    <p><strong>Dependencies:</strong> <code>src/scheduling/types.ts</code></p>
+    <p><strong>Exports:</strong> <code>createDebouncedTask</code></p>
   </article><article class="item" data-search="src/scheduling/createLatestAsyncCoordinator.ts src/scheduling/types.ts createLatestAsyncCoordinator">
     <h3>src/scheduling/createLatestAsyncCoordinator.ts</h3>
     <p class="muted">Referenced module</p>
@@ -2795,21 +2812,26 @@
     <p class="muted">Referenced module</p>
     <p><strong>Dependencies:</strong> <code>src/scheduling/types.ts</code></p>
     <p><strong>Exports:</strong> <code>createSettleCoordinator</code></p>
-  </article><article class="item" data-search="src/scheduling/index.ts CoalescedTask createCoalescedTask createLatestAsyncCoordinator createSettleCoordinator LatestAsyncCoordinator LatestAsyncResult Scheduler SettleCoordinator SettleCoordinatorOptions">
+  </article><article class="item" data-search="src/scheduling/debouncedTask.test.ts src/scheduling/index.ts">
+    <h3>src/scheduling/debouncedTask.test.ts</h3>
+    <p class="muted">Referenced module</p>
+    <p><strong>Dependencies:</strong> <code>src/scheduling/index.ts</code></p>
+    <p><strong>Exports:</strong> <span class="empty">None</span></p>
+  </article><article class="item" data-search="src/scheduling/index.ts CoalescedTask createCoalescedTask createDebouncedTask createLatestAsyncCoordinator createSettleCoordinator DebouncedTask LatestAsyncCoordinator LatestAsyncResult Scheduler SettleCoordinator SettleCoordinatorOptions">
     <h3>src/scheduling/index.ts</h3>
     <p class="muted">Referenced module</p>
     <p><strong>Dependencies:</strong> <span class="empty">None</span></p>
-    <p><strong>Exports:</strong> <code>CoalescedTask</code>, <code>createCoalescedTask</code>, <code>createLatestAsyncCoordinator</code>, <code>createSettleCoordinator</code>, <code>LatestAsyncCoordinator</code>, <code>LatestAsyncResult</code>, <code>Scheduler</code>, <code>SettleCoordinator</code>, <code>SettleCoordinatorOptions</code></p>
+    <p><strong>Exports:</strong> <code>CoalescedTask</code>, <code>createCoalescedTask</code>, <code>createDebouncedTask</code>, <code>createLatestAsyncCoordinator</code>, <code>createSettleCoordinator</code>, <code>DebouncedTask</code>, <code>LatestAsyncCoordinator</code>, <code>LatestAsyncResult</code>, <code>Scheduler</code>, <code>SettleCoordinator</code>, <code>SettleCoordinatorOptions</code></p>
   </article><article class="item" data-search="src/scheduling/settleCoordinator.test.ts src/scheduling/createSettleCoordinator.ts">
     <h3>src/scheduling/settleCoordinator.test.ts</h3>
     <p class="muted">Referenced module</p>
     <p><strong>Dependencies:</strong> <code>src/scheduling/createSettleCoordinator.ts</code></p>
     <p><strong>Exports:</strong> <span class="empty">None</span></p>
-  </article><article class="item" data-search="src/scheduling/types.ts CoalescedTask LatestAsyncCoordinator LatestAsyncResult Scheduler SettleCoordinator SettleCoordinatorOptions">
+  </article><article class="item" data-search="src/scheduling/types.ts CoalescedTask DebouncedTask LatestAsyncCoordinator LatestAsyncResult Scheduler SettleCoordinator SettleCoordinatorOptions">
     <h3>src/scheduling/types.ts</h3>
     <p class="muted">Referenced module</p>
     <p><strong>Dependencies:</strong> <span class="empty">None</span></p>
-    <p><strong>Exports:</strong> <code>CoalescedTask</code>, <code>LatestAsyncCoordinator</code>, <code>LatestAsyncResult</code>, <code>Scheduler</code>, <code>SettleCoordinator</code>, <code>SettleCoordinatorOptions</code></p>
+    <p><strong>Exports:</strong> <code>CoalescedTask</code>, <code>DebouncedTask</code>, <code>LatestAsyncCoordinator</code>, <code>LatestAsyncResult</code>, <code>Scheduler</code>, <code>SettleCoordinator</code>, <code>SettleCoordinatorOptions</code></p>
   </article><article class="item" data-search="src/schema/index.ts EffectiveSchemaType resolveEffectiveSchemaType resolveSchemaReference resolveSingleSchemaType SchemaPrimitiveType SchemaReferenceLike SchemaShape">
     <h3>src/schema/index.ts</h3>
     <p class="muted">Referenced module</p>
@@ -4210,12 +4232,18 @@
   module_src_scheduling_createCoalescedTask_ts[&quot;src/scheduling/createCoalescedTask.ts&quot;]
   package__ankhorage_utility -.-&gt; module_src_scheduling_createCoalescedTask_ts
   module_src_scheduling_createCoalescedTask_ts --&gt; module_src_scheduling_types_ts
+  module_src_scheduling_createDebouncedTask_ts[&quot;src/scheduling/createDebouncedTask.ts&quot;]
+  package__ankhorage_utility -.-&gt; module_src_scheduling_createDebouncedTask_ts
+  module_src_scheduling_createDebouncedTask_ts --&gt; module_src_scheduling_types_ts
   module_src_scheduling_createLatestAsyncCoordinator_ts[&quot;src/scheduling/createLatestAsyncCoordinator.ts&quot;]
   package__ankhorage_utility -.-&gt; module_src_scheduling_createLatestAsyncCoordinator_ts
   module_src_scheduling_createLatestAsyncCoordinator_ts --&gt; module_src_scheduling_types_ts
   module_src_scheduling_createSettleCoordinator_ts[&quot;src/scheduling/createSettleCoordinator.ts&quot;]
   package__ankhorage_utility -.-&gt; module_src_scheduling_createSettleCoordinator_ts
   module_src_scheduling_createSettleCoordinator_ts --&gt; module_src_scheduling_types_ts
+  module_src_scheduling_debouncedTask_test_ts[&quot;src/scheduling/debouncedTask.test.ts&quot;]
+  package__ankhorage_utility -.-&gt; module_src_scheduling_debouncedTask_test_ts
+  module_src_scheduling_debouncedTask_test_ts --&gt; module_src_scheduling_index_ts
   module_src_scheduling_index_ts[&quot;src/scheduling/index.ts&quot;]
   package__ankhorage_utility -.-&gt; module_src_scheduling_index_ts
   module_src_scheduling_settleCoordinator_test_ts[&quot;src/scheduling/settleCoordinator.test.ts&quot;]
@@ -5190,12 +5218,18 @@
   module_src_scheduling_createCoalescedTask_ts[&quot;src/scheduling/createCoalescedTask.ts&quot;]
   package__ankhorage_utility -.-&gt; module_src_scheduling_createCoalescedTask_ts
   module_src_scheduling_createCoalescedTask_ts --&gt; module_src_scheduling_types_ts
+  module_src_scheduling_createDebouncedTask_ts[&quot;src/scheduling/createDebouncedTask.ts&quot;]
+  package__ankhorage_utility -.-&gt; module_src_scheduling_createDebouncedTask_ts
+  module_src_scheduling_createDebouncedTask_ts --&gt; module_src_scheduling_types_ts
   module_src_scheduling_createLatestAsyncCoordinator_ts[&quot;src/scheduling/createLatestAsyncCoordinator.ts&quot;]
   package__ankhorage_utility -.-&gt; module_src_scheduling_createLatestAsyncCoordinator_ts
   module_src_scheduling_createLatestAsyncCoordinator_ts --&gt; module_src_scheduling_types_ts
   module_src_scheduling_createSettleCoordinator_ts[&quot;src/scheduling/createSettleCoordinator.ts&quot;]
   package__ankhorage_utility -.-&gt; module_src_scheduling_createSettleCoordinator_ts
   module_src_scheduling_createSettleCoordinator_ts --&gt; module_src_scheduling_types_ts
+  module_src_scheduling_debouncedTask_test_ts[&quot;src/scheduling/debouncedTask.test.ts&quot;]
+  package__ankhorage_utility -.-&gt; module_src_scheduling_debouncedTask_test_ts
+  module_src_scheduling_debouncedTask_test_ts --&gt; module_src_scheduling_index_ts
   module_src_scheduling_index_ts[&quot;src/scheduling/index.ts&quot;]
   package__ankhorage_utility -.-&gt; module_src_scheduling_index_ts
   module_src_scheduling_settleCoordinator_test_ts[&quot;src/scheduling/settleCoordinator.test.ts&quot;]
@@ -5770,8 +5804,10 @@
   module_src_route_scoreRoutePatternMatch_ts[&quot;src/route/scoreRoutePatternMatch.ts&quot;]
   module_src_scheduling_coalescedTask_test_ts[&quot;src/scheduling/coalescedTask.test.ts&quot;]
   module_src_scheduling_createCoalescedTask_ts[&quot;src/scheduling/createCoalescedTask.ts&quot;]
+  module_src_scheduling_createDebouncedTask_ts[&quot;src/scheduling/createDebouncedTask.ts&quot;]
   module_src_scheduling_createLatestAsyncCoordinator_ts[&quot;src/scheduling/createLatestAsyncCoordinator.ts&quot;]
   module_src_scheduling_createSettleCoordinator_ts[&quot;src/scheduling/createSettleCoordinator.ts&quot;]
+  module_src_scheduling_debouncedTask_test_ts[&quot;src/scheduling/debouncedTask.test.ts&quot;]
   module_src_scheduling_index_ts[&quot;src/scheduling/index.ts&quot;]
   module_src_scheduling_settleCoordinator_test_ts[&quot;src/scheduling/settleCoordinator.test.ts&quot;]
   module_src_scheduling_types_ts[&quot;src/scheduling/types.ts&quot;]
@@ -6010,8 +6046,10 @@
   module_src_route_normalizeRoutePatternSegments_ts --&gt; module_src_route_isRouteGroupSegment_ts
   module_src_scheduling_coalescedTask_test_ts --&gt; module_src_scheduling_createCoalescedTask_ts
   module_src_scheduling_createCoalescedTask_ts --&gt; module_src_scheduling_types_ts
+  module_src_scheduling_createDebouncedTask_ts --&gt; module_src_scheduling_types_ts
   module_src_scheduling_createLatestAsyncCoordinator_ts --&gt; module_src_scheduling_types_ts
   module_src_scheduling_createSettleCoordinator_ts --&gt; module_src_scheduling_types_ts
+  module_src_scheduling_debouncedTask_test_ts --&gt; module_src_scheduling_index_ts
   module_src_scheduling_settleCoordinator_test_ts --&gt; module_src_scheduling_createSettleCoordinator_ts
   module_src_schema_resolveEffectiveSchemaType_ts --&gt; module_src_schema_resolveSingleSchemaType_ts
   module_src_schema_resolveEffectiveSchemaType_ts --&gt; module_src_schema_types_ts
@@ -6354,8 +6392,10 @@
   module_src_route_scoreRoutePatternMatch_ts[&quot;src/route/scoreRoutePatternMatch.ts&quot;]
   module_src_scheduling_coalescedTask_test_ts[&quot;src/scheduling/coalescedTask.test.ts&quot;]
   module_src_scheduling_createCoalescedTask_ts[&quot;src/scheduling/createCoalescedTask.ts&quot;]
+  module_src_scheduling_createDebouncedTask_ts[&quot;src/scheduling/createDebouncedTask.ts&quot;]
   module_src_scheduling_createLatestAsyncCoordinator_ts[&quot;src/scheduling/createLatestAsyncCoordinator.ts&quot;]
   module_src_scheduling_createSettleCoordinator_ts[&quot;src/scheduling/createSettleCoordinator.ts&quot;]
+  module_src_scheduling_debouncedTask_test_ts[&quot;src/scheduling/debouncedTask.test.ts&quot;]
   module_src_scheduling_index_ts[&quot;src/scheduling/index.ts&quot;]
   module_src_scheduling_settleCoordinator_test_ts[&quot;src/scheduling/settleCoordinator.test.ts&quot;]
   module_src_scheduling_types_ts[&quot;src/scheduling/types.ts&quot;]
@@ -6594,8 +6634,10 @@
   module_src_route_normalizeRoutePatternSegments_ts --&gt; module_src_route_isRouteGroupSegment_ts
   module_src_scheduling_coalescedTask_test_ts --&gt; module_src_scheduling_createCoalescedTask_ts
   module_src_scheduling_createCoalescedTask_ts --&gt; module_src_scheduling_types_ts
+  module_src_scheduling_createDebouncedTask_ts --&gt; module_src_scheduling_types_ts
   module_src_scheduling_createLatestAsyncCoordinator_ts --&gt; module_src_scheduling_types_ts
   module_src_scheduling_createSettleCoordinator_ts --&gt; module_src_scheduling_types_ts
+  module_src_scheduling_debouncedTask_test_ts --&gt; module_src_scheduling_index_ts
   module_src_scheduling_settleCoordinator_test_ts --&gt; module_src_scheduling_createSettleCoordinator_ts
   module_src_schema_resolveEffectiveSchemaType_ts --&gt; module_src_schema_resolveSingleSchemaType_ts
   module_src_schema_resolveEffectiveSchemaType_ts --&gt; module_src_schema_types_ts
@@ -6940,8 +6982,10 @@
   module_src_route_scoreRoutePatternMatch_ts[&quot;src/route/scoreRoutePatternMatch.ts&quot;]
   module_src_scheduling_coalescedTask_test_ts[&quot;src/scheduling/coalescedTask.test.ts&quot;]
   module_src_scheduling_createCoalescedTask_ts[&quot;src/scheduling/createCoalescedTask.ts&quot;]
+  module_src_scheduling_createDebouncedTask_ts[&quot;src/scheduling/createDebouncedTask.ts&quot;]
   module_src_scheduling_createLatestAsyncCoordinator_ts[&quot;src/scheduling/createLatestAsyncCoordinator.ts&quot;]
   module_src_scheduling_createSettleCoordinator_ts[&quot;src/scheduling/createSettleCoordinator.ts&quot;]
+  module_src_scheduling_debouncedTask_test_ts[&quot;src/scheduling/debouncedTask.test.ts&quot;]
   module_src_scheduling_index_ts[&quot;src/scheduling/index.ts&quot;]
   module_src_scheduling_settleCoordinator_test_ts[&quot;src/scheduling/settleCoordinator.test.ts&quot;]
   module_src_scheduling_types_ts[&quot;src/scheduling/types.ts&quot;]
@@ -7348,8 +7392,10 @@
   module_src_route_scoreRoutePatternMatch_ts[&quot;src/route/scoreRoutePatternMatch.ts&quot;]
   module_src_scheduling_coalescedTask_test_ts[&quot;src/scheduling/coalescedTask.test.ts&quot;]
   module_src_scheduling_createCoalescedTask_ts[&quot;src/scheduling/createCoalescedTask.ts&quot;]
+  module_src_scheduling_createDebouncedTask_ts[&quot;src/scheduling/createDebouncedTask.ts&quot;]
   module_src_scheduling_createLatestAsyncCoordinator_ts[&quot;src/scheduling/createLatestAsyncCoordinator.ts&quot;]
   module_src_scheduling_createSettleCoordinator_ts[&quot;src/scheduling/createSettleCoordinator.ts&quot;]
+  module_src_scheduling_debouncedTask_test_ts[&quot;src/scheduling/debouncedTask.test.ts&quot;]
   module_src_scheduling_index_ts[&quot;src/scheduling/index.ts&quot;]
   module_src_scheduling_settleCoordinator_test_ts[&quot;src/scheduling/settleCoordinator.test.ts&quot;]
   module_src_scheduling_types_ts[&quot;src/scheduling/types.ts&quot;]
@@ -7512,18 +7558,15 @@
     <p>Find the smallest accepted approximation inside one monotone numeric interval.
 The acceptance predicate is expected to be pure and monotone from false to true.
 Runtime is bounded by at most 64 predicate evaluations after the endpoint checks.</p>
-    
-  </article><article class="item" data-search="searchAcceptedBoundary src/algorithms/findMinimumAcceptedNumber.ts Narrow one known false/true bracket without allocating intermediate collections.">
+</article><article class="item" data-search="searchAcceptedBoundary src/algorithms/findMinimumAcceptedNumber.ts Narrow one known false/true bracket without allocating intermediate collections.">
     <h3>searchAcceptedBoundary</h3>
     <p class="muted"><code>src/algorithms/findMinimumAcceptedNumber.ts:23:1</code></p>
     <p>Narrow one known false/true bracket without allocating intermediate collections.</p>
-    
-  </article><article class="item" data-search="validateInput src/algorithms/findMinimumAcceptedNumber.ts Reject invalid numeric bounds before evaluating the caller-owned predicate.">
+</article><article class="item" data-search="validateInput src/algorithms/findMinimumAcceptedNumber.ts Reject invalid numeric bounds before evaluating the caller-owned predicate.">
     <h3>validateInput</h3>
     <p class="muted"><code>src/algorithms/findMinimumAcceptedNumber.ts:43:1</code></p>
     <p>Reject invalid numeric bounds before evaluating the caller-owned predicate.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-array-arraysequal-ts" class="view" data-view="src/array/arraysEqual.ts" hidden>
     <section class="panel">
@@ -7532,8 +7575,7 @@ Runtime is bounded by at most 64 predicate evaluations after the endpoint checks
     <h3>arraysEqual</h3>
     <p class="muted"><code>src/array/arraysEqual.ts:2:1</code></p>
     <p>Return whether two arrays contain equal values in the same order according to a comparator.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-array-dedupeby-ts" class="view" data-view="src/array/dedupeBy.ts" hidden>
     <section class="panel">
@@ -7542,8 +7584,7 @@ Runtime is bounded by at most 64 predicate evaluations after the endpoint checks
     <h3>dedupeBy</h3>
     <p class="muted"><code>src/array/dedupeBy.ts:2:1</code></p>
     <p>Return the first item for each key while preserving insertion order.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-array-filterandsort-ts" class="view" data-view="src/array/filterAndSort.ts" hidden>
     <section class="panel">
@@ -7552,8 +7593,7 @@ Runtime is bounded by at most 64 predicate evaluations after the endpoint checks
     <h3>filterAndSort</h3>
     <p class="muted"><code>src/array/filterAndSort.ts:2:1</code></p>
     <p>Filter an immutable input collection and return a sorted copy of the retained values.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-array-filterby-ts" class="view" data-view="src/array/filterBy.ts" hidden>
     <section class="panel">
@@ -7562,8 +7602,7 @@ Runtime is bounded by at most 64 predicate evaluations after the endpoint checks
     <h3>filterBy</h3>
     <p class="muted"><code>src/array/filterBy.ts:2:1</code></p>
     <p>Filter values through a type-guard predicate while preserving the narrowed result type.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-array-findbykey-ts" class="view" data-view="src/array/findByKey.ts" hidden>
     <section class="panel">
@@ -7572,8 +7611,7 @@ Runtime is bounded by at most 64 predicate evaluations after the endpoint checks
     <h3>findByKey</h3>
     <p class="muted"><code>src/array/findByKey.ts:2:1</code></p>
     <p>Find the first item whose derived key equals a requested key.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-array-isstringarray-ts" class="view" data-view="src/array/isStringArray.ts" hidden>
     <section class="panel">
@@ -7582,8 +7620,7 @@ Runtime is bounded by at most 64 predicate evaluations after the endpoint checks
     <h3>isStringArray</h3>
     <p class="muted"><code>src/array/isStringArray.ts:2:1</code></p>
     <p>Narrow an unknown value to an array containing only strings.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-array-uniquenonemptystrings-ts" class="view" data-view="src/array/uniqueNonEmptyStrings.ts" hidden>
     <section class="panel">
@@ -7592,8 +7629,7 @@ Runtime is bounded by at most 64 predicate evaluations after the endpoint checks
     <h3>uniqueNonEmptyStrings</h3>
     <p class="muted"><code>src/array/uniqueNonEmptyStrings.ts:2:1</code></p>
     <p>Trim strings, discard empty values, and preserve first-occurrence order.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-array-uniquesortedstrings-ts" class="view" data-view="src/array/uniqueSortedStrings.ts" hidden>
     <section class="panel">
@@ -7602,8 +7638,7 @@ Runtime is bounded by at most 64 predicate evaluations after the endpoint checks
     <h3>uniqueSortedStrings</h3>
     <p class="muted"><code>src/array/uniqueSortedStrings.ts:2:1</code></p>
     <p>Remove duplicate strings and return them sorted with locale comparison.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-array-upsertby-ts" class="view" data-view="src/array/upsertBy.ts" hidden>
     <section class="panel">
@@ -7612,8 +7647,7 @@ Runtime is bounded by at most 64 predicate evaluations after the endpoint checks
     <h3>upsertBy</h3>
     <p class="muted"><code>src/array/upsertBy.ts:2:1</code></p>
     <p>Return a new array with an item replaced by matching key or appended when no match exists.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-async-captureasync-ts" class="view" data-view="src/async/captureAsync.ts" hidden>
     <section class="panel">
@@ -7622,8 +7656,7 @@ Runtime is bounded by at most 64 predicate evaluations after the endpoint checks
     <h3>captureAsync</h3>
     <p class="muted"><code>src/async/captureAsync.ts:4:1</code></p>
     <p>Convert a promise into a ready/error loadable result while normalizing unknown failures to text.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-binary-tostandalonearraybuffer-ts" class="view" data-view="src/binary/toStandaloneArrayBuffer.ts" hidden>
     <section class="panel">
@@ -7632,8 +7665,7 @@ Runtime is bounded by at most 64 predicate evaluations after the endpoint checks
     <h3>toStandaloneArrayBuffer</h3>
     <p class="muted"><code>src/binary/toStandaloneArrayBuffer.ts:2:1</code></p>
     <p>Copy a Uint8Array into a standalone ArrayBuffer containing exactly the visible byte range.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-boolean-invertboolean-ts" class="view" data-view="src/boolean/invertBoolean.ts" hidden>
     <section class="panel">
@@ -7642,8 +7674,7 @@ Runtime is bounded by at most 64 predicate evaluations after the endpoint checks
     <h3>invertBoolean</h3>
     <p class="muted"><code>src/boolean/invertBoolean.ts:2:1</code></p>
     <p>Invert a boolean value.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-bun-bunlockfilereferencespackageversion-ts" class="view" data-view="src/bun/bunLockfileReferencesPackageVersion.ts" hidden>
     <section class="panel">
@@ -7652,8 +7683,7 @@ Runtime is bounded by at most 64 predicate evaluations after the endpoint checks
     <h3>bunLockfileReferencesPackageVersion</h3>
     <p class="muted"><code>src/bun/bunLockfileReferencesPackageVersion.ts:2:1</code></p>
     <p>Check whether a Bun text lockfile references an exact package and version tuple.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-bun-http-createstaticexportserver-ts" class="view" data-view="src/bun/http/createStaticExportServer.ts" hidden>
     <section class="panel">
@@ -7662,8 +7692,7 @@ Runtime is bounded by at most 64 predicate evaluations after the endpoint checks
     <h3>createStaticExportServer</h3>
     <p class="muted"><code>src/bun/http/createStaticExportServer.ts:6:1</code></p>
     <p>Serve static-export files through an ephemeral loopback Bun server.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-bun-process-runbuncommandasync-ts" class="view" data-view="src/bun/process/runBunCommandAsync.ts" hidden>
     <section class="panel">
@@ -7672,8 +7701,7 @@ Runtime is bounded by at most 64 predicate evaluations after the endpoint checks
     <h3>runBunCommandAsync</h3>
     <p class="muted"><code>src/bun/process/runBunCommandAsync.ts:2:1</code></p>
     <p>Run a Bun child process with optional stdout capture and a bounded timeout.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-classification-classifysupportedkey-ts" class="view" data-view="src/classification/classifySupportedKey.ts" hidden>
     <section class="panel">
@@ -7682,8 +7710,7 @@ Runtime is bounded by at most 64 predicate evaluations after the endpoint checks
     <h3>classifySupportedKey</h3>
     <p class="muted"><code>src/classification/classifySupportedKey.ts:5:1</code></p>
     <p>Classify a string key against a primary predicate and an explicit supported-key record.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-classification-issupportedkey-ts" class="view" data-view="src/classification/isSupportedKey.ts" hidden>
     <section class="panel">
@@ -7692,8 +7719,7 @@ Runtime is bounded by at most 64 predicate evaluations after the endpoint checks
     <h3>isSupportedKey</h3>
     <p class="muted"><code>src/classification/isSupportedKey.ts:4:1</code></p>
     <p>Return whether a string key is accepted by either a primary predicate or explicit support record.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-classification-resolvesupportedpolicy-ts" class="view" data-view="src/classification/resolveSupportedPolicy.ts" hidden>
     <section class="panel">
@@ -7702,8 +7728,7 @@ Runtime is bounded by at most 64 predicate evaluations after the endpoint checks
     <h3>resolveSupportedPolicy</h3>
     <p class="muted"><code>src/classification/resolveSupportedPolicy.ts:4:1</code></p>
     <p>Resolve one of two policy values for supported keys and return undefined for unsupported keys.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-cli-readflag-ts" class="view" data-view="src/cli/readFlag.ts" hidden>
     <section class="panel">
@@ -7712,8 +7737,7 @@ Runtime is bounded by at most 64 predicate evaluations after the endpoint checks
     <h3>readFlag</h3>
     <p class="muted"><code>src/cli/readFlag.ts:2:1</code></p>
     <p>Read the non-empty value following a named CLI flag, returning null when absent or blank.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-codegen-imports-composegeneratedimports-ts" class="view" data-view="src/codegen/imports/composeGeneratedImports.ts" hidden>
     <section class="panel">
@@ -7722,78 +7746,63 @@ Runtime is bounded by at most 64 predicate evaluations after the endpoint checks
     <h3>composeGeneratedImports</h3>
     <p class="muted"><code>src/codegen/imports/composeGeneratedImports.ts:10:1</code></p>
     <p>Parse, merge, validate, sort, and render JavaScript/TypeScript import requirements into canonical generated source.</p>
-    
-  </article><article class="item" data-search="compareImportRequirements src/codegen/imports/composeGeneratedImports.ts Order merged import requirements deterministically by module source.">
+</article><article class="item" data-search="compareImportRequirements src/codegen/imports/composeGeneratedImports.ts Order merged import requirements deterministically by module source.">
     <h3>compareImportRequirements</h3>
     <p class="muted"><code>src/codegen/imports/composeGeneratedImports.ts:37:1</code></p>
     <p>Order merged import requirements deterministically by module source.</p>
-    
-  </article><article class="item" data-search="parseGeneratedImportFragment src/codegen/imports/composeGeneratedImports.ts Parse a text fragment containing only supported import statements into structured requirements.">
+</article><article class="item" data-search="parseGeneratedImportFragment src/codegen/imports/composeGeneratedImports.ts Parse a text fragment containing only supported import statements into structured requirements.">
     <h3>parseGeneratedImportFragment</h3>
     <p class="muted"><code>src/codegen/imports/composeGeneratedImports.ts:45:1</code></p>
     <p>Parse a text fragment containing only supported import statements into structured requirements.</p>
-    
-  </article><article class="item" data-search="parseGeneratedImportStatement src/codegen/imports/composeGeneratedImports.ts Parse one supported JavaScript/TypeScript import statement into a structured requirement.">
+</article><article class="item" data-search="parseGeneratedImportStatement src/codegen/imports/composeGeneratedImports.ts Parse one supported JavaScript/TypeScript import statement into a structured requirement.">
     <h3>parseGeneratedImportStatement</h3>
     <p class="muted"><code>src/codegen/imports/composeGeneratedImports.ts:61:1</code></p>
     <p>Parse one supported JavaScript/TypeScript import statement into a structured requirement.</p>
-    
-  </article><article class="item" data-search="parseImportClause src/codegen/imports/composeGeneratedImports.ts Parse one import clause into default, namespace, and named binding requirements.">
+</article><article class="item" data-search="parseImportClause src/codegen/imports/composeGeneratedImports.ts Parse one import clause into default, namespace, and named binding requirements.">
     <h3>parseImportClause</h3>
     <p class="muted"><code>src/codegen/imports/composeGeneratedImports.ts:81:1</code></p>
     <p>Parse one import clause into default, namespace, and named binding requirements.</p>
-    
-  </article><article class="item" data-search="parseNamedImports src/codegen/imports/composeGeneratedImports.ts Parse named import specifiers while preserving aliases and type-only semantics.">
+</article><article class="item" data-search="parseNamedImports src/codegen/imports/composeGeneratedImports.ts Parse named import specifiers while preserving aliases and type-only semantics.">
     <h3>parseNamedImports</h3>
     <p class="muted"><code>src/codegen/imports/composeGeneratedImports.ts:123:1</code></p>
     <p>Parse named import specifiers while preserving aliases and type-only semantics.</p>
-    
-  </article><article class="item" data-search="mergeGeneratedImportRequirements src/codegen/imports/composeGeneratedImports.ts Merge requirements by source while rejecting incompatible local binding ownership.">
+</article><article class="item" data-search="mergeGeneratedImportRequirements src/codegen/imports/composeGeneratedImports.ts Merge requirements by source while rejecting incompatible local binding ownership.">
     <h3>mergeGeneratedImportRequirements</h3>
     <p class="muted"><code>src/codegen/imports/composeGeneratedImports.ts:150:1</code></p>
     <p>Merge requirements by source while rejecting incompatible local binding ownership.</p>
-    
-  </article><article class="item" data-search="createMutableRequirement src/codegen/imports/composeGeneratedImports.ts Create the mutable aggregation state for one import source.">
+</article><article class="item" data-search="createMutableRequirement src/codegen/imports/composeGeneratedImports.ts Create the mutable aggregation state for one import source.">
     <h3>createMutableRequirement</h3>
     <p class="muted"><code>src/codegen/imports/composeGeneratedImports.ts:198:1</code></p>
     <p>Create the mutable aggregation state for one import source.</p>
-    
-  </article><article class="item" data-search="mergeSingleBinding src/codegen/imports/composeGeneratedImports.ts Merge one default or namespace binding and register its local-name ownership.">
+</article><article class="item" data-search="mergeSingleBinding src/codegen/imports/composeGeneratedImports.ts Merge one default or namespace binding and register its local-name ownership.">
     <h3>mergeSingleBinding</h3>
     <p class="muted"><code>src/codegen/imports/composeGeneratedImports.ts:211:1</code></p>
     <p>Merge one default or namespace binding and register its local-name ownership.</p>
-    
-  </article><article class="item" data-search="mergeNamedImport src/codegen/imports/composeGeneratedImports.ts Merge one named import, upgrading type-only bindings when a runtime binding is also required.">
+</article><article class="item" data-search="mergeNamedImport src/codegen/imports/composeGeneratedImports.ts Merge one named import, upgrading type-only bindings when a runtime binding is also required.">
     <h3>mergeNamedImport</h3>
     <p class="muted"><code>src/codegen/imports/composeGeneratedImports.ts:229:1</code></p>
     <p>Merge one named import, upgrading type-only bindings when a runtime binding is also required.</p>
-    
-  </article><article class="item" data-search="registerLocalBinding src/codegen/imports/composeGeneratedImports.ts Reject local import names claimed by more than one incompatible import owner.">
+</article><article class="item" data-search="registerLocalBinding src/codegen/imports/composeGeneratedImports.ts Reject local import names claimed by more than one incompatible import owner.">
     <h3>registerLocalBinding</h3>
     <p class="muted"><code>src/codegen/imports/composeGeneratedImports.ts:256:1</code></p>
     <p>Reject local import names claimed by more than one incompatible import owner.</p>
-    
-  </article><article class="item" data-search="renderGeneratedImportRequirement src/codegen/imports/composeGeneratedImports.ts Render one merged import requirement into one or more canonical source statements.">
+</article><article class="item" data-search="renderGeneratedImportRequirement src/codegen/imports/composeGeneratedImports.ts Render one merged import requirement into one or more canonical source statements.">
     <h3>renderGeneratedImportRequirement</h3>
     <p class="muted"><code>src/codegen/imports/composeGeneratedImports.ts:267:1</code></p>
     <p>Render one merged import requirement into one or more canonical source statements.</p>
-    
-  </article><article class="item" data-search="renderImportStatement src/codegen/imports/composeGeneratedImports.ts Render a regular import statement from optional default and secondary clauses.">
+</article><article class="item" data-search="renderImportStatement src/codegen/imports/composeGeneratedImports.ts Render a regular import statement from optional default and secondary clauses.">
     <h3>renderImportStatement</h3>
     <p class="muted"><code>src/codegen/imports/composeGeneratedImports.ts:309:1</code></p>
     <p>Render a regular import statement from optional default and secondary clauses.</p>
-    
-  </article><article class="item" data-search="renderNamedClause src/codegen/imports/composeGeneratedImports.ts Render named import entries in compact or multiline form based on the complete generated statement width.">
+</article><article class="item" data-search="renderNamedClause src/codegen/imports/composeGeneratedImports.ts Render named import entries in compact or multiline form based on the complete generated statement width.">
     <h3>renderNamedClause</h3>
     <p class="muted"><code>src/codegen/imports/composeGeneratedImports.ts:319:1</code></p>
     <p>Render named import entries in compact or multiline form based on the complete generated statement width.</p>
-    
-  </article><article class="item" data-search="renderNamedImport src/codegen/imports/composeGeneratedImports.ts Render one named import with its optional local alias.">
+</article><article class="item" data-search="renderNamedImport src/codegen/imports/composeGeneratedImports.ts Render one named import with its optional local alias.">
     <h3>renderNamedImport</h3>
     <p class="muted"><code>src/codegen/imports/composeGeneratedImports.ts:333:1</code></p>
     <p>Render one named import with its optional local alias.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-collection-groupby-ts" class="view" data-view="src/collection/groupBy.ts" hidden>
     <section class="panel">
@@ -7802,8 +7811,7 @@ Runtime is bounded by at most 64 predicate evaluations after the endpoint checks
     <h3>groupBy</h3>
     <p class="muted"><code>src/collection/groupBy.ts:2:1</code></p>
     <p>Group items by key while preserving first-seen key order and item order within each group.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-collection-maprecordentries-ts" class="view" data-view="src/collection/mapRecordEntries.ts" hidden>
     <section class="panel">
@@ -7812,8 +7820,7 @@ Runtime is bounded by at most 64 predicate evaluations after the endpoint checks
     <h3>mapRecordEntries</h3>
     <p class="muted"><code>src/collection/mapRecordEntries.ts:2:1</code></p>
     <p>Project own enumerable record entries into a result array.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-concurrency-concurrency-test-ts" class="view" data-view="src/concurrency/concurrency.test.ts" hidden>
     <section class="panel">
@@ -7822,8 +7829,7 @@ Runtime is bounded by at most 64 predicate evaluations after the endpoint checks
     <h3>createDeferred</h3>
     <p class="muted"><code>src/concurrency/concurrency.test.ts:5:1</code></p>
     <p class="empty">No description available.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-concurrency-createexclusivekeyedasynccoordinator-ts" class="view" data-view="src/concurrency/createExclusiveKeyedAsyncCoordinator.ts" hidden>
     <section class="panel">
@@ -7832,28 +7838,23 @@ Runtime is bounded by at most 64 predicate evaluations after the endpoint checks
     <h3>createCoordinatorState</h3>
     <p class="muted"><code>src/concurrency/createExclusiveKeyedAsyncCoordinator.ts:11:1</code></p>
     <p>Create the isolated mutable state owned by one concurrency coordinator.</p>
-    
-  </article><article class="item" data-search="runExclusive src/concurrency/createExclusiveKeyedAsyncCoordinator.ts Execute a whole-resource operation unless whole-resource or keyed work is already active.">
+</article><article class="item" data-search="runExclusive src/concurrency/createExclusiveKeyedAsyncCoordinator.ts Execute a whole-resource operation unless whole-resource or keyed work is already active.">
     <h3>runExclusive</h3>
     <p class="muted"><code>src/concurrency/createExclusiveKeyedAsyncCoordinator.ts:24:1</code></p>
     <p>Execute a whole-resource operation unless whole-resource or keyed work is already active.</p>
-    
-  </article><article class="item" data-search="runKeyed src/concurrency/createExclusiveKeyedAsyncCoordinator.ts Execute an operation while atomically reserving one primary and one secondary key.">
+</article><article class="item" data-search="runKeyed src/concurrency/createExclusiveKeyedAsyncCoordinator.ts Execute an operation while atomically reserving one primary and one secondary key.">
     <h3>runKeyed</h3>
     <p class="muted"><code>src/concurrency/createExclusiveKeyedAsyncCoordinator.ts:39:1</code></p>
     <p>Execute an operation while atomically reserving one primary and one secondary key.</p>
-    
-  </article><article class="item" data-search="runSecondaryExclusive src/concurrency/createExclusiveKeyedAsyncCoordinator.ts Execute an operation while reserving one secondary key against keyed and peer exclusive use.">
+</article><article class="item" data-search="runSecondaryExclusive src/concurrency/createExclusiveKeyedAsyncCoordinator.ts Execute an operation while reserving one secondary key against keyed and peer exclusive use.">
     <h3>runSecondaryExclusive</h3>
     <p class="muted"><code>src/concurrency/createExclusiveKeyedAsyncCoordinator.ts:62:1</code></p>
     <p>Execute an operation while reserving one secondary key against keyed and peer exclusive use.</p>
-    
-  </article><article class="item" data-search="createExclusiveKeyedAsyncCoordinator src/concurrency/createExclusiveKeyedAsyncCoordinator.ts Coordinate one whole-resource async lock, independently keyed operations, and secondary-key-exclusive operations.">
+</article><article class="item" data-search="createExclusiveKeyedAsyncCoordinator src/concurrency/createExclusiveKeyedAsyncCoordinator.ts Coordinate one whole-resource async lock, independently keyed operations, and secondary-key-exclusive operations.">
     <h3>createExclusiveKeyedAsyncCoordinator</h3>
     <p class="muted"><code>src/concurrency/createExclusiveKeyedAsyncCoordinator.ts:80:1</code></p>
     <p>Coordinate one whole-resource async lock, independently keyed operations, and secondary-key-exclusive operations.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-concurrency-createkeyedasyncmutex-test-ts" class="view" data-view="src/concurrency/createKeyedAsyncMutex.test.ts" hidden>
     <section class="panel">
@@ -7862,13 +7863,11 @@ Runtime is bounded by at most 64 predicate evaluations after the endpoint checks
     <h3>releaseFirst</h3>
     <p class="muted"><code>src/concurrency/createKeyedAsyncMutex.test.ts:9:7</code></p>
     <p class="empty">No description available.</p>
-    
-  </article><article class="item" data-search="captureError src/concurrency/createKeyedAsyncMutex.test.ts ">
+</article><article class="item" data-search="captureError src/concurrency/createKeyedAsyncMutex.test.ts ">
     <h3>captureError</h3>
     <p class="muted"><code>src/concurrency/createKeyedAsyncMutex.test.ts:29:1</code></p>
     <p class="empty">No description available.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-concurrency-createkeyedasyncmutex-ts" class="view" data-view="src/concurrency/createKeyedAsyncMutex.ts" hidden>
     <section class="panel">
@@ -7877,13 +7876,11 @@ Runtime is bounded by at most 64 predicate evaluations after the endpoint checks
     <h3>createKeyedAsyncMutex</h3>
     <p class="muted"><code>src/concurrency/createKeyedAsyncMutex.ts:4:1</code></p>
     <p>Coordinate async operations so only one operation per key can run at a time.</p>
-    
-  </article><article class="item" data-search="run src/concurrency/createKeyedAsyncMutex.ts Run one keyed async operation while rejecting overlapping work for the same key.">
+</article><article class="item" data-search="run src/concurrency/createKeyedAsyncMutex.ts Run one keyed async operation while rejecting overlapping work for the same key.">
     <h3>run</h3>
     <p class="muted"><code>src/concurrency/createKeyedAsyncMutex.ts:11:3</code></p>
     <p>Run one keyed async operation while rejecting overlapping work for the same key.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-date-formatdatetime-ts" class="view" data-view="src/date/formatDateTime.ts" hidden>
     <section class="panel">
@@ -7892,8 +7889,7 @@ Runtime is bounded by at most 64 predicate evaluations after the endpoint checks
     <h3>formatDateTime</h3>
     <p class="muted"><code>src/date/formatDateTime.ts:4:1</code></p>
     <p>Format an optional date input for human display with configurable missing and invalid-value behavior.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-diagnostics-creatediagnostic-ts" class="view" data-view="src/diagnostics/createDiagnostic.ts" hidden>
     <section class="panel">
@@ -7902,8 +7898,7 @@ Runtime is bounded by at most 64 predicate evaluations after the endpoint checks
     <h3>createDiagnostic</h3>
     <p class="muted"><code>src/diagnostics/createDiagnostic.ts:4:1</code></p>
     <p>Create a minimal diagnostic value from code, message, and severity.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-diagnostics-formatdiagnostic-ts" class="view" data-view="src/diagnostics/formatDiagnostic.ts" hidden>
     <section class="panel">
@@ -7912,8 +7907,7 @@ Runtime is bounded by at most 64 predicate evaluations after the endpoint checks
     <h3>formatDiagnostic</h3>
     <p class="muted"><code>src/diagnostics/formatDiagnostic.ts:4:1</code></p>
     <p>Format one code/message/severity diagnostic as a compact display line.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-diagnostics-formatdiagnostics-ts" class="view" data-view="src/diagnostics/formatDiagnostics.ts" hidden>
     <section class="panel">
@@ -7922,8 +7916,7 @@ Runtime is bounded by at most 64 predicate evaluations after the endpoint checks
     <h3>formatDiagnostics</h3>
     <p class="muted"><code>src/diagnostics/formatDiagnostics.ts:5:1</code></p>
     <p>Format multiple diagnostics as newline-separated display text.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-diagnostics-highestseverity-ts" class="view" data-view="src/diagnostics/highestSeverity.ts" hidden>
     <section class="panel">
@@ -7932,8 +7925,7 @@ Runtime is bounded by at most 64 predicate evaluations after the endpoint checks
     <h3>highestSeverity</h3>
     <p class="muted"><code>src/diagnostics/highestSeverity.ts:4:1</code></p>
     <p>Resolve the highest-ranked severity from a diagnostics collection.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-diagnostics-sortdiagnostics-ts" class="view" data-view="src/diagnostics/sortDiagnostics.ts" hidden>
     <section class="panel">
@@ -7942,8 +7934,7 @@ Runtime is bounded by at most 64 predicate evaluations after the endpoint checks
     <h3>sortDiagnostics</h3>
     <p class="muted"><code>src/diagnostics/sortDiagnostics.ts:4:1</code></p>
     <p>Return a stable copy sorted by severity rank and a caller-provided deterministic key.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-equality-isjsonserializationequal-ts" class="view" data-view="src/equality/isJsonSerializationEqual.ts" hidden>
     <section class="panel">
@@ -7952,8 +7943,7 @@ Runtime is bounded by at most 64 predicate evaluations after the endpoint checks
     <h3>isJsonSerializationEqual</h3>
     <p class="muted"><code>src/equality/isJsonSerializationEqual.ts:2:1</code></p>
     <p>Compare two JSON-compatible values by their serialized representation.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-error-pickcodemessage-ts" class="view" data-view="src/error/pickCodeMessage.ts" hidden>
     <section class="panel">
@@ -7962,8 +7952,7 @@ Runtime is bounded by at most 64 predicate evaluations after the endpoint checks
     <h3>pickCodeMessage</h3>
     <p class="muted"><code>src/error/pickCodeMessage.ts:2:1</code></p>
     <p>Project a structured error-like value to its public code/message pair.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-error-readerrormessage-ts" class="view" data-view="src/error/readErrorMessage.ts" hidden>
     <section class="panel">
@@ -7972,8 +7961,7 @@ Runtime is bounded by at most 64 predicate evaluations after the endpoint checks
     <h3>readErrorMessage</h3>
     <p class="muted"><code>src/error/readErrorMessage.ts:2:1</code></p>
     <p>Read a non-empty `message` field from an unknown structured error value.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-error-toerrormessage-ts" class="view" data-view="src/error/toErrorMessage.ts" hidden>
     <section class="panel">
@@ -7982,8 +7970,7 @@ Runtime is bounded by at most 64 predicate evaluations after the endpoint checks
     <h3>toErrorMessage</h3>
     <p class="muted"><code>src/error/toErrorMessage.ts:2:1</code></p>
     <p>Convert an unknown thrown value into a stable human-readable message.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-expo-readexpohosturi-ts" class="view" data-view="src/expo/readExpoHostUri.ts" hidden>
     <section class="panel">
@@ -7992,8 +7979,7 @@ Runtime is bounded by at most 64 predicate evaluations after the endpoint checks
     <h3>readExpoHostUri</h3>
     <p class="muted"><code>src/expo/readExpoHostUri.ts:4:1</code></p>
     <p>Read a non-empty Expo development host URI from an Expo-constants-like value.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-form-createformdraft-ts" class="view" data-view="src/form/createFormDraft.ts" hidden>
     <section class="panel">
@@ -8002,13 +7988,11 @@ Runtime is bounded by at most 64 predicate evaluations after the endpoint checks
     <h3>createFormDraft</h3>
     <p class="muted"><code>src/form/createFormDraft.ts:5:1</code></p>
     <p>Project typed configuration values into editable string fields according to a compact control schema.</p>
-    
-  </article><article class="item" data-search="formatDraftValue src/form/createFormDraft.ts Format one typed value for editing by a text, string-list, or JSON control.">
+</article><article class="item" data-search="formatDraftValue src/form/createFormDraft.ts Format one typed value for editing by a text, string-list, or JSON control.">
     <h3>formatDraftValue</h3>
     <p class="muted"><code>src/form/createFormDraft.ts:13:1</code></p>
     <p>Format one typed value for editing by a text, string-list, or JSON control.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-form-parseformdraft-ts" class="view" data-view="src/form/parseFormDraft.ts" hidden>
     <section class="panel">
@@ -8017,8 +8001,7 @@ Runtime is bounded by at most 64 predicate evaluations after the endpoint checks
     <h3>parseFormDraft</h3>
     <p class="muted"><code>src/form/parseFormDraft.ts:5:1</code></p>
     <p>Parse editable string fields back into typed values while preserving unrelated current values.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-function-composefirstdefined-ts" class="view" data-view="src/function/composeFirstDefined.ts" hidden>
     <section class="panel">
@@ -8027,8 +8010,7 @@ Runtime is bounded by at most 64 predicate evaluations after the endpoint checks
     <h3>composeFirstDefined</h3>
     <p class="muted"><code>src/function/composeFirstDefined.ts:4:1</code></p>
     <p>Compose resolvers and return the first defined result for an input.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-function-noop-ts" class="view" data-view="src/function/noop.ts" hidden>
     <section class="panel">
@@ -8037,8 +8019,7 @@ Runtime is bounded by at most 64 predicate evaluations after the endpoint checks
     <h3>noop</h3>
     <p class="muted"><code>src/function/noop.ts:2:1</code></p>
     <p>Intentionally perform no operation.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-generator-generateasync-test-ts" class="view" data-view="src/generator/generateAsync.test.ts" hidden>
     <section class="panel">
@@ -8047,13 +8028,11 @@ Runtime is bounded by at most 64 predicate evaluations after the endpoint checks
     <h3>createInputs</h3>
     <p class="muted"><code>src/generator/generateAsync.test.ts:48:3</code></p>
     <p class="empty">No description available.</p>
-    
-  </article><article class="item" data-search="createInputs src/generator/generateAsync.test.ts ">
+</article><article class="item" data-search="createInputs src/generator/generateAsync.test.ts ">
     <h3>createInputs</h3>
     <p class="muted"><code>src/generator/generateAsync.test.ts:98:3</code></p>
     <p class="empty">No description available.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-generator-generateasync-ts" class="view" data-view="src/generator/generateAsync.ts" hidden>
     <section class="panel">
@@ -8062,8 +8041,7 @@ Runtime is bounded by at most 64 predicate evaluations after the endpoint checks
     <h3>generateAsync</h3>
     <p class="muted"><code>src/generator/generateAsync.ts:6:1</code></p>
     <p>Execute synchronous or asynchronous inputs lazily and yield each completed result before continuing.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-geometry-rectarraysequal-ts" class="view" data-view="src/geometry/rectArraysEqual.ts" hidden>
     <section class="panel">
@@ -8072,8 +8050,7 @@ Runtime is bounded by at most 64 predicate evaluations after the endpoint checks
     <h3>rectArraysEqual</h3>
     <p class="muted"><code>src/geometry/rectArraysEqual.ts:5:1</code></p>
     <p>Return whether two ordered rectangle arrays are equal within a numeric tolerance.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-geometry-rectsequal-ts" class="view" data-view="src/geometry/rectsEqual.ts" hidden>
     <section class="panel">
@@ -8082,8 +8059,7 @@ Runtime is bounded by at most 64 predicate evaluations after the endpoint checks
     <h3>rectsEqual</h3>
     <p class="muted"><code>src/geometry/rectsEqual.ts:4:1</code></p>
     <p>Return whether two rectangles are equal within a numeric tolerance.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-geometry-resolvedropzonerect-ts" class="view" data-view="src/geometry/resolveDropZoneRect.ts" hidden>
     <section class="panel">
@@ -8092,8 +8068,7 @@ Runtime is bounded by at most 64 predicate evaluations after the endpoint checks
     <h3>resolveDropZoneRect</h3>
     <p class="muted"><code>src/geometry/resolveDropZoneRect.ts:7:1</code></p>
     <p>Resolve before, inside, or after drop-zone geometry from target and dragged rectangles.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-geometry-sortbyrectarea-ts" class="view" data-view="src/geometry/sortByRectArea.ts" hidden>
     <section class="panel">
@@ -8102,8 +8077,7 @@ Runtime is bounded by at most 64 predicate evaluations after the endpoint checks
     <h3>sortByRectArea</h3>
     <p class="muted"><code>src/geometry/sortByRectArea.ts:2:1</code></p>
     <p>Return a new array ordered from smallest rectangle area to largest.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-geometry-torect-ts" class="view" data-view="src/geometry/toRect.ts" hidden>
     <section class="panel">
@@ -8112,8 +8086,7 @@ Runtime is bounded by at most 64 predicate evaluations after the endpoint checks
     <h3>toRect</h3>
     <p class="muted"><code>src/geometry/toRect.ts:4:1</code></p>
     <p>Convert a left/top rectangle shape into the canonical x/y rectangle shape.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-geometry-unionrects-ts" class="view" data-view="src/geometry/unionRects.ts" hidden>
     <section class="panel">
@@ -8122,8 +8095,7 @@ Runtime is bounded by at most 64 predicate evaluations after the endpoint checks
     <h3>unionRects</h3>
     <p class="muted"><code>src/geometry/unionRects.ts:4:1</code></p>
     <p>Return the smallest rectangle containing every supplied rectangle.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-http-createbaseurlfetch-ts" class="view" data-view="src/http/createBaseUrlFetch.ts" hidden>
     <section class="panel">
@@ -8132,8 +8104,7 @@ Runtime is bounded by at most 64 predicate evaluations after the endpoint checks
     <h3>createBaseUrlFetch</h3>
     <p class="muted"><code>src/http/createBaseUrlFetch.ts:5:1</code></p>
     <p>Create a fetch function that resolves relative request paths against one base URL.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-http-createjsonrequestinit-ts" class="view" data-view="src/http/createJsonRequestInit.ts" hidden>
     <section class="panel">
@@ -8142,8 +8113,7 @@ Runtime is bounded by at most 64 predicate evaluations after the endpoint checks
     <h3>createJsonRequestInit</h3>
     <p class="muted"><code>src/http/createJsonRequestInit.ts:2:1</code></p>
     <p>Create JSON request options while preserving caller headers and additional request settings.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-http-decodejsonresponse-ts" class="view" data-view="src/http/decodeJsonResponse.ts" hidden>
     <section class="panel">
@@ -8152,8 +8122,7 @@ Runtime is bounded by at most 64 predicate evaluations after the endpoint checks
     <h3>decodeJsonResponse</h3>
     <p class="muted"><code>src/http/decodeJsonResponse.ts:2:1</code></p>
     <p>Decode a response body as JSON and attach response context to invalid-JSON failures.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-http-fastify-ensurebinarybodyparser-ts" class="view" data-view="src/http/fastify/ensureBinaryBodyParser.ts" hidden>
     <section class="panel">
@@ -8162,8 +8131,7 @@ Runtime is bounded by at most 64 predicate evaluations after the endpoint checks
     <h3>ensureBinaryBodyParser</h3>
     <p class="muted"><code>src/http/fastify/ensureBinaryBodyParser.ts:4:1</code></p>
     <p>Register an octet-stream Buffer parser once on a Fastify instance.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-http-fastify-readfastifyrouteparam-ts" class="view" data-view="src/http/fastify/readFastifyRouteParam.ts" hidden>
     <section class="panel">
@@ -8172,8 +8140,7 @@ Runtime is bounded by at most 64 predicate evaluations after the endpoint checks
     <h3>readFastifyRouteParam</h3>
     <p class="muted"><code>src/http/fastify/readFastifyRouteParam.ts:4:1</code></p>
     <p>Read a named string route parameter from a Fastify request.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-http-fastify-respondwithmappederrorasync-ts" class="view" data-view="src/http/fastify/respondWithMappedErrorAsync.ts" hidden>
     <section class="panel">
@@ -8182,8 +8149,7 @@ Runtime is bounded by at most 64 predicate evaluations after the endpoint checks
     <h3>respondWithMappedErrorAsync</h3>
     <p class="muted"><code>src/http/fastify/respondWithMappedErrorAsync.ts:4:1</code></p>
     <p>Execute a Fastify route operation and map a thrown value to an HTTP response.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-http-fastify-sendokorerror-ts" class="view" data-view="src/http/fastify/sendOkOrError.ts" hidden>
     <section class="panel">
@@ -8192,8 +8158,7 @@ Runtime is bounded by at most 64 predicate evaluations after the endpoint checks
     <h3>sendOkOrError</h3>
     <p class="muted"><code>src/http/fastify/sendOkOrError.ts:4:1</code></p>
     <p>Return an `ok` result or send a failed result with a caller-selected HTTP status.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-http-joinbaseurl-ts" class="view" data-view="src/http/joinBaseUrl.ts" hidden>
     <section class="panel">
@@ -8202,8 +8167,7 @@ Runtime is bounded by at most 64 predicate evaluations after the endpoint checks
     <h3>joinBaseUrl</h3>
     <p class="muted"><code>src/http/joinBaseUrl.ts:2:1</code></p>
     <p>Join a base URL and relative request path without duplicate boundary slashes.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-http-readjsonrecordasync-ts" class="view" data-view="src/http/readJsonRecordAsync.ts" hidden>
     <section class="panel">
@@ -8212,8 +8176,7 @@ Runtime is bounded by at most 64 predicate evaluations after the endpoint checks
     <h3>readJsonRecordAsync</h3>
     <p class="muted"><code>src/http/readJsonRecordAsync.ts:4:1</code></p>
     <p>Read a request JSON body as a record, returning an empty record for invalid input.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-http-readresponsetextlimited-ts" class="view" data-view="src/http/readResponseTextLimited.ts" hidden>
     <section class="panel">
@@ -8222,8 +8185,7 @@ Runtime is bounded by at most 64 predicate evaluations after the endpoint checks
     <h3>readResponseTextLimited</h3>
     <p class="muted"><code>src/http/readResponseTextLimited.ts:2:1</code></p>
     <p>Read a response body as text while rejecting declared or measured payload sizes above a limit.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-http-requestjson-ts" class="view" data-view="src/http/requestJson.ts" hidden>
     <section class="panel">
@@ -8232,8 +8194,7 @@ Runtime is bounded by at most 64 predicate evaluations after the endpoint checks
     <h3>requestJson</h3>
     <p class="muted"><code>src/http/requestJson.ts:5:1</code></p>
     <p>Execute a fetch request and decode its body as JSON without imposing domain-specific status policy.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-http-requestparsedjson-ts" class="view" data-view="src/http/requestParsedJson.ts" hidden>
     <section class="panel">
@@ -8242,8 +8203,7 @@ Runtime is bounded by at most 64 predicate evaluations after the endpoint checks
     <h3>requestParsedJson</h3>
     <p class="muted"><code>src/http/requestParsedJson.ts:5:1</code></p>
     <p>Execute an injected HTTP request, decode JSON, run an optional safety assertion, map non-success status, and parse the payload.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-http-requesttrustedhttp-test-ts" class="view" data-view="src/http/requestTrustedHttp.test.ts" hidden>
     <section class="panel">
@@ -8252,8 +8212,7 @@ Runtime is bounded by at most 64 predicate evaluations after the endpoint checks
     <h3>readBlockedMessage</h3>
     <p class="muted"><code>src/http/requestTrustedHttp.test.ts:5:1</code></p>
     <p class="empty">No description available.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-http-requesttrustedhttp-ts" class="view" data-view="src/http/requestTrustedHttp.ts" hidden>
     <section class="panel">
@@ -8262,8 +8221,7 @@ Runtime is bounded by at most 64 predicate evaluations after the endpoint checks
     <h3>requestTrustedHttp</h3>
     <p class="muted"><code>src/http/requestTrustedHttp.ts:13:1</code></p>
     <p>Execute a credential-free, redirect-rejecting HTTP request with timeout, target, and response-size safeguards.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-http-resolvestaticexportpaths-ts" class="view" data-view="src/http/resolveStaticExportPaths.ts" hidden>
     <section class="panel">
@@ -8272,8 +8230,7 @@ Runtime is bounded by at most 64 predicate evaluations after the endpoint checks
     <h3>resolveStaticExportPaths</h3>
     <p class="muted"><code>src/http/resolveStaticExportPaths.ts:2:1</code></p>
     <p>Resolve a static-export URL path to direct, HTML, and directory-index file candidates.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-http-waitforhttp-ts" class="view" data-view="src/http/waitForHttp.ts" hidden>
     <section class="panel">
@@ -8282,8 +8239,7 @@ Runtime is bounded by at most 64 predicate evaluations after the endpoint checks
     <h3>waitForHttp</h3>
     <p class="muted"><code>src/http/waitForHttp.ts:4:1</code></p>
     <p>Poll an HTTP endpoint until a caller-selected response is ready or a timeout expires.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-id-createcompactid-ts" class="view" data-view="src/id/createCompactId.ts" hidden>
     <section class="panel">
@@ -8292,8 +8248,7 @@ Runtime is bounded by at most 64 predicate evaluations after the endpoint checks
     <h3>createCompactId</h3>
     <p class="muted"><code>src/id/createCompactId.ts:4:1</code></p>
     <p>Create a compact time/random identifier with injectable sources for deterministic testing.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-interaction-confirmaction-ts" class="view" data-view="src/interaction/confirmAction.ts" hidden>
     <section class="panel">
@@ -8302,8 +8257,7 @@ Runtime is bounded by at most 64 predicate evaluations after the endpoint checks
     <h3>confirmAction</h3>
     <p class="muted"><code>src/interaction/confirmAction.ts:4:1</code></p>
     <p>Confirm an action with an injected synchronous confirm implementation or fallback alert buttons.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-interaction-createstationaryselectioncoordinator-ts" class="view" data-view="src/interaction/createStationarySelectionCoordinator.ts" hidden>
     <section class="panel">
@@ -8312,33 +8266,27 @@ Runtime is bounded by at most 64 predicate evaluations after the endpoint checks
     <h3>beginTransaction</h3>
     <p class="muted"><code>src/interaction/createStationarySelectionCoordinator.ts:13:1</code></p>
     <p>Start a fresh interaction transaction and return its monotonically increasing identifier.</p>
-    
-  </article><article class="item" data-search="recordNode src/interaction/createStationarySelectionCoordinator.ts Record one unique candidate value when the supplied generation matches the active transaction.">
+</article><article class="item" data-search="recordNode src/interaction/createStationarySelectionCoordinator.ts Record one unique candidate value when the supplied generation matches the active transaction.">
     <h3>recordNode</h3>
     <p class="muted"><code>src/interaction/createStationarySelectionCoordinator.ts:26:1</code></p>
     <p>Record one unique candidate value when the supplied generation matches the active transaction.</p>
-    
-  </article><article class="item" data-search="commitSelection src/interaction/createStationarySelectionCoordinator.ts Finalize the active transaction into one selection outcome without committing invalid interaction states.">
+</article><article class="item" data-search="commitSelection src/interaction/createStationarySelectionCoordinator.ts Finalize the active transaction into one selection outcome without committing invalid interaction states.">
     <h3>commitSelection</h3>
     <p class="muted"><code>src/interaction/createStationarySelectionCoordinator.ts:37:1</code></p>
     <p>Finalize the active transaction into one selection outcome without committing invalid interaction states.</p>
-    
-  </article><article class="item" data-search="clearTransaction src/interaction/createStationarySelectionCoordinator.ts Clear the active transaction unconditionally or only when a supplied generation matches it.">
+</article><article class="item" data-search="clearTransaction src/interaction/createStationarySelectionCoordinator.ts Clear the active transaction unconditionally or only when a supplied generation matches it.">
     <h3>clearTransaction</h3>
     <p class="muted"><code>src/interaction/createStationarySelectionCoordinator.ts:59:1</code></p>
     <p>Clear the active transaction unconditionally or only when a supplied generation matches it.</p>
-    
-  </article><article class="item" data-search="markMoved src/interaction/createStationarySelectionCoordinator.ts Mark the matching active transaction as moved so it cannot commit a stationary selection.">
+</article><article class="item" data-search="markMoved src/interaction/createStationarySelectionCoordinator.ts Mark the matching active transaction as moved so it cannot commit a stationary selection.">
     <h3>markMoved</h3>
     <p class="muted"><code>src/interaction/createStationarySelectionCoordinator.ts:66:1</code></p>
     <p>Mark the matching active transaction as moved so it cannot commit a stationary selection.</p>
-    
-  </article><article class="item" data-search="createStationarySelectionCoordinator src/interaction/createStationarySelectionCoordinator.ts Coordinate a generation-scoped interaction transaction that records an ordered path and commits one stationary selection once.">
+</article><article class="item" data-search="createStationarySelectionCoordinator src/interaction/createStationarySelectionCoordinator.ts Coordinate a generation-scoped interaction transaction that records an ordered path and commits one stationary selection once.">
     <h3>createStationarySelectionCoordinator</h3>
     <p class="muted"><code>src/interaction/createStationarySelectionCoordinator.ts:72:1</code></p>
     <p>Coordinate a generation-scoped interaction transaction that records an ordered path and commits one stationary selection once.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-interaction-createstationaryselectioninputstate-ts" class="view" data-view="src/interaction/createStationarySelectionInputState.ts" hidden>
     <section class="panel">
@@ -8347,28 +8295,23 @@ Runtime is bounded by at most 64 predicate evaluations after the endpoint checks
     <h3>createStationarySelectionInputState</h3>
     <p class="muted"><code>src/interaction/createStationarySelectionInputState.ts:6:1</code></p>
     <p>Buffer unique values per pointer or touch interaction until an active transaction can consume them.</p>
-    
-  </article><article class="item" data-search="clear src/interaction/createStationarySelectionInputState.ts Reset the pending interaction identity and buffered path.">
+</article><article class="item" data-search="clear src/interaction/createStationarySelectionInputState.ts Reset the pending interaction identity and buffered path.">
     <h3>clear</h3>
     <p class="muted"><code>src/interaction/createStationarySelectionInputState.ts:14:3</code></p>
     <p>Reset the pending interaction identity and buffered path.</p>
-    
-  </article><article class="item" data-search="recordNode src/interaction/createStationarySelectionInputState.ts Record one value into the active transaction or current pending interaction path.">
+</article><article class="item" data-search="recordNode src/interaction/createStationarySelectionInputState.ts Record one value into the active transaction or current pending interaction path.">
     <h3>recordNode</h3>
     <p class="muted"><code>src/interaction/createStationarySelectionInputState.ts:20:3</code></p>
     <p>Record one value into the active transaction or current pending interaction path.</p>
-    
-  </article><article class="item" data-search="beginTransaction src/interaction/createStationarySelectionInputState.ts Replay the pending path into a newly begun transaction and clear the buffer.">
+</article><article class="item" data-search="beginTransaction src/interaction/createStationarySelectionInputState.ts Replay the pending path into a newly begun transaction and clear the buffer.">
     <h3>beginTransaction</h3>
     <p class="muted"><code>src/interaction/createStationarySelectionInputState.ts:36:3</code></p>
     <p>Replay the pending path into a newly begun transaction and clear the buffer.</p>
-    
-  </article><article class="item" data-search="completePendingInteraction src/interaction/createStationarySelectionInputState.ts Clear a pending interaction after completion when no active transaction owns it.">
+</article><article class="item" data-search="completePendingInteraction src/interaction/createStationarySelectionInputState.ts Clear a pending interaction after completion when no active transaction owns it.">
     <h3>completePendingInteraction</h3>
     <p class="muted"><code>src/interaction/createStationarySelectionInputState.ts:42:3</code></p>
     <p>Clear a pending interaction after completion when no active transaction owns it.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-interaction-getinteractionkey-ts" class="view" data-view="src/interaction/getInteractionKey.ts" hidden>
     <section class="panel">
@@ -8377,8 +8320,7 @@ Runtime is bounded by at most 64 predicate evaluations after the endpoint checks
     <h3>getInteractionKey</h3>
     <p class="muted"><code>src/interaction/getInteractionKey.ts:4:1</code></p>
     <p>Build a stable interaction key from pointer or touch identity plus its interaction identifier.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-interaction-issupportedpointerinput-ts" class="view" data-view="src/interaction/isSupportedPointerInput.ts" hidden>
     <section class="panel">
@@ -8387,8 +8329,7 @@ Runtime is bounded by at most 64 predicate evaluations after the endpoint checks
     <h3>isSupportedPointerInput</h3>
     <p class="muted"><code>src/interaction/isSupportedPointerInput.ts:4:1</code></p>
     <p>Return whether a pointer interaction is primary and, for mouse input, uses the primary button.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-interaction-resolveselectionintent-ts" class="view" data-view="src/interaction/resolveSelectionIntent.ts" hidden>
     <section class="panel">
@@ -8397,8 +8338,7 @@ Runtime is bounded by at most 64 predicate evaluations after the endpoint checks
     <h3>resolveSelectionIntent</h3>
     <p class="muted"><code>src/interaction/resolveSelectionIntent.ts:5:1</code></p>
     <p>Translate cross-platform activation state into semantic replace or toggle selection intent.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-interaction-stationaryselectioninputstate-test-ts" class="view" data-view="src/interaction/stationarySelectionInputState.test.ts" hidden>
     <section class="panel">
@@ -8407,18 +8347,15 @@ Runtime is bounded by at most 64 predicate evaluations after the endpoint checks
     <h3>pointer</h3>
     <p class="muted"><code>src/interaction/stationarySelectionInputState.test.ts:6:1</code></p>
     <p class="empty">No description available.</p>
-    
-  </article><article class="item" data-search="touch src/interaction/stationarySelectionInputState.test.ts ">
+</article><article class="item" data-search="touch src/interaction/stationarySelectionInputState.test.ts ">
     <h3>touch</h3>
     <p class="muted"><code>src/interaction/stationarySelectionInputState.test.ts:18:1</code></p>
     <p class="empty">No description available.</p>
-    
-  </article><article class="item" data-search="createHarness src/interaction/stationarySelectionInputState.test.ts ">
+</article><article class="item" data-search="createHarness src/interaction/stationarySelectionInputState.test.ts ">
     <h3>createHarness</h3>
     <p class="muted"><code>src/interaction/stationarySelectionInputState.test.ts:27:1</code></p>
     <p class="empty">No description available.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-json-parsejsonwithfallback-ts" class="view" data-view="src/json/parseJsonWithFallback.ts" hidden>
     <section class="panel">
@@ -8427,8 +8364,7 @@ Runtime is bounded by at most 64 predicate evaluations after the endpoint checks
     <h3>parseJsonWithFallback</h3>
     <p class="muted"><code>src/json/parseJsonWithFallback.ts:2:1</code></p>
     <p>Parse JSON and return a fallback when parsing or a caller-provided value guard fails.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-media-matchesfiletype-ts" class="view" data-view="src/media/matchesFileType.ts" hidden>
     <section class="panel">
@@ -8437,8 +8373,7 @@ Runtime is bounded by at most 64 predicate evaluations after the endpoint checks
     <h3>matchesFileType</h3>
     <p class="muted"><code>src/media/matchesFileType.ts:2:1</code></p>
     <p>Validate a filename extension and optional MIME type against caller-provided allowlists.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-media-sanitizefilename-ts" class="view" data-view="src/media/sanitizeFileName.ts" hidden>
     <section class="panel">
@@ -8447,8 +8382,7 @@ Runtime is bounded by at most 64 predicate evaluations after the endpoint checks
     <h3>sanitizeFileName</h3>
     <p class="muted"><code>src/media/sanitizeFileName.ts:2:1</code></p>
     <p>Sanitize a possibly path-qualified filename while preserving safe dots, underscores, and hyphens.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-media-sanitizepathsegment-ts" class="view" data-view="src/media/sanitizePathSegment.ts" hidden>
     <section class="panel">
@@ -8457,8 +8391,7 @@ Runtime is bounded by at most 64 predicate evaluations after the endpoint checks
     <h3>sanitizePathSegment</h3>
     <p class="muted"><code>src/media/sanitizePathSegment.ts:2:1</code></p>
     <p>Sanitize an arbitrary path segment to letters, digits, underscores, and hyphens with a fallback.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-network-security-isoriginallowed-ts" class="view" data-view="src/network/security/isOriginAllowed.ts" hidden>
     <section class="panel">
@@ -8467,18 +8400,15 @@ Runtime is bounded by at most 64 predicate evaluations after the endpoint checks
     <h3>isOriginAllowed</h3>
     <p class="muted"><code>src/network/security/isOriginAllowed.ts:2:1</code></p>
     <p>Allow absent origins and HTTP(S) origins with the supported local or private hostnames.</p>
-    
-  </article><article class="item" data-search="isAllowedIpv6 src/network/security/isOriginAllowed.ts Match the existing IPv6 ULA and link-local origin policy.">
+</article><article class="item" data-search="isAllowedIpv6 src/network/security/isOriginAllowed.ts Match the existing IPv6 ULA and link-local origin policy.">
     <h3>isAllowedIpv6</h3>
     <p class="muted"><code>src/network/security/isOriginAllowed.ts:20:1</code></p>
     <p>Match the existing IPv6 ULA and link-local origin policy.</p>
-    
-  </article><article class="item" data-search="isAllowedIpv4 src/network/security/isOriginAllowed.ts Match the existing IPv4 private-range origin policy.">
+</article><article class="item" data-search="isAllowedIpv4 src/network/security/isOriginAllowed.ts Match the existing IPv4 private-range origin policy.">
     <h3>isAllowedIpv4</h3>
     <p class="muted"><code>src/network/security/isOriginAllowed.ts:31:1</code></p>
     <p>Match the existing IPv4 private-range origin policy.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-node-env-env-test-ts" class="view" data-view="src/node/env/env.test.ts" hidden>
     <section class="panel">
@@ -8487,8 +8417,7 @@ Runtime is bounded by at most 64 predicate evaluations after the endpoint checks
     <h3>environment</h3>
     <p class="muted"><code>src/node/env/env.test.ts:5:7</code></p>
     <p class="empty">No description available.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-node-env-readdotenvvalue-ts" class="view" data-view="src/node/env/readDotEnvValue.ts" hidden>
     <section class="panel">
@@ -8497,8 +8426,7 @@ Runtime is bounded by at most 64 predicate evaluations after the endpoint checks
     <h3>readDotEnvValue</h3>
     <p class="muted"><code>src/node/env/readDotEnvValue.ts:4:1</code></p>
     <p>Read a non-empty value by key from dotenv-formatted text.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-node-env-readenvboolean-ts" class="view" data-view="src/node/env/readEnvBoolean.ts" hidden>
     <section class="panel">
@@ -8507,8 +8435,7 @@ Runtime is bounded by at most 64 predicate evaluations after the endpoint checks
     <h3>readEnvBoolean</h3>
     <p class="muted"><code>src/node/env/readEnvBoolean.ts:4:1</code></p>
     <p>Read a strict boolean environment variable from a Node-style environment record.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-node-env-readenvnumber-ts" class="view" data-view="src/node/env/readEnvNumber.ts" hidden>
     <section class="panel">
@@ -8517,8 +8444,7 @@ Runtime is bounded by at most 64 predicate evaluations after the endpoint checks
     <h3>readEnvNumber</h3>
     <p class="muted"><code>src/node/env/readEnvNumber.ts:4:1</code></p>
     <p>Read a finite numeric environment variable from a Node-style environment record.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-node-env-readenvstring-ts" class="view" data-view="src/node/env/readEnvString.ts" hidden>
     <section class="panel">
@@ -8527,8 +8453,7 @@ Runtime is bounded by at most 64 predicate evaluations after the endpoint checks
     <h3>readEnvString</h3>
     <p class="muted"><code>src/node/env/readEnvString.ts:2:1</code></p>
     <p>Read a non-empty own string environment variable from a Node-style environment record.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-node-fs-asserttextfilesdonotmatch-ts" class="view" data-view="src/node/fs/assertTextFilesDoNotMatch.ts" hidden>
     <section class="panel">
@@ -8537,8 +8462,7 @@ Runtime is bounded by at most 64 predicate evaluations after the endpoint checks
     <h3>assertTextFilesDoNotMatch</h3>
     <p class="muted"><code>src/node/fs/assertTextFilesDoNotMatch.ts:6:1</code></p>
     <p>Assert that readable text files do not match a forbidden pattern, optionally ignoring missing files.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-node-fs-findfiletreechange-ts" class="view" data-view="src/node/fs/findFileTreeChange.ts" hidden>
     <section class="panel">
@@ -8547,8 +8471,7 @@ Runtime is bounded by at most 64 predicate evaluations after the endpoint checks
     <h3>findFileTreeChange</h3>
     <p class="muted"><code>src/node/fs/findFileTreeChange.ts:2:1</code></p>
     <p>Find a file-set or byte-content difference between two relative-path snapshots.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-node-fs-isdirectory-ts" class="view" data-view="src/node/fs/isDirectory.ts" hidden>
     <section class="panel">
@@ -8557,8 +8480,7 @@ Runtime is bounded by at most 64 predicate evaluations after the endpoint checks
     <h3>isDirectory</h3>
     <p class="muted"><code>src/node/fs/isDirectory.ts:4:1</code></p>
     <p>Return whether a filesystem path currently resolves to a directory.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-node-fs-isdirectorynotemptyerror-ts" class="view" data-view="src/node/fs/isDirectoryNotEmptyError.ts" hidden>
     <section class="panel">
@@ -8567,8 +8489,7 @@ Runtime is bounded by at most 64 predicate evaluations after the endpoint checks
     <h3>isDirectoryNotEmptyError</h3>
     <p class="muted"><code>src/node/fs/isDirectoryNotEmptyError.ts:2:1</code></p>
     <p>Return whether an unknown Node-style error reports a non-empty directory.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-node-fs-ismissingpatherror-ts" class="view" data-view="src/node/fs/isMissingPathError.ts" hidden>
     <section class="panel">
@@ -8577,8 +8498,7 @@ Runtime is bounded by at most 64 predicate evaluations after the endpoint checks
     <h3>isMissingPathError</h3>
     <p class="muted"><code>src/node/fs/isMissingPathError.ts:2:1</code></p>
     <p>Return whether an unknown Node-style error reports a missing filesystem path.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-node-fs-listfilesrecursive-ts" class="view" data-view="src/node/fs/listFilesRecursive.ts" hidden>
     <section class="panel">
@@ -8587,8 +8507,7 @@ Runtime is bounded by at most 64 predicate evaluations after the endpoint checks
     <h3>listFilesRecursive</h3>
     <p class="muted"><code>src/node/fs/listFilesRecursive.ts:7:1</code></p>
     <p>Recursively list files under a root in deterministic lexical order, returning an empty list when the root is absent.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-node-fs-pathexists-ts" class="view" data-view="src/node/fs/pathExists.ts" hidden>
     <section class="panel">
@@ -8597,8 +8516,7 @@ Runtime is bounded by at most 64 predicate evaluations after the endpoint checks
     <h3>pathExists</h3>
     <p class="muted"><code>src/node/fs/pathExists.ts:4:1</code></p>
     <p>Return whether a filesystem path currently exists.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-node-fs-pruneemptydirectories-ts" class="view" data-view="src/node/fs/pruneEmptyDirectories.ts" hidden>
     <section class="panel">
@@ -8607,8 +8525,7 @@ Runtime is bounded by at most 64 predicate evaluations after the endpoint checks
     <h3>pruneEmptyDirectories</h3>
     <p class="muted"><code>src/node/fs/pruneEmptyDirectories.ts:8:1</code></p>
     <p>Remove empty directories upward from a starting directory until reaching a protected root.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-node-fs-readdirectorywithinroot-ts" class="view" data-view="src/node/fs/readDirectoryWithinRoot.ts" hidden>
     <section class="panel">
@@ -8617,8 +8534,7 @@ Runtime is bounded by at most 64 predicate evaluations after the endpoint checks
     <h3>readDirectoryWithinRoot</h3>
     <p class="muted"><code>src/node/fs/readDirectoryWithinRoot.ts:6:1</code></p>
     <p>Reads directory entries only when the directory stays inside the allowed filesystem root.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-node-fs-readmatchingfilesasync-ts" class="view" data-view="src/node/fs/readMatchingFilesAsync.ts" hidden>
     <section class="panel">
@@ -8627,8 +8543,7 @@ Runtime is bounded by at most 64 predicate evaluations after the endpoint checks
     <h3>readMatchingFilesAsync</h3>
     <p class="muted"><code>src/node/fs/readMatchingFilesAsync.ts:6:1</code></p>
     <p>Concatenate UTF-8 content of recursively discovered files matching a caller predicate.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-node-fs-readtextfilewithinroot-ts" class="view" data-view="src/node/fs/readTextFileWithinRoot.ts" hidden>
     <section class="panel">
@@ -8637,8 +8552,7 @@ Runtime is bounded by at most 64 predicate evaluations after the endpoint checks
     <h3>readTextFileWithinRoot</h3>
     <p class="muted"><code>src/node/fs/readTextFileWithinRoot.ts:6:1</code></p>
     <p>Reads UTF-8 text only when the requested file stays inside the allowed filesystem root.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-node-fs-removefilewithinroot-ts" class="view" data-view="src/node/fs/removeFileWithinRoot.ts" hidden>
     <section class="panel">
@@ -8647,8 +8561,7 @@ Runtime is bounded by at most 64 predicate evaluations after the endpoint checks
     <h3>removeFileWithinRoot</h3>
     <p class="muted"><code>src/node/fs/removeFileWithinRoot.ts:7:1</code></p>
     <p>Remove a file only when it stays inside an allowed root, optionally pruning empty parents.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-node-fs-removepath-ts" class="view" data-view="src/node/fs/removePath.ts" hidden>
     <section class="panel">
@@ -8657,8 +8570,7 @@ Runtime is bounded by at most 64 predicate evaluations after the endpoint checks
     <h3>removePath</h3>
     <p class="muted"><code>src/node/fs/removePath.ts:4:1</code></p>
     <p>Remove a filesystem path recursively while tolerating an already-absent path.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-node-fs-resolvefilesystempathwithinroot-ts" class="view" data-view="src/node/fs/resolveFileSystemPathWithinRoot.ts" hidden>
     <section class="panel">
@@ -8667,18 +8579,15 @@ Runtime is bounded by at most 64 predicate evaluations after the endpoint checks
     <h3>resolveFileSystemPathWithinRoot</h3>
     <p class="muted"><code>src/node/fs/resolveFileSystemPathWithinRoot.ts:5:1</code></p>
     <p>Resolves a filesystem path beneath a root while rejecting lexical and symlink escapes.</p>
-    
-  </article><article class="item" data-search="assertContainedPath src/node/fs/resolveFileSystemPathWithinRoot.ts Rejects paths outside the root and optionally rejects the root path itself.">
+</article><article class="item" data-search="assertContainedPath src/node/fs/resolveFileSystemPathWithinRoot.ts Rejects paths outside the root and optionally rejects the root path itself.">
     <h3>assertContainedPath</h3>
     <p class="muted"><code>src/node/fs/resolveFileSystemPathWithinRoot.ts:29:1</code></p>
     <p>Rejects paths outside the root and optionally rejects the root path itself.</p>
-    
-  </article><article class="item" data-search="findExistingAncestor src/node/fs/resolveFileSystemPathWithinRoot.ts Finds the nearest existing path so symlink ancestry can be resolved safely.">
+</article><article class="item" data-search="findExistingAncestor src/node/fs/resolveFileSystemPathWithinRoot.ts Finds the nearest existing path so symlink ancestry can be resolved safely.">
     <h3>findExistingAncestor</h3>
     <p class="muted"><code>src/node/fs/resolveFileSystemPathWithinRoot.ts:48:1</code></p>
     <p>Finds the nearest existing path so symlink ancestry can be resolved safely.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-node-fs-snapshotfiletreeasync-ts" class="view" data-view="src/node/fs/snapshotFileTreeAsync.ts" hidden>
     <section class="panel">
@@ -8687,8 +8596,7 @@ Runtime is bounded by at most 64 predicate evaluations after the endpoint checks
     <h3>snapshotFileTreeAsync</h3>
     <p class="muted"><code>src/node/fs/snapshotFileTreeAsync.ts:7:1</code></p>
     <p>Capture recursively discovered files as relative paths mapped to byte content.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-node-fs-statpathexistsasync-ts" class="view" data-view="src/node/fs/statPathExistsAsync.ts" hidden>
     <section class="panel">
@@ -8697,8 +8605,7 @@ Runtime is bounded by at most 64 predicate evaluations after the endpoint checks
     <h3>statPathExistsAsync</h3>
     <p class="muted"><code>src/node/fs/statPathExistsAsync.ts:4:1</code></p>
     <p>Report whether stat finds a path while propagating failures other than ENOENT.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-node-fs-writefilewithinroot-ts" class="view" data-view="src/node/fs/writeFileWithinRoot.ts" hidden>
     <section class="panel">
@@ -8707,8 +8614,7 @@ Runtime is bounded by at most 64 predicate evaluations after the endpoint checks
     <h3>writeFileWithinRoot</h3>
     <p class="muted"><code>src/node/fs/writeFileWithinRoot.ts:7:1</code></p>
     <p>Write bytes to a destination only when the resolved file stays inside an allowed root.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-node-fs-writejsonfileatomic-ts" class="view" data-view="src/node/fs/writeJsonFileAtomic.ts" hidden>
     <section class="panel">
@@ -8717,8 +8623,7 @@ Runtime is bounded by at most 64 predicate evaluations after the endpoint checks
     <h3>writeJsonFileAtomic</h3>
     <p class="muted"><code>src/node/fs/writeJsonFileAtomic.ts:5:1</code></p>
     <p>Serialize a value as pretty JSON and atomically replace a file through a same-directory temporary file.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-node-http-validatepublichttpsurlasync-test-ts" class="view" data-view="src/node/http/validatePublicHttpsUrlAsync.test.ts" hidden>
     <section class="panel">
@@ -8727,48 +8632,39 @@ Runtime is bounded by at most 64 predicate evaluations after the endpoint checks
     <h3>publicLookup</h3>
     <p class="muted"><code>src/node/http/validatePublicHttpsUrlAsync.test.ts:10:7</code></p>
     <p class="empty">No description available.</p>
-    
-  </article><article class="item" data-search="lookup src/node/http/validatePublicHttpsUrlAsync.test.ts ">
+</article><article class="item" data-search="lookup src/node/http/validatePublicHttpsUrlAsync.test.ts ">
     <h3>lookup</h3>
     <p class="muted"><code>src/node/http/validatePublicHttpsUrlAsync.test.ts:52:11</code></p>
     <p class="empty">No description available.</p>
-    
-  </article><article class="item" data-search="request src/node/http/validatePublicHttpsUrlAsync.test.ts ">
+</article><article class="item" data-search="request src/node/http/validatePublicHttpsUrlAsync.test.ts ">
     <h3>request</h3>
     <p class="muted"><code>src/node/http/validatePublicHttpsUrlAsync.test.ts:70:11</code></p>
     <p class="empty">No description available.</p>
-    
-  </article><article class="item" data-search="lookup src/node/http/validatePublicHttpsUrlAsync.test.ts ">
+</article><article class="item" data-search="lookup src/node/http/validatePublicHttpsUrlAsync.test.ts ">
     <h3>lookup</h3>
     <p class="muted"><code>src/node/http/validatePublicHttpsUrlAsync.test.ts:90:11</code></p>
     <p class="empty">No description available.</p>
-    
-  </article><article class="item" data-search="request src/node/http/validatePublicHttpsUrlAsync.test.ts ">
+</article><article class="item" data-search="request src/node/http/validatePublicHttpsUrlAsync.test.ts ">
     <h3>request</h3>
     <p class="muted"><code>src/node/http/validatePublicHttpsUrlAsync.test.ts:96:11</code></p>
     <p class="empty">No description available.</p>
-    
-  </article><article class="item" data-search="request src/node/http/validatePublicHttpsUrlAsync.test.ts ">
+</article><article class="item" data-search="request src/node/http/validatePublicHttpsUrlAsync.test.ts ">
     <h3>request</h3>
     <p class="muted"><code>src/node/http/validatePublicHttpsUrlAsync.test.ts:112:11</code></p>
     <p class="empty">No description available.</p>
-    
-  </article><article class="item" data-search="request src/node/http/validatePublicHttpsUrlAsync.test.ts ">
+</article><article class="item" data-search="request src/node/http/validatePublicHttpsUrlAsync.test.ts ">
     <h3>request</h3>
     <p class="muted"><code>src/node/http/validatePublicHttpsUrlAsync.test.ts:129:11</code></p>
     <p class="empty">No description available.</p>
-    
-  </article><article class="item" data-search="readRejectionMessageAsync src/node/http/validatePublicHttpsUrlAsync.test.ts Returns the error message produced by a rejected validation promise.">
+</article><article class="item" data-search="readRejectionMessageAsync src/node/http/validatePublicHttpsUrlAsync.test.ts Returns the error message produced by a rejected validation promise.">
     <h3>readRejectionMessageAsync</h3>
     <p class="muted"><code>src/node/http/validatePublicHttpsUrlAsync.test.ts:143:1</code></p>
     <p>Returns the error message produced by a rejected validation promise.</p>
-    
-  </article><article class="item" data-search="unexpectedRequest src/node/http/validatePublicHttpsUrlAsync.test.ts Fails a test when validation reaches the request boundary unexpectedly.">
+</article><article class="item" data-search="unexpectedRequest src/node/http/validatePublicHttpsUrlAsync.test.ts Fails a test when validation reaches the request boundary unexpectedly.">
     <h3>unexpectedRequest</h3>
     <p class="muted"><code>src/node/http/validatePublicHttpsUrlAsync.test.ts:155:1</code></p>
     <p>Fails a test when validation reaches the request boundary unexpectedly.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-node-http-validatepublichttpsurlasync-ts" class="view" data-view="src/node/http/validatePublicHttpsUrlAsync.ts" hidden>
     <section class="panel">
@@ -8778,44 +8674,36 @@ Runtime is bounded by at most 64 predicate evaluations after the endpoint checks
     <p class="muted"><code>src/node/http/validatePublicHttpsUrlAsync.ts:34:1</code></p>
     <p>Validates that a URL is reachable through public HTTPS without allowing requests to private
 network targets or unsafe redirect destinations.</p>
-    
-  </article><article class="item" data-search="validateHopAsync src/node/http/validatePublicHttpsUrlAsync.ts Validates one URL hop and recursively validates each redirect before requesting it.">
+</article><article class="item" data-search="validateHopAsync src/node/http/validatePublicHttpsUrlAsync.ts Validates one URL hop and recursively validates each redirect before requesting it.">
     <h3>validateHopAsync</h3>
     <p class="muted"><code>src/node/http/validatePublicHttpsUrlAsync.ts:61:1</code></p>
     <p>Validates one URL hop and recursively validates each redirect before requesting it.</p>
-    
-  </article><article class="item" data-search="resolvePublicTargetAsync src/node/http/validatePublicHttpsUrlAsync.ts Parses and resolves one HTTPS target while rejecting credentials, local names, and non-public IPs.">
+</article><article class="item" data-search="resolvePublicTargetAsync src/node/http/validatePublicHttpsUrlAsync.ts Parses and resolves one HTTPS target while rejecting credentials, local names, and non-public IPs.">
     <h3>resolvePublicTargetAsync</h3>
     <p class="muted"><code>src/node/http/validatePublicHttpsUrlAsync.ts:94:1</code></p>
     <p>Parses and resolves one HTTPS target while rejecting credentials, local names, and non-public IPs.</p>
-    
-  </article><article class="item" data-search="parsePublicHttpsUrl src/node/http/validatePublicHttpsUrlAsync.ts Parses the public HTTPS URL syntax accepted by the hardened validator.">
+</article><article class="item" data-search="parsePublicHttpsUrl src/node/http/validatePublicHttpsUrlAsync.ts Parses the public HTTPS URL syntax accepted by the hardened validator.">
     <h3>parsePublicHttpsUrl</h3>
     <p class="muted"><code>src/node/http/validatePublicHttpsUrlAsync.ts:136:1</code></p>
     <p>Parses the public HTTPS URL syntax accepted by the hardened validator.</p>
-    
-  </article><article class="item" data-search="normalizeHostname src/node/http/validatePublicHttpsUrlAsync.ts Normalizes bracketed IPv6 URL hostnames for IP classification and DNS policy.">
+</article><article class="item" data-search="normalizeHostname src/node/http/validatePublicHttpsUrlAsync.ts Normalizes bracketed IPv6 URL hostnames for IP classification and DNS policy.">
     <h3>normalizeHostname</h3>
     <p class="muted"><code>src/node/http/validatePublicHttpsUrlAsync.ts:150:1</code></p>
     <p>Normalizes bracketed IPv6 URL hostnames for IP classification and DNS policy.</p>
-    
-  </article><article class="item" data-search="isBlockedHostname src/node/http/validatePublicHttpsUrlAsync.ts Rejects names reserved for local, example, testing, or internal resolution.">
+</article><article class="item" data-search="isBlockedHostname src/node/http/validatePublicHttpsUrlAsync.ts Rejects names reserved for local, example, testing, or internal resolution.">
     <h3>isBlockedHostname</h3>
     <p class="muted"><code>src/node/http/validatePublicHttpsUrlAsync.ts:157:1</code></p>
     <p>Rejects names reserved for local, example, testing, or internal resolution.</p>
-    
-  </article><article class="item" data-search="lookupPublicAddressesAsync src/node/http/validatePublicHttpsUrlAsync.ts Resolves all addresses for a hostname without applying a local search-domain policy.">
+</article><article class="item" data-search="lookupPublicAddressesAsync src/node/http/validatePublicHttpsUrlAsync.ts Resolves all addresses for a hostname without applying a local search-domain policy.">
     <h3>lookupPublicAddressesAsync</h3>
     <p class="muted"><code>src/node/http/validatePublicHttpsUrlAsync.ts:168:1</code></p>
     <p>Resolves all addresses for a hostname without applying a local search-domain policy.</p>
-    
-  </article><article class="item" data-search="requestPinnedHttpsAsync src/node/http/validatePublicHttpsUrlAsync.ts Performs an HTTPS request pinned to the previously validated address so DNS cannot change&#10;between validation and connection establishment.">
+</article><article class="item" data-search="requestPinnedHttpsAsync src/node/http/validatePublicHttpsUrlAsync.ts Performs an HTTPS request pinned to the previously validated address so DNS cannot change&#10;between validation and connection establishment.">
     <h3>requestPinnedHttpsAsync</h3>
     <p class="muted"><code>src/node/http/validatePublicHttpsUrlAsync.ts:183:1</code></p>
     <p>Performs an HTTPS request pinned to the previously validated address so DNS cannot change
 between validation and connection establishment.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-node-net-ispublicipaddress-ts" class="view" data-view="src/node/net/isPublicIpAddress.ts" hidden>
     <section class="panel">
@@ -8824,8 +8712,7 @@ between validation and connection establishment.</p>
     <h3>isPublicIpAddress</h3>
     <p class="muted"><code>src/node/net/isPublicIpAddress.ts:48:1</code></p>
     <p>Returns whether an IPv4 or IPv6 address is globally routable enough for untrusted outbound access.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-node-net-reservetcpport-ts" class="view" data-view="src/node/net/reserveTcpPort.ts" hidden>
     <section class="panel">
@@ -8834,8 +8721,7 @@ between validation and connection establishment.</p>
     <h3>reserveTcpPort</h3>
     <p class="muted"><code>src/node/net/reserveTcpPort.ts:4:1</code></p>
     <p>Ask the operating system for an available TCP port and release it before resolving.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-node-package-listnodemodulesrootsasync-ts" class="view" data-view="src/node/package/listNodeModulesRootsAsync.ts" hidden>
     <section class="panel">
@@ -8844,13 +8730,11 @@ between validation and connection establishment.</p>
     <h3>listNodeModulesRootsAsync</h3>
     <p class="muted"><code>src/node/package/listNodeModulesRootsAsync.ts:8:1</code></p>
     <p>Discover physical node_modules roots through nested packages and Bun&#39;s package store.</p>
-    
-  </article><article class="item" data-search="findNestedNodeModulesPathsAsync src/node/package/listNodeModulesRootsAsync.ts Find nested node_modules paths for installed packages and Bun store entries.">
+</article><article class="item" data-search="findNestedNodeModulesPathsAsync src/node/package/listNodeModulesRootsAsync.ts Find nested node_modules paths for installed packages and Bun store entries.">
     <h3>findNestedNodeModulesPathsAsync</h3>
     <p class="muted"><code>src/node/package/listNodeModulesRootsAsync.ts:28:1</code></p>
     <p>Find nested node_modules paths for installed packages and Bun store entries.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-node-package-readpackagejsonasync-ts" class="view" data-view="src/node/package/readPackageJsonAsync.ts" hidden>
     <section class="panel">
@@ -8859,8 +8743,7 @@ between validation and connection establishment.</p>
     <h3>readPackageJsonAsync</h3>
     <p class="muted"><code>src/node/package/readPackageJsonAsync.ts:6:1</code></p>
     <p>Read package.json as a record without assuming a package-specific schema.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-node-path-findancestordirectory-ts" class="view" data-view="src/node/path/findAncestorDirectory.ts" hidden>
     <section class="panel">
@@ -8869,8 +8752,7 @@ between validation and connection establishment.</p>
     <h3>findAncestorDirectory</h3>
     <p class="muted"><code>src/node/path/findAncestorDirectory.ts:4:1</code></p>
     <p>Walk parent directories from a start path and return the first directory accepted by a predicate.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-node-path-ispathinsideresolved-ts" class="view" data-view="src/node/path/isPathInsideResolved.ts" hidden>
     <section class="panel">
@@ -8879,8 +8761,7 @@ between validation and connection establishment.</p>
     <h3>isPathInsideResolved</h3>
     <p class="muted"><code>src/node/path/isPathInsideResolved.ts:4:1</code></p>
     <p>Check strict containment between two already-resolved filesystem paths.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-node-path-normalizeportablepath-ts" class="view" data-view="src/node/path/normalizePortablePath.ts" hidden>
     <section class="panel">
@@ -8889,8 +8770,7 @@ between validation and connection establishment.</p>
     <h3>normalizePortablePath</h3>
     <p class="muted"><code>src/node/path/normalizePortablePath.ts:4:1</code></p>
     <p>Normalize filesystem separators and dot segments to a portable POSIX-style path.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-node-path-resolveinstalledpackageprovenanceasync-ts" class="view" data-view="src/node/path/resolveInstalledPackageProvenanceAsync.ts" hidden>
     <section class="panel">
@@ -8899,8 +8779,7 @@ between validation and connection establishment.</p>
     <h3>resolveInstalledPackageProvenanceAsync</h3>
     <p class="muted"><code>src/node/path/resolveInstalledPackageProvenanceAsync.ts:4:1</code></p>
     <p>Resolve both sides of a package provenance check through the filesystem.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-node-path-resolvemodulerelativepath-ts" class="view" data-view="src/node/path/resolveModuleRelativePath.ts" hidden>
     <section class="panel">
@@ -8909,8 +8788,7 @@ between validation and connection establishment.</p>
     <h3>resolveModuleRelativePath</h3>
     <p class="muted"><code>src/node/path/resolveModuleRelativePath.ts:5:1</code></p>
     <p>Resolve a filesystem path relative to the directory containing a module URL.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-node-path-resolvepackageroot-ts" class="view" data-view="src/node/path/resolvePackageRoot.ts" hidden>
     <section class="panel">
@@ -8919,8 +8797,7 @@ between validation and connection establishment.</p>
     <h3>resolvePackageRoot</h3>
     <p class="muted"><code>src/node/path/resolvePackageRoot.ts:4:1</code></p>
     <p>Resolve a package root relative to a module URL using a configurable ascent path.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-node-path-resolvepathwithinroot-ts" class="view" data-view="src/node/path/resolvePathWithinRoot.ts" hidden>
     <section class="panel">
@@ -8929,8 +8806,7 @@ between validation and connection establishment.</p>
     <h3>resolvePathWithinRoot</h3>
     <p class="muted"><code>src/node/path/resolvePathWithinRoot.ts:4:1</code></p>
     <p>Resolve a relative path beneath a root while rejecting absolute, escaping, and optionally root-self paths.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-node-path-toportablepath-ts" class="view" data-view="src/node/path/toPortablePath.ts" hidden>
     <section class="panel">
@@ -8939,8 +8815,7 @@ between validation and connection establishment.</p>
     <h3>toPortablePath</h3>
     <p class="muted"><code>src/node/path/toPortablePath.ts:2:1</code></p>
     <p>Convert backslash path separators to portable forward slashes without normalizing path segments.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-node-path-torelativeimportpath-ts" class="view" data-view="src/node/path/toRelativeImportPath.ts" hidden>
     <section class="panel">
@@ -8949,8 +8824,7 @@ between validation and connection establishment.</p>
     <h3>toRelativeImportPath</h3>
     <p class="muted"><code>src/node/path/toRelativeImportPath.ts:4:1</code></p>
     <p>Convert a relative filesystem path to a portable relative module import path.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-node-process-collectprocessoutput-ts" class="view" data-view="src/node/process/collectProcessOutput.ts" hidden>
     <section class="panel">
@@ -8959,8 +8833,7 @@ between validation and connection establishment.</p>
     <h3>collectProcessOutput</h3>
     <p class="muted"><code>src/node/process/collectProcessOutput.ts:4:1</code></p>
     <p>Collect stdout and stderr chunks from a child process into one ordered string buffer.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-node-process-openbrowser-ts" class="view" data-view="src/node/process/openBrowser.ts" hidden>
     <section class="panel">
@@ -8969,13 +8842,11 @@ between validation and connection establishment.</p>
     <h3>openBrowser</h3>
     <p class="muted"><code>src/node/process/openBrowser.ts:6:1</code></p>
     <p>Open an HTTP(S) URL with the platform browser without invoking a command shell.</p>
-    
-  </article><article class="item" data-search="resolveBrowserCommand src/node/process/openBrowser.ts Resolve the fixed platform executable and argument vector for one browser URL.">
+</article><article class="item" data-search="resolveBrowserCommand src/node/process/openBrowser.ts Resolve the fixed platform executable and argument vector for one browser URL.">
     <h3>resolveBrowserCommand</h3>
     <p class="muted"><code>src/node/process/openBrowser.ts:22:1</code></p>
     <p>Resolve the fixed platform executable and argument vector for one browser URL.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-node-process-resolveprojectownedexecutableasync-ts" class="view" data-view="src/node/process/resolveProjectOwnedExecutableAsync.ts" hidden>
     <section class="panel">
@@ -8984,8 +8855,7 @@ between validation and connection establishment.</p>
     <h3>resolveProjectOwnedExecutableAsync</h3>
     <p class="muted"><code>src/node/process/resolveProjectOwnedExecutableAsync.ts:5:1</code></p>
     <p>Resolve an executable installed inside a project&#39;s own node_modules binary directory.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-node-process-runprocesswithtimeout-ts" class="view" data-view="src/node/process/runProcessWithTimeout.ts" hidden>
     <section class="panel">
@@ -8994,48 +8864,39 @@ between validation and connection establishment.</p>
     <h3>runProcessWithTimeout</h3>
     <p class="muted"><code>src/node/process/runProcessWithTimeout.ts:29:1</code></p>
     <p>Run a child process with bounded spawn/runtime timeouts and SIGTERM/SIGKILL escalation.</p>
-    
-  </article><article class="item" data-search="createProcessLifecycle src/node/process/runProcessWithTimeout.ts Create the mutable state owned by one spawned-process lifecycle boundary.">
+</article><article class="item" data-search="createProcessLifecycle src/node/process/runProcessWithTimeout.ts Create the mutable state owned by one spawned-process lifecycle boundary.">
     <h3>createProcessLifecycle</h3>
     <p class="muted"><code>src/node/process/runProcessWithTimeout.ts:41:1</code></p>
     <p>Create the mutable state owned by one spawned-process lifecycle boundary.</p>
-    
-  </article><article class="item" data-search="bindProcessLifecycle src/node/process/runProcessWithTimeout.ts Bind process lifecycle events to the bounded timeout coordinator.">
+</article><article class="item" data-search="bindProcessLifecycle src/node/process/runProcessWithTimeout.ts Bind process lifecycle events to the bounded timeout coordinator.">
     <h3>bindProcessLifecycle</h3>
     <p class="muted"><code>src/node/process/runProcessWithTimeout.ts:55:1</code></p>
     <p>Bind process lifecycle events to the bounded timeout coordinator.</p>
-    
-  </article><article class="item" data-search="handleProcessSpawn src/node/process/runProcessWithTimeout.ts Replace the spawn deadline with the hard runtime deadline after the process starts.">
+</article><article class="item" data-search="handleProcessSpawn src/node/process/runProcessWithTimeout.ts Replace the spawn deadline with the hard runtime deadline after the process starts.">
     <h3>handleProcessSpawn</h3>
     <p class="muted"><code>src/node/process/runProcessWithTimeout.ts:64:1</code></p>
     <p>Replace the spawn deadline with the hard runtime deadline after the process starts.</p>
-    
-  </article><article class="item" data-search="rejectProcessTimeout src/node/process/runProcessWithTimeout.ts Terminate an overdue process with SIGTERM/SIGKILL escalation and reject its lifecycle.">
+</article><article class="item" data-search="rejectProcessTimeout src/node/process/runProcessWithTimeout.ts Terminate an overdue process with SIGTERM/SIGKILL escalation and reject its lifecycle.">
     <h3>rejectProcessTimeout</h3>
     <p class="muted"><code>src/node/process/runProcessWithTimeout.ts:74:1</code></p>
     <p>Terminate an overdue process with SIGTERM/SIGKILL escalation and reject its lifecycle.</p>
-    
-  </article><article class="item" data-search="rejectProcessError src/node/process/runProcessWithTimeout.ts Normalize a child-process spawn error and reject the lifecycle once.">
+</article><article class="item" data-search="rejectProcessError src/node/process/runProcessWithTimeout.ts Normalize a child-process spawn error and reject the lifecycle once.">
     <h3>rejectProcessError</h3>
     <p class="muted"><code>src/node/process/runProcessWithTimeout.ts:94:1</code></p>
     <p>Normalize a child-process spawn error and reject the lifecycle once.</p>
-    
-  </article><article class="item" data-search="settleProcessClose src/node/process/runProcessWithTimeout.ts Resolve or reject one process lifecycle from its final exit code or signal.">
+</article><article class="item" data-search="settleProcessClose src/node/process/runProcessWithTimeout.ts Resolve or reject one process lifecycle from its final exit code or signal.">
     <h3>settleProcessClose</h3>
     <p class="muted"><code>src/node/process/runProcessWithTimeout.ts:104:1</code></p>
     <p>Resolve or reject one process lifecycle from its final exit code or signal.</p>
-    
-  </article><article class="item" data-search="rejectProcessOnce src/node/process/runProcessWithTimeout.ts Reject a process lifecycle once and clear all timers owned by it.">
+</article><article class="item" data-search="rejectProcessOnce src/node/process/runProcessWithTimeout.ts Reject a process lifecycle once and clear all timers owned by it.">
     <h3>rejectProcessOnce</h3>
     <p class="muted"><code>src/node/process/runProcessWithTimeout.ts:129:1</code></p>
     <p>Reject a process lifecycle once and clear all timers owned by it.</p>
-    
-  </article><article class="item" data-search="clearProcessTimers src/node/process/runProcessWithTimeout.ts Clear every timeout owned by one spawned-process lifecycle.">
+</article><article class="item" data-search="clearProcessTimers src/node/process/runProcessWithTimeout.ts Clear every timeout owned by one spawned-process lifecycle.">
     <h3>clearProcessTimers</h3>
     <p class="muted"><code>src/node/process/runProcessWithTimeout.ts:137:1</code></p>
     <p>Clear every timeout owned by one spawned-process lifecycle.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-node-process-stopprocess-ts" class="view" data-view="src/node/process/stopProcess.ts" hidden>
     <section class="panel">
@@ -9044,8 +8905,7 @@ between validation and connection establishment.</p>
     <h3>stopProcess</h3>
     <p class="muted"><code>src/node/process/stopProcess.ts:4:1</code></p>
     <p>Stop a child-process group when possible and fall back to stopping the child process itself.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-number-formatbytes-ts" class="view" data-view="src/number/formatBytes.ts" hidden>
     <section class="panel">
@@ -9054,13 +8914,11 @@ between validation and connection establishment.</p>
     <h3>formatBytes</h3>
     <p class="muted"><code>src/number/formatBytes.ts:4:1</code></p>
     <p>Formats a byte count with binary units and at most one fractional digit.</p>
-    
-  </article><article class="item" data-search="resolveByteUnitIndex src/number/formatBytes.ts Resolves the largest supported binary unit for a positive byte count.">
+</article><article class="item" data-search="resolveByteUnitIndex src/number/formatBytes.ts Resolves the largest supported binary unit for a positive byte count.">
     <h3>resolveByteUnitIndex</h3>
     <p class="muted"><code>src/number/formatBytes.ts:16:1</code></p>
     <p>Resolves the largest supported binary unit for a positive byte count.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-number-parsefinitenumber-ts" class="view" data-view="src/number/parseFiniteNumber.ts" hidden>
     <section class="panel">
@@ -9069,8 +8927,7 @@ between validation and connection establishment.</p>
     <h3>parseFiniteNumber</h3>
     <p class="muted"><code>src/number/parseFiniteNumber.ts:2:1</code></p>
     <p>Parse a finite number from a string, returning null for blank or invalid input.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-number-parsenonnegativenumber-ts" class="view" data-view="src/number/parseNonNegativeNumber.ts" hidden>
     <section class="panel">
@@ -9079,8 +8936,7 @@ between validation and connection establishment.</p>
     <h3>parseNonNegativeNumber</h3>
     <p class="muted"><code>src/number/parseNonNegativeNumber.ts:4:1</code></p>
     <p>Parse a finite non-negative number from a string, returning null for blank, invalid, or negative input.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-number-parsetcpport-ts" class="view" data-view="src/number/parseTcpPort.ts" hidden>
     <section class="panel">
@@ -9089,8 +8945,7 @@ between validation and connection establishment.</p>
     <h3>parseTcpPort</h3>
     <p class="muted"><code>src/number/parseTcpPort.ts:2:1</code></p>
     <p>Parse a valid TCP port number from an optional string.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-object-asrecord-ts" class="view" data-view="src/object/asRecord.ts" hidden>
     <section class="panel">
@@ -9099,8 +8954,7 @@ between validation and connection establishment.</p>
     <h3>asRecord</h3>
     <p class="muted"><code>src/object/asRecord.ts:4:1</code></p>
     <p>Narrow an unknown value to a record, or return undefined when it is not one.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-object-assertnonestedkeys-ts" class="view" data-view="src/object/assertNoNestedKeys.ts" hidden>
     <section class="panel">
@@ -9109,8 +8963,7 @@ between validation and connection establishment.</p>
     <h3>assertNoNestedKeys</h3>
     <p class="muted"><code>src/object/assertNoNestedKeys.ts:4:1</code></p>
     <p>Throw when an unknown nested value contains any forbidden record key.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-object-deepmerge-ts" class="view" data-view="src/object/deepMerge.ts" hidden>
     <section class="panel">
@@ -9119,13 +8972,11 @@ between validation and connection establishment.</p>
     <h3>deepMerge</h3>
     <p class="muted"><code>src/object/deepMerge.ts:5:1</code></p>
     <p>Deeply merge defined source values into a target record without mutating either input.</p>
-    
-  </article><article class="item" data-search="mergeValue src/object/deepMerge.ts Merge two unknown values, recursively combining records and replacing all other values.">
+</article><article class="item" data-search="mergeValue src/object/deepMerge.ts Merge two unknown values, recursively combining records and replacing all other values.">
     <h3>mergeValue</h3>
     <p class="muted"><code>src/object/deepMerge.ts:10:1</code></p>
     <p>Merge two unknown values, recursively combining records and replacing all other values.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-object-deleteownproperty-ts" class="view" data-view="src/object/deleteOwnProperty.ts" hidden>
     <section class="panel">
@@ -9134,8 +8985,7 @@ between validation and connection establishment.</p>
     <h3>deleteOwnProperty</h3>
     <p class="muted"><code>src/object/deleteOwnProperty.ts:2:1</code></p>
     <p>Delete an own property when present and report whether the deletion succeeded.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-object-findnestedkey-ts" class="view" data-view="src/object/findNestedKey.ts" hidden>
     <section class="panel">
@@ -9144,8 +8994,7 @@ between validation and connection establishment.</p>
     <h3>findNestedKey</h3>
     <p class="muted"><code>src/object/findNestedKey.ts:9:1</code></p>
     <p>Return the first nested record key contained in a forbidden-key set, including its traversal path.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-object-findownpropertyvalue-ts" class="view" data-view="src/object/findOwnPropertyValue.ts" hidden>
     <section class="panel">
@@ -9154,8 +9003,7 @@ between validation and connection establishment.</p>
     <h3>findOwnPropertyValue</h3>
     <p class="muted"><code>src/object/findOwnPropertyValue.ts:2:1</code></p>
     <p>Return the first own property value accepted by a predicate from an ordered key list.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-object-hasonlykeys-ts" class="view" data-view="src/object/hasOnlyKeys.ts" hidden>
     <section class="panel">
@@ -9164,8 +9012,7 @@ between validation and connection establishment.</p>
     <h3>hasOnlyKeys</h3>
     <p class="muted"><code>src/object/hasOnlyKeys.ts:2:1</code></p>
     <p>Return whether every own enumerable string key belongs to the allowed key set.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-object-isdeepequal-ts" class="view" data-view="src/object/isDeepEqual.ts" hidden>
     <section class="panel">
@@ -9174,8 +9021,7 @@ between validation and connection establishment.</p>
     <h3>isDeepEqual</h3>
     <p class="muted"><code>src/object/isDeepEqual.ts:5:1</code></p>
     <p>Compare unknown values recursively using structural equality for arrays and records.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-object-isemptyrecord-ts" class="view" data-view="src/object/isEmptyRecord.ts" hidden>
     <section class="panel">
@@ -9184,8 +9030,7 @@ between validation and connection establishment.</p>
     <h3>isEmptyRecord</h3>
     <p class="muted"><code>src/object/isEmptyRecord.ts:2:1</code></p>
     <p>Return whether a record has no own enumerable string keys.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-object-isrecord-ts" class="view" data-view="src/object/isRecord.ts" hidden>
     <section class="panel">
@@ -9194,8 +9039,7 @@ between validation and connection establishment.</p>
     <h3>isRecord</h3>
     <p class="muted"><code>src/object/isRecord.ts:2:1</code></p>
     <p>Return whether an unknown value is a non-null, non-array record.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-object-isrecordof-ts" class="view" data-view="src/object/isRecordOf.ts" hidden>
     <section class="panel">
@@ -9204,8 +9048,7 @@ between validation and connection establishment.</p>
     <h3>isRecordOf</h3>
     <p class="muted"><code>src/object/isRecordOf.ts:4:1</code></p>
     <p>Narrow an unknown value to a record whose values all satisfy the supplied predicate.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-object-readownproperty-ts" class="view" data-view="src/object/readOwnProperty.ts" hidden>
     <section class="panel">
@@ -9214,8 +9057,7 @@ between validation and connection establishment.</p>
     <h3>readOwnProperty</h3>
     <p class="muted"><code>src/object/readOwnProperty.ts:2:1</code></p>
     <p>Read an own property without traversing the prototype chain.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-object-setownproperty-ts" class="view" data-view="src/object/setOwnProperty.ts" hidden>
     <section class="panel">
@@ -9224,8 +9066,7 @@ between validation and connection establishment.</p>
     <h3>setOwnProperty</h3>
     <p class="muted"><code>src/object/setOwnProperty.ts:2:1</code></p>
     <p>Define an enumerable, writable, configurable own data property on an object.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-object-walknestedvalues-ts" class="view" data-view="src/object/walkNestedValues.ts" hidden>
     <section class="panel">
@@ -9234,13 +9075,11 @@ between validation and connection establishment.</p>
     <h3>walkNestedValues</h3>
     <p class="muted"><code>src/object/walkNestedValues.ts:8:1</code></p>
     <p>Walk an unknown array/record graph depth-first while preventing object cycles.</p>
-    
-  </article><article class="item" data-search="walk src/object/walkNestedValues.ts Visit one nested value and recursively traverse its children when it is an unseen object.">
+</article><article class="item" data-search="walk src/object/walkNestedValues.ts Visit one nested value and recursively traverse its children when it is an unseen object.">
     <h3>walk</h3>
     <p class="muted"><code>src/object/walkNestedValues.ts:16:3</code></p>
     <p>Visit one nested value and recursively traverse its children when it is an unseen object.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-object-withoptionalownproperty-ts" class="view" data-view="src/object/withOptionalOwnProperty.ts" hidden>
     <section class="panel">
@@ -9249,8 +9088,7 @@ between validation and connection establishment.</p>
     <h3>withOptionalOwnProperty</h3>
     <p class="muted"><code>src/object/withOptionalOwnProperty.ts:5:1</code></p>
     <p>Return a shallow copy that removes a property for undefined or sets it for a defined value.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-object-withoutownproperty-ts" class="view" data-view="src/object/withoutOwnProperty.ts" hidden>
     <section class="panel">
@@ -9259,8 +9097,7 @@ between validation and connection establishment.</p>
     <h3>withoutOwnProperty</h3>
     <p class="muted"><code>src/object/withoutOwnProperty.ts:2:1</code></p>
     <p>Return a shallow copy without one own property.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-object-withownproperty-ts" class="view" data-view="src/object/withOwnProperty.ts" hidden>
     <section class="panel">
@@ -9269,8 +9106,7 @@ between validation and connection establishment.</p>
     <h3>withOwnProperty</h3>
     <p class="muted"><code>src/object/withOwnProperty.ts:2:1</code></p>
     <p>Return a shallow copy with one own property set to a supplied value.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-observer-createobservedsetcoordinator-ts" class="view" data-view="src/observer/createObservedSetCoordinator.ts" hidden>
     <section class="panel">
@@ -9279,18 +9115,15 @@ between validation and connection establishment.</p>
     <h3>createObservedSetCoordinator</h3>
     <p class="muted"><code>src/observer/createObservedSetCoordinator.ts:4:1</code></p>
     <p>Synchronize an observer against a desired set using only required observe and unobserve calls.</p>
-    
-  </article><article class="item" data-search="disconnect src/observer/createObservedSetCoordinator.ts Disconnect the underlying observer once and clear tracked values.">
+</article><article class="item" data-search="disconnect src/observer/createObservedSetCoordinator.ts Disconnect the underlying observer once and clear tracked values.">
     <h3>disconnect</h3>
     <p class="muted"><code>src/observer/createObservedSetCoordinator.ts:11:3</code></p>
     <p>Disconnect the underlying observer once and clear tracked values.</p>
-    
-  </article><article class="item" data-search="sync src/observer/createObservedSetCoordinator.ts Diff desired values against observed values and apply only required observer changes.">
+</article><article class="item" data-search="sync src/observer/createObservedSetCoordinator.ts Diff desired values against observed values and apply only required observer changes.">
     <h3>sync</h3>
     <p class="muted"><code>src/observer/createObservedSetCoordinator.ts:19:3</code></p>
     <p>Diff desired values against observed values and apply only required observer changes.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-package-findpackagescript-ts" class="view" data-view="src/package/findPackageScript.ts" hidden>
     <section class="panel">
@@ -9299,8 +9132,7 @@ between validation and connection establishment.</p>
     <h3>findPackageScript</h3>
     <p class="muted"><code>src/package/findPackageScript.ts:2:1</code></p>
     <p>Find a named script in a partial package scripts record.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-package-readdependencyrange-ts" class="view" data-view="src/package/readDependencyRange.ts" hidden>
     <section class="panel">
@@ -9309,8 +9141,7 @@ between validation and connection establishment.</p>
     <h3>readDependencyRange</h3>
     <p class="muted"><code>src/package/readDependencyRange.ts:5:1</code></p>
     <p>Read a package dependency range from one declared dependency group.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-react-native-measurement-isnativemeasurableview-ts" class="view" data-view="src/react-native/measurement/isNativeMeasurableView.ts" hidden>
     <section class="panel">
@@ -9319,8 +9150,7 @@ between validation and connection establishment.</p>
     <h3>isNativeMeasurableView</h3>
     <p class="muted"><code>src/react-native/measurement/isNativeMeasurableView.ts:4:1</code></p>
     <p>Detect a React-Native-like view that exposes `measureInWindow`.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-react-native-measurement-measurecrossplatformview-ts" class="view" data-view="src/react-native/measurement/measureCrossPlatformView.ts" hidden>
     <section class="panel">
@@ -9329,8 +9159,7 @@ between validation and connection establishment.</p>
     <h3>measureCrossPlatformView</h3>
     <p class="muted"><code>src/react-native/measurement/measureCrossPlatformView.ts:8:1</code></p>
     <p>Measure an unknown cross-platform view using web geometry on web and native window measurement otherwise.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-react-native-measurement-measurenativeview-ts" class="view" data-view="src/react-native/measurement/measureNativeView.ts" hidden>
     <section class="panel">
@@ -9339,8 +9168,7 @@ between validation and connection establishment.</p>
     <h3>measureNativeView</h3>
     <p class="muted"><code>src/react-native/measurement/measureNativeView.ts:5:1</code></p>
     <p>Measure a React-Native-like view in window coordinates and reject zero-area results.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-react-native-web-resolvewebresizetarget-ts" class="view" data-view="src/react-native/web/resolveWebResizeTarget.ts" hidden>
     <section class="panel">
@@ -9349,8 +9177,7 @@ between validation and connection establishment.</p>
     <h3>resolveWebResizeTarget</h3>
     <p class="muted"><code>src/react-native/web/resolveWebResizeTarget.ts:2:1</code></p>
     <p>Resolve an unknown view to a resize target only for web execution and when a caller-provided guard accepts it.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-regex-escaperegexp-ts" class="view" data-view="src/regex/escapeRegExp.ts" hidden>
     <section class="panel">
@@ -9359,8 +9186,7 @@ between validation and connection establishment.</p>
     <h3>escapeRegExp</h3>
     <p class="muted"><code>src/regex/escapeRegExp.ts:2:1</code></p>
     <p>Escapes a literal string so it can be safely embedded in a regular-expression source.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-regex-isemail-ts" class="view" data-view="src/regex/isEmail.ts" hidden>
     <section class="panel">
@@ -9369,13 +9195,11 @@ between validation and connection establishment.</p>
     <h3>isEmail</h3>
     <p class="muted"><code>src/regex/isEmail.ts:7:1</code></p>
     <p>Return whether a string satisfies Utility&#39;s conservative email-address shape validation.</p>
-    
-  </article><article class="item" data-search="isInvalidDomainLabel src/regex/isEmail.ts Return whether one email domain label violates Utility&#39;s domain-label constraints.">
+</article><article class="item" data-search="isInvalidDomainLabel src/regex/isEmail.ts Return whether one email domain label violates Utility&#39;s domain-label constraints.">
     <h3>isInvalidDomainLabel</h3>
     <p class="muted"><code>src/regex/isEmail.ts:32:1</code></p>
     <p>Return whether one email domain label violates Utility&#39;s domain-label constraints.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-regex-ishttpurl-ts" class="view" data-view="src/regex/isHttpUrl.ts" hidden>
     <section class="panel">
@@ -9384,8 +9208,7 @@ between validation and connection establishment.</p>
     <h3>isHttpUrl</h3>
     <p class="muted"><code>src/regex/isHttpUrl.ts:4:1</code></p>
     <p>Return whether a string is a non-empty HTTP or HTTPS URL with a hostname.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-regex-isphone-ts" class="view" data-view="src/regex/isPhone.ts" hidden>
     <section class="panel">
@@ -9394,13 +9217,11 @@ between validation and connection establishment.</p>
     <h3>isPhone</h3>
     <p class="muted"><code>src/regex/isPhone.ts:6:1</code></p>
     <p>Return whether a string has a plausible international phone-number shape.</p>
-    
-  </article><article class="item" data-search="hasBalancedParentheses src/regex/isPhone.ts Return whether a phone string contains at most one balanced parenthesized group.">
+</article><article class="item" data-search="hasBalancedParentheses src/regex/isPhone.ts Return whether a phone string contains at most one balanced parenthesized group.">
     <h3>hasBalancedParentheses</h3>
     <p class="muted"><code>src/regex/isPhone.ts:22:1</code></p>
     <p>Return whether a phone string contains at most one balanced parenthesized group.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-regex-isusername-ts" class="view" data-view="src/regex/isUsername.ts" hidden>
     <section class="panel">
@@ -9409,8 +9230,7 @@ between validation and connection establishment.</p>
     <h3>isUsername</h3>
     <p class="muted"><code>src/regex/isUsername.ts:6:1</code></p>
     <p>Return whether a string satisfies Utility&#39;s username character and length policy.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-registry-createkeyedmultivalueregistry-ts" class="view" data-view="src/registry/createKeyedMultiValueRegistry.ts" hidden>
     <section class="panel">
@@ -9419,13 +9239,11 @@ between validation and connection establishment.</p>
     <h3>createKeyedMultiValueRegistry</h3>
     <p class="muted"><code>src/registry/createKeyedMultiValueRegistry.ts:4:1</code></p>
     <p>Create a keyed multi-value registry with idempotent unregister callbacks and optional change notifications.</p>
-    
-  </article><article class="item" data-search="register src/registry/createKeyedMultiValueRegistry.ts Register one value under a key and return an idempotent unregister callback.">
+</article><article class="item" data-search="register src/registry/createKeyedMultiValueRegistry.ts Register one value under a key and return an idempotent unregister callback.">
     <h3>register</h3>
     <p class="muted"><code>src/registry/createKeyedMultiValueRegistry.ts:10:3</code></p>
     <p>Register one value under a key and return an idempotent unregister callback.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-registry-createkeyedvaluestore-ts" class="view" data-view="src/registry/createKeyedValueStore.ts" hidden>
     <section class="panel">
@@ -9434,13 +9252,11 @@ between validation and connection establishment.</p>
     <h3>createKeyedValueStore</h3>
     <p class="muted"><code>src/registry/createKeyedValueStore.ts:4:1</code></p>
     <p>Create an in-memory keyed value store with replacement semantics and predicate-based delete-and-return support.</p>
-    
-  </article><article class="item" data-search="deleteWhere src/registry/createKeyedValueStore.ts Delete and return every stored value accepted by a predicate.">
+</article><article class="item" data-search="deleteWhere src/registry/createKeyedValueStore.ts Delete and return every stored value accepted by a predicate.">
     <h3>deleteWhere</h3>
     <p class="muted"><code>src/registry/createKeyedValueStore.ts:10:3</code></p>
     <p>Delete and return every stored value accepted by a predicate.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-registry-keyedvaluestore-test-ts" class="view" data-view="src/registry/keyedValueStore.test.ts" hidden>
     <section class="panel">
@@ -9449,8 +9265,7 @@ between validation and connection establishment.</p>
     <h3>createLink</h3>
     <p class="muted"><code>src/registry/keyedValueStore.test.ts:10:1</code></p>
     <p class="empty">No description available.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-route-formatroutesegments-ts" class="view" data-view="src/route/formatRouteSegments.ts" hidden>
     <section class="panel">
@@ -9459,8 +9274,7 @@ between validation and connection establishment.</p>
     <h3>formatRouteSegments</h3>
     <p class="muted"><code>src/route/formatRouteSegments.ts:2:1</code></p>
     <p>Format route segments as a slash-delimited label with a root fallback.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-route-isroutegroupsegment-ts" class="view" data-view="src/route/isRouteGroupSegment.ts" hidden>
     <section class="panel">
@@ -9469,8 +9283,7 @@ between validation and connection establishment.</p>
     <h3>isRouteGroupSegment</h3>
     <p class="muted"><code>src/route/isRouteGroupSegment.ts:2:1</code></p>
     <p>Return whether a route segment is an Expo-style grouping segment.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-route-normalizecanonicalrelativeroute-ts" class="view" data-view="src/route/normalizeCanonicalRelativeRoute.ts" hidden>
     <section class="panel">
@@ -9479,8 +9292,7 @@ between validation and connection establishment.</p>
     <h3>normalizeCanonicalRelativeRoute</h3>
     <p class="muted"><code>src/route/normalizeCanonicalRelativeRoute.ts:2:1</code></p>
     <p>Validate a non-empty relative route without query, hash, or traversal segments.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-route-normalizepathnamesegments-ts" class="view" data-view="src/route/normalizePathnameSegments.ts" hidden>
     <section class="panel">
@@ -9489,8 +9301,7 @@ between validation and connection establishment.</p>
     <h3>normalizePathnameSegments</h3>
     <p class="muted"><code>src/route/normalizePathnameSegments.ts:2:1</code></p>
     <p>Normalize a pathname into non-empty segments while ignoring query and hash suffixes.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-route-normalizeroutepatternsegments-ts" class="view" data-view="src/route/normalizeRoutePatternSegments.ts" hidden>
     <section class="panel">
@@ -9499,8 +9310,7 @@ between validation and connection establishment.</p>
     <h3>normalizeRoutePatternSegments</h3>
     <p class="muted"><code>src/route/normalizeRoutePatternSegments.ts:4:1</code></p>
     <p>Normalize route-pattern fragments by splitting nested paths, removing route groups, and trimming edge index segments.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-route-routenametogroupedhref-ts" class="view" data-view="src/route/routeNameToGroupedHref.ts" hidden>
     <section class="panel">
@@ -9509,8 +9319,7 @@ between validation and connection establishment.</p>
     <h3>routeNameToGroupedHref</h3>
     <p class="muted"><code>src/route/routeNameToGroupedHref.ts:2:1</code></p>
     <p>Convert a file route name into its grouped Expo Router href.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-route-routenametohref-ts" class="view" data-view="src/route/routeNameToHref.ts" hidden>
     <section class="panel">
@@ -9519,8 +9328,7 @@ between validation and connection establishment.</p>
     <h3>routeNameToHref</h3>
     <p class="muted"><code>src/route/routeNameToHref.ts:2:1</code></p>
     <p>Convert a file route name into its public href, treating index as the root.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-route-routepathtoroutename-ts" class="view" data-view="src/route/routePathToRouteName.ts" hidden>
     <section class="panel">
@@ -9529,8 +9337,7 @@ between validation and connection establishment.</p>
     <h3>routePathToRouteName</h3>
     <p class="muted"><code>src/route/routePathToRouteName.ts:2:1</code></p>
     <p>Normalize an application path to a file route name, using index at the root.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-route-scoreroutepatternmatch-ts" class="view" data-view="src/route/scoreRoutePatternMatch.ts" hidden>
     <section class="panel">
@@ -9539,8 +9346,7 @@ between validation and connection establishment.</p>
     <h3>scoreRoutePatternMatch</h3>
     <p class="muted"><code>src/route/scoreRoutePatternMatch.ts:6:1</code></p>
     <p>Score an exact, dynamic, catch-all, or optional-catch-all route match against pathname segments.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-scheduling-coalescedtask-test-ts" class="view" data-view="src/scheduling/coalescedTask.test.ts" hidden>
     <section class="panel">
@@ -9549,8 +9355,7 @@ between validation and connection establishment.</p>
     <h3>createFakeFrameScheduler</h3>
     <p class="muted"><code>src/scheduling/coalescedTask.test.ts:5:1</code></p>
     <p class="empty">No description available.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-scheduling-createcoalescedtask-ts" class="view" data-view="src/scheduling/createCoalescedTask.ts" hidden>
     <section class="panel">
@@ -9559,18 +9364,36 @@ between validation and connection establishment.</p>
     <h3>createCoalescedTask</h3>
     <p class="muted"><code>src/scheduling/createCoalescedTask.ts:4:1</code></p>
     <p>Coalesce repeated requests into at most one pending scheduler callback.</p>
-    
-  </article><article class="item" data-search="cancel src/scheduling/createCoalescedTask.ts Cancel the currently pending task when one exists.">
+</article><article class="item" data-search="cancel src/scheduling/createCoalescedTask.ts Cancel the currently pending task when one exists.">
     <h3>cancel</h3>
     <p class="muted"><code>src/scheduling/createCoalescedTask.ts:12:3</code></p>
     <p>Cancel the currently pending task when one exists.</p>
-    
-  </article><article class="item" data-search="request src/scheduling/createCoalescedTask.ts Schedule one task unless another callback is already pending.">
+</article><article class="item" data-search="request src/scheduling/createCoalescedTask.ts Schedule one task unless another callback is already pending.">
     <h3>request</h3>
     <p class="muted"><code>src/scheduling/createCoalescedTask.ts:19:3</code></p>
     <p>Schedule one task unless another callback is already pending.</p>
-    
-  </article>
+</article>
+    </section>
+  </section><section id="view-src-scheduling-createdebouncedtask-ts" class="view" data-view="src/scheduling/createDebouncedTask.ts" hidden>
+    <section class="panel">
+      <h2>src/scheduling/createDebouncedTask.ts</h2>
+      <article class="item" data-search="createDebouncedTask src/scheduling/createDebouncedTask.ts Restart the delay on every request and run once after the final request.">
+    <h3>createDebouncedTask</h3>
+    <p class="muted"><code>src/scheduling/createDebouncedTask.ts:4:1</code></p>
+    <p>Restart the delay on every request and run once after the final request.</p>
+</article><article class="item" data-search="cancel src/scheduling/createDebouncedTask.ts Cancel the pending callback without executing it.">
+    <h3>cancel</h3>
+    <p class="muted"><code>src/scheduling/createDebouncedTask.ts:12:3</code></p>
+    <p>Cancel the pending callback without executing it.</p>
+</article><article class="item" data-search="flush src/scheduling/createDebouncedTask.ts Execute a pending callback immediately and clear its scheduled execution.">
+    <h3>flush</h3>
+    <p class="muted"><code>src/scheduling/createDebouncedTask.ts:19:3</code></p>
+    <p>Execute a pending callback immediately and clear its scheduled execution.</p>
+</article><article class="item" data-search="request src/scheduling/createDebouncedTask.ts Restart the trailing-edge delay.">
+    <h3>request</h3>
+    <p class="muted"><code>src/scheduling/createDebouncedTask.ts:27:3</code></p>
+    <p>Restart the trailing-edge delay.</p>
+</article>
     </section>
   </section><section id="view-src-scheduling-createlatestasynccoordinator-ts" class="view" data-view="src/scheduling/createLatestAsyncCoordinator.ts" hidden>
     <section class="panel">
@@ -9579,8 +9402,7 @@ between validation and connection establishment.</p>
     <h3>createLatestAsyncCoordinator</h3>
     <p class="muted"><code>src/scheduling/createLatestAsyncCoordinator.ts:4:1</code></p>
     <p>Apply only the latest asynchronous request result and ignore stale completions.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-scheduling-createsettlecoordinator-ts" class="view" data-view="src/scheduling/createSettleCoordinator.ts" hidden>
     <section class="panel">
@@ -9589,33 +9411,48 @@ between validation and connection establishment.</p>
     <h3>clearPending</h3>
     <p class="muted"><code>src/scheduling/createSettleCoordinator.ts:14:1</code></p>
     <p>Clear a scheduled sample without changing active state.</p>
-    
-  </article><article class="item" data-search="cancel src/scheduling/createSettleCoordinator.ts Cancel sampling and invalidate any in-flight sample result.">
+</article><article class="item" data-search="cancel src/scheduling/createSettleCoordinator.ts Cancel sampling and invalidate any in-flight sample result.">
     <h3>cancel</h3>
     <p class="muted"><code>src/scheduling/createSettleCoordinator.ts:24:1</code></p>
     <p>Cancel sampling and invalidate any in-flight sample result.</p>
-    
-  </article><article class="item" data-search="scheduleNext src/scheduling/createSettleCoordinator.ts Schedule the next sample only when no sample is running or pending.">
+</article><article class="item" data-search="scheduleNext src/scheduling/createSettleCoordinator.ts Schedule the next sample only when no sample is running or pending.">
     <h3>scheduleNext</h3>
     <p class="muted"><code>src/scheduling/createSettleCoordinator.ts:37:1</code></p>
     <p>Schedule the next sample only when no sample is running or pending.</p>
-    
-  </article><article class="item" data-search="sampleNext src/scheduling/createSettleCoordinator.ts Take one sample and settle, cancel, or schedule the next sample from its result.">
+</article><article class="item" data-search="sampleNext src/scheduling/createSettleCoordinator.ts Take one sample and settle, cancel, or schedule the next sample from its result.">
     <h3>sampleNext</h3>
     <p class="muted"><code>src/scheduling/createSettleCoordinator.ts:50:1</code></p>
     <p>Take one sample and settle, cancel, or schedule the next sample from its result.</p>
-    
-  </article><article class="item" data-search="trigger src/scheduling/createSettleCoordinator.ts Start or restart settle sampling and report whether the coordinator was previously inactive.">
+</article><article class="item" data-search="trigger src/scheduling/createSettleCoordinator.ts Start or restart settle sampling and report whether the coordinator was previously inactive.">
     <h3>trigger</h3>
     <p class="muted"><code>src/scheduling/createSettleCoordinator.ts:81:1</code></p>
     <p>Start or restart settle sampling and report whether the coordinator was previously inactive.</p>
-    
-  </article><article class="item" data-search="createSettleCoordinator src/scheduling/createSettleCoordinator.ts Repeatedly sample an asynchronous value until it is stable or reaches a configured sample limit.">
+</article><article class="item" data-search="createSettleCoordinator src/scheduling/createSettleCoordinator.ts Repeatedly sample an asynchronous value until it is stable or reaches a configured sample limit.">
     <h3>createSettleCoordinator</h3>
     <p class="muted"><code>src/scheduling/createSettleCoordinator.ts:96:1</code></p>
     <p>Repeatedly sample an asynchronous value until it is stable or reaches a configured sample limit.</p>
-    
-  </article>
+</article>
+    </section>
+  </section><section id="view-src-scheduling-debouncedtask-test-ts" class="view" data-view="src/scheduling/debouncedTask.test.ts" hidden>
+    <section class="panel">
+      <h2>src/scheduling/debouncedTask.test.ts</h2>
+      <article class="item" data-search="createFakeScheduler src/scheduling/debouncedTask.test.ts ">
+    <h3>createFakeScheduler</h3>
+    <p class="muted"><code>src/scheduling/debouncedTask.test.ts:5:1</code></p>
+    <p class="empty">No description available.</p>
+</article><article class="item" data-search="expectTrailingEdgeDebounce src/scheduling/debouncedTask.test.ts ">
+    <h3>expectTrailingEdgeDebounce</h3>
+    <p class="muted"><code>src/scheduling/debouncedTask.test.ts:32:1</code></p>
+    <p class="empty">No description available.</p>
+</article><article class="item" data-search="expectFlushAndReuse src/scheduling/debouncedTask.test.ts ">
+    <h3>expectFlushAndReuse</h3>
+    <p class="muted"><code>src/scheduling/debouncedTask.test.ts:53:1</code></p>
+    <p class="empty">No description available.</p>
+</article><article class="item" data-search="expectCancellation src/scheduling/debouncedTask.test.ts ">
+    <h3>expectCancellation</h3>
+    <p class="muted"><code>src/scheduling/debouncedTask.test.ts:77:1</code></p>
+    <p class="empty">No description available.</p>
+</article>
     </section>
   </section><section id="view-src-scheduling-settlecoordinator-test-ts" class="view" data-view="src/scheduling/settleCoordinator.test.ts" hidden>
     <section class="panel">
@@ -9624,8 +9461,7 @@ between validation and connection establishment.</p>
     <h3>createFakeScheduler</h3>
     <p class="muted"><code>src/scheduling/settleCoordinator.test.ts:5:1</code></p>
     <p class="empty">No description available.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-schema-resolveeffectiveschematype-ts" class="view" data-view="src/schema/resolveEffectiveSchemaType.ts" hidden>
     <section class="panel">
@@ -9634,8 +9470,7 @@ between validation and connection establishment.</p>
     <h3>resolveEffectiveSchemaType</h3>
     <p class="muted"><code>src/schema/resolveEffectiveSchemaType.ts:5:1</code></p>
     <p>Normalize JSON-schema-like type, format, and structural hints into one effective value type.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-schema-resolveschemareference-ts" class="view" data-view="src/schema/resolveSchemaReference.ts" hidden>
     <section class="panel">
@@ -9644,8 +9479,7 @@ between validation and connection establishment.</p>
     <h3>resolveSchemaReference</h3>
     <p class="muted"><code>src/schema/resolveSchemaReference.ts:4:1</code></p>
     <p>Resolve a reference recursively through a keyed schema registry while preventing reference cycles.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-schema-resolvesingleschematype-ts" class="view" data-view="src/schema/resolveSingleSchemaType.ts" hidden>
     <section class="panel">
@@ -9654,8 +9488,7 @@ between validation and connection establishment.</p>
     <h3>resolveSingleSchemaType</h3>
     <p class="muted"><code>src/schema/resolveSingleSchemaType.ts:2:1</code></p>
     <p>Return a declared schema type only when the declaration contains exactly one primitive type.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-search-filterbytextfields-ts" class="view" data-view="src/search/filterByTextFields.ts" hidden>
     <section class="panel">
@@ -9664,8 +9497,7 @@ between validation and connection establishment.</p>
     <h3>filterByTextFields</h3>
     <p class="muted"><code>src/search/filterByTextFields.ts:4:1</code></p>
     <p>Filter values by a normalized query matched against caller-provided text fields.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-search-scorebesttextmatch-ts" class="view" data-view="src/search/scoreBestTextMatch.ts" hidden>
     <section class="panel">
@@ -9674,8 +9506,7 @@ between validation and connection establishment.</p>
     <h3>scoreBestTextMatch</h3>
     <p class="muted"><code>src/search/scoreBestTextMatch.ts:4:1</code></p>
     <p>Return the highest text-match score across a set of already-normalized candidate strings.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-search-scoretextmatch-ts" class="view" data-view="src/search/scoreTextMatch.ts" hidden>
     <section class="panel">
@@ -9684,8 +9515,7 @@ between validation and connection establishment.</p>
     <h3>scoreTextMatch</h3>
     <p class="muted"><code>src/search/scoreTextMatch.ts:2:1</code></p>
     <p>Score an already-normalized target by exact, prefix, or substring match quality.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-selection-applyselectionintent-ts" class="view" data-view="src/selection/applySelectionIntent.ts" hidden>
     <section class="panel">
@@ -9694,8 +9524,7 @@ between validation and connection establishment.</p>
     <h3>applySelectionIntent</h3>
     <p class="muted"><code>src/selection/applySelectionIntent.ts:4:1</code></p>
     <p>Apply one semantic selection intent without mutating or duplicating selected values.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-selection-arraytosingleselection-ts" class="view" data-view="src/selection/arrayToSingleSelection.ts" hidden>
     <section class="panel">
@@ -9704,8 +9533,7 @@ between validation and connection establishment.</p>
     <h3>arrayToSingleSelection</h3>
     <p class="muted"><code>src/selection/arrayToSingleSelection.ts:2:1</code></p>
     <p>Adapt a selected-values array into one nullable single selection using its first value.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-selection-singleselectiontoarray-ts" class="view" data-view="src/selection/singleSelectionToArray.ts" hidden>
     <section class="panel">
@@ -9714,8 +9542,7 @@ between validation and connection establishment.</p>
     <h3>singleSelectionToArray</h3>
     <p class="muted"><code>src/selection/singleSelectionToArray.ts:2:1</code></p>
     <p>Adapt a nullable single selection into a zero-or-one selected-values array.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-semver-comparesemanticversions-ts" class="view" data-view="src/semver/compareSemanticVersions.ts" hidden>
     <section class="panel">
@@ -9724,8 +9551,7 @@ between validation and connection establishment.</p>
     <h3>compareSemanticVersions</h3>
     <p class="muted"><code>src/semver/compareSemanticVersions.ts:4:1</code></p>
     <p>Compare two semantic versions by major, minor, then patch number.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-semver-parsesemanticversion-ts" class="view" data-view="src/semver/parseSemanticVersion.ts" hidden>
     <section class="panel">
@@ -9734,8 +9560,7 @@ between validation and connection establishment.</p>
     <h3>parseSemanticVersion</h3>
     <p class="muted"><code>src/semver/parseSemanticVersion.ts:4:1</code></p>
     <p>Parse an exact three-part semantic version without prerelease or build metadata.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-semver-satisfiescaretsemverrange-ts" class="view" data-view="src/semver/satisfiesCaretSemverRange.ts" hidden>
     <section class="panel">
@@ -9744,8 +9569,7 @@ between validation and connection establishment.</p>
     <h3>satisfiesCaretSemverRange</h3>
     <p class="muted"><code>src/semver/satisfiesCaretSemverRange.ts:5:1</code></p>
     <p>Return whether an exact semantic version satisfies a caret range with an exact three-part minimum.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-sort-chaincomparators-ts" class="view" data-view="src/sort/chainComparators.ts" hidden>
     <section class="panel">
@@ -9754,8 +9578,7 @@ between validation and connection establishment.</p>
     <h3>chainComparators</h3>
     <p class="muted"><code>src/sort/chainComparators.ts:4:1</code></p>
     <p>Compose comparators in priority order and return the first non-zero comparison result.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-string-aspresentstring-ts" class="view" data-view="src/string/asPresentString.ts" hidden>
     <section class="panel">
@@ -9764,8 +9587,7 @@ between validation and connection establishment.</p>
     <h3>asPresentString</h3>
     <p class="muted"><code>src/string/asPresentString.ts:2:1</code></p>
     <p>Narrow a value to a string containing at least one character.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-string-createcompositekey-ts" class="view" data-view="src/string/createCompositeKey.ts" hidden>
     <section class="panel">
@@ -9774,8 +9596,7 @@ between validation and connection establishment.</p>
     <h3>createCompositeKey</h3>
     <p class="muted"><code>src/string/createCompositeKey.ts:2:1</code></p>
     <p>Join scalar key parts into one stable composite key using a configurable delimiter.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-string-formatjavascriptobjectkey-ts" class="view" data-view="src/string/formatJavaScriptObjectKey.ts" hidden>
     <section class="panel">
@@ -9784,8 +9605,7 @@ between validation and connection establishment.</p>
     <h3>formatJavaScriptObjectKey</h3>
     <p class="muted"><code>src/string/formatJavaScriptObjectKey.ts:2:1</code></p>
     <p>Format a string as a bare JavaScript identifier key when valid, otherwise as a JSON-quoted object key.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-string-formatslugdisplayname-ts" class="view" data-view="src/string/formatSlugDisplayName.ts" hidden>
     <section class="panel">
@@ -9794,8 +9614,7 @@ between validation and connection establishment.</p>
     <h3>formatSlugDisplayName</h3>
     <p class="muted"><code>src/string/formatSlugDisplayName.ts:2:1</code></p>
     <p>Format a hyphen-separated slug as a display name with each word&#39;s initial capitalized.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-string-indentnonemptylines-ts" class="view" data-view="src/string/indentNonEmptyLines.ts" hidden>
     <section class="panel">
@@ -9804,8 +9623,7 @@ between validation and connection establishment.</p>
     <h3>indentNonEmptyLines</h3>
     <p class="muted"><code>src/string/indentNonEmptyLines.ts:2:1</code></p>
     <p>Indent non-empty lines in a multiline string while preserving blank lines.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-string-isnonemptystring-ts" class="view" data-view="src/string/isNonEmptyString.ts" hidden>
     <section class="panel">
@@ -9814,8 +9632,7 @@ between validation and connection establishment.</p>
     <h3>isNonEmptyString</h3>
     <p class="muted"><code>src/string/isNonEmptyString.ts:2:1</code></p>
     <p>Return whether a value is a non-empty string after trimming whitespace.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-string-isoptionalstring-ts" class="view" data-view="src/string/isOptionalString.ts" hidden>
     <section class="panel">
@@ -9824,8 +9641,7 @@ between validation and connection establishment.</p>
     <h3>isOptionalString</h3>
     <p class="muted"><code>src/string/isOptionalString.ts:2:1</code></p>
     <p>Accept undefined or any primitive string, including empty and whitespace-only strings.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-string-joinnonemptyblocks-ts" class="view" data-view="src/string/joinNonEmptyBlocks.ts" hidden>
     <section class="panel">
@@ -9834,8 +9650,7 @@ between validation and connection establishment.</p>
     <h3>joinNonEmptyBlocks</h3>
     <p class="muted"><code>src/string/joinNonEmptyBlocks.ts:2:1</code></p>
     <p>Trim text blocks and join non-empty content with a blank line.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-string-normalizesearchtext-ts" class="view" data-view="src/string/normalizeSearchText.ts" hidden>
     <section class="panel">
@@ -9844,8 +9659,7 @@ between validation and connection establishment.</p>
     <h3>normalizeSearchText</h3>
     <p class="muted"><code>src/string/normalizeSearchText.ts:2:1</code></p>
     <p>Normalize text for case-insensitive searching and comparison.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-string-parsecommaseparatedlist-ts" class="view" data-view="src/string/parseCommaSeparatedList.ts" hidden>
     <section class="panel">
@@ -9854,8 +9668,7 @@ between validation and connection establishment.</p>
     <h3>parseCommaSeparatedList</h3>
     <p class="muted"><code>src/string/parseCommaSeparatedList.ts:2:1</code></p>
     <p>Parse a comma-separated list into trimmed unique non-empty values while preserving order.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-string-quotejavascriptstring-ts" class="view" data-view="src/string/quoteJavaScriptString.ts" hidden>
     <section class="panel">
@@ -9864,8 +9677,7 @@ between validation and connection establishment.</p>
     <h3>quoteJavaScriptString</h3>
     <p class="muted"><code>src/string/quoteJavaScriptString.ts:2:1</code></p>
     <p>Serialize a JavaScript string literal with single quotes and escaped control characters.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-string-readchecksummary-ts" class="view" data-view="src/string/readCheckSummary.ts" hidden>
     <section class="panel">
@@ -9874,8 +9686,7 @@ between validation and connection establishment.</p>
     <h3>readCheckSummary</h3>
     <p class="muted"><code>src/string/readCheckSummary.ts:2:1</code></p>
     <p>Read a completed/total pair from regex captures or throw a labeled error.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-string-readsaferegexcapture-ts" class="view" data-view="src/string/readSafeRegexCapture.ts" hidden>
     <section class="panel">
@@ -9884,8 +9695,7 @@ between validation and connection establishment.</p>
     <h3>readSafeRegexCapture</h3>
     <p class="muted"><code>src/string/readSafeRegexCapture.ts:7:1</code></p>
     <p>Read and trim the first regex capture only when it satisfies configured length and whitespace constraints.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-string-serializejavascriptliteral-ts" class="view" data-view="src/string/serializeJavaScriptLiteral.ts" hidden>
     <section class="panel">
@@ -9894,8 +9704,7 @@ between validation and connection establishment.</p>
     <h3>serializeJavaScriptLiteral</h3>
     <p class="muted"><code>src/string/serializeJavaScriptLiteral.ts:4:1</code></p>
     <p>Serialize finite JSON-like data as source, omitting undefined properties and nulling array entries.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-string-slugifyascii-ts" class="view" data-view="src/string/slugifyAscii.ts" hidden>
     <section class="panel">
@@ -9904,8 +9713,7 @@ between validation and connection establishment.</p>
     <h3>slugifyAscii</h3>
     <p class="muted"><code>src/string/slugifyAscii.ts:2:1</code></p>
     <p>Convert arbitrary text to a lowercase ASCII-alphanumeric slug separated by single hyphens.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-string-splitcommaseparated-ts" class="view" data-view="src/string/splitCommaSeparated.ts" hidden>
     <section class="panel">
@@ -9914,8 +9722,7 @@ between validation and connection establishment.</p>
     <h3>splitCommaSeparated</h3>
     <p class="muted"><code>src/string/splitCommaSeparated.ts:2:1</code></p>
     <p>Split an optional comma-separated string into trimmed non-empty values while preserving duplicates and order.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-string-stringifyjson-ts" class="view" data-view="src/string/stringifyJson.ts" hidden>
     <section class="panel">
@@ -9924,8 +9731,7 @@ between validation and connection establishment.</p>
     <h3>stringifyJson</h3>
     <p class="muted"><code>src/string/stringifyJson.ts:4:1</code></p>
     <p>Serialize a value as formatted JSON and optionally truncate the resulting text.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-string-stripmatchingquotes-ts" class="view" data-view="src/string/stripMatchingQuotes.ts" hidden>
     <section class="panel">
@@ -9934,8 +9740,7 @@ between validation and connection establishment.</p>
     <h3>stripMatchingQuotes</h3>
     <p class="muted"><code>src/string/stripMatchingQuotes.ts:2:1</code></p>
     <p>Remove one matching pair of single or double quotes around a string.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-string-stripnonalphanumeric-ts" class="view" data-view="src/string/stripNonAlphanumeric.ts" hidden>
     <section class="panel">
@@ -9944,8 +9749,7 @@ between validation and connection establishment.</p>
     <h3>stripNonAlphanumeric</h3>
     <p class="muted"><code>src/string/stripNonAlphanumeric.ts:2:1</code></p>
     <p>Remove non-ASCII-alphanumeric characters from an identifier fragment.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-string-titlecaseidentifier-ts" class="view" data-view="src/string/titleCaseIdentifier.ts" hidden>
     <section class="panel">
@@ -9954,8 +9758,7 @@ between validation and connection establishment.</p>
     <h3>titleCaseIdentifier</h3>
     <p class="muted"><code>src/string/titleCaseIdentifier.ts:2:1</code></p>
     <p>Convert a camelCase, PascalCase, underscore, or hyphen identifier into a space-separated title label.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-string-trimoutput-ts" class="view" data-view="src/string/trimOutput.ts" hidden>
     <section class="panel">
@@ -9964,8 +9767,7 @@ between validation and connection establishment.</p>
     <h3>trimOutput</h3>
     <p class="muted"><code>src/string/trimOutput.ts:4:1</code></p>
     <p>Limit text to a maximum character count while preserving original length and reporting truncation.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-string-truncatetext-ts" class="view" data-view="src/string/truncateText.ts" hidden>
     <section class="panel">
@@ -9974,8 +9776,7 @@ between validation and connection establishment.</p>
     <h3>truncateText</h3>
     <p class="muted"><code>src/string/truncateText.ts:2:1</code></p>
     <p>Trim whitespace and limit a string to a maximum length with an optional suffix.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-tree-clonetreewithnewids-ts" class="view" data-view="src/tree/cloneTreeWithNewIds.ts" hidden>
     <section class="panel">
@@ -9984,8 +9785,7 @@ between validation and connection establishment.</p>
     <h3>cloneTreeWithNewIds</h3>
     <p class="muted"><code>src/tree/cloneTreeWithNewIds.ts:4:1</code></p>
     <p>Deep-clone a tree while assigning a fresh id to every cloned node.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-tree-findtreenode-ts" class="view" data-view="src/tree/findTreeNode.ts" hidden>
     <section class="panel">
@@ -9994,8 +9794,7 @@ between validation and connection establishment.</p>
     <h3>findTreeNode</h3>
     <p class="muted"><code>src/tree/findTreeNode.ts:4:1</code></p>
     <p>Find the first tree node with a matching id using depth-first traversal.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-tree-findtreenodewithparent-ts" class="view" data-view="src/tree/findTreeNodeWithParent.ts" hidden>
     <section class="panel">
@@ -10004,8 +9803,7 @@ between validation and connection establishment.</p>
     <h3>findTreeNodeWithParent</h3>
     <p class="muted"><code>src/tree/findTreeNodeWithParent.ts:4:1</code></p>
     <p>Find a tree node together with its parent and sibling index.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-tree-inserttreechildatindex-ts" class="view" data-view="src/tree/insertTreeChildAtIndex.ts" hidden>
     <section class="panel">
@@ -10014,8 +9812,7 @@ between validation and connection establishment.</p>
     <h3>insertTreeChildAtIndex</h3>
     <p class="muted"><code>src/tree/insertTreeChildAtIndex.ts:4:1</code></p>
     <p>Immutably insert a child at a bounded index under a matching parent id.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-tree-istreedescendant-ts" class="view" data-view="src/tree/isTreeDescendant.ts" hidden>
     <section class="panel">
@@ -10024,8 +9821,7 @@ between validation and connection establishment.</p>
     <h3>isTreeDescendant</h3>
     <p class="muted"><code>src/tree/isTreeDescendant.ts:6:1</code></p>
     <p>Return whether one id identifies a strict descendant of another node in the tree.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-tree-removetreenode-ts" class="view" data-view="src/tree/removeTreeNode.ts" hidden>
     <section class="panel">
@@ -10034,8 +9830,7 @@ between validation and connection establishment.</p>
     <h3>removeTreeNode</h3>
     <p class="muted"><code>src/tree/removeTreeNode.ts:5:1</code></p>
     <p>Immutably remove a node by id, returning undefined when the root itself is removed.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-tree-removetreenodewithvalue-ts" class="view" data-view="src/tree/removeTreeNodeWithValue.ts" hidden>
     <section class="panel">
@@ -10044,8 +9839,7 @@ between validation and connection establishment.</p>
     <h3>removeTreeNodeWithValue</h3>
     <p class="muted"><code>src/tree/removeTreeNodeWithValue.ts:4:1</code></p>
     <p>Immutably remove a node by id and return both the next tree and removed node.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-tree-treecontainsid-ts" class="view" data-view="src/tree/treeContainsId.ts" hidden>
     <section class="panel">
@@ -10054,8 +9848,7 @@ between validation and connection establishment.</p>
     <h3>treeContainsId</h3>
     <p class="muted"><code>src/tree/treeContainsId.ts:5:1</code></p>
     <p>Return whether a tree contains a node with the supplied id.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-tree-updatetreenode-ts" class="view" data-view="src/tree/updateTreeNode.ts" hidden>
     <section class="panel">
@@ -10064,8 +9857,7 @@ between validation and connection establishment.</p>
     <h3>updateTreeNode</h3>
     <p class="muted"><code>src/tree/updateTreeNode.ts:4:1</code></p>
     <p>Immutably update one tree node while preserving unchanged branches by reference.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-url-appendencodedpathsegment-ts" class="view" data-view="src/url/appendEncodedPathSegment.ts" hidden>
     <section class="panel">
@@ -10074,8 +9866,7 @@ between validation and connection establishment.</p>
     <h3>appendEncodedPathSegment</h3>
     <p class="muted"><code>src/url/appendEncodedPathSegment.ts:4:1</code></p>
     <p>Append one URL-encoded path segment to a path prefix.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-url-createoptionalquery-ts" class="view" data-view="src/url/createOptionalQuery.ts" hidden>
     <section class="panel">
@@ -10084,8 +9875,7 @@ between validation and connection establishment.</p>
     <h3>createOptionalQuery</h3>
     <p class="muted"><code>src/url/createOptionalQuery.ts:2:1</code></p>
     <p>Serialize defined non-empty string values into an optional URL query string.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-url-decodefirstpathsegmentafterprefix-ts" class="view" data-view="src/url/decodeFirstPathSegmentAfterPrefix.ts" hidden>
     <section class="panel">
@@ -10094,8 +9884,7 @@ between validation and connection establishment.</p>
     <h3>decodeFirstPathSegmentAfterPrefix</h3>
     <p class="muted"><code>src/url/decodeFirstPathSegmentAfterPrefix.ts:2:1</code></p>
     <p>Read the first path segment after a required prefix and decode it, preserving the encoded segment when decoding fails.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-url-decodesinglepathsegmentafterprefix-ts" class="view" data-view="src/url/decodeSinglePathSegmentAfterPrefix.ts" hidden>
     <section class="panel">
@@ -10104,8 +9893,7 @@ between validation and connection establishment.</p>
     <h3>decodeSinglePathSegmentAfterPrefix</h3>
     <p class="muted"><code>src/url/decodeSinglePathSegmentAfterPrefix.ts:2:1</code></p>
     <p>Read exactly one URL-encoded segment after a required prefix and reject empty, nested, or undecodable values.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-url-ensuretrailingslash-ts" class="view" data-view="src/url/ensureTrailingSlash.ts" hidden>
     <section class="panel">
@@ -10114,8 +9902,7 @@ between validation and connection establishment.</p>
     <h3>ensureTrailingSlash</h3>
     <p class="muted"><code>src/url/ensureTrailingSlash.ts:2:1</code></p>
     <p>Ensure a string ends with a trailing slash without changing an existing trailing slash.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-url-firststringparam-ts" class="view" data-view="src/url/firstStringParam.ts" hidden>
     <section class="panel">
@@ -10124,8 +9911,7 @@ between validation and connection establishment.</p>
     <h3>firstStringParam</h3>
     <p class="muted"><code>src/url/firstStringParam.ts:2:1</code></p>
     <p>Read the first string value from a scalar-or-array route/search parameter.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-url-isexacthttpurl-ts" class="view" data-view="src/url/isExactHttpUrl.ts" hidden>
     <section class="panel">
@@ -10134,8 +9920,7 @@ between validation and connection establishment.</p>
     <h3>isExactHttpUrl</h3>
     <p class="muted"><code>src/url/isExactHttpUrl.ts:2:1</code></p>
     <p>Return whether a string is an exact HTTP(S) URL candidate without wildcard syntax.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-url-ispathatorbelow-ts" class="view" data-view="src/url/isPathAtOrBelow.ts" hidden>
     <section class="panel">
@@ -10144,8 +9929,7 @@ between validation and connection establishment.</p>
     <h3>isPathAtOrBelow</h3>
     <p class="muted"><code>src/url/isPathAtOrBelow.ts:4:1</code></p>
     <p>Return whether a pathname is equal to or nested below a path prefix.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-url-normalizecredentialfreehttpurl-ts" class="view" data-view="src/url/normalizeCredentialFreeHttpUrl.ts" hidden>
     <section class="panel">
@@ -10154,8 +9938,7 @@ between validation and connection establishment.</p>
     <h3>normalizeCredentialFreeHttpUrl</h3>
     <p class="muted"><code>src/url/normalizeCredentialFreeHttpUrl.ts:2:1</code></p>
     <p>Normalize an HTTP(S) URL and reject embedded credentials or non-HTTP protocols.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-url-normalizegithubrepositoryurl-ts" class="view" data-view="src/url/normalizeGitHubRepositoryUrl.ts" hidden>
     <section class="panel">
@@ -10166,18 +9949,15 @@ between validation and connection establishment.</p>
     <p>Normalize a GitHub repository URL or owner/repository shorthand to one HTTPS GitHub URL.
 
 Existing normal GitHub repository, tree, blob, and commit links keep their path semantics.</p>
-    
-  </article><article class="item" data-search="normalizeAbsoluteGitHubUrl src/url/normalizeGitHubRepositoryUrl.ts Validate one absolute GitHub URL without rewriting its normal route semantics.">
+</article><article class="item" data-search="normalizeAbsoluteGitHubUrl src/url/normalizeGitHubRepositoryUrl.ts Validate one absolute GitHub URL without rewriting its normal route semantics.">
     <h3>normalizeAbsoluteGitHubUrl</h3>
     <p class="muted"><code>src/url/normalizeGitHubRepositoryUrl.ts:25:1</code></p>
     <p>Validate one absolute GitHub URL without rewriting its normal route semantics.</p>
-    
-  </article><article class="item" data-search="invalidGitHubRepositoryUrl src/url/normalizeGitHubRepositoryUrl.ts Create the stable validation error for unsupported repository input.">
+</article><article class="item" data-search="invalidGitHubRepositoryUrl src/url/normalizeGitHubRepositoryUrl.ts Create the stable validation error for unsupported repository input.">
     <h3>invalidGitHubRepositoryUrl</h3>
     <p class="muted"><code>src/url/normalizeGitHubRepositoryUrl.ts:49:1</code></p>
     <p>Create the stable validation error for unsupported repository input.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-url-normalizepathname-ts" class="view" data-view="src/url/normalizePathname.ts" hidden>
     <section class="panel">
@@ -10186,8 +9966,7 @@ Existing normal GitHub repository, tree, blob, and commit links keep their path 
     <h3>normalizePathname</h3>
     <p class="muted"><code>src/url/normalizePathname.ts:2:1</code></p>
     <p>Normalize a pathname by trimming whitespace, query/hash suffixes, duplicate slashes, and trailing slashes.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-url-parsetrustedhttpurl-ts" class="view" data-view="src/url/parseTrustedHttpUrl.ts" hidden>
     <section class="panel">
@@ -10196,8 +9975,7 @@ Existing normal GitHub repository, tree, blob, and commit links keep their path 
     <h3>parseTrustedHttpUrl</h3>
     <p class="muted"><code>src/url/parseTrustedHttpUrl.ts:9:1</code></p>
     <p>Parse an HTTP(S) URL while rejecting inline credentials and configured sensitive hosts.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-url-redacturlqueryvalues-ts" class="view" data-view="src/url/redactUrlQueryValues.ts" hidden>
     <section class="panel">
@@ -10206,8 +9984,7 @@ Existing normal GitHub repository, tree, blob, and commit links keep their path 
     <h3>redactUrlQueryValues</h3>
     <p class="muted"><code>src/url/redactUrlQueryValues.ts:2:1</code></p>
     <p>Redact every query-parameter value from a URL while preserving its shape and tolerating invalid input.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-url-resolvehttporigin-ts" class="view" data-view="src/url/resolveHttpOrigin.ts" hidden>
     <section class="panel">
@@ -10216,8 +9993,7 @@ Existing normal GitHub repository, tree, blob, and commit links keep their path 
     <h3>resolveHttpOrigin</h3>
     <p class="muted"><code>src/url/resolveHttpOrigin.ts:4:1</code></p>
     <p>Resolve an HTTP origin from a URL value or a localhost port fallback.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-url-setoptionalqueryparam-ts" class="view" data-view="src/url/setOptionalQueryParam.ts" hidden>
     <section class="panel">
@@ -10226,8 +10002,7 @@ Existing normal GitHub repository, tree, blob, and commit links keep their path 
     <h3>setOptionalQueryParam</h3>
     <p class="muted"><code>src/url/setOptionalQueryParam.ts:2:1</code></p>
     <p>Set a query parameter only when an optional scalar value is present.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-validation-assertnoforbiddennestedkeys-ts" class="view" data-view="src/validation/assertNoForbiddenNestedKeys.ts" hidden>
     <section class="panel">
@@ -10236,8 +10011,7 @@ Existing normal GitHub repository, tree, blob, and commit links keep their path 
     <h3>assertNoForbiddenNestedKeys</h3>
     <p class="muted"><code>src/validation/assertNoForbiddenNestedKeys.ts:4:1</code></p>
     <p>Throw when an object graph contains a forbidden own property key.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-validation-assertstaticimportbinding-ts" class="view" data-view="src/validation/assertStaticImportBinding.ts" hidden>
     <section class="panel">
@@ -10246,8 +10020,7 @@ Existing normal GitHub repository, tree, blob, and commit links keep their path 
     <h3>assertStaticImportBinding</h3>
     <p class="muted"><code>src/validation/assertStaticImportBinding.ts:2:1</code></p>
     <p>Reject module specifiers and export names outside the safe static named-import subset.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-validation-hasbooleanresultflag-ts" class="view" data-view="src/validation/hasBooleanResultFlag.ts" hidden>
     <section class="panel">
@@ -10256,8 +10029,7 @@ Existing normal GitHub repository, tree, blob, and commit links keep their path 
     <h3>hasBooleanResultFlag</h3>
     <p class="muted"><code>src/validation/hasBooleanResultFlag.ts:2:1</code></p>
     <p>Narrow an unknown value to a record containing a boolean result flag at a caller-selected key.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-validation-hasforbiddennestedkey-ts" class="view" data-view="src/validation/hasForbiddenNestedKey.ts" hidden>
     <section class="panel">
@@ -10266,13 +10038,11 @@ Existing normal GitHub repository, tree, blob, and commit links keep their path 
     <h3>hasForbiddenNestedKey</h3>
     <p class="muted"><code>src/validation/hasForbiddenNestedKey.ts:2:1</code></p>
     <p>Return whether an object or array graph contains any forbidden own property key.</p>
-    
-  </article><article class="item" data-search="hasForbiddenNestedKeyInternal src/validation/hasForbiddenNestedKey.ts Traverse an object graph cycle-safely while checking each own enumerable key against a forbidden set.">
+</article><article class="item" data-search="hasForbiddenNestedKeyInternal src/validation/hasForbiddenNestedKey.ts Traverse an object graph cycle-safely while checking each own enumerable key against a forbidden set.">
     <h3>hasForbiddenNestedKeyInternal</h3>
     <p class="muted"><code>src/validation/hasForbiddenNestedKey.ts:7:1</code></p>
     <p>Traverse an object graph cycle-safely while checking each own enumerable key against a forbidden set.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-validation-iscodemessagefailure-ts" class="view" data-view="src/validation/isCodeMessageFailure.ts" hidden>
     <section class="panel">
@@ -10281,8 +10051,7 @@ Existing normal GitHub repository, tree, blob, and commit links keep their path 
     <h3>isCodeMessageFailure</h3>
     <p class="muted"><code>src/validation/isCodeMessageFailure.ts:4:1</code></p>
     <p>Narrow an unknown value to a minimal `{ code, message }` failure shape.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-value-asfinitenumber-ts" class="view" data-view="src/value/asFiniteNumber.ts" hidden>
     <section class="panel">
@@ -10291,8 +10060,7 @@ Existing normal GitHub repository, tree, blob, and commit links keep their path 
     <h3>asFiniteNumber</h3>
     <p class="muted"><code>src/value/asFiniteNumber.ts:2:1</code></p>
     <p>Narrow an unknown value to a finite number.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-value-asnonemptystring-ts" class="view" data-view="src/value/asNonEmptyString.ts" hidden>
     <section class="panel">
@@ -10301,8 +10069,7 @@ Existing normal GitHub repository, tree, blob, and commit links keep their path 
     <h3>asNonEmptyString</h3>
     <p class="muted"><code>src/value/asNonEmptyString.ts:2:1</code></p>
     <p>Narrow an unknown value to a trimmed non-empty string.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-value-assertarray-ts" class="view" data-view="src/value/assertArray.ts" hidden>
     <section class="panel">
@@ -10311,8 +10078,7 @@ Existing normal GitHub repository, tree, blob, and commit links keep their path 
     <h3>assertArray</h3>
     <p class="muted"><code>src/value/assertArray.ts:2:1</code></p>
     <p>Assert that an unknown value is an array and return it without claiming element-level validation.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-value-asstring-ts" class="view" data-view="src/value/asString.ts" hidden>
     <section class="panel">
@@ -10321,8 +10087,7 @@ Existing normal GitHub repository, tree, blob, and commit links keep their path 
     <h3>asString</h3>
     <p class="muted"><code>src/value/asString.ts:2:1</code></p>
     <p>Narrow an unknown value to a string without changing its contents.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-value-isoneof-ts" class="view" data-view="src/value/isOneOf.ts" hidden>
     <section class="panel">
@@ -10331,8 +10096,7 @@ Existing normal GitHub repository, tree, blob, and commit links keep their path 
     <h3>isOneOf</h3>
     <p class="muted"><code>src/value/isOneOf.ts:2:1</code></p>
     <p>Narrow an unknown value to one of the supplied literal values.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-web-collectwebdescendants-ts" class="view" data-view="src/web/collectWebDescendants.ts" hidden>
     <section class="panel">
@@ -10341,8 +10105,7 @@ Existing normal GitHub repository, tree, blob, and commit links keep their path 
     <h3>collectWebDescendants</h3>
     <p class="muted"><code>src/web/collectWebDescendants.ts:4:1</code></p>
     <p>Recursively collect every descendant from a DOM-like element in depth-first order.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-web-isbrowserruntime-ts" class="view" data-view="src/web/isBrowserRuntime.ts" hidden>
     <section class="panel">
@@ -10351,8 +10114,7 @@ Existing normal GitHub repository, tree, blob, and commit links keep their path 
     <h3>isBrowserRuntime</h3>
     <p class="muted"><code>src/web/isBrowserRuntime.ts:2:1</code></p>
     <p>Return whether a browser-style window object is exposed by the active runtime.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-web-iswebelementlike-ts" class="view" data-view="src/web/isWebElementLike.ts" hidden>
     <section class="panel">
@@ -10361,8 +10123,7 @@ Existing normal GitHub repository, tree, blob, and commit links keep their path 
     <h3>isWebElementLike</h3>
     <p class="muted"><code>src/web/isWebElementLike.ts:4:1</code></p>
     <p>Detect a DOM-like value that supports child traversal and bounding-rectangle measurement.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-web-iswebplatform-ts" class="view" data-view="src/web/isWebPlatform.ts" hidden>
     <section class="panel">
@@ -10371,8 +10132,7 @@ Existing normal GitHub repository, tree, blob, and commit links keep their path 
     <h3>isWebPlatform</h3>
     <p class="muted"><code>src/web/isWebPlatform.ts:2:1</code></p>
     <p>Return whether a platform identifier represents web execution.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-web-measurenonzerowebelement-ts" class="view" data-view="src/web/measureNonZeroWebElement.ts" hidden>
     <section class="panel">
@@ -10381,8 +10141,7 @@ Existing normal GitHub repository, tree, blob, and commit links keep their path 
     <h3>measureNonZeroWebElement</h3>
     <p class="muted"><code>src/web/measureNonZeroWebElement.ts:6:1</code></p>
     <p>Measure an element directly and return null for zero-area geometry.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-web-measurerenderedwebboxes-ts" class="view" data-view="src/web/measureRenderedWebBoxes.ts" hidden>
     <section class="panel">
@@ -10391,8 +10150,7 @@ Existing normal GitHub repository, tree, blob, and commit links keep their path 
     <h3>measureRenderedWebBoxes</h3>
     <p class="muted"><code>src/web/measureRenderedWebBoxes.ts:6:1</code></p>
     <p>Measure an element, falling through zero-area wrappers to rendered descendant boxes.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-web-measurewebdescendantunion-ts" class="view" data-view="src/web/measureWebDescendantUnion.ts" hidden>
     <section class="panel">
@@ -10401,8 +10159,7 @@ Existing normal GitHub repository, tree, blob, and commit links keep their path 
     <h3>measureWebDescendantUnion</h3>
     <p class="muted"><code>src/web/measureWebDescendantUnion.ts:7:1</code></p>
     <p>Measure rendered descendant boxes and return their union rectangle.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-web-openurl-ts" class="view" data-view="src/web/openUrl.ts" hidden>
     <section class="panel">
@@ -10411,8 +10168,7 @@ Existing normal GitHub repository, tree, blob, and commit links keep their path 
     <h3>openUrl</h3>
     <p class="muted"><code>src/web/openUrl.ts:4:1</code></p>
     <p>Open a URL in a new browser tab without opener access when an opener implementation is available.</p>
-    
-  </article>
+</article>
     </section>
   </section><section id="view-src-web-resolvenavigablelocation-ts" class="view" data-view="src/web/resolveNavigableLocation.ts" hidden>
     <section class="panel">
@@ -10421,8 +10177,7 @@ Existing normal GitHub repository, tree, blob, and commit links keep their path 
     <h3>resolveNavigableLocation</h3>
     <p class="muted"><code>src/web/resolveNavigableLocation.ts:4:1</code></p>
     <p>Preserve search and hash suffixes when a requested pathname matches the current browser pathname.</p>
-    
-  </article>
+</article>
     </section>
   </section>
       </main>

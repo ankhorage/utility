@@ -1,7 +1,9 @@
 {
   "packageName": "@ankhorage/utility",
   "packageId": "@ankhorage/utility",
-  "description": "Shared, runtime-neutral utilities for Ankhorage packages and compatible external projects.",
+  "description": "Provides shared functional utilities for Ankhorage packages and compatible external projects.",
+  "purpose": "Centralize reusable runtime-neutral utility behavior so packages do not duplicate generic implementations.",
+  "productDocumentation": null,
   "collaborators": true,
   "donation": {
     "account": "ankhorage"
@@ -16,7 +18,7 @@
     {
       "id": "npm",
       "label": "npm",
-      "value": "v1.10.1",
+      "value": "v1.11.0",
       "color": "cb3837"
     },
     {
@@ -52,8 +54,8 @@
     {
       "id": "tests",
       "label": "tests",
-      "value": "checked",
-      "color": "0a7f3f"
+      "value": "configured",
+      "color": "6f42c1"
     },
     {
       "id": "docs",
@@ -2606,6 +2608,16 @@
       ]
     },
     {
+      "path": "src/scheduling/createDebouncedTask.ts",
+      "isEntrypoint": false,
+      "dependencies": [
+        "src/scheduling/types.ts"
+      ],
+      "exports": [
+        "createDebouncedTask"
+      ]
+    },
+    {
       "path": "src/scheduling/createLatestAsyncCoordinator.ts",
       "isEntrypoint": false,
       "dependencies": [
@@ -2626,14 +2638,24 @@
       ]
     },
     {
+      "path": "src/scheduling/debouncedTask.test.ts",
+      "isEntrypoint": false,
+      "dependencies": [
+        "src/scheduling/index.ts"
+      ],
+      "exports": []
+    },
+    {
       "path": "src/scheduling/index.ts",
       "isEntrypoint": false,
       "dependencies": [],
       "exports": [
         "CoalescedTask",
         "createCoalescedTask",
+        "createDebouncedTask",
         "createLatestAsyncCoordinator",
         "createSettleCoordinator",
+        "DebouncedTask",
         "LatestAsyncCoordinator",
         "LatestAsyncResult",
         "Scheduler",
@@ -2655,6 +2677,7 @@
       "dependencies": [],
       "exports": [
         "CoalescedTask",
+        "DebouncedTask",
         "LatestAsyncCoordinator",
         "LatestAsyncResult",
         "Scheduler",
@@ -6612,6 +6635,50 @@
       }
     },
     {
+      "name": "createDebouncedTask",
+      "description": "Restart the delay on every request and run once after the final request.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/scheduling/createDebouncedTask.ts",
+        "line": 4,
+        "column": 1
+      }
+    },
+    {
+      "name": "cancel",
+      "description": "Cancel the pending callback without executing it.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/scheduling/createDebouncedTask.ts",
+        "line": 12,
+        "column": 3
+      }
+    },
+    {
+      "name": "flush",
+      "description": "Execute a pending callback immediately and clear its scheduled execution.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/scheduling/createDebouncedTask.ts",
+        "line": 19,
+        "column": 3
+      }
+    },
+    {
+      "name": "request",
+      "description": "Restart the trailing-edge delay.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/scheduling/createDebouncedTask.ts",
+        "line": 27,
+        "column": 3
+      }
+    },
+    {
       "name": "createLatestAsyncCoordinator",
       "description": "Apply only the latest asynchronous request result and ignore stale completions.",
       "see": [],
@@ -6685,6 +6752,50 @@
       "sourceLocation": {
         "filePath": "src/scheduling/createSettleCoordinator.ts",
         "line": 96,
+        "column": 1
+      }
+    },
+    {
+      "name": "createFakeScheduler",
+      "description": null,
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/scheduling/debouncedTask.test.ts",
+        "line": 5,
+        "column": 1
+      }
+    },
+    {
+      "name": "expectTrailingEdgeDebounce",
+      "description": null,
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/scheduling/debouncedTask.test.ts",
+        "line": 32,
+        "column": 1
+      }
+    },
+    {
+      "name": "expectFlushAndReuse",
+      "description": null,
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/scheduling/debouncedTask.test.ts",
+        "line": 53,
+        "column": 1
+      }
+    },
+    {
+      "name": "expectCancellation",
+      "description": null,
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/scheduling/debouncedTask.test.ts",
+        "line": 77,
         "column": 1
       }
     },
@@ -8671,6 +8782,11 @@
         "sourcePath": "src/scheduling/createCoalescedTask.ts"
       },
       {
+        "fromPath": "src/scheduling/createDebouncedTask.ts",
+        "toPath": "src/scheduling/types.ts",
+        "sourcePath": "src/scheduling/createDebouncedTask.ts"
+      },
+      {
         "fromPath": "src/scheduling/createLatestAsyncCoordinator.ts",
         "toPath": "src/scheduling/types.ts",
         "sourcePath": "src/scheduling/createLatestAsyncCoordinator.ts"
@@ -8681,8 +8797,18 @@
         "sourcePath": "src/scheduling/createSettleCoordinator.ts"
       },
       {
+        "fromPath": "src/scheduling/debouncedTask.test.ts",
+        "toPath": "src/scheduling/index.ts",
+        "sourcePath": "src/scheduling/debouncedTask.test.ts"
+      },
+      {
         "fromPath": "src/scheduling/index.ts",
         "toPath": "src/scheduling/createCoalescedTask.ts",
+        "sourcePath": "src/scheduling/index.ts"
+      },
+      {
+        "fromPath": "src/scheduling/index.ts",
+        "toPath": "src/scheduling/createDebouncedTask.ts",
         "sourcePath": "src/scheduling/index.ts"
       },
       {
@@ -11246,6 +11372,42 @@
         "sourcePath": "src/scheduling/createCoalescedTask.ts"
       },
       {
+        "fromSymbol": "cancel",
+        "toSymbol": "cancel",
+        "callExpression": "scheduler.cancel",
+        "sourcePath": "src/scheduling/createDebouncedTask.ts"
+      },
+      {
+        "fromSymbol": "flush",
+        "toSymbol": "cancel",
+        "callExpression": "cancel",
+        "sourcePath": "src/scheduling/createDebouncedTask.ts"
+      },
+      {
+        "fromSymbol": "flush",
+        "toSymbol": "run",
+        "callExpression": "run",
+        "sourcePath": "src/scheduling/createDebouncedTask.ts"
+      },
+      {
+        "fromSymbol": "request",
+        "toSymbol": "cancel",
+        "callExpression": "cancel",
+        "sourcePath": "src/scheduling/createDebouncedTask.ts"
+      },
+      {
+        "fromSymbol": "request",
+        "toSymbol": "schedule",
+        "callExpression": "scheduler.schedule",
+        "sourcePath": "src/scheduling/createDebouncedTask.ts"
+      },
+      {
+        "fromSymbol": "src/scheduling/createDebouncedTask.ts",
+        "toSymbol": "run",
+        "callExpression": "run",
+        "sourcePath": "src/scheduling/createDebouncedTask.ts"
+      },
+      {
         "fromSymbol": "run",
         "toSymbol": "load",
         "callExpression": "args.load",
@@ -11328,6 +11490,150 @@
         "toSymbol": "trigger",
         "callExpression": "trigger",
         "sourcePath": "src/scheduling/createSettleCoordinator.ts"
+      },
+      {
+        "fromSymbol": "advance",
+        "toSymbol": "callback",
+        "callExpression": "task.callback",
+        "sourcePath": "src/scheduling/debouncedTask.test.ts"
+      },
+      {
+        "fromSymbol": "expectTrailingEdgeDebounce",
+        "toSymbol": "createFakeScheduler",
+        "callExpression": "createFakeScheduler",
+        "sourcePath": "src/scheduling/debouncedTask.test.ts"
+      },
+      {
+        "fromSymbol": "expectTrailingEdgeDebounce",
+        "toSymbol": "createDebouncedTask",
+        "callExpression": "createDebouncedTask",
+        "sourcePath": "src/scheduling/debouncedTask.test.ts"
+      },
+      {
+        "fromSymbol": "expectTrailingEdgeDebounce",
+        "toSymbol": "request",
+        "callExpression": "task.request",
+        "sourcePath": "src/scheduling/debouncedTask.test.ts"
+      },
+      {
+        "fromSymbol": "expectTrailingEdgeDebounce",
+        "toSymbol": "advance",
+        "callExpression": "clock.advance",
+        "sourcePath": "src/scheduling/debouncedTask.test.ts"
+      },
+      {
+        "fromSymbol": "expectTrailingEdgeDebounce",
+        "toSymbol": "expect",
+        "callExpression": "expect",
+        "sourcePath": "src/scheduling/debouncedTask.test.ts"
+      },
+      {
+        "fromSymbol": "expectTrailingEdgeDebounce",
+        "toSymbol": "hasPending",
+        "callExpression": "task.hasPending",
+        "sourcePath": "src/scheduling/debouncedTask.test.ts"
+      },
+      {
+        "fromSymbol": "expectFlushAndReuse",
+        "toSymbol": "createFakeScheduler",
+        "callExpression": "createFakeScheduler",
+        "sourcePath": "src/scheduling/debouncedTask.test.ts"
+      },
+      {
+        "fromSymbol": "expectFlushAndReuse",
+        "toSymbol": "createDebouncedTask",
+        "callExpression": "createDebouncedTask",
+        "sourcePath": "src/scheduling/debouncedTask.test.ts"
+      },
+      {
+        "fromSymbol": "expectFlushAndReuse",
+        "toSymbol": "expect",
+        "callExpression": "expect",
+        "sourcePath": "src/scheduling/debouncedTask.test.ts"
+      },
+      {
+        "fromSymbol": "expectFlushAndReuse",
+        "toSymbol": "flush",
+        "callExpression": "task.flush",
+        "sourcePath": "src/scheduling/debouncedTask.test.ts"
+      },
+      {
+        "fromSymbol": "expectFlushAndReuse",
+        "toSymbol": "request",
+        "callExpression": "task.request",
+        "sourcePath": "src/scheduling/debouncedTask.test.ts"
+      },
+      {
+        "fromSymbol": "expectFlushAndReuse",
+        "toSymbol": "hasPending",
+        "callExpression": "task.hasPending",
+        "sourcePath": "src/scheduling/debouncedTask.test.ts"
+      },
+      {
+        "fromSymbol": "expectFlushAndReuse",
+        "toSymbol": "advance",
+        "callExpression": "clock.advance",
+        "sourcePath": "src/scheduling/debouncedTask.test.ts"
+      },
+      {
+        "fromSymbol": "expectCancellation",
+        "toSymbol": "createFakeScheduler",
+        "callExpression": "createFakeScheduler",
+        "sourcePath": "src/scheduling/debouncedTask.test.ts"
+      },
+      {
+        "fromSymbol": "expectCancellation",
+        "toSymbol": "createDebouncedTask",
+        "callExpression": "createDebouncedTask",
+        "sourcePath": "src/scheduling/debouncedTask.test.ts"
+      },
+      {
+        "fromSymbol": "expectCancellation",
+        "toSymbol": "request",
+        "callExpression": "task.request",
+        "sourcePath": "src/scheduling/debouncedTask.test.ts"
+      },
+      {
+        "fromSymbol": "expectCancellation",
+        "toSymbol": "cancel",
+        "callExpression": "task.cancel",
+        "sourcePath": "src/scheduling/debouncedTask.test.ts"
+      },
+      {
+        "fromSymbol": "expectCancellation",
+        "toSymbol": "expect",
+        "callExpression": "expect",
+        "sourcePath": "src/scheduling/debouncedTask.test.ts"
+      },
+      {
+        "fromSymbol": "expectCancellation",
+        "toSymbol": "hasPending",
+        "callExpression": "task.hasPending",
+        "sourcePath": "src/scheduling/debouncedTask.test.ts"
+      },
+      {
+        "fromSymbol": "expectCancellation",
+        "toSymbol": "flush",
+        "callExpression": "task.flush",
+        "sourcePath": "src/scheduling/debouncedTask.test.ts"
+      },
+      {
+        "fromSymbol": "expectCancellation",
+        "toSymbol": "advance",
+        "callExpression": "clock.advance",
+        "sourcePath": "src/scheduling/debouncedTask.test.ts"
+      },
+      {
+        "fromSymbol": "src/scheduling/debouncedTask.test.ts",
+        "toSymbol": "describe",
+        "callExpression": "describe",
+        "sourcePath": "src/scheduling/debouncedTask.test.ts"
+      },
+      {
+        "fromSymbol": "src/scheduling/debouncedTask.test.ts",
+        "toSymbol": "it",
+        "callExpression": "it",
+        "sourcePath": "src/scheduling/debouncedTask.test.ts"
       },
       {
         "fromSymbol": "flushNext",

@@ -1,5 +1,11 @@
 # @ankhorage/utility
 
+## 1.11.0
+
+### Minor Changes
+
+- 70b5101: Add a runtime-neutral trailing-edge debounced task with explicit flush, cancellation and pending-state inspection to the scheduling subpath.
+
 ## 1.10.1
 
 ### Patch Changes
